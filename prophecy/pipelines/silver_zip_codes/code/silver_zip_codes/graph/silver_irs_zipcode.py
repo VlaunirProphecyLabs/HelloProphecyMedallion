@@ -7,4 +7,7 @@ from silver_zip_codes.config.ConfigStore import *
 from silver_zip_codes.udfs.UDFs import *
 
 def silver_irs_zipcode(spark: SparkSession, in0: DataFrame):
-    in0.write.format("delta").mode("overwrite").saveAsTable("`scottdemo`.`silver_irs_zipcode`")
+    in0.write\
+        .format("delta")\
+        .mode("overwrite")\
+        .saveAsTable(f"`{Config.catalog_name}`.`helloworld_silver`.`silver_irs_zipcode`")

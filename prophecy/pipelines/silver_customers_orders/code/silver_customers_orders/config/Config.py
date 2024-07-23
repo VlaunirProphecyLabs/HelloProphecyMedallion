@@ -4,11 +4,11 @@ from prophecy.config import ConfigBase
 
 class Config(ConfigBase):
 
-    def __init__(self, ZipCodes: dict=None, **kwargs):
+    def __init__(self, ZipCodes: dict=None, catalog_name: str=None, **kwargs):
         self.spark = None
-        self.update(ZipCodes)
+        self.update(ZipCodes, catalog_name)
 
-    def update(self, ZipCodes: dict={}, **kwargs):
+    def update(self, ZipCodes: dict={}, catalog_name: str="vlaunir_demos", **kwargs):
         prophecy_spark = self.spark
         self.ZipCodes = self.get_config_object(
             prophecy_spark, 
@@ -16,4 +16,5 @@ class Config(ConfigBase):
             ZipCodes, 
             ZipCodes_Config
         )
+        self.catalog_name = catalog_name
         pass

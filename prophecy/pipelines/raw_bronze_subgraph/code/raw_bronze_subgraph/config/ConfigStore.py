@@ -6,8 +6,8 @@ Config: ConfigClass = ConfigClass()
 
 class Utils:
     @staticmethod
-    def initializeFromArgs(spark: SparkSession, args):
+    def initializeFromArgs(spark: SparkSession, args, default_conf="raw_bronze_subgraph.conf"):
         global Config
         Config.updateSpark(spark)
-        conf = parse_config(args)
+        conf = parse_config(args, default_conf)
         Config.update(**conf)

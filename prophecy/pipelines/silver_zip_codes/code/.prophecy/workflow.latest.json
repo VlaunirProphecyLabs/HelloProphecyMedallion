@@ -14,7 +14,7 @@
     "id" : "1",
     "uri" : "pipelines/silver_zip_codes",
     "language" : "python",
-    "fabricId" : "6834",
+    "fabricId" : "9664",
     "frontEndLanguage" : "sql",
     "mode" : "batch",
     "udfs" : {
@@ -30,7 +30,16 @@
     "configuration" : {
       "common" : {
         "type" : "record",
-        "fields" : [ ]
+        "fields" : [ {
+          "name" : "catalog_name",
+          "kind" : {
+            "type" : "string",
+            "value" : "vlaunir_demos"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        } ]
       },
       "oldCommon" : {
         "type" : "record",
@@ -110,7 +119,9 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Saves the DataFrame 'in0' as a Delta table named 'silver_irs_zipcode' in the 'helloworld_silver' catalog.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {
@@ -1425,7 +1436,9 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Reads the 'bronze_irs_zipcode' table from the 'helloworld_bronze' catalog.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ ],

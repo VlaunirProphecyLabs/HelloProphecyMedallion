@@ -123,17 +123,22 @@ pipelines:
     subgraphs: []
     dependencies: {}
   pipelines/customer_orders:
-    name: customer_orders
-    description: ''
+    name: gold_customer_orders
+    description: Generates a summary of customer orders and account details for a
+      dataset containing information about silver customers and their orders. The
+      `customer_order_details` function joins the `silver_customers` and `silver_orders`
+      dataframes based on the customer ID and selects relevant columns. The `customer_order_summary`
+      function groups the data by customer ID and calculates the total number of orders,
+      total amount, and the first account open date. The `account_summary` function
+      further processes the summary data by selecting specific columns and calculating
+      the account age in days and a flag based on the total amount.
     author: vlaunir@prophecy.io
     mode: batch
     artefactID: ''
     language: python
     createdAt: '2024-07-23 15:17:51'
     datasets:
-      inputs:
-      - datasets/silver_customers
-      - datasets/silver_orders
+      inputs: []
       outputs: []
     subgraphs: []
     dependencies: {}
@@ -333,45 +338,29 @@ datasets:
         description: ''
         author: vlaunir@prophecy.io
         createdAt: '2024-07-23 14:10:21'
+  datasets/raw_dynamic_source:
+    name: raw_dynamic_source
+    description: ''
+    author: vlaunir@prophecy.io
+    createdAt: '2024-07-23 16:50:29'
+    mode: batch
+    physicalDatasets:
+      Dev:
+        fabricId: 9664
+        datasetType: File
+        description: ''
+        author: vlaunir@prophecy.io
+        createdAt: '2024-07-23 16:50:29'
 templates: {}
 jobs:
-  jobs/EndToEndJob:
-    name: EndToEndJob
+  jobs/HelloWorld_Medallion_job:
+    name: HelloWorld_Medallion_job
     description: ''
-    fabricUID: 1571
+    fabricUID: 9664
     scheduler:
       Databricks: {}
     cloudProvider: null
-    jobSize: small
-    scheduleCron: 0 0 0 ? * 1 *
-    timeout: null
-    alerting:
-      emails: ''
-      onStart: false
-      onSuccess: false
-      onFailure: false
-    pipelines:
-    - pipelines/silver_customers_orders
-    - pipelines/silver_zip_codes
-    - pipelines/gold_sales
-    - pipelines/gold_top_customers
-    - pipelines/raw_bronze
-    jobClusterMode:
-      clusterMode:
-        Single: {}
-      clusterId: null
-    enabled: null
-    createdAt: '2023-07-13 19:31:54'
-    author: scott+demo2@prophecy.io
-    models: []
-  jobs/AirflowEndToEndJob:
-    name: AirflowEndToEndJob
-    description: ''
-    fabricUID: 6726
-    scheduler:
-      Prophecy: {}
-    cloudProvider: null
-    jobSize: null
+    jobSize: Small
     scheduleCron: None
     timeout: null
     alerting:
@@ -379,19 +368,14 @@ jobs:
       onStart: false
       onSuccess: false
       onFailure: false
-    pipelines:
-    - pipelines/silver_customers_orders
-    - pipelines/silver_zip_codes
-    - pipelines/gold_sales
-    - pipelines/gold_top_customers
-    - pipelines/raw_bronze
+    pipelines: []
     jobClusterMode:
       clusterMode:
         Single: {}
       clusterId: null
     enabled: null
-    createdAt: '2023-11-08 17:35:57'
-    author: scott+demo2@prophecy.io
+    createdAt: '2024-07-23 19:00:17'
+    author: vlaunir@prophecy.io
     models: []
 gemContainer:
   languageVersion: '3.10'

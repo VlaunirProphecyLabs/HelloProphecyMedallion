@@ -7,4 +7,4 @@ from .config import *
 from silver_customers_orders.udfs.UDFs import *
 
 def silver_irs_zipcode(spark: SparkSession) -> DataFrame:
-    return spark.read.table("`scottdemo`.`silver_irs_zipcode`")
+    return spark.read.table(f"`{Config.catalog_name}`.`helloworld_silver`.`silver_irs_zipcode`")

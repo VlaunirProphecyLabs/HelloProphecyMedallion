@@ -47,5 +47,6 @@ class ByCustomerIdTest(BaseTestCase):
               config = None,
               overrideJson = None,
               defaultConfFile = None
-            )
+            ),
+            "configs/resources/config/silver_customers_orders.conf"
         )

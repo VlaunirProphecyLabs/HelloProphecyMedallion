@@ -34,10 +34,28 @@
           "name" : "ZipCodes",
           "kind" : {
             "type" : "record",
-            "fields" : [ ]
+            "fields" : [ {
+              "name" : "catalog_name",
+              "kind" : {
+                "type" : "string",
+                "value" : "vlaunir_demos"
+              },
+              "optional" : false,
+              "isWorkflowNodeConfiguration" : false,
+              "isReferenced" : true
+            } ]
           },
           "optional" : false,
           "isWorkflowNodeConfiguration" : true,
+          "isReferenced" : false
+        }, {
+          "name" : "catalog_name",
+          "kind" : {
+            "type" : "string",
+            "value" : "vlaunir_demos"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
           "isReferenced" : false
         } ]
       },
@@ -131,7 +149,9 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Saves the input DataFrame as a Delta table named 'silver_orders' in the 'helloworld_silver' database.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {
@@ -220,10 +240,7 @@
         "isImported" : false
       },
       "ports" : {
-        "inputs" : [ {
-          "id" : "n6DZhdiGij5RT5qDvs26Y$$ALjZawvYHRhBlz02WhCX8",
-          "slug" : "in0"
-        } ],
+        "inputs" : [ ],
         "outputs" : [ {
           "id" : "-IGoXcl-9LjSgYjjpM8LH$$Kh-GBe8cxHmUzd0nFnxi3",
           "slug" : "out"
@@ -234,15 +251,15 @@
       },
       "properties" : { },
       "connections" : [ {
-        "id" : "6yFylyDSrFEdq6IoF9Pc7$$tH06Z1FaE_HOVF9aHpUkW",
+        "id" : "yEtenLx5QwcSSR3KIDU8a$$TIC-G2UcIcK6VBhAcJ_3m",
         "source" : "83JRStv6q-e9O1Z2fVnpo$$yu2ufRy7afSFuKs8s9rX6",
         "sourcePort" : "QsGzE3riwH5alzZYZyZ3n$$SwlDadIxr9MA1LwlNY80k",
-        "target" : "m1J_zy9uwRxGhnWiA3tYv$$vA5poV_VjPcfjJem71JNm",
-        "targetPort" : "N26zPdkNjcFlBAQdsKNhr$$aey_Cx-KuEd7Ev5mFT8Xf"
+        "target" : "vsILhLT48YIlKsljYsehp$$s4hn2EdBmM335xHn9WIs2",
+        "targetPort" : "lyzHKctibadSFnOjoK5I2$$ZtEXzYzjz9HwBHtfHShaL"
       }, {
-        "id" : "68JWIVhO_LSEQmJnOjjp3",
-        "source" : "m1J_zy9uwRxGhnWiA3tYv$$vA5poV_VjPcfjJem71JNm",
-        "sourcePort" : "l6hRa2x_Qr1OWkJOl31XR$$Z8xaEMURl0A8IFm0FoIna",
+        "id" : "h87Bn9tGXWPtQFwFa3S4O",
+        "source" : "vsILhLT48YIlKsljYsehp$$s4hn2EdBmM335xHn9WIs2",
+        "sourcePort" : "qPUi-rCOoccURKfsKoZ7e$$GWTD19okayFWyMJsk1HhB",
         "target" : "5PkWxbAF37Vv7b99LDy2R$$k0AEGIx2O-0wNmEQa7q18",
         "targetPort" : "-IGoXcl-9LjSgYjjpM8LH$$Kh-GBe8cxHmUzd0nFnxi3"
       } ],
@@ -253,12 +270,14 @@
           "metadata" : {
             "label" : "silver_irs_zipcode",
             "slug" : "silver_irs_zipcode",
-            "x" : 340,
-            "y" : 960,
+            "x" : 20,
+            "y" : 20,
             "phase" : 0,
             "cache" : false,
             "detailedStats" : false,
-            "isImported" : false
+            "isImported" : false,
+            "comment" : "Reads data from the 'silver_irs_zipcode' table in the 'helloworld_bronze' catalog.",
+            "autoUpdateComment" : true
           },
           "ports" : {
             "inputs" : [ ],
@@ -274,22 +293,24 @@
             "datasetId" : "datasets/silver_irs_zipcode"
           }
         },
-        "m1J_zy9uwRxGhnWiA3tYv$$vA5poV_VjPcfjJem71JNm" : {
-          "id" : "m1J_zy9uwRxGhnWiA3tYv$$vA5poV_VjPcfjJem71JNm",
-          "component" : "SQLStatement",
+        "vsILhLT48YIlKsljYsehp$$s4hn2EdBmM335xHn9WIs2" : {
+          "id" : "vsILhLT48YIlKsljYsehp$$s4hn2EdBmM335xHn9WIs2",
+          "component" : "SchemaTransform",
           "metadata" : {
-            "label" : "UniqueZipCodes",
-            "slug" : "UniqueZipCodes",
-            "x" : 580,
-            "y" : 960,
+            "label" : "add_sequence_column",
+            "slug" : "add_sequence_column",
+            "x" : 220,
+            "y" : 20,
             "phase" : 0,
             "cache" : false,
             "detailedStats" : false,
-            "isImported" : false
+            "isImported" : false,
+            "comment" : "Adds a sequence column to the DataFrame, assigning a unique identifier to each customer.",
+            "autoUpdateComment" : true
           },
           "ports" : {
             "inputs" : [ {
-              "id" : "N26zPdkNjcFlBAQdsKNhr$$aey_Cx-KuEd7Ev5mFT8Xf",
+              "id" : "lyzHKctibadSFnOjoK5I2$$ZtEXzYzjz9HwBHtfHShaL",
               "slug" : "in0",
               "schema" : {
                 "type" : "struct",
@@ -361,7 +382,7 @@
               "isStreaming" : false
             } ],
             "outputs" : [ {
-              "id" : "l6hRa2x_Qr1OWkJOl31XR$$Z8xaEMURl0A8IFm0FoIna",
+              "id" : "qPUi-rCOoccURKfsKoZ7e$$GWTD19okayFWyMJsk1HhB",
               "slug" : "out"
             } ],
             "selectedInputFields" : [ ],
@@ -369,16 +390,104 @@
             "autoUpdateOnRun" : false
           },
           "properties" : {
-            "fileTabs" : [ {
-              "path" : "out",
-              "id" : "l6hRa2x_Qr1OWkJOl31XR$$Z8xaEMURl0A8IFm0FoIna",
-              "language" : "sql",
-              "content" : "SELECT \n    row_number() OVER (PARTITION BY 1 ORDER BY zipcode ASC) AS row_number, \n    zipcode \nFROM (\n    SELECT distinct zipcode from in0 order by zipcode asc\n)"
+            "importLanguage" : "sql",
+            "importString" : "",
+            "transformations" : [ {
+              "AddRule" : {
+                "expression" : {
+                  "expression" : "",
+                  "format" : "python"
+                },
+                "param_errors" : [ ]
+              },
+              "MissingColumn" : {
+                "sourceColumn" : "",
+                "defaultValue" : {
+                  "expression" : "",
+                  "format" : "python"
+                }
+              },
+              "DropColumn" : {
+                "sourceColumn" : ""
+              },
+              "kind" : "AddReplaceColumn",
+              "RenameColumn" : {
+                "sourceColumn" : "",
+                "targetColumn" : ""
+              },
+              "AddReplaceColumn" : {
+                "sourceColumn" : "customer_name",
+                "expression" : {
+                  "format" : "sql",
+                  "expression" : "lit(\"abc\")"
+                }
+              }
+            }, {
+              "AddRule" : {
+                "expression" : {
+                  "expression" : "",
+                  "format" : "python"
+                },
+                "param_errors" : [ ]
+              },
+              "MissingColumn" : {
+                "sourceColumn" : "",
+                "defaultValue" : {
+                  "expression" : "",
+                  "format" : "python"
+                }
+              },
+              "DropColumn" : {
+                "sourceColumn" : ""
+              },
+              "kind" : "AddReplaceColumn",
+              "RenameColumn" : {
+                "sourceColumn" : "",
+                "targetColumn" : ""
+              },
+              "AddReplaceColumn" : {
+                "sourceColumn" : "customer_id",
+                "expression" : {
+                  "format" : "sql",
+                  "expression" : "row_number() OVER (PARTITION BY customer_name ORDER BY customer_name)"
+                }
+              }
+            }, {
+              "AddRule" : {
+                "expression" : {
+                  "expression" : "",
+                  "format" : "python"
+                },
+                "param_errors" : [ ]
+              },
+              "MissingColumn" : {
+                "sourceColumn" : "",
+                "defaultValue" : {
+                  "expression" : "",
+                  "format" : "python"
+                }
+              },
+              "DropColumn" : {
+                "sourceColumn" : "customer_name"
+              },
+              "kind" : "DropColumn",
+              "RenameColumn" : {
+                "sourceColumn" : "",
+                "targetColumn" : ""
+              },
+              "AddReplaceColumn" : {
+                "sourceColumn" : "",
+                "expression" : {
+                  "expression" : "",
+                  "format" : "python"
+                }
+              }
             } ],
-            "inputPortNames" : [ "in0" ]
+            "activeTab" : "transformations",
+            "columnsSelector" : [ ]
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/SQLStatement",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
             "projectName" : "ProphecySparkBasicsPython"
           }
         }
@@ -395,7 +504,9 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Saves customer data as a Delta table in the 'silver_customers' table of the 'helloworld_silver' database.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {
@@ -511,7 +622,9 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Reads the 'bronze_orders' table from the 'helloworld_bronze' catalog.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ ],
@@ -821,7 +934,9 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Saves customer details for silver orders into a table named 'silver_order_customer_details' in a Delta format.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {
@@ -967,7 +1082,9 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Combines customer information with their corresponding zip codes, providing a comprehensive view of customer details including their names, contact information, zip code, account open date, and account flags.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {
@@ -1077,18 +1194,72 @@
           "schema" : {
             "type" : "struct",
             "fields" : [ {
-              "name" : "row_number",
-              "type" : "integer",
-              "nullable" : false,
+              "name" : "zipcode",
+              "type" : "string",
+              "nullable" : true,
               "metadata" : {
                 "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
             }, {
-              "name" : "zipcode",
+              "name" : "state",
               "type" : "string",
               "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "high_income_percent",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "high_income_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "low_income_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "all_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "is_high_income",
+              "type" : "boolean",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : false,
               "metadata" : {
                 "description" : "",
                 "mappings" : [ ],
@@ -1111,7 +1282,7 @@
           "alias" : "in1",
           "expression" : {
             "format" : "sql",
-            "expression" : "rand_zip_index(customer_id) = in1.row_number"
+            "expression" : "in0.customer_id = in1.customer_id"
           },
           "joinType" : "inner"
         } ],
@@ -1192,8 +1363,8 @@
           "propagateColumns" : false
         } ],
         "allIn1" : null,
-        "activeTab" : "expressions",
-        "columnsSelector" : [ "0vRvgwwkGmDcZAEz9Hgj3$$cMA8VhjXMGz7FPRi86gcu##customer_id", "-FraCoTvEkmTA1dZrCpro$$xQFk5V1z3v5dBIoM4L39p##row_number", "0vRvgwwkGmDcZAEz9Hgj3$$cMA8VhjXMGz7FPRi86gcu##last_name", "0vRvgwwkGmDcZAEz9Hgj3$$cMA8VhjXMGz7FPRi86gcu##account_flags", "0vRvgwwkGmDcZAEz9Hgj3$$cMA8VhjXMGz7FPRi86gcu##email", "-FraCoTvEkmTA1dZrCpro$$xQFk5V1z3v5dBIoM4L39p##zipcode", "0vRvgwwkGmDcZAEz9Hgj3$$cMA8VhjXMGz7FPRi86gcu##account_open_date", "0vRvgwwkGmDcZAEz9Hgj3$$cMA8VhjXMGz7FPRi86gcu##customer_id", "0vRvgwwkGmDcZAEz9Hgj3$$cMA8VhjXMGz7FPRi86gcu##phone", "0vRvgwwkGmDcZAEz9Hgj3$$cMA8VhjXMGz7FPRi86gcu##first_name" ],
+        "activeTab" : "conditions",
+        "columnsSelector" : [ "0vRvgwwkGmDcZAEz9Hgj3$$cMA8VhjXMGz7FPRi86gcu##customer_id", "-FraCoTvEkmTA1dZrCpro$$xQFk5V1z3v5dBIoM4L39p##customer_id", "0vRvgwwkGmDcZAEz9Hgj3$$cMA8VhjXMGz7FPRi86gcu##email", "0vRvgwwkGmDcZAEz9Hgj3$$cMA8VhjXMGz7FPRi86gcu##phone", "0vRvgwwkGmDcZAEz9Hgj3$$cMA8VhjXMGz7FPRi86gcu##first_name", "0vRvgwwkGmDcZAEz9Hgj3$$cMA8VhjXMGz7FPRi86gcu##account_flags", "0vRvgwwkGmDcZAEz9Hgj3$$cMA8VhjXMGz7FPRi86gcu##account_open_date", "0vRvgwwkGmDcZAEz9Hgj3$$cMA8VhjXMGz7FPRi86gcu##last_name", "0vRvgwwkGmDcZAEz9Hgj3$$cMA8VhjXMGz7FPRi86gcu##customer_id", "-FraCoTvEkmTA1dZrCpro$$xQFk5V1z3v5dBIoM4L39p##zipcode" ],
         "allIn0" : null,
         "whereClause" : null,
         "headAlias" : "in0"

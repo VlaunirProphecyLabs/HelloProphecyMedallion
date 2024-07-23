@@ -6,10 +6,10 @@ from silver_customers_orders.udfs.UDFs import *
 from . import *
 from .config import *
 
-def ZipCodes(spark: SparkSession, subgraph_config: SubgraphConfig, in0: DataFrame) -> DataFrame:
+def ZipCodes(spark: SparkSession, subgraph_config: SubgraphConfig) -> DataFrame:
     Config.update(subgraph_config)
     df_silver_irs_zipcode = silver_irs_zipcode(spark)
-    df_UniqueZipCodes = UniqueZipCodes(spark, df_silver_irs_zipcode)
+    df_add_sequence_column = add_sequence_column(spark, df_silver_irs_zipcode)
     subgraph_config.update(Config)
 
-    return df_UniqueZipCodes
+    return df_add_sequence_column

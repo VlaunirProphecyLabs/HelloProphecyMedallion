@@ -15,8 +15,8 @@ class load_csv_data(MetaGemExec):
 
     def execute(self, spark: SparkSession, subgraph_config: SubgraphConfig) -> List[DataFrame]:
         Config.update(subgraph_config)
-        df_load_csv_to_dataframe = load_csv_to_dataframe(spark)
-        df_add_updated_at_column = add_updated_at_column(spark, df_load_csv_to_dataframe)
+        df_read_dynamic_source = read_dynamic_source(spark)
+        df_add_updated_at_column = add_updated_at_column(spark, df_read_dynamic_source)
         raw_table(spark, df_add_updated_at_column)
         subgraph_config.update(Config)
 
