@@ -131,7 +131,9 @@ pipelines:
     language: python
     createdAt: '2024-07-23 15:17:51'
     datasets:
-      inputs: []
+      inputs:
+      - datasets/silver_customers
+      - datasets/silver_orders
       outputs: []
     subgraphs: []
     dependencies: {}
