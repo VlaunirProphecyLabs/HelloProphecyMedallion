@@ -108,6 +108,33 @@ pipelines:
       - datasets/bronze_orders
     subgraphs: []
     dependencies: {}
+  pipelines/raw_bronze_subgraph:
+    name: raw_bronze_subgraph
+    description: ''
+    author: vlaunir@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-07-23 13:29:12'
+    datasets:
+      inputs: []
+      outputs:
+      - datasets/raw_dynamic_table
+    subgraphs: []
+    dependencies: {}
+  pipelines/customer_orders:
+    name: customer_orders
+    description: ''
+    author: vlaunir@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-07-23 15:17:51'
+    datasets:
+      inputs: []
+      outputs: []
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/bronze_orders:
     name: bronze_orders
@@ -278,6 +305,32 @@ datasets:
         description: ''
         author: scott+demo2@prophecy.io
         createdAt: '2023-07-13 19:23:27'
+  datasets/raw_sources:
+    name: raw_sources
+    description: ''
+    author: vlaunir@prophecy.io
+    createdAt: '2024-07-23 13:37:52'
+    mode: batch
+    physicalDatasets:
+      Dev:
+        fabricId: 9664
+        datasetType: File
+        description: ''
+        author: vlaunir@prophecy.io
+        createdAt: '2024-07-23 13:37:52'
+  datasets/raw_dynamic_table:
+    name: raw_dynamic_table
+    description: ''
+    author: vlaunir@prophecy.io
+    createdAt: '2024-07-23 14:10:21'
+    mode: batch
+    physicalDatasets:
+      Dev:
+        fabricId: 9664
+        datasetType: Database
+        description: ''
+        author: vlaunir@prophecy.io
+        createdAt: '2024-07-23 14:10:21'
 templates: {}
 jobs:
   jobs/EndToEndJob:
@@ -308,6 +361,7 @@ jobs:
     enabled: null
     createdAt: '2023-07-13 19:31:54'
     author: scott+demo2@prophecy.io
+    models: []
   jobs/AirflowEndToEndJob:
     name: AirflowEndToEndJob
     description: ''
@@ -336,6 +390,7 @@ jobs:
     enabled: null
     createdAt: '2023-11-08 17:35:57'
     author: scott+demo2@prophecy.io
+    models: []
 gemContainer:
   languageVersion: '3.10'
   gemLibsVersion: 1.3.4.0
@@ -349,7 +404,10 @@ gemContainer:
       mode: batch
       files:
       - scott_demo2_team_helloworld/gems/MyLimit.py
+      gemType: ComponentGem
+      dependencies: null
       createdAt: '2023-11-08 18:07:56'
+  dependencies: null
 functions:
   author: null
   createdAt: '2023-03-27 15:13:13'
@@ -364,29 +422,57 @@ functions:
       createdAt: '2022-12-15 18:04:50'
   udafs: {}
   expressions: {}
+  airflowFunctions: {}
+  businessRules: {}
 subgraphs: {}
 sqlModels: {}
+sqlSnapshots: {}
+sqlTests: {}
 sqlMacros: {}
 sqlSeeds: {}
 sqlSources: {}
 sqlUnreferencedSources: {}
 sqlPipeline: null
-dependencies: []
+dependencies:
+- type: plibMaven
+  modifiedAt: '2024-07-23T15:17:53.522852Z'
+  name: plibMaven
+  version: 8.0.29
+  id: '307010185'
+  createdAt: '2024-07-23T15:17:53.522779Z'
+- type: plibPypi
+  modifiedAt: '2024-07-23T15:17:53.522973Z'
+  name: plibPypi
+  version: 1.9.9
+  id: '1002289140'
+  createdAt: '2024-07-23T15:17:53.522922Z'
+- type: pypi
+  modifiedAt: '2024-07-23T14:22:24.344Z'
+  package: s3fs
+  name: s3fs
+  description: ''
+  enabled: true
+  id: AY_8YZHatANSlli-JkVWB
+  createdAt: '2024-07-23T14:22:24.344Z'
+  entity: Project
+  editable: true
 projectDependencies:
   '12654':
     projectUID: 12654
     projectName: ProphecySparkBasicsPython
     repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
-    version: 0.0.4
+    version: 0.2.25
     isDefault: true
     author: null
-    createdAt: '2023-09-28 08:42:10'
+    createdAt: '2024-07-23 13:36:17'
   '12655':
     projectUID: 12655
     projectName: ProphecyWarehousePython
     repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=
-    version: 0.0.2
+    version: 0.0.8
     isDefault: true
     author: null
-    createdAt: '2023-09-28 08:42:10'
+    createdAt: '2024-07-23 13:36:21'
+flags:
+  shouldAddDefaultDependenciesIfAbsent: true
 pipelineConfigurations: {}

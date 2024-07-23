@@ -29,11 +29,11 @@
       }
     },
     "availableFabrics" : [ {
-      "id" : "1571",
-      "name" : "HelloDev",
+      "id" : "6834",
+      "name" : "lab-samples-dbx",
       "clusterSizes" : {
-        "default" : "small",
-        "availableClusterSizes" : [ "small", "Unity", "Photon" ]
+        "default" : "sumit-lab-samples",
+        "availableClusterSizes" : [ "sumit-lab-samples" ]
       },
       "pylibsResolutionMode" : {
         "PublicCentral" : { }
@@ -42,24 +42,24 @@
         "PublicCentral" : { }
       }
     }, {
-      "id" : "1572",
-      "name" : "HelloProd",
+      "id" : "9664",
+      "name" : "Dev",
+      "clusterSizes" : {
+        "default" : "Small",
+        "availableClusterSizes" : [ "Small", "Medium", "Large" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    }, {
+      "id" : "15527",
+      "name" : "prophecy_dbx_trial",
       "clusterSizes" : {
         "default" : "small",
         "availableClusterSizes" : [ "small" ]
-      },
-      "pylibsResolutionMode" : {
-        "PublicCentral" : { }
-      },
-      "scalalibsResolutionMode" : {
-        "PublicCentral" : { }
-      }
-    }, {
-      "id" : "7083",
-      "name" : "dev",
-      "clusterSizes" : {
-        "default" : "Small",
-        "availableClusterSizes" : [ "Small" ]
       },
       "pylibsResolutionMode" : {
         "PublicCentral" : { }
@@ -76,8 +76,8 @@
       "metadata" : {
         "label" : "silver_zip_codes",
         "slug" : "silver_zip_codes",
-        "x" : 640,
-        "y" : 440
+        "x" : 220,
+        "y" : 520
       },
       "ports" : {
         "inputs" : [ {
@@ -103,7 +103,7 @@
         "configurations" : {
           "schema" : [ ],
           "instances" : {
-            "HelloProphecy" : [ "default" ]
+            "HelloWorld_Medallion" : [ "default" ]
           },
           "overrides" : { },
           "selectedInstance" : "default"
@@ -116,8 +116,8 @@
       "metadata" : {
         "label" : "raw_bronze_4",
         "slug" : "raw_bronze_4",
-        "x" : 460,
-        "y" : 700
+        "x" : 20,
+        "y" : 820
       },
       "ports" : {
         "inputs" : [ {
@@ -141,9 +141,18 @@
       "properties" : {
         "pipelineId" : "pipelines/raw_bronze",
         "configurations" : {
-          "schema" : [ ],
+          "schema" : [ {
+            "name" : "catalog_name",
+            "optional" : false,
+            "kind" : {
+              "type" : "string",
+              "value" : "vlaunir_demos"
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : false
+          } ],
           "instances" : {
-            "HelloProphecy" : [ "default" ]
+            "HelloWorld_Medallion" : [ "default" ]
           },
           "overrides" : { },
           "selectedInstance" : "default"
@@ -156,8 +165,8 @@
       "metadata" : {
         "label" : "raw_bronze",
         "slug" : "raw_bronze",
-        "x" : 460,
-        "y" : 440
+        "x" : 20,
+        "y" : 220
       },
       "ports" : {
         "inputs" : [ {
@@ -181,9 +190,18 @@
       "properties" : {
         "pipelineId" : "pipelines/raw_bronze",
         "configurations" : {
-          "schema" : [ ],
+          "schema" : [ {
+            "name" : "catalog_name",
+            "optional" : false,
+            "kind" : {
+              "type" : "string",
+              "value" : "vlaunir_demos"
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : false
+          } ],
           "instances" : {
-            "HelloProphecy" : [ "default" ]
+            "HelloWorld_Medallion" : [ "default" ]
           },
           "overrides" : { },
           "selectedInstance" : "default"
@@ -196,8 +214,8 @@
       "metadata" : {
         "label" : "raw_bronze_1",
         "slug" : "raw_bronze_1",
-        "x" : 460,
-        "y" : 300
+        "x" : 20,
+        "y" : 620
       },
       "ports" : {
         "inputs" : [ {
@@ -221,9 +239,18 @@
       "properties" : {
         "pipelineId" : "pipelines/raw_bronze",
         "configurations" : {
-          "schema" : [ ],
+          "schema" : [ {
+            "name" : "catalog_name",
+            "optional" : false,
+            "kind" : {
+              "type" : "string",
+              "value" : "vlaunir_demos"
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : false
+          } ],
           "instances" : {
-            "HelloProphecy" : [ "default" ]
+            "HelloWorld_Medallion" : [ "default" ]
           },
           "overrides" : { },
           "selectedInstance" : "default"
@@ -236,8 +263,8 @@
       "metadata" : {
         "label" : "gold_sales",
         "slug" : "gold_sales",
-        "x" : 1060,
-        "y" : 440
+        "x" : 620,
+        "y" : 520
       },
       "ports" : {
         "inputs" : [ {
@@ -263,7 +290,7 @@
         "configurations" : {
           "schema" : [ ],
           "instances" : {
-            "HelloProphecy" : [ "default" ]
+            "HelloWorld_Medallion" : [ "default" ]
           },
           "overrides" : { },
           "selectedInstance" : "default"
@@ -276,8 +303,8 @@
       "metadata" : {
         "label" : "raw_bronze_5",
         "slug" : "raw_bronze_5",
-        "x" : 460,
-        "y" : 560
+        "x" : 20,
+        "y" : 420
       },
       "ports" : {
         "inputs" : [ {
@@ -301,9 +328,18 @@
       "properties" : {
         "pipelineId" : "pipelines/raw_bronze",
         "configurations" : {
-          "schema" : [ ],
+          "schema" : [ {
+            "name" : "catalog_name",
+            "optional" : false,
+            "kind" : {
+              "type" : "string",
+              "value" : "vlaunir_demos"
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : false
+          } ],
           "instances" : {
-            "HelloProphecy" : [ "default" ]
+            "HelloWorld_Medallion" : [ "default" ]
           },
           "overrides" : { },
           "selectedInstance" : "default"
@@ -316,8 +352,8 @@
       "metadata" : {
         "label" : "silver_customers_orders",
         "slug" : "silver_customers_orders",
-        "x" : 840,
-        "y" : 440
+        "x" : 420,
+        "y" : 520
       },
       "ports" : {
         "inputs" : [ {
@@ -352,7 +388,7 @@
             "isWorkflowNodeConfiguration" : true
           } ],
           "instances" : {
-            "HelloProphecy" : [ "default" ]
+            "HelloWorld_Medallion" : [ "default" ]
           },
           "overrides" : { },
           "selectedInstance" : "default"
@@ -365,8 +401,8 @@
       "metadata" : {
         "label" : "raw_bronze_3",
         "slug" : "raw_bronze_3",
-        "x" : 460,
-        "y" : 840
+        "x" : 20,
+        "y" : 20
       },
       "ports" : {
         "inputs" : [ {
@@ -390,9 +426,18 @@
       "properties" : {
         "pipelineId" : "pipelines/raw_bronze",
         "configurations" : {
-          "schema" : [ ],
+          "schema" : [ {
+            "name" : "catalog_name",
+            "optional" : false,
+            "kind" : {
+              "type" : "string",
+              "value" : "vlaunir_demos"
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : false
+          } ],
           "instances" : {
-            "HelloProphecy" : [ "default" ]
+            "HelloWorld_Medallion" : [ "default" ]
           },
           "overrides" : { },
           "selectedInstance" : "default"
@@ -405,8 +450,8 @@
       "metadata" : {
         "label" : "raw_bronze_2",
         "slug" : "raw_bronze_2",
-        "x" : 460,
-        "y" : 160
+        "x" : 20,
+        "y" : 1020
       },
       "ports" : {
         "inputs" : [ {
@@ -430,9 +475,18 @@
       "properties" : {
         "pipelineId" : "pipelines/raw_bronze",
         "configurations" : {
-          "schema" : [ ],
+          "schema" : [ {
+            "name" : "catalog_name",
+            "optional" : false,
+            "kind" : {
+              "type" : "string",
+              "value" : "vlaunir_demos"
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : false
+          } ],
           "instances" : {
-            "HelloProphecy" : [ "default" ]
+            "HelloWorld_Medallion" : [ "default" ]
           },
           "overrides" : { },
           "selectedInstance" : "default"
@@ -445,8 +499,8 @@
       "metadata" : {
         "label" : "gold_top_customers",
         "slug" : "gold_top_customers",
-        "x" : 1280,
-        "y" : 440
+        "x" : 820,
+        "y" : 520
       },
       "ports" : {
         "inputs" : [ {
@@ -472,7 +526,7 @@
         "configurations" : {
           "schema" : [ ],
           "instances" : {
-            "HelloProphecy" : [ "default" ]
+            "HelloWorld_Medallion" : [ "default" ]
           },
           "overrides" : { },
           "selectedInstance" : "default"
