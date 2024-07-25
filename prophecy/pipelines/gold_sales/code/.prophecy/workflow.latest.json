@@ -14,7 +14,7 @@
     "id" : "1",
     "uri" : "pipelines/gold_sales",
     "language" : "python",
-    "fabricId" : "6834",
+    "fabricId" : "9664",
     "frontEndLanguage" : "sql",
     "mode" : "batch",
     "udfs" : {

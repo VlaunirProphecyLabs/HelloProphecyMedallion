@@ -353,8 +353,8 @@ datasets:
         createdAt: '2024-07-23 16:50:29'
 templates: {}
 jobs:
-  jobs/HelloWorld_Medallion_job:
-    name: HelloWorld_Medallion_job
+  jobs/air_demo:
+    name: air_demo
     description: ''
     fabricUID: 9664
     scheduler:
@@ -374,7 +374,55 @@ jobs:
         Single: {}
       clusterId: null
     enabled: null
-    createdAt: '2024-07-23 19:00:17'
+    createdAt: '2024-07-23 20:23:31'
+    author: vlaunir@prophecy.io
+    models: []
+  jobs/air_demo2:
+    name: air_demo2
+    description: ''
+    fabricUID: 12245
+    scheduler:
+      Prophecy: {}
+    cloudProvider: null
+    jobSize: null
+    scheduleCron: None
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines: []
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: null
+    createdAt: '2024-07-23 20:23:47'
+    author: vlaunir@prophecy.io
+    models: []
+  jobs/DBX_Workflow_Vlaunir_HelloWorld:
+    name: DBX_Workflow_Vlaunir_HelloWorld
+    description: ''
+    fabricUID: 9664
+    scheduler:
+      Databricks: {}
+    cloudProvider: null
+    jobSize: Small
+    scheduleCron: None
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines: []
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: true
+    createdAt: '2024-07-25 19:39:44'
     author: vlaunir@prophecy.io
     models: []
 gemContainer:

@@ -2,8 +2,8 @@
   "metainfo" : {
     "type" : "Databricks",
     "fabricId" : "9664",
-    "jobId" : "jobs/HelloWorld_Medallion_job",
-    "name" : "HelloWorld_Medallion_job",
+    "jobId" : "jobs/air_demo",
+    "name" : "air_demo",
     "schedule" : "None",
     "scheduleTimeZone" : "UTC",
     "jobClusterMode" : {
