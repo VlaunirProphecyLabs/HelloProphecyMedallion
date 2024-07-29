@@ -297,10 +297,10 @@
               }
             }, {
               "name" : "zipcode",
-              "type" : "integer",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The numerical code representing a specific geographic area",
+                "description" : "The ZIP code",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -506,10 +506,10 @@
               }
             }, {
               "name" : "zipcode",
-              "type" : "integer",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The numerical code representing a specific geographic area",
+                "description" : "The ZIP code",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -858,10 +858,10 @@
                 "type" : "struct",
                 "fields" : [ {
                   "name" : "zipcode",
-                  "type" : "integer",
+                  "type" : "string",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "The numerical code representing a specific geographic area",
+                    "description" : "The ZIP code",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -870,7 +870,7 @@
                   "type" : "string",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "The state associated with the zipcode",
+                    "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -879,7 +879,7 @@
                   "type" : "double",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "Percentage of high-income returns in the specified zipcode",
+                    "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -888,7 +888,7 @@
                   "type" : "long",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "The number of tax returns filed by individuals with high income in the specified zipcode",
+                    "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -897,7 +897,7 @@
                   "type" : "long",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "Number of tax returns filed by individuals with low income in the specified zipcode",
+                    "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -906,7 +906,7 @@
                   "type" : "long",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "Total number of tax returns filed for the given zipcode",
+                    "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -915,7 +915,7 @@
                   "type" : "boolean",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "Flag indicating if the zipcode is classified as high income",
+                    "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -1089,10 +1089,10 @@
                 "type" : "struct",
                 "fields" : [ {
                   "name" : "zipcode",
-                  "type" : "integer",
+                  "type" : "string",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "The numerical code representing a specific geographic area",
+                    "description" : "The ZIP code",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -1101,7 +1101,7 @@
                   "type" : "string",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "The state associated with the zipcode",
+                    "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -1110,7 +1110,7 @@
                   "type" : "double",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "Percentage of high-income returns in the specified zipcode",
+                    "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -1119,7 +1119,7 @@
                   "type" : "long",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "The number of tax returns filed by individuals with high income in the specified zipcode",
+                    "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -1128,7 +1128,7 @@
                   "type" : "long",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "Number of tax returns filed by individuals with low income in the specified zipcode",
+                    "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -1137,7 +1137,7 @@
                   "type" : "long",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "Total number of tax returns filed for the given zipcode",
+                    "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -1146,7 +1146,7 @@
                   "type" : "boolean",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "Flag indicating if the zipcode is classified as high income",
+                    "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -1358,10 +1358,10 @@
               }
             }, {
               "name" : "zipcode",
-              "type" : "integer",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The numerical code representing a specific geographic area",
+                "description" : "The ZIP code",
                 "mappings" : [ ],
                 "tags" : [ ]
               }

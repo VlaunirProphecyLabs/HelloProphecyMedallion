@@ -102,7 +102,16 @@
         "pipelineId" : "pipelines/silver_customers_orders",
         "configurations" : {
           "schema" : [ {
-            "name" : "ZipCodes",
+            "name" : "catalog_name",
+            "optional" : false,
+            "kind" : {
+              "type" : "string",
+              "value" : "vlaunir_demos"
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : false
+          }, {
+            "name" : "bronze_customers",
             "optional" : false,
             "kind" : {
               "type" : "record",
@@ -119,15 +128,6 @@
             },
             "isReferenced" : false,
             "isWorkflowNodeConfiguration" : true
-          }, {
-            "name" : "catalog_name",
-            "optional" : false,
-            "kind" : {
-              "type" : "string",
-              "value" : "vlaunir_demos"
-            },
-            "isReferenced" : false,
-            "isWorkflowNodeConfiguration" : false
           } ],
           "instances" : {
             "HelloWorld_Medallion" : [ "default" ]
@@ -370,7 +370,7 @@
             "isReferenced" : false,
             "isWorkflowNodeConfiguration" : false
           }, {
-            "name" : "Subgraph_1",
+            "name" : "total_by_zip_and_date",
             "optional" : false,
             "kind" : {
               "type" : "record",

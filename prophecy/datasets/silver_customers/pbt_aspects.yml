@@ -46,10 +46,10 @@ schema:
       - type: user
         name: pii
   - name: zipcode
-    type: integer
+    type: string
     nullable: true
     metadata:
-      description: The numerical code representing a specific geographic area
+      description: The ZIP code
       mappings: []
       tags: []
   - name: account_open_date
