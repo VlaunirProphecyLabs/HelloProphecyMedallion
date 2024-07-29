@@ -3,10 +3,10 @@ from pyspark.sql.functions import *
 from pyspark.sql.types import *
 from prophecy.utils import *
 from prophecy.libs import typed_lit
-from silver_customers_orders.config.ConfigStore import *
+from .config import *
 from silver_customers_orders.udfs.UDFs import *
 
-def CustomerZipCodes(spark: SparkSession, in0: DataFrame, in1: DataFrame, ) -> DataFrame:
+def CustomerZipCodes_1(spark: SparkSession, in0: DataFrame, in1: DataFrame, ) -> DataFrame:
     return in0\
         .alias("in0")\
         .join(in1.alias("in1"), (col("in0.customer_id") == col("in1.customer_id")), "inner")\

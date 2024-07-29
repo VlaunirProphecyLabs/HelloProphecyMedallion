@@ -10,4 +10,5 @@ def silver_orders(spark: SparkSession, in0: DataFrame):
     in0.write\
         .format("delta")\
         .mode("overwrite")\
+        .partitionBy("order_date")\
         .saveAsTable(f"`{Config.catalog_name}`.`helloworld_silver`.`silver_orders`")

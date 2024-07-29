@@ -30,7 +30,34 @@
     "configuration" : {
       "common" : {
         "type" : "record",
-        "fields" : [ ]
+        "fields" : [ {
+          "name" : "catalog_name",
+          "kind" : {
+            "type" : "string",
+            "value" : "vlaunir_demos"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "total_by_zip_and_date",
+          "kind" : {
+            "type" : "record",
+            "fields" : [ {
+              "name" : "catalog_name",
+              "kind" : {
+                "type" : "string",
+                "value" : "vlaunir_demos"
+              },
+              "optional" : false,
+              "isWorkflowNodeConfiguration" : false,
+              "isReferenced" : true
+            } ]
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : true,
+          "isReferenced" : false
+        } ]
       },
       "oldCommon" : {
         "type" : "record",
@@ -74,45 +101,403 @@
     "target" : "tzys2o6Nv0OTQ9dD5uu_4$$l-Vfpcct6dzpSxKM9nLZL",
     "targetPort" : "P2VIaP0u1Ae5oSohEwgHL$$MiiW_boN0cQv80fTjZ9hj"
   }, {
-    "id" : "nNHEaRUNy89SnxMMm0u6e$$-mznfAvOIBQViCaGDLFr5",
-    "source" : "L5pc-eqdwtyTELkfSP_Db$$m6L2oF5lTnjYGBbTHzBIB",
-    "sourcePort" : "ulT2FJ2Fug1Okqy-6vwmE$$CbMe6Hp9gNJrv8FI3igxG",
-    "target" : "CCdS0rXltkp7g_udaQXQ4$$bj3i7a-ojc2Tti2iN53pU",
-    "targetPort" : "3ulCjlNOkS_alOfJhq6QI$$-Ox7j5FrMFazxlAQk04-m"
-  }, {
-    "id" : "_oRhzHxv1oipxqEsFPk-K$$j2w9MgCXxOTIpMQtLaRg7",
-    "source" : "CCdS0rXltkp7g_udaQXQ4$$bj3i7a-ojc2Tti2iN53pU",
-    "sourcePort" : "oQeYRAZFurCHPn5NOSKd8$$hwd9qy4uEmFJmeSv3HocX",
-    "target" : "fsJ_9X3CSLgpP8S3tpnjV$$zz_aD5JeoVF9Qo-b-MqZk",
-    "targetPort" : "_dKalijg_HvoC2Z7qqKIo$$Dya-jEIbEbPX7EPjObOJa"
-  }, {
     "id" : "m1JWOjrHzMX9k2MM0YCbB",
     "source" : "CUJmg8TC4ow2LTpkD4xTa$$_i5qUVFTMza3uMVRSyEls",
     "sourcePort" : "WRBU6jOW2-28Bu_9zVFew$$scVkcloeH0qrUHtfeM_Yz",
     "target" : "cmeh9U8XFq8QHeFmwUzw7$$7q6DXJxXUZsDqRK7-C5kX",
     "targetPort" : "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN"
   }, {
-    "id" : "ZTqTpmJcpj9ZbXTU1xXja",
-    "source" : "cmeh9U8XFq8QHeFmwUzw7$$7q6DXJxXUZsDqRK7-C5kX",
-    "sourcePort" : "MXo6JurnoN6flZNUaHptp$$x5n4R4vwDuL52LdvCVnzS",
-    "target" : "L5pc-eqdwtyTELkfSP_Db$$m6L2oF5lTnjYGBbTHzBIB",
-    "targetPort" : "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx"
-  }, {
     "id" : "Ptqw_mJcKvbp90IglevXQ",
     "source" : "cmeh9U8XFq8QHeFmwUzw7$$7q6DXJxXUZsDqRK7-C5kX",
     "sourcePort" : "MXo6JurnoN6flZNUaHptp$$x5n4R4vwDuL52LdvCVnzS",
     "target" : "rxaIaQR5qtYVLzRCX6G2p$$4RQ1lPzoJ4iTYxjh4cFqW",
     "targetPort" : "p2jAQt4FQ95GTpHzIrNZx$$s0hnqBRZkl_fO5l7h837X"
+  }, {
+    "id" : "nCxhwJpTC4B0pdWB_MjO1",
+    "source" : "cmeh9U8XFq8QHeFmwUzw7$$7q6DXJxXUZsDqRK7-C5kX",
+    "sourcePort" : "MXo6JurnoN6flZNUaHptp$$x5n4R4vwDuL52LdvCVnzS",
+    "target" : "Z9DnCM3QJiiiVZ6KMpUKy$$1JWV_usPlhESc2BUgo2wH",
+    "targetPort" : "chTmzy0asSvb5XqDiWWu2$$3d-uPgGzJ-dKOCn_ZWJ-t"
+  }, {
+    "id" : "pG1mISC29VQyG4fcS0xxc",
+    "source" : "Z9DnCM3QJiiiVZ6KMpUKy$$1JWV_usPlhESc2BUgo2wH",
+    "sourcePort" : "wNC4UP7EW6UfJWez6Kfa-$$enRn0T7yIcJBDBFr_Ye11",
+    "target" : "fsJ_9X3CSLgpP8S3tpnjV$$zz_aD5JeoVF9Qo-b-MqZk",
+    "targetPort" : "_dKalijg_HvoC2Z7qqKIo$$Dya-jEIbEbPX7EPjObOJa"
   } ],
   "processes" : {
+    "Z9DnCM3QJiiiVZ6KMpUKy$$1JWV_usPlhESc2BUgo2wH" : {
+      "id" : "Z9DnCM3QJiiiVZ6KMpUKy$$1JWV_usPlhESc2BUgo2wH",
+      "component" : "Subgraph",
+      "metadata" : {
+        "label" : "total_by_zip_and_date",
+        "slug" : "total_by_zip_and_date",
+        "x" : 420,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "chTmzy0asSvb5XqDiWWu2$$3d-uPgGzJ-dKOCn_ZWJ-t",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "account_age_at_order_date",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "float",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "zipcode",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The numerical code representing a specific geographic area",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer account flags",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "wNC4UP7EW6UfJWez6Kfa-$$enRn0T7yIcJBDBFr_Ye11",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : { },
+      "connections" : [ {
+        "id" : "nNHEaRUNy89SnxMMm0u6e$$-mznfAvOIBQViCaGDLFr5",
+        "source" : "L5pc-eqdwtyTELkfSP_Db$$m6L2oF5lTnjYGBbTHzBIB",
+        "sourcePort" : "ulT2FJ2Fug1Okqy-6vwmE$$CbMe6Hp9gNJrv8FI3igxG",
+        "target" : "CCdS0rXltkp7g_udaQXQ4$$bj3i7a-ojc2Tti2iN53pU",
+        "targetPort" : "3ulCjlNOkS_alOfJhq6QI$$-Ox7j5FrMFazxlAQk04-m"
+      }, {
+        "id" : "ZTqTpmJcpj9ZbXTU1xXja",
+        "source" : "Z9DnCM3QJiiiVZ6KMpUKy$$1JWV_usPlhESc2BUgo2wH",
+        "sourcePort" : "chTmzy0asSvb5XqDiWWu2$$3d-uPgGzJ-dKOCn_ZWJ-t",
+        "target" : "L5pc-eqdwtyTELkfSP_Db$$m6L2oF5lTnjYGBbTHzBIB",
+        "targetPort" : "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx"
+      }, {
+        "id" : "_oRhzHxv1oipxqEsFPk-K$$j2w9MgCXxOTIpMQtLaRg7",
+        "source" : "CCdS0rXltkp7g_udaQXQ4$$bj3i7a-ojc2Tti2iN53pU",
+        "sourcePort" : "oQeYRAZFurCHPn5NOSKd8$$hwd9qy4uEmFJmeSv3HocX",
+        "target" : "Z9DnCM3QJiiiVZ6KMpUKy$$1JWV_usPlhESc2BUgo2wH",
+        "targetPort" : "wNC4UP7EW6UfJWez6Kfa-$$enRn0T7yIcJBDBFr_Ye11"
+      } ],
+      "processes" : {
+        "L5pc-eqdwtyTELkfSP_Db$$m6L2oF5lTnjYGBbTHzBIB" : {
+          "id" : "L5pc-eqdwtyTELkfSP_Db$$m6L2oF5lTnjYGBbTHzBIB",
+          "component" : "Aggregate",
+          "metadata" : {
+            "label" : "TotalByZipCodeAndDate",
+            "slug" : "TotalByZipCodeAndDate",
+            "x" : 860,
+            "y" : 320,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false
+          },
+          "ports" : {
+            "inputs" : [ {
+              "id" : "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx",
+              "slug" : "in0",
+              "schema" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "account_age_at_order_date",
+                  "type" : "integer",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "order_id",
+                  "type" : "integer",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "customer_id",
+                  "type" : "integer",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "amount",
+                  "type" : "float",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "order_date",
+                  "type" : "date",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "zipcode",
+                  "type" : "integer",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The numerical code representing a specific geographic area",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "account_flags",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Customer account flags",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "isStreaming" : false
+            } ],
+            "outputs" : [ {
+              "id" : "ulT2FJ2Fug1Okqy-6vwmE$$CbMe6Hp9gNJrv8FI3igxG",
+              "slug" : "out"
+            } ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false,
+            "autoUpdateOnRun" : false
+          },
+          "properties" : {
+            "allIns" : false,
+            "doPivot" : false,
+            "aggregate" : [ {
+              "target" : "total_amount",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "sum(amount)"
+              },
+              "description" : "",
+              "_row_id" : null
+            }, {
+              "target" : "avg_amount",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "avg(amount)"
+              },
+              "description" : "",
+              "_row_id" : "c_1508"
+            }, {
+              "target" : "order_count",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "count(order_id)"
+              },
+              "description" : "",
+              "_row_id" : "c_1555"
+            } ],
+            "allowSelection" : true,
+            "pivotColumn" : null,
+            "pivotValues" : [ ],
+            "activeTab" : "groupBy",
+            "columnsSelector" : [ "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx##order_id", "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx##order_date", "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx##amount", "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx##zipcode" ],
+            "groupBy" : [ {
+              "target" : "zipcode",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "zipcode"
+              },
+              "description" : "",
+              "_row_id" : null
+            }, {
+              "target" : "order_date",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "order_date"
+              },
+              "description" : "",
+              "_row_id" : null
+            } ]
+          },
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+            "projectName" : "ProphecySparkBasicsPython"
+          }
+        },
+        "CCdS0rXltkp7g_udaQXQ4$$bj3i7a-ojc2Tti2iN53pU" : {
+          "id" : "CCdS0rXltkp7g_udaQXQ4$$bj3i7a-ojc2Tti2iN53pU",
+          "component" : "OrderBy",
+          "metadata" : {
+            "label" : "SortByDateAndZip",
+            "slug" : "SortByDateAndZip",
+            "x" : 1040,
+            "y" : 320,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false
+          },
+          "ports" : {
+            "inputs" : [ {
+              "id" : "3ulCjlNOkS_alOfJhq6QI$$-Ox7j5FrMFazxlAQk04-m",
+              "slug" : "in0",
+              "schema" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "zipcode",
+                  "type" : "integer",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The numerical code representing a specific geographic area",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "order_date",
+                  "type" : "date",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "total_amount",
+                  "type" : "double",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "avg_amount",
+                  "type" : "double",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "order_count",
+                  "type" : "long",
+                  "nullable" : false,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "isStreaming" : false
+            } ],
+            "outputs" : [ {
+              "id" : "oQeYRAZFurCHPn5NOSKd8$$hwd9qy4uEmFJmeSv3HocX",
+              "slug" : "out"
+            } ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false,
+            "autoUpdateOnRun" : false
+          },
+          "properties" : {
+            "columnsSelector" : [ "3ulCjlNOkS_alOfJhq6QI$$-Ox7j5FrMFazxlAQk04-m##order_date", "3ulCjlNOkS_alOfJhq6QI$$-Ox7j5FrMFazxlAQk04-m##zipcode" ],
+            "orders" : [ {
+              "expression" : {
+                "format" : "sql",
+                "expression" : "order_date"
+              },
+              "sortType" : "asc"
+            }, {
+              "expression" : {
+                "format" : "sql",
+                "expression" : "zipcode"
+              },
+              "sortType" : "asc"
+            } ]
+          },
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/OrderBy",
+            "projectName" : "ProphecySparkBasicsPython"
+          }
+        }
+      }
+    },
     "cmeh9U8XFq8QHeFmwUzw7$$7q6DXJxXUZsDqRK7-C5kX" : {
       "id" : "cmeh9U8XFq8QHeFmwUzw7$$7q6DXJxXUZsDqRK7-C5kX",
       "component" : "Reformat",
       "metadata" : {
         "label" : "Cleanup",
         "slug" : "Cleanup",
-        "x" : 620,
-        "y" : 500,
+        "x" : 220,
+        "y" : 120,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -195,10 +580,10 @@
               }
             }, {
               "name" : "zipcode",
-              "type" : "string",
+              "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "The numerical code representing a specific geographic area",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -290,8 +675,8 @@
       "metadata" : {
         "label" : "gold_sales_by_zip_date",
         "slug" : "gold_sales_by_zip_date",
-        "x" : 1240,
-        "y" : 320,
+        "x" : 620,
+        "y" : 20,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -305,10 +690,10 @@
             "type" : "struct",
             "fields" : [ {
               "name" : "zipcode",
-              "type" : "string",
+              "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "The numerical code representing a specific geographic area",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -367,8 +752,8 @@
       "metadata" : {
         "label" : "gold_total_sales_by_customer",
         "slug" : "gold_total_sales_by_customer",
-        "x" : 1240,
-        "y" : 500,
+        "x" : 620,
+        "y" : 220,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -426,8 +811,8 @@
       "metadata" : {
         "label" : "SumAmounts",
         "slug" : "SumAmounts",
-        "x" : 1040,
-        "y" : 500,
+        "x" : 420,
+        "y" : 220,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -486,10 +871,10 @@
               }
             }, {
               "name" : "zipcode",
-              "type" : "string",
+              "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "The numerical code representing a specific geographic area",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -554,261 +939,14 @@
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
-    "L5pc-eqdwtyTELkfSP_Db$$m6L2oF5lTnjYGBbTHzBIB" : {
-      "id" : "L5pc-eqdwtyTELkfSP_Db$$m6L2oF5lTnjYGBbTHzBIB",
-      "component" : "Aggregate",
-      "metadata" : {
-        "label" : "TotalByZipCodeAndDate",
-        "slug" : "TotalByZipCodeAndDate",
-        "x" : 860,
-        "y" : 320,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx",
-          "slug" : "in0",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "account_age_at_order_date",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "order_id",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "customer_id",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "amount",
-              "type" : "float",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "order_date",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "zipcode",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_flags",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer account flags",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        } ],
-        "outputs" : [ {
-          "id" : "ulT2FJ2Fug1Okqy-6vwmE$$CbMe6Hp9gNJrv8FI3igxG",
-          "slug" : "out"
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "allIns" : false,
-        "doPivot" : false,
-        "aggregate" : [ {
-          "target" : "total_amount",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "sum(amount)"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "avg_amount",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "avg(amount)"
-          },
-          "description" : "",
-          "_row_id" : "c_1508"
-        }, {
-          "target" : "order_count",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "count(order_id)"
-          },
-          "description" : "",
-          "_row_id" : "c_1555"
-        } ],
-        "allowSelection" : true,
-        "pivotColumn" : null,
-        "pivotValues" : [ ],
-        "activeTab" : "groupBy",
-        "columnsSelector" : [ "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx##order_id", "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx##order_date", "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx##amount", "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx##zipcode" ],
-        "groupBy" : [ {
-          "target" : "zipcode",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "zipcode"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "order_date",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "order_date"
-          },
-          "description" : "",
-          "_row_id" : null
-        } ]
-      },
-      "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Aggregate",
-        "projectName" : "ProphecySparkBasicsPython"
-      }
-    },
-    "CCdS0rXltkp7g_udaQXQ4$$bj3i7a-ojc2Tti2iN53pU" : {
-      "id" : "CCdS0rXltkp7g_udaQXQ4$$bj3i7a-ojc2Tti2iN53pU",
-      "component" : "OrderBy",
-      "metadata" : {
-        "label" : "SortByDateAndZip",
-        "slug" : "SortByDateAndZip",
-        "x" : 1040,
-        "y" : 320,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "3ulCjlNOkS_alOfJhq6QI$$-Ox7j5FrMFazxlAQk04-m",
-          "slug" : "in0",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "zipcode",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "order_date",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "total_amount",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "avg_amount",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "order_count",
-              "type" : "long",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        } ],
-        "outputs" : [ {
-          "id" : "oQeYRAZFurCHPn5NOSKd8$$hwd9qy4uEmFJmeSv3HocX",
-          "slug" : "out"
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "columnsSelector" : [ "3ulCjlNOkS_alOfJhq6QI$$-Ox7j5FrMFazxlAQk04-m##order_date", "3ulCjlNOkS_alOfJhq6QI$$-Ox7j5FrMFazxlAQk04-m##zipcode" ],
-        "orders" : [ {
-          "expression" : {
-            "format" : "sql",
-            "expression" : "order_date"
-          },
-          "sortType" : "asc"
-        }, {
-          "expression" : {
-            "format" : "sql",
-            "expression" : "zipcode"
-          },
-          "sortType" : "asc"
-        } ]
-      },
-      "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/OrderBy",
-        "projectName" : "ProphecySparkBasicsPython"
-      }
-    },
     "CUJmg8TC4ow2LTpkD4xTa$$_i5qUVFTMza3uMVRSyEls" : {
       "id" : "CUJmg8TC4ow2LTpkD4xTa$$_i5qUVFTMza3uMVRSyEls",
       "component" : "Source",
       "metadata" : {
         "label" : "silver_order_customer_details",
         "slug" : "silver_order_customer_details",
-        "x" : 460,
-        "y" : 500,
+        "x" : 20,
+        "y" : 120,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,

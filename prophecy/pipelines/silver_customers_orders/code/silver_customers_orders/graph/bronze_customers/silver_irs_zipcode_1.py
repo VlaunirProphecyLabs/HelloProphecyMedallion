@@ -3,8 +3,8 @@ from pyspark.sql.functions import *
 from pyspark.sql.types import *
 from prophecy.utils import *
 from prophecy.libs import typed_lit
-from silver_customers_orders.config.ConfigStore import *
+from .config import *
 from silver_customers_orders.udfs.UDFs import *
 
-def bronze_customers(spark: SparkSession) -> DataFrame:
-    return spark.read.table(f"`{Config.catalog_name}`.`helloworld_bronze`.`bronze_customers`")
+def silver_irs_zipcode_1(spark: SparkSession) -> DataFrame:
+    return spark.read.table(f"`{Config.catalog_name}`.`helloworld_silver`.`silver_irs_zipcode`")

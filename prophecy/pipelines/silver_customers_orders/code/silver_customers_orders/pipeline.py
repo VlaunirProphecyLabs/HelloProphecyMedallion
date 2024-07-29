@@ -9,11 +9,9 @@ from silver_customers_orders.graph import *
 def pipeline(spark: SparkSession) -> None:
     df_bronze_orders = bronze_orders(spark)
     silver_orders(spark, df_bronze_orders)
-    df_ZipCodes = ZipCodes(spark, Config.ZipCodes)
-    df_bronze_customers = bronze_customers(spark)
-    df_CustomerZipCodes = CustomerZipCodes(spark, df_bronze_customers, df_ZipCodes)
-    silver_customers(spark, df_CustomerZipCodes)
-    df_ByCustomerId = ByCustomerId(spark, df_bronze_orders, df_CustomerZipCodes)
+    df_bronze_customers_out, df_bronze_customers_out0 = bronze_customers(spark, Config.bronze_customers)
+    silver_customers(spark, df_bronze_customers_out0)
+    df_ByCustomerId = ByCustomerId(spark, df_bronze_orders, df_bronze_customers_out)
     silver_order_customer_details(spark, df_ByCustomerId)
 
 def main():

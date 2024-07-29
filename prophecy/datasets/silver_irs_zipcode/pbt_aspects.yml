@@ -6,7 +6,7 @@ schema:
     type: string
     nullable: true
     metadata:
-      description: ''
+      description: The ZIP code
       mappings: []
       tags: []
   - name: state

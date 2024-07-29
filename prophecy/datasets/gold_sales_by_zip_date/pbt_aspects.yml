@@ -3,10 +3,10 @@ schema:
   type: struct
   fields:
   - name: zipcode
-    type: string
+    type: integer
     nullable: true
     metadata:
-      description: ''
+      description: The numerical code representing a specific geographic area
       mappings: []
       tags: []
   - name: order_date

@@ -56,10 +56,10 @@ schema:
       - type: user
         name: pii
   - name: zipcode
-    type: string
+    type: integer
     nullable: true
     metadata:
-      description: ''
+      description: The numerical code representing a specific geographic area
       mappings: []
       tags: []
   - name: account_flags

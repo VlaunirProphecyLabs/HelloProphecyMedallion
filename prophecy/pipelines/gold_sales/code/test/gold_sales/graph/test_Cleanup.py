@@ -37,5 +37,6 @@ class CleanupTest(BaseTestCase):
               config = None,
               overrideJson = None,
               defaultConfFile = None
-            )
+            ),
+            "configs/resources/config/gold_sales.conf"
         )
