@@ -541,8 +541,8 @@
           "id" : "VtpzjLCVE4NM617KCdx2B$$WDyUp5CpdfgiGcQ3fXjen",
           "component" : "Target",
           "metadata" : {
-            "label" : "raw_table",
-            "slug" : "raw_table",
+            "label" : "save_as_bronze_table",
+            "slug" : "save_as_bronze_table",
             "x" : -100,
             "y" : -180,
             "phase" : 0,
@@ -822,6 +822,35 @@
       "componentInfo" : {
         "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
         "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "1ItWDmvcTCnb0JTIpt3vx$$OxC_qI5oXjmNDlqf2kjEp" : {
+      "id" : "1ItWDmvcTCnb0JTIpt3vx$$OxC_qI5oXjmNDlqf2kjEp",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "raw_dynamic_source",
+        "slug" : "raw_dynamic_source",
+        "x" : 20,
+        "y" : -200,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Creates a DataFrame containing a list of data sources for further processing.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "9iC7XLEcV4uW-sC2Jj4pI$$zbyhzdnIrab6MiE-GCA67",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/raw_dynamic_source"
       }
     }
   },

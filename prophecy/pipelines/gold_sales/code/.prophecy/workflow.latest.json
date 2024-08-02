@@ -95,6 +95,24 @@
     "configurationVersion" : "v2"
   },
   "connections" : [ {
+    "id" : "wRpYbPu5",
+    "source" : "k9D39na2",
+    "sourcePort" : "UtTlFO7v",
+    "target" : "XVKuYMJb",
+    "targetPort" : "TINCuSUq"
+  }, {
+    "id" : "hHQnGOsu",
+    "source" : "XVKuYMJb",
+    "sourcePort" : "JJ16pxav",
+    "target" : "CfVogM8E",
+    "targetPort" : "bdNXuGKz"
+  }, {
+    "id" : "ETpj6gE6",
+    "source" : "CUJmg8TC4ow2LTpkD4xTa$$_i5qUVFTMza3uMVRSyEls",
+    "sourcePort" : "WRBU6jOW2-28Bu_9zVFew$$scVkcloeH0qrUHtfeM_Yz",
+    "target" : "k9D39na2",
+    "targetPort" : "ALAlcw0H"
+  }, {
     "id" : "EUWSMCykGr0vL9vo9zZuQ",
     "source" : "rxaIaQR5qtYVLzRCX6G2p$$4RQ1lPzoJ4iTYxjh4cFqW",
     "sourcePort" : "0IXqpqy1nhHR5pL5duLgX$$jSWzscyIu532qFaZj_pD4",
@@ -133,7 +151,7 @@
         "label" : "total_by_zip_and_date",
         "slug" : "total_by_zip_and_date",
         "x" : 420,
-        "y" : 20,
+        "y" : 220,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -192,10 +210,10 @@
               }
             }, {
               "name" : "zipcode",
-              "type" : "integer",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The numerical code representing a specific geographic area",
+                "description" : "The ZIP code",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -228,17 +246,23 @@
         "target" : "CCdS0rXltkp7g_udaQXQ4$$bj3i7a-ojc2Tti2iN53pU",
         "targetPort" : "3ulCjlNOkS_alOfJhq6QI$$-Ox7j5FrMFazxlAQk04-m"
       }, {
-        "id" : "ZTqTpmJcpj9ZbXTU1xXja",
-        "source" : "Z9DnCM3QJiiiVZ6KMpUKy$$1JWV_usPlhESc2BUgo2wH",
-        "sourcePort" : "chTmzy0asSvb5XqDiWWu2$$3d-uPgGzJ-dKOCn_ZWJ-t",
-        "target" : "L5pc-eqdwtyTELkfSP_Db$$m6L2oF5lTnjYGBbTHzBIB",
-        "targetPort" : "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx"
-      }, {
         "id" : "_oRhzHxv1oipxqEsFPk-K$$j2w9MgCXxOTIpMQtLaRg7",
         "source" : "CCdS0rXltkp7g_udaQXQ4$$bj3i7a-ojc2Tti2iN53pU",
         "sourcePort" : "oQeYRAZFurCHPn5NOSKd8$$hwd9qy4uEmFJmeSv3HocX",
         "target" : "Z9DnCM3QJiiiVZ6KMpUKy$$1JWV_usPlhESc2BUgo2wH",
         "targetPort" : "wNC4UP7EW6UfJWez6Kfa-$$enRn0T7yIcJBDBFr_Ye11"
+      }, {
+        "id" : "sqt4G7LoT0zO6dzDRP9wl$$BT4ALEg86yWY6PjCiKhJi",
+        "source" : "Gxwrum9VM-EG2dOyPwWgM$$Rq2sddwml2gWhTbbiBv3X",
+        "sourcePort" : "gvMFQmrN7JhQ-GiK3bxCW$$lfd5hs8C-fuUGdC2-WMCP",
+        "target" : "L5pc-eqdwtyTELkfSP_Db$$m6L2oF5lTnjYGBbTHzBIB",
+        "targetPort" : "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx"
+      }, {
+        "id" : "jAYYLI14tL3SvOYnRhJfZ",
+        "source" : "Z9DnCM3QJiiiVZ6KMpUKy$$1JWV_usPlhESc2BUgo2wH",
+        "sourcePort" : "chTmzy0asSvb5XqDiWWu2$$3d-uPgGzJ-dKOCn_ZWJ-t",
+        "target" : "Gxwrum9VM-EG2dOyPwWgM$$Rq2sddwml2gWhTbbiBv3X",
+        "targetPort" : "75gKWW7EOU4wBcSrTcv8N$$QvA2VlpyK-0rKmx_hv__c"
       } ],
       "processes" : {
         "L5pc-eqdwtyTELkfSP_Db$$m6L2oF5lTnjYGBbTHzBIB" : {
@@ -247,7 +271,7 @@
           "metadata" : {
             "label" : "TotalByZipCodeAndDate",
             "slug" : "TotalByZipCodeAndDate",
-            "x" : 860,
+            "x" : 820,
             "y" : 320,
             "phase" : 0,
             "cache" : false,
@@ -307,10 +331,10 @@
                   }
                 }, {
                   "name" : "zipcode",
-                  "type" : "integer",
+                  "type" : "string",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "The numerical code representing a specific geographic area",
+                    "description" : "The ZIP code",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -367,7 +391,7 @@
             "pivotColumn" : null,
             "pivotValues" : [ ],
             "activeTab" : "groupBy",
-            "columnsSelector" : [ "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx##order_id", "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx##order_date", "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx##amount", "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx##zipcode" ],
+            "columnsSelector" : [ "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx##zipcode", "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx##amount", "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx##order_date", "97RXLmrAv6ye9XZENUZEq$$9VT2PijShjMNNlvt-3uOx##order_id" ],
             "groupBy" : [ {
               "target" : "zipcode",
               "expression" : {
@@ -397,7 +421,7 @@
           "metadata" : {
             "label" : "SortByDateAndZip",
             "slug" : "SortByDateAndZip",
-            "x" : 1040,
+            "x" : 1000,
             "y" : 320,
             "phase" : 0,
             "cache" : false,
@@ -412,10 +436,10 @@
                 "type" : "struct",
                 "fields" : [ {
                   "name" : "zipcode",
-                  "type" : "integer",
+                  "type" : "string",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "The numerical code representing a specific geographic area",
+                    "description" : "The ZIP code",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -485,6 +509,122 @@
           },
           "componentInfo" : {
             "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/OrderBy",
+            "projectName" : "ProphecySparkBasicsPython"
+          }
+        },
+        "Gxwrum9VM-EG2dOyPwWgM$$Rq2sddwml2gWhTbbiBv3X" : {
+          "id" : "Gxwrum9VM-EG2dOyPwWgM$$Rq2sddwml2gWhTbbiBv3X",
+          "component" : "Deduplicate",
+          "metadata" : {
+            "label" : "deduplicate_by_order_id_zipcode_order_date_amount",
+            "slug" : "deduplicate_by_order_id_zipcode_order_date_amount",
+            "x" : 640,
+            "y" : 320,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false,
+            "comment" : "Removes duplicate records based on order ID, zipcode, order date, and amount.",
+            "autoUpdateComment" : true
+          },
+          "ports" : {
+            "inputs" : [ {
+              "id" : "75gKWW7EOU4wBcSrTcv8N$$QvA2VlpyK-0rKmx_hv__c",
+              "slug" : "in0",
+              "schema" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "account_age_at_order_date",
+                  "type" : "integer",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "order_id",
+                  "type" : "integer",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "customer_id",
+                  "type" : "integer",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "amount",
+                  "type" : "float",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "order_date",
+                  "type" : "date",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "zipcode",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The ZIP code",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "account_flags",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Customer account flags",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "isStreaming" : false
+            } ],
+            "outputs" : [ {
+              "id" : "gvMFQmrN7JhQ-GiK3bxCW$$lfd5hs8C-fuUGdC2-WMCP",
+              "slug" : "out"
+            } ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false,
+            "autoUpdateOnRun" : false
+          },
+          "properties" : {
+            "dedupColumns" : [ {
+              "colName" : "order_id"
+            }, {
+              "colName" : "zipcode"
+            }, {
+              "colName" : "order_date"
+            }, {
+              "colName" : "amount"
+            } ],
+            "dedupType" : "any",
+            "columnsSelector" : [ "75gKWW7EOU4wBcSrTcv8N$$QvA2VlpyK-0rKmx_hv__c##zipcode", "75gKWW7EOU4wBcSrTcv8N$$QvA2VlpyK-0rKmx_hv__c##order_date", "75gKWW7EOU4wBcSrTcv8N$$QvA2VlpyK-0rKmx_hv__c##amount", "75gKWW7EOU4wBcSrTcv8N$$QvA2VlpyK-0rKmx_hv__c##order_id" ],
+            "orders" : [ ],
+            "useOrderBy" : false
+          },
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Deduplicate",
             "projectName" : "ProphecySparkBasicsPython"
           }
         }
@@ -580,10 +720,10 @@
               }
             }, {
               "name" : "zipcode",
-              "type" : "integer",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The numerical code representing a specific geographic area",
+                "description" : "The ZIP code",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -669,6 +809,168 @@
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
+    "k9D39na2" : {
+      "id" : "k9D39na2",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "customer_order_total",
+        "slug" : "customer_order_total",
+        "x" : 220,
+        "y" : 420,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "ALAlcw0H",
+          "slug" : "silver_order_customer_details",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "float",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer first name",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer last name",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "zipcode",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The ZIP code",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer account flags",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "UtTlFO7v",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "allIns" : false,
+        "doPivot" : false,
+        "aggregate" : [ {
+          "target" : "TOTAL_AMOUNT",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "SUM(amount)"
+          },
+          "description" : ""
+        } ],
+        "allowSelection" : true,
+        "pivotColumn" : null,
+        "pivotValues" : [ ],
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ ],
+        "groupBy" : [ {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "customer_id"
+          },
+          "description" : ""
+        }, {
+          "target" : "first_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "first_name"
+          },
+          "description" : ""
+        }, {
+          "target" : "last_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "last_name"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
     "fsJ_9X3CSLgpP8S3tpnjV$$zz_aD5JeoVF9Qo-b-MqZk" : {
       "id" : "fsJ_9X3CSLgpP8S3tpnjV$$zz_aD5JeoVF9Qo-b-MqZk",
       "component" : "Target",
@@ -676,7 +978,7 @@
         "label" : "gold_sales_by_zip_date",
         "slug" : "gold_sales_by_zip_date",
         "x" : 620,
-        "y" : 20,
+        "y" : 220,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -690,10 +992,10 @@
             "type" : "struct",
             "fields" : [ {
               "name" : "zipcode",
-              "type" : "integer",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The numerical code representing a specific geographic area",
+                "description" : "The ZIP code",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -746,6 +1048,94 @@
         "datasetId" : "datasets/gold_sales_by_zip_date"
       }
     },
+    "XVKuYMJb" : {
+      "id" : "XVKuYMJb",
+      "component" : "OrderBy",
+      "metadata" : {
+        "label" : "order_by_total_amount_desc_nulls_first",
+        "slug" : "order_by_total_amount_desc_nulls_first",
+        "x" : 420,
+        "y" : 420,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "TINCuSUq",
+          "slug" : "customer_order_total",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer first name",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer last name",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "TOTAL_AMOUNT",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "JJ16pxav",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "orders" : [ {
+          "expression" : {
+            "format" : "sql",
+            "expression" : "TOTAL_AMOUNT"
+          },
+          "sortType" : "desc"
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/OrderBy",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
     "tzys2o6Nv0OTQ9dD5uu_4$$l-Vfpcct6dzpSxKM9nLZL" : {
       "id" : "tzys2o6Nv0OTQ9dD5uu_4$$l-Vfpcct6dzpSxKM9nLZL",
       "component" : "Target",
@@ -753,7 +1143,7 @@
         "label" : "gold_total_sales_by_customer",
         "slug" : "gold_total_sales_by_customer",
         "x" : 620,
-        "y" : 220,
+        "y" : 20,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -812,7 +1202,7 @@
         "label" : "SumAmounts",
         "slug" : "SumAmounts",
         "x" : 420,
-        "y" : 220,
+        "y" : 20,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -871,10 +1261,10 @@
               }
             }, {
               "name" : "zipcode",
-              "type" : "integer",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The numerical code representing a specific geographic area",
+                "description" : "The ZIP code",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -939,6 +1329,87 @@
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
+    "CfVogM8E" : {
+      "id" : "CfVogM8E",
+      "component" : "Limit",
+      "metadata" : {
+        "label" : "limit_10",
+        "slug" : "limit_10",
+        "x" : 620,
+        "y" : 420,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "bdNXuGKz",
+          "slug" : "order_by_total_amount_desc_nulls_first",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer first name",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer last name",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "TOTAL_AMOUNT",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "Z2zviJL8",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "limit" : "10"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Limit",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
     "CUJmg8TC4ow2LTpkD4xTa$$_i5qUVFTMza3uMVRSyEls" : {
       "id" : "CUJmg8TC4ow2LTpkD4xTa$$_i5qUVFTMza3uMVRSyEls",
       "component" : "Source",
@@ -946,7 +1417,7 @@
         "label" : "silver_order_customer_details",
         "slug" : "silver_order_customer_details",
         "x" : 20,
-        "y" : 120,
+        "y" : 220,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,

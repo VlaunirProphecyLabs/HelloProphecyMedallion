@@ -13,7 +13,10 @@ buildSystemDetails:
 pipelines:
   pipelines/silver_customers_orders:
     name: silver_customers_orders
-    description: ''
+    description: Processes and transforms order and customer data from bronze to silver
+      tables. It joins orders with customer details, filters invalid zip codes, and
+      calculates income brackets by zip code. The pipeline also identifies high-income
+      areas and assigns sequence IDs to customers.
     author: scott+demo2@prophecy.io
     mode: batch
     artefactID: ''
@@ -22,13 +25,14 @@ pipelines:
     datasets:
       inputs:
       - datasets/bronze_customers
+      - datasets/bronze_irs_zipcode
       - datasets/bronze_orders
-      - datasets/silver_irs_zipcode
       outputs:
       - datasets/silver_customers
       - datasets/silver_order_customer_details
       - datasets/silver_orders
-    subgraphs: []
+    subgraphs:
+    - subgraphs/bronze_customer_zip
     dependencies: {}
   pipelines/gold_sales:
     name: gold_sales
@@ -117,28 +121,30 @@ pipelines:
     language: python
     createdAt: '2024-07-23 13:29:12'
     datasets:
-      inputs: []
+      inputs:
+      - datasets/raw_dynamic_source
       outputs:
       - datasets/raw_dynamic_table
     subgraphs: []
     dependencies: {}
   pipelines/customer_orders:
     name: gold_customer_orders
-    description: Generates a summary of customer orders and account details for a
-      dataset containing information about silver customers and their orders. The
-      `customer_order_details` function joins the `silver_customers` and `silver_orders`
-      dataframes based on the customer ID and selects relevant columns. The `customer_order_summary`
-      function groups the data by customer ID and calculates the total number of orders,
-      total amount, and the first account open date. The `account_summary` function
-      further processes the summary data by selecting specific columns and calculating
-      the account age in days and a flag based on the total amount.
+    description: Combines customer details with order information to create a unified
+      dataset. The pipeline joins the `bronze_orders` and `bronze_customers` dataframes
+      based on the `customer_id` column. It then selects specific columns from the
+      joined dataframe and renames them accordingly. Additionally, it calculates the
+      age of the account based on the `account_open_date`, converts the `full_name`
+      column to uppercase, and assigns an `amount_flag` based on the value of the
+      `AMOUNT` column.
     author: vlaunir@prophecy.io
     mode: batch
     artefactID: ''
     language: python
     createdAt: '2024-07-23 15:17:51'
     datasets:
-      inputs: []
+      inputs:
+      - datasets/bronze_customers
+      - datasets/bronze_orders
       outputs: []
     subgraphs: []
     dependencies: {}
@@ -312,21 +318,8 @@ datasets:
         description: ''
         author: scott+demo2@prophecy.io
         createdAt: '2023-07-13 19:23:27'
-  datasets/raw_sources:
-    name: raw_sources
-    description: ''
-    author: vlaunir@prophecy.io
-    createdAt: '2024-07-23 13:37:52'
-    mode: batch
-    physicalDatasets:
-      Dev:
-        fabricId: 9664
-        datasetType: File
-        description: ''
-        author: vlaunir@prophecy.io
-        createdAt: '2024-07-23 13:37:52'
   datasets/raw_dynamic_table:
-    name: raw_dynamic_table
+    name: bronze_dynamic_table
     description: ''
     author: vlaunir@prophecy.io
     createdAt: '2024-07-23 14:10:21'
@@ -368,13 +361,38 @@ jobs:
       onStart: false
       onSuccess: false
       onFailure: false
+    pipelines:
+    - pipelines/gold_sales
+    jobClusterMode:
+      clusterMode:
+        Multi: {}
+      clusterId: null
+    enabled: true
+    createdAt: '2024-07-25 19:39:44'
+    author: vlaunir@prophecy.io
+    models: []
+  jobs/test:
+    name: test
+    description: ''
+    fabricUID: 9664
+    scheduler:
+      Databricks: {}
+    cloudProvider: null
+    jobSize: Small
+    scheduleCron: None
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
     pipelines: []
     jobClusterMode:
       clusterMode:
         Single: {}
       clusterId: null
-    enabled: true
-    createdAt: '2024-07-25 19:39:44'
+    enabled: null
+    createdAt: '2024-08-02 18:39:32'
     author: vlaunir@prophecy.io
     models: []
 gemContainer:
@@ -410,7 +428,15 @@ functions:
   expressions: {}
   airflowFunctions: {}
   businessRules: {}
-subgraphs: {}
+subgraphs:
+  subgraphs/bronze_customer_zip:
+    name: bronze_customer_zip
+    description: ''
+    author: vlaunir@prophecy.io
+    language: python
+    artefactID: ''
+    mode: batch
+    createdAt: '2024-07-30 15:01:42'
 sqlModels: {}
 sqlSnapshots: {}
 sqlTests: {}
@@ -426,12 +452,19 @@ dependencies:
   version: 8.0.29
   id: '307010185'
   createdAt: '2024-07-23T15:17:53.522779Z'
+  enabled: true
+  entity: Project
 - type: plibPypi
-  modifiedAt: '2024-07-23T15:17:53.522973Z'
-  name: plibPypi
+  modifiedAt: '2024-08-01T18:27:40.116Z'
+  name: ProphecyLibsPython
   version: 1.9.9
   id: '1002289140'
   createdAt: '2024-07-23T15:17:53.522922Z'
+  enabled: true
+  entity: Project
+  description: Default dependency for Prophecy Libs
+  scope: Project
+  editable: true
 - type: pypi
   modifiedAt: '2024-07-23T14:22:24.344Z'
   package: s3fs

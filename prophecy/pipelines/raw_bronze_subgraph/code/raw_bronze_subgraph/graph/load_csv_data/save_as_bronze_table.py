@@ -6,7 +6,7 @@ from prophecy.libs import typed_lit
 from .config import *
 from raw_bronze_subgraph.functions import *
 
-def raw_table(spark: SparkSession, in0: DataFrame):
+def save_as_bronze_table(spark: SparkSession, in0: DataFrame):
     in0.write\
         .format("delta")\
         .mode("overwrite")\

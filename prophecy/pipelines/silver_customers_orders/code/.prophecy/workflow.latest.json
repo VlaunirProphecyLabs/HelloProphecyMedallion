@@ -98,12 +98,6 @@
     "configurationVersion" : "v2"
   },
   "connections" : [ {
-    "id" : "DLcXBPs1ly3XAt2bHXFvy",
-    "source" : "iAqHv5AKY0aAIKZJO0nWn$$aj0zpoItgvgDNsezGdOLH",
-    "sourcePort" : "_qcLKijRPiEy1HM6H4DPF$$GWSCL4WD4JXGFnIlnjl4a",
-    "target" : "oBxlwKa7tUdDEa566DFLp$$lD6YxvGnNi1-e9dq7K-s5",
-    "targetPort" : "5Gdn0MU2wEs5S6dhUZzio$$YQeS5Az9ILcC1-syvWtq_"
-  }, {
     "id" : "92E9XiM34PJN8wYr-IISO",
     "source" : "iAqHv5AKY0aAIKZJO0nWn$$aj0zpoItgvgDNsezGdOLH",
     "sourcePort" : "_qcLKijRPiEy1HM6H4DPF$$GWSCL4WD4JXGFnIlnjl4a",
@@ -127,6 +121,12 @@
     "sourcePort" : "tJD1MA-mvuCVMVP2OQG5J$$RJlJepNTVVjh2L4ZzCRDA",
     "target" : "CsMvWOsysydiGPSw_uAKP$$GFb4BPva5TwHuqlgiaayl",
     "targetPort" : "S29kMTeZgC6VJHYETEo24$$D3Jf3eUeB7pbrt_pGOUze"
+  }, {
+    "id" : "SQNc_10bxKYttZo805WNc",
+    "source" : "iAqHv5AKY0aAIKZJO0nWn$$aj0zpoItgvgDNsezGdOLH",
+    "sourcePort" : "_qcLKijRPiEy1HM6H4DPF$$GWSCL4WD4JXGFnIlnjl4a",
+    "target" : "oBxlwKa7tUdDEa566DFLp$$lD6YxvGnNi1-e9dq7K-s5",
+    "targetPort" : "5Gdn0MU2wEs5S6dhUZzio$$YQeS5Az9ILcC1-syvWtq_"
   } ],
   "processes" : {
     "oBxlwKa7tUdDEa566DFLp$$lD6YxvGnNi1-e9dq7K-s5" : {
@@ -141,7 +141,7 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Saves the input DataFrame as a Delta table partitioned by order date, creating a table named 'silver_orders' in the 'helloworld_silver' database.",
+        "comment" : "Saves order data in a Delta table format, partitioned by order date, in the 'silver_orders' table.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -229,7 +229,7 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Saves customer data as a Delta table in the 'silver_customers' table of the 'helloworld_silver' database.",
+        "comment" : "Saves customer data as a Delta table in the 'silver_customers' table in the 'helloworld_silver' database.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -376,7 +376,7 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Combines customer order information with customer account details, providing a comprehensive view of each customer's orders, including order date, amount, and associated customer information such as account open date, name, zipcode, and account flags.",
+        "comment" : "Combines customer order information with associated customer details, including account information.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -638,7 +638,7 @@
         } ],
         "allIn1" : null,
         "activeTab" : "conditions",
-        "columnsSelector" : [ "-V9LTiJ3vo_cZEjEzkOO-$$SiWOPr8f8UaftRvSMPcYN##customer_id", "Xa6uSrkThDI94MdIFk8Fo$$WQShN3BMV2tWYCWdYwMJI##customer_id", "Xa6uSrkThDI94MdIFk8Fo$$WQShN3BMV2tWYCWdYwMJI##account_flags", "-V9LTiJ3vo_cZEjEzkOO-$$SiWOPr8f8UaftRvSMPcYN##customer_id", "-V9LTiJ3vo_cZEjEzkOO-$$SiWOPr8f8UaftRvSMPcYN##amount", "Xa6uSrkThDI94MdIFk8Fo$$WQShN3BMV2tWYCWdYwMJI##zipcode", "-V9LTiJ3vo_cZEjEzkOO-$$SiWOPr8f8UaftRvSMPcYN##order_date", "Xa6uSrkThDI94MdIFk8Fo$$WQShN3BMV2tWYCWdYwMJI##account_open_date", "Xa6uSrkThDI94MdIFk8Fo$$WQShN3BMV2tWYCWdYwMJI##first_name", "Xa6uSrkThDI94MdIFk8Fo$$WQShN3BMV2tWYCWdYwMJI##last_name", "-V9LTiJ3vo_cZEjEzkOO-$$SiWOPr8f8UaftRvSMPcYN##order_id" ],
+        "columnsSelector" : [ "-V9LTiJ3vo_cZEjEzkOO-$$SiWOPr8f8UaftRvSMPcYN##customer_id", "Xa6uSrkThDI94MdIFk8Fo$$WQShN3BMV2tWYCWdYwMJI##customer_id", "-V9LTiJ3vo_cZEjEzkOO-$$SiWOPr8f8UaftRvSMPcYN##order_id", "-V9LTiJ3vo_cZEjEzkOO-$$SiWOPr8f8UaftRvSMPcYN##customer_id", "Xa6uSrkThDI94MdIFk8Fo$$WQShN3BMV2tWYCWdYwMJI##zipcode", "Xa6uSrkThDI94MdIFk8Fo$$WQShN3BMV2tWYCWdYwMJI##account_open_date", "-V9LTiJ3vo_cZEjEzkOO-$$SiWOPr8f8UaftRvSMPcYN##order_date", "Xa6uSrkThDI94MdIFk8Fo$$WQShN3BMV2tWYCWdYwMJI##account_flags", "-V9LTiJ3vo_cZEjEzkOO-$$SiWOPr8f8UaftRvSMPcYN##amount", "Xa6uSrkThDI94MdIFk8Fo$$WQShN3BMV2tWYCWdYwMJI##last_name", "Xa6uSrkThDI94MdIFk8Fo$$WQShN3BMV2tWYCWdYwMJI##first_name" ],
         "allIn0" : null,
         "whereClause" : null,
         "headAlias" : "in0"
@@ -659,7 +659,9 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Processes IRS zipcode data to filter out invalid zip codes, cast data types, and aggregate income brackets by zipcode. It calculates the percentage of high-income returns and flags zip codes with a high-income percentage above 10%. The pipeline then adds a sequence column to the data and joins it with customer data to produce a final dataset containing customer details along with their zip codes and income information.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ ],
@@ -674,56 +676,1120 @@
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
       },
-      "properties" : { },
+      "properties" : {
+        "packageName" : "bronze_customer_zip",
+        "externalId" : "subgraphs/bronze_customer_zip",
+        "name" : "bronze_customer_zip"
+      },
       "connections" : [ {
-        "id" : "Fx5UGlBcCTC7OVkOmKZig",
+        "id" : "FJvNdjyex_w3LipRelPdT",
         "source" : "VWUwGko6F7vMcpX98sb2l$$gEX_35yrW23OCjk5YxdnL",
         "sourcePort" : "3lwU77jRryHpSJNGud-y5$$3uKGxbgoaqp0xwy_dIIjf",
         "target" : "66hHVHS6suhuDBvfHB_pA$$6zalEjWO8fcNZsvkIausf",
         "targetPort" : "SvkUOvuu5mwv1-EU6AjJF$$SQEos_R9ltXXIGnzuAtXR"
       }, {
-        "id" : "DfAgZ1TpfuN4TTFsZzypM",
-        "source" : "8-djnb2TnFNGPH5OTK9MU$$a4rxySjwdg4GCYrZYUARj",
-        "sourcePort" : "-1W4vmwjz8xqB9_Es9dpP$$-D9YBKYIufGT1kY56eX-r",
-        "target" : "ifa-VQeSluJIDcusCI91e$$qVahwjgQBQrJdIyRcscLD",
-        "targetPort" : "NNNscUGvfcUZqhk32n_R3$$t_eV60mSYGk157scL-8a-"
-      }, {
-        "id" : "KPyZduwwriMMan7_fdtZ5",
+        "id" : "qFas3S-zuChOb5GfM3Msb",
         "source" : "ifa-VQeSluJIDcusCI91e$$qVahwjgQBQrJdIyRcscLD",
         "sourcePort" : "lSjef6EN4HLRIL4lNBdzn$$9zsSuAybBtylecSUNZ2GL",
         "target" : "66hHVHS6suhuDBvfHB_pA$$6zalEjWO8fcNZsvkIausf",
         "targetPort" : "pB1paOPEQlH8f7b80fdgZ$$IrCuXHWtsLm0XB_ODsXKs"
       }, {
-        "id" : "zPUiZ5Y8T4uGBalfq7Vky",
+        "id" : "OyMgXQPh8hh7fklLN5hgD",
         "source" : "66hHVHS6suhuDBvfHB_pA$$6zalEjWO8fcNZsvkIausf",
         "sourcePort" : "Eic_QDKJPD5_6CFoUq8Hi$$oXmZSycsCDkO0Kbw5TFL3",
         "target" : "BIPxxeFtP8pZd_gKAoiD7$$nrm0pCyBMmsXBc_Jer7f9",
         "targetPort" : "W9Wi8ROZ6nyMJ7qvEZPET$$RAbvz-NXqoEze0Ltt9cFd"
       }, {
-        "id" : "QpiJzKmITu9DDqwdrM9gS",
+        "id" : "AwLpTNhR7voMKa5G8BedO",
         "source" : "66hHVHS6suhuDBvfHB_pA$$6zalEjWO8fcNZsvkIausf",
         "sourcePort" : "Eic_QDKJPD5_6CFoUq8Hi$$oXmZSycsCDkO0Kbw5TFL3",
         "target" : "BIPxxeFtP8pZd_gKAoiD7$$nrm0pCyBMmsXBc_Jer7f9",
         "targetPort" : "tJD1MA-mvuCVMVP2OQG5J$$RJlJepNTVVjh2L4ZzCRDA"
+      }, {
+        "id" : "s1FdtoY_E4XuXgFVCe9rr",
+        "source" : "MlGUciB-NNjkmW6fnW3o0$$MpiM2uV2xiWiioAeepyg8",
+        "sourcePort" : "p2u_8ksUmn_V48Is3PWgi$$y8XXGa5fdoZKUFGp3eusE",
+        "target" : "JNkdCrGeHr8JtsjpUg509$$A7bBu-JDFstukoCqpZdel",
+        "targetPort" : "R2giU4AGkGpdW5EQLbeoS$$rAj5JWDikKthn-cw9s7ha"
+      }, {
+        "id" : "6i8jTkx2sc9a6giMTbNV9",
+        "source" : "BHVVSZ1b8BPHaiVNQMCva$$KLMUhDfxU9fdvhHYU5jLa",
+        "sourcePort" : "FIYeA33C0kXeCECw5U6p5$$zL2wRdVhEb8JvcwhNjnqn",
+        "target" : "q0ZZUtcXM1GJIxgGmB1eO$$7ZG_Kua6lZVP1uYC61-oq",
+        "targetPort" : "TeKJLAwPFbuiSQwj-sVy1$$pTBNYVDtl-ObXoB8qWuHX"
+      }, {
+        "id" : "OOf5JuJZLI54I86bbZipk",
+        "source" : "q0ZZUtcXM1GJIxgGmB1eO$$7ZG_Kua6lZVP1uYC61-oq",
+        "sourcePort" : "K8AasovZmB4pvb5lMzT_E$$niYJKxVrk8-odhnQY8bJe",
+        "target" : "5KnOnI5WyWVeHisy54PqO$$PG85yK7xFyLTZmLY0AN4j",
+        "targetPort" : "k88d4iU0U285ABAmjtuZ-$$8GxJicwn5EI6Rh1DIDvDF"
+      }, {
+        "id" : "4mmwFgYz9zEO6M97gVFUp",
+        "source" : "JNkdCrGeHr8JtsjpUg509$$A7bBu-JDFstukoCqpZdel",
+        "sourcePort" : "dv8ProH1rMirXlDypbgXE$$R-narKvmUQeGejJDtTxYS",
+        "target" : "BHVVSZ1b8BPHaiVNQMCva$$KLMUhDfxU9fdvhHYU5jLa",
+        "targetPort" : "Zhy6klR-F47eT38OJiKxO$$Pj7MT1YtMPqp4pHoBskYu"
+      }, {
+        "id" : "6tBoYbKpNEvZatrEgkB_w",
+        "source" : "5KnOnI5WyWVeHisy54PqO$$PG85yK7xFyLTZmLY0AN4j",
+        "sourcePort" : "TBgRhcnNSegqRy6XmZT4d$$UCgOCxEm8iu9j4_TxGYGQ",
+        "target" : "ifa-VQeSluJIDcusCI91e$$qVahwjgQBQrJdIyRcscLD",
+        "targetPort" : "NNNscUGvfcUZqhk32n_R3$$t_eV60mSYGk157scL-8a-"
       } ],
       "processes" : {
-        "VWUwGko6F7vMcpX98sb2l$$gEX_35yrW23OCjk5YxdnL" : {
-          "id" : "VWUwGko6F7vMcpX98sb2l$$gEX_35yrW23OCjk5YxdnL",
-          "component" : "Source",
+        "BHVVSZ1b8BPHaiVNQMCva$$KLMUhDfxU9fdvhHYU5jLa" : {
+          "id" : "BHVVSZ1b8BPHaiVNQMCva$$KLMUhDfxU9fdvhHYU5jLa",
+          "component" : "Reformat",
           "metadata" : {
-            "label" : "bronze_customers_1",
-            "slug" : "bronze_customers_1",
-            "x" : 220,
+            "label" : "CastDataTypes",
+            "slug" : "CastDataTypes",
+            "x" : 420,
             "y" : 220,
             "phase" : 0,
             "cache" : false,
             "detailedStats" : false,
-            "isImported" : false
+            "isImported" : false,
+            "comment" : "Casts data types of selected columns in the input DataFrame, converting the 'agi_stub' and 'N1' columns to integers and renaming the 'STATE' column to 'state'.",
+            "autoUpdateComment" : true
           },
           "ports" : {
-            "inputs" : [ ],
+            "inputs" : [ {
+              "id" : "Zhy6klR-F47eT38OJiKxO$$Pj7MT1YtMPqp4pHoBskYu",
+              "slug" : "in0",
+              "schema" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "STATEFIPS",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The FIPS code representing the state",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "STATE",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The name of the state",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "zipcode",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The ZIP code",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "agi_stub",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The adjusted gross income (AGI) bracket",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N1",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The number of returns",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "MARS1",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with filing status 1 (Single)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "MARS2",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with filing status 2 (Married filing jointly)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "MARS4",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with filing status 4 (Head of household)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "PREP",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with paid preparer's signature",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N2",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of exemptions",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "NUMDEP",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of dependents",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A00100",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Adjusted Gross Income (AGI)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N02650",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with total income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A02650",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total income amount",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N00200",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with salaries and wages",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A00200",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable interest income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N00300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with ordinary dividends",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A00300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of ordinary dividends",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N00600",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with business or professional net income (less loss)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A00600",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of business or professional net income (less loss)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N00650",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax (AMT) taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A00650",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Alternative minimum tax (AMT) taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N00700",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable interest",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A00700",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Taxable interest amount",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N00900",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with ordinary dividends",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A00900",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of itemized deductions",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N01000",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A01000",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N01400",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with total tax liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A01400",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of total tax liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N01700",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A01700",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "SCHF",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with self-employment income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N02300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with unemployment compensation",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A02300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of unemployment compensation",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N02500",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable interest",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A02500",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable interest",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N26270",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A26270",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N02900",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A02900",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of itemized deductions",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N03220",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A03220",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N03300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax (AMT)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A03300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of alternative minimum tax (AMT)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N03270",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with Alternative Minimum Tax (AMT)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A03270",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of Alternative Minimum Tax (AMT)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N03150",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A03150",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N03210",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with self-employment retirement plans",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A03210",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of income from pensions and annuities",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N03230",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A03230",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N03240",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A03240",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N04470",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A04470",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A00101",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of interest income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N18425",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with total income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A18425",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of total income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N18450",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A18450",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N18500",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax (AMT) income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A18500",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of alternative minimum tax (AMT) income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N18300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with net investment income tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A18300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable interest income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N19300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with qualified dividends",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A19300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of qualified dividends",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N19700",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A19700",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N04800",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A04800",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N05800",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with total tax liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A05800",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of total tax liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N09600",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with alternative minimum tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A09600",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable income before adjustments",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N07100",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with taxable interest income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A07100",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable interest income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N07300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with qualified dividends",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A07300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of qualified dividends",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N07180",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A07180",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N07230",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A07230",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N07240",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with alternative minimum tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A07240",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Adjusted gross income amount for itemized deductions",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N07220",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A07220",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Taxable Social Security benefits amount",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N07260",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax (AMT)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A07260",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Alternative minimum tax (AMT) amount",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N09400",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A09400",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N10600",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with total tax liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A10600",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of total tax liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N59660",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A59660",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Adjusted gross income for itemized deductions",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N59720",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A59720",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Taxable income amount",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N11070",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A11070",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Alternative minimum tax amount",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N10960",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax (AMT) taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A10960",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of alternative minimum tax (AMT) taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N06500",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with total tax liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A06500",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of total tax liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N10300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable pensions and annuities",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A10300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable interest income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N85330",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax (AMT) income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A85330",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of alternative minimum tax (AMT) income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N85300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax (AMT) liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A85300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of alternative minimum tax (AMT) liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N11901",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with unemployment compensation",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A11901",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of unemployment compensation",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N11902",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A11902",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "isStreaming" : false
+            } ],
             "outputs" : [ {
-              "id" : "3lwU77jRryHpSJNGud-y5$$3uKGxbgoaqp0xwy_dIIjf",
+              "id" : "FIYeA33C0kXeCECw5U6p5$$zL2wRdVhEb8JvcwhNjnqn",
               "slug" : "out"
             } ],
             "selectedInputFields" : [ ],
@@ -731,7 +1797,43 @@
             "autoUpdateOnRun" : false
           },
           "properties" : {
-            "datasetId" : "datasets/bronze_customers"
+            "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+            "expressions" : [ {
+              "target" : "zipcode",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "zipcode"
+              },
+              "description" : ""
+            }, {
+              "target" : "income_bracket",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "cast(agi_stub as int)"
+              },
+              "description" : ""
+            }, {
+              "target" : "num_returns",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "cast(N1 as int)"
+              },
+              "description" : ""
+            }, {
+              "target" : "state",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "STATE"
+              },
+              "description" : ""
+            } ],
+            "importString" : "",
+            "activeTab" : "expressions",
+            "columnsSelector" : [ "Zhy6klR-F47eT38OJiKxO$$Pj7MT1YtMPqp4pHoBskYu##zipcode", "Zhy6klR-F47eT38OJiKxO$$Pj7MT1YtMPqp4pHoBskYu##N1", "Zhy6klR-F47eT38OJiKxO$$Pj7MT1YtMPqp4pHoBskYu##agi_stub", "Zhy6klR-F47eT38OJiKxO$$Pj7MT1YtMPqp4pHoBskYu##STATE" ]
+          },
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Reformat",
+            "projectName" : "ProphecySparkBasicsPython"
           }
         },
         "66hHVHS6suhuDBvfHB_pA$$6zalEjWO8fcNZsvkIausf" : {
@@ -740,8 +1842,8 @@
           "metadata" : {
             "label" : "CustomerZipCodes_1",
             "slug" : "CustomerZipCodes_1",
-            "x" : 420,
-            "y" : 320,
+            "x" : 1220,
+            "y" : 120,
             "phase" : 0,
             "cache" : false,
             "detailedStats" : false,
@@ -1015,19 +2117,19 @@
               "_row_id" : null
             } ],
             "hints" : [ {
-              "id" : "SvkUOvuu5mwv1-EU6AjJF$$SQEos_R9ltXXIGnzuAtXR",
+              "id" : "SvkUOvuu5mwv1-EU6AjJF$$V1g7UhbxqQA77hfxXpSvi$$SQEos_R9ltXXIGnzuAtXR",
               "alias" : "in0",
               "hintType" : "none",
               "propagateColumns" : false
             }, {
-              "id" : "pB1paOPEQlH8f7b80fdgZ$$IrCuXHWtsLm0XB_ODsXKs",
+              "id" : "pB1paOPEQlH8f7b80fdgZ$$jD5zqNKMrZ5tN4rJNDbl3$$IrCuXHWtsLm0XB_ODsXKs",
               "alias" : "in1",
               "hintType" : "none",
               "propagateColumns" : false
             } ],
             "allIn1" : null,
             "activeTab" : "conditions",
-            "columnsSelector" : [ "pB1paOPEQlH8f7b80fdgZ$$IrCuXHWtsLm0XB_ODsXKs##customer_id", "SvkUOvuu5mwv1-EU6AjJF$$SQEos_R9ltXXIGnzuAtXR##customer_id", "SvkUOvuu5mwv1-EU6AjJF$$SQEos_R9ltXXIGnzuAtXR##account_open_date", "SvkUOvuu5mwv1-EU6AjJF$$SQEos_R9ltXXIGnzuAtXR##first_name", "pB1paOPEQlH8f7b80fdgZ$$IrCuXHWtsLm0XB_ODsXKs##zipcode", "SvkUOvuu5mwv1-EU6AjJF$$SQEos_R9ltXXIGnzuAtXR##account_flags", "SvkUOvuu5mwv1-EU6AjJF$$SQEos_R9ltXXIGnzuAtXR##email", "SvkUOvuu5mwv1-EU6AjJF$$SQEos_R9ltXXIGnzuAtXR##phone", "SvkUOvuu5mwv1-EU6AjJF$$SQEos_R9ltXXIGnzuAtXR##customer_id", "SvkUOvuu5mwv1-EU6AjJF$$SQEos_R9ltXXIGnzuAtXR##last_name" ],
+            "columnsSelector" : [ "pB1paOPEQlH8f7b80fdgZ$$jD5zqNKMrZ5tN4rJNDbl3$$IrCuXHWtsLm0XB_ODsXKs##customer_id", "SvkUOvuu5mwv1-EU6AjJF$$V1g7UhbxqQA77hfxXpSvi$$SQEos_R9ltXXIGnzuAtXR##customer_id", "SvkUOvuu5mwv1-EU6AjJF$$V1g7UhbxqQA77hfxXpSvi$$SQEos_R9ltXXIGnzuAtXR##account_open_date", "SvkUOvuu5mwv1-EU6AjJF$$V1g7UhbxqQA77hfxXpSvi$$SQEos_R9ltXXIGnzuAtXR##first_name", "pB1paOPEQlH8f7b80fdgZ$$jD5zqNKMrZ5tN4rJNDbl3$$IrCuXHWtsLm0XB_ODsXKs##zipcode", "SvkUOvuu5mwv1-EU6AjJF$$V1g7UhbxqQA77hfxXpSvi$$SQEos_R9ltXXIGnzuAtXR##account_flags", "SvkUOvuu5mwv1-EU6AjJF$$V1g7UhbxqQA77hfxXpSvi$$SQEos_R9ltXXIGnzuAtXR##email", "SvkUOvuu5mwv1-EU6AjJF$$V1g7UhbxqQA77hfxXpSvi$$SQEos_R9ltXXIGnzuAtXR##phone", "SvkUOvuu5mwv1-EU6AjJF$$V1g7UhbxqQA77hfxXpSvi$$SQEos_R9ltXXIGnzuAtXR##customer_id", "SvkUOvuu5mwv1-EU6AjJF$$V1g7UhbxqQA77hfxXpSvi$$SQEos_R9ltXXIGnzuAtXR##last_name" ],
             "allIn0" : null,
             "whereClause" : null,
             "headAlias" : "in0"
@@ -1037,25 +2139,25 @@
             "projectName" : "ProphecySparkBasicsPython"
           }
         },
-        "8-djnb2TnFNGPH5OTK9MU$$a4rxySjwdg4GCYrZYUARj" : {
-          "id" : "8-djnb2TnFNGPH5OTK9MU$$a4rxySjwdg4GCYrZYUARj",
+        "MlGUciB-NNjkmW6fnW3o0$$MpiM2uV2xiWiioAeepyg8" : {
+          "id" : "MlGUciB-NNjkmW6fnW3o0$$MpiM2uV2xiWiioAeepyg8",
           "component" : "Source",
           "metadata" : {
-            "label" : "silver_irs_zipcode_1",
-            "slug" : "silver_irs_zipcode_1",
+            "label" : "bronze_irs_zipcode",
+            "slug" : "bronze_irs_zipcode",
             "x" : 20,
-            "y" : 420,
+            "y" : 220,
             "phase" : 0,
             "cache" : false,
             "detailedStats" : false,
             "isImported" : false,
-            "comment" : "Reads the 'silver_irs_zipcode' table from the 'helloworld_silver' catalog.",
+            "comment" : "Reads the 'bronze_irs_zipcode' table from the 'helloworld_bronze' catalog.",
             "autoUpdateComment" : true
           },
           "ports" : {
             "inputs" : [ ],
             "outputs" : [ {
-              "id" : "-1W4vmwjz8xqB9_Es9dpP$$-D9YBKYIufGT1kY56eX-r",
+              "id" : "p2u_8ksUmn_V48Is3PWgi$$y8XXGa5fdoZKUFGp3eusE",
               "slug" : "out"
             } ],
             "selectedInputFields" : [ ],
@@ -1063,7 +2165,1336 @@
             "autoUpdateOnRun" : false
           },
           "properties" : {
-            "datasetId" : "datasets/silver_irs_zipcode"
+            "datasetId" : "datasets/bronze_irs_zipcode"
+          }
+        },
+        "q0ZZUtcXM1GJIxgGmB1eO$$7ZG_Kua6lZVP1uYC61-oq" : {
+          "id" : "q0ZZUtcXM1GJIxgGmB1eO$$7ZG_Kua6lZVP1uYC61-oq",
+          "component" : "Aggregate",
+          "metadata" : {
+            "label" : "SumIncomeBracketsByZip",
+            "slug" : "SumIncomeBracketsByZip",
+            "x" : 620,
+            "y" : 220,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false
+          },
+          "ports" : {
+            "inputs" : [ {
+              "id" : "TeKJLAwPFbuiSQwj-sVy1$$pTBNYVDtl-ObXoB8qWuHX",
+              "slug" : "in0",
+              "schema" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "zipcode",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The ZIP code",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "income_bracket",
+                  "type" : "integer",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "num_returns",
+                  "type" : "integer",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "state",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The name of the state",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "isStreaming" : false
+            } ],
+            "outputs" : [ {
+              "id" : "K8AasovZmB4pvb5lMzT_E$$niYJKxVrk8-odhnQY8bJe",
+              "slug" : "out"
+            } ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false,
+            "autoUpdateOnRun" : false
+          },
+          "properties" : {
+            "allIns" : false,
+            "doPivot" : false,
+            "aggregate" : [ {
+              "target" : "high_income_returns",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "sum(if(income_bracket = 6, num_returns, 0))"
+              },
+              "description" : "",
+              "_row_id" : null
+            }, {
+              "target" : "low_income_returns",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "sum(if(income_bracket < 6, num_returns, 0))"
+              },
+              "description" : "",
+              "_row_id" : ""
+            }, {
+              "target" : "all_returns",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "sum(num_returns)"
+              },
+              "description" : "",
+              "_row_id" : ""
+            }, {
+              "target" : "state",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "first(state)"
+              },
+              "description" : "",
+              "_row_id" : null
+            } ],
+            "allowSelection" : true,
+            "pivotColumn" : null,
+            "pivotValues" : [ ],
+            "activeTab" : "groupBy",
+            "columnsSelector" : [ "TeKJLAwPFbuiSQwj-sVy1$$pTBNYVDtl-ObXoB8qWuHX##state", "TeKJLAwPFbuiSQwj-sVy1$$pTBNYVDtl-ObXoB8qWuHX##zipcode", "TeKJLAwPFbuiSQwj-sVy1$$pTBNYVDtl-ObXoB8qWuHX##num_returns" ],
+            "groupBy" : [ {
+              "target" : "zipcode",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "zipcode"
+              },
+              "description" : "",
+              "_row_id" : null
+            } ]
+          },
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+            "projectName" : "ProphecySparkBasicsPython"
+          }
+        },
+        "JNkdCrGeHr8JtsjpUg509$$A7bBu-JDFstukoCqpZdel" : {
+          "id" : "JNkdCrGeHr8JtsjpUg509$$A7bBu-JDFstukoCqpZdel",
+          "component" : "Filter",
+          "metadata" : {
+            "label" : "IgnoreBadZip",
+            "slug" : "IgnoreBadZip",
+            "x" : 220,
+            "y" : 220,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false
+          },
+          "ports" : {
+            "inputs" : [ {
+              "id" : "R2giU4AGkGpdW5EQLbeoS$$rAj5JWDikKthn-cw9s7ha",
+              "slug" : "in0",
+              "schema" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "STATEFIPS",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The FIPS code representing the state",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "STATE",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The name of the state",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "zipcode",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The ZIP code",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "agi_stub",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The adjusted gross income (AGI) bracket",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N1",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The number of returns",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "MARS1",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with filing status 1 (Single)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "MARS2",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with filing status 2 (Married filing jointly)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "MARS4",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with filing status 4 (Head of household)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "PREP",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with paid preparer's signature",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N2",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of exemptions",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "NUMDEP",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of dependents",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A00100",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Adjusted Gross Income (AGI)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N02650",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with total income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A02650",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total income amount",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N00200",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with salaries and wages",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A00200",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable interest income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N00300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with ordinary dividends",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A00300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of ordinary dividends",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N00600",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with business or professional net income (less loss)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A00600",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of business or professional net income (less loss)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N00650",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax (AMT) taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A00650",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Alternative minimum tax (AMT) taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N00700",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable interest",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A00700",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Taxable interest amount",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N00900",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with ordinary dividends",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A00900",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of itemized deductions",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N01000",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A01000",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N01400",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with total tax liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A01400",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of total tax liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N01700",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A01700",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "SCHF",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with self-employment income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N02300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with unemployment compensation",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A02300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of unemployment compensation",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N02500",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable interest",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A02500",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable interest",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N26270",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A26270",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N02900",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A02900",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of itemized deductions",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N03220",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A03220",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N03300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax (AMT)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A03300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of alternative minimum tax (AMT)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N03270",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with Alternative Minimum Tax (AMT)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A03270",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of Alternative Minimum Tax (AMT)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N03150",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A03150",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N03210",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with self-employment retirement plans",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A03210",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of income from pensions and annuities",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N03230",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A03230",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N03240",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A03240",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N04470",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A04470",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A00101",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of interest income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N18425",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with total income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A18425",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of total income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N18450",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A18450",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N18500",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax (AMT) income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A18500",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of alternative minimum tax (AMT) income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N18300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with net investment income tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A18300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable interest income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N19300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with qualified dividends",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A19300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of qualified dividends",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N19700",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A19700",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N04800",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A04800",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N05800",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with total tax liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A05800",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of total tax liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N09600",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with alternative minimum tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A09600",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable income before adjustments",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N07100",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with taxable interest income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A07100",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable interest income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N07300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with qualified dividends",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A07300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of qualified dividends",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N07180",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A07180",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N07230",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A07230",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of self-employment tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N07240",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of tax returns with alternative minimum tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A07240",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Adjusted gross income amount for itemized deductions",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N07220",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A07220",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Taxable Social Security benefits amount",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N07260",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax (AMT)",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A07260",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Alternative minimum tax (AMT) amount",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N09400",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A09400",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N10600",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with total tax liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A10600",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of total tax liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N59660",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A59660",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Adjusted gross income for itemized deductions",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N59720",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A59720",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Taxable income amount",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N11070",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A11070",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Alternative minimum tax amount",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N10960",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax (AMT) taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A10960",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of alternative minimum tax (AMT) taxable income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N06500",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with total tax liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A06500",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of total tax liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N10300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable pensions and annuities",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A10300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable interest income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N85330",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax (AMT) income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A85330",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of alternative minimum tax (AMT) income",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N85300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with alternative minimum tax (AMT) liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A85300",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of alternative minimum tax (AMT) liability",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N11901",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with unemployment compensation",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A11901",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of unemployment compensation",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "N11902",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Number of returns with taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "A11902",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of taxable Social Security benefits",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "isStreaming" : false
+            } ],
+            "outputs" : [ {
+              "id" : "dv8ProH1rMirXlDypbgXE$$R-narKvmUQeGejJDtTxYS",
+              "slug" : "out"
+            } ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false,
+            "autoUpdateOnRun" : false
+          },
+          "properties" : {
+            "columnsSelector" : [ "R2giU4AGkGpdW5EQLbeoS$$rAj5JWDikKthn-cw9s7ha##zipcode" ],
+            "condition" : {
+              "format" : "sql",
+              "expression" : "zipcode != '00000' and zipcode != '99999' and zipcode is not null"
+            }
+          },
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Filter",
+            "projectName" : "ProphecySparkBasicsPython"
+          }
+        },
+        "5KnOnI5WyWVeHisy54PqO$$PG85yK7xFyLTZmLY0AN4j" : {
+          "id" : "5KnOnI5WyWVeHisy54PqO$$PG85yK7xFyLTZmLY0AN4j",
+          "component" : "Reformat",
+          "metadata" : {
+            "label" : "CalcIsHighIncome",
+            "slug" : "CalcIsHighIncome",
+            "x" : 820,
+            "y" : 220,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false
+          },
+          "ports" : {
+            "inputs" : [ {
+              "id" : "k88d4iU0U285ABAmjtuZ-$$8GxJicwn5EI6Rh1DIDvDF",
+              "slug" : "in0",
+              "schema" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "zipcode",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The ZIP code",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "high_income_returns",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "low_income_returns",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "all_returns",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "state",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "isStreaming" : false
+            } ],
+            "outputs" : [ {
+              "id" : "TBgRhcnNSegqRy6XmZT4d$$UCgOCxEm8iu9j4_TxGYGQ",
+              "slug" : "out"
+            } ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false,
+            "autoUpdateOnRun" : false
+          },
+          "properties" : {
+            "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+            "expressions" : [ {
+              "target" : "zipcode",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "zipcode"
+              },
+              "description" : ""
+            }, {
+              "target" : "state",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "state"
+              },
+              "description" : ""
+            }, {
+              "target" : "high_income_percent",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "100 * high_income_returns / all_returns"
+              },
+              "description" : ""
+            }, {
+              "target" : "high_income_returns",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "high_income_returns"
+              },
+              "description" : ""
+            }, {
+              "target" : "low_income_returns",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "low_income_returns"
+              },
+              "description" : ""
+            }, {
+              "target" : "all_returns",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "all_returns"
+              },
+              "description" : ""
+            }, {
+              "target" : "is_high_income",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "(high_income_returns / all_returns) > 0.1"
+              },
+              "description" : ""
+            } ],
+            "importString" : "",
+            "activeTab" : "expressions",
+            "columnsSelector" : [ "k88d4iU0U285ABAmjtuZ-$$8GxJicwn5EI6Rh1DIDvDF##state", "k88d4iU0U285ABAmjtuZ-$$8GxJicwn5EI6Rh1DIDvDF##high_income_returns", "k88d4iU0U285ABAmjtuZ-$$8GxJicwn5EI6Rh1DIDvDF##zipcode", "k88d4iU0U285ABAmjtuZ-$$8GxJicwn5EI6Rh1DIDvDF##all_returns", "k88d4iU0U285ABAmjtuZ-$$8GxJicwn5EI6Rh1DIDvDF##low_income_returns" ]
+          },
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Reformat",
+            "projectName" : "ProphecySparkBasicsPython"
           }
         },
         "ifa-VQeSluJIDcusCI91e$$qVahwjgQBQrJdIyRcscLD" : {
@@ -1072,8 +3503,8 @@
           "metadata" : {
             "label" : "add_sequence_column_1",
             "slug" : "add_sequence_column_1",
-            "x" : 220,
-            "y" : 420,
+            "x" : 1020,
+            "y" : 220,
             "phase" : 0,
             "cache" : false,
             "detailedStats" : false,
@@ -1263,6 +3694,33 @@
             "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
             "projectName" : "ProphecySparkBasicsPython"
           }
+        },
+        "VWUwGko6F7vMcpX98sb2l$$gEX_35yrW23OCjk5YxdnL" : {
+          "id" : "VWUwGko6F7vMcpX98sb2l$$gEX_35yrW23OCjk5YxdnL",
+          "component" : "Source",
+          "metadata" : {
+            "label" : "bronze_customers_1",
+            "slug" : "bronze_customers_1",
+            "x" : 1020,
+            "y" : 20,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false
+          },
+          "ports" : {
+            "inputs" : [ ],
+            "outputs" : [ {
+              "id" : "3lwU77jRryHpSJNGud-y5$$3uKGxbgoaqp0xwy_dIIjf",
+              "slug" : "out"
+            } ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false,
+            "autoUpdateOnRun" : false
+          },
+          "properties" : {
+            "datasetId" : "datasets/bronze_customers"
+          }
         }
       }
     },
@@ -1278,7 +3736,7 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Saves customer details for silver orders into a table named 'silver_order_customer_details' in a Delta format.",
+        "comment" : "Saves customer details for silver orders to a Delta table named 'silver_order_customer_details'.",
         "autoUpdateComment" : true
       },
       "ports" : {

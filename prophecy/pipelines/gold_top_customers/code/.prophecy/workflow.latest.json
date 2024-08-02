@@ -14,7 +14,7 @@
     "id" : "1",
     "uri" : "pipelines/gold_top_customers",
     "language" : "python",
-    "fabricId" : "6834",
+    "fabricId" : "9664",
     "frontEndLanguage" : "sql",
     "mode" : "batch",
     "udfs" : {
@@ -30,7 +30,16 @@
     "configuration" : {
       "common" : {
         "type" : "record",
-        "fields" : [ ]
+        "fields" : [ {
+          "name" : "catalog_name",
+          "kind" : {
+            "type" : "string",
+            "value" : "vlaunir_demos"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        } ]
       },
       "oldCommon" : {
         "type" : "record",
@@ -98,7 +107,9 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Saves the top 50 customers with the highest spending as a Delta table in the 'helloworld_gold' database.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {
@@ -230,7 +241,9 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Reads the table 'gold_total_sales_by_customer' from the 'helloworld_gold' catalog and returns the data.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ ],

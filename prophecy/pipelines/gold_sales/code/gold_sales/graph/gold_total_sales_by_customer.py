@@ -10,7 +10,9 @@ def gold_total_sales_by_customer(spark: SparkSession, in0: DataFrame):
     from pyspark.sql.utils import AnalysisException
 
     try:
-        desc_table = spark.sql("describe formatted `scottdemo`.`gold_total_sales_by_customer`")
+        desc_table = spark.sql(
+            "describe formatted {}".format(f"`{Config.catalog_name}`.`helloworld_gold`.`gold_total_sales_by_customer`")
+        )
         table_exists = True
     except AnalysisException as e:
         table_exists = False
@@ -18,11 +20,14 @@ def gold_total_sales_by_customer(spark: SparkSession, in0: DataFrame):
     if table_exists:
         from delta.tables import DeltaTable, DeltaMergeBuilder
         DeltaTable\
-            .forName(spark, "`scottdemo`.`gold_total_sales_by_customer`")\
+            .forName(spark, f"`{Config.catalog_name}`.`helloworld_gold`.`gold_total_sales_by_customer`")\
             .alias("target")\
             .merge(in0.alias("source"), (col("source.customer_id") == col("target.customer_id")))\
             .whenMatchedUpdateAll()\
             .whenNotMatchedInsertAll()\
             .execute()
     else:
-        in0.write.format("delta").mode("overwrite").saveAsTable("`scottdemo`.`gold_total_sales_by_customer`")
+        in0.write\
+            .format("delta")\
+            .mode("overwrite")\
+            .saveAsTable(f"`{Config.catalog_name}`.`helloworld_gold`.`gold_total_sales_by_customer`")

@@ -17,7 +17,7 @@ class load_csv_data(MetaGemExec):
         Config.update(subgraph_config)
         df_read_dynamic_source = read_dynamic_source(spark)
         df_add_updated_at_column = add_updated_at_column(spark, df_read_dynamic_source)
-        raw_table(spark, df_add_updated_at_column)
+        save_as_bronze_table(spark, df_add_updated_at_column)
         subgraph_config.update(Config)
 
     def apply(self, spark: SparkSession, in0: DataFrame, ) -> None:
