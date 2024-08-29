@@ -7,7 +7,7 @@
     "codeGenConfiguration" : {
       "editableConfig" : false,
       "plibVersion" : {
-        "mavenVersion" : "8.0.29",
+        "mavenVersion" : "8.0.31",
         "pyPiVersion" : "1.9.9"
       }
     },
@@ -95,24 +95,6 @@
     "configurationVersion" : "v2"
   },
   "connections" : [ {
-    "id" : "wRpYbPu5",
-    "source" : "k9D39na2",
-    "sourcePort" : "UtTlFO7v",
-    "target" : "XVKuYMJb",
-    "targetPort" : "TINCuSUq"
-  }, {
-    "id" : "hHQnGOsu",
-    "source" : "XVKuYMJb",
-    "sourcePort" : "JJ16pxav",
-    "target" : "CfVogM8E",
-    "targetPort" : "bdNXuGKz"
-  }, {
-    "id" : "ETpj6gE6",
-    "source" : "CUJmg8TC4ow2LTpkD4xTa$$_i5qUVFTMza3uMVRSyEls",
-    "sourcePort" : "WRBU6jOW2-28Bu_9zVFew$$scVkcloeH0qrUHtfeM_Yz",
-    "target" : "k9D39na2",
-    "targetPort" : "ALAlcw0H"
-  }, {
     "id" : "EUWSMCykGr0vL9vo9zZuQ",
     "source" : "rxaIaQR5qtYVLzRCX6G2p$$4RQ1lPzoJ4iTYxjh4cFqW",
     "sourcePort" : "0IXqpqy1nhHR5pL5duLgX$$jSWzscyIu532qFaZj_pD4",
@@ -151,11 +133,13 @@
         "label" : "total_by_zip_and_date",
         "slug" : "total_by_zip_and_date",
         "x" : 420,
-        "y" : 220,
+        "y" : 20,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Deduplicates the input DataFrame based on the columns \"order_id\", \"zipcode\", \"order_date\", and \"amount\". Then, calculates the total amount, average amount, and order count for each unique combination of \"zipcode\" and \"order_date\". Finally, sorts the DataFrame by \"order_date\" in ascending order and \"zipcode\" in ascending order.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {
@@ -164,15 +148,6 @@
           "schema" : {
             "type" : "struct",
             "fields" : [ {
-              "name" : "account_age_at_order_date",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
               "name" : "order_id",
               "type" : "integer",
               "nullable" : true,
@@ -191,11 +166,20 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "amount",
-              "type" : "float",
+              "name" : "order_status",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Order status",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_category",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Order category",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -209,11 +193,77 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "zipcode",
+              "name" : "amount",
+              "type" : "float",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The ZIP code",
+                "description" : "Customer first name",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer last name",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer phone number",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer Email",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer country code",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -223,6 +273,276 @@
               "nullable" : true,
               "metadata" : {
                 "description" : "Customer account flags",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_owner",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The person who owns the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone_number",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The contact phone number associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_address",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Physical address for billing purposes",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_postal_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state associated with the billing address of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Email address associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The type or category of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "industry",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The industry to which the account belongs",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "annual_revenue",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The annual revenue of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "number_of_employees",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of employees associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_activity_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date of the most recent activity related to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "created_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was created",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "website",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The website associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "lead_source",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The source from which the lead was generated",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The current status of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "rating",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The rating assigned to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "description",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "A description or summary of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_modified_by",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The user who last modified the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_modified_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was last modified",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "zipcode",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The ZIP code",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "high_income_percent",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "high_income_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "low_income_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "all_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "is_high_income",
+              "type" : "boolean",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "full_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -285,15 +605,6 @@
               "schema" : {
                 "type" : "struct",
                 "fields" : [ {
-                  "name" : "account_age_at_order_date",
-                  "type" : "integer",
-                  "nullable" : true,
-                  "metadata" : {
-                    "description" : "",
-                    "mappings" : [ ],
-                    "tags" : [ ]
-                  }
-                }, {
                   "name" : "order_id",
                   "type" : "integer",
                   "nullable" : true,
@@ -312,11 +623,20 @@
                     "tags" : [ ]
                   }
                 }, {
-                  "name" : "amount",
-                  "type" : "float",
+                  "name" : "order_status",
+                  "type" : "string",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "",
+                    "description" : "Order status",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "order_category",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Order category",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -330,11 +650,77 @@
                     "tags" : [ ]
                   }
                 }, {
-                  "name" : "zipcode",
+                  "name" : "amount",
+                  "type" : "float",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "first_name",
                   "type" : "string",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "The ZIP code",
+                    "description" : "Customer first name",
+                    "mappings" : [ ],
+                    "tags" : [ {
+                      "type" : "user",
+                      "name" : "pii"
+                    } ]
+                  }
+                }, {
+                  "name" : "last_name",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Customer last name",
+                    "mappings" : [ ],
+                    "tags" : [ {
+                      "type" : "user",
+                      "name" : "pii"
+                    } ]
+                  }
+                }, {
+                  "name" : "phone",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Customer phone number",
+                    "mappings" : [ ],
+                    "tags" : [ {
+                      "type" : "user",
+                      "name" : "pii"
+                    } ]
+                  }
+                }, {
+                  "name" : "email",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Customer Email",
+                    "mappings" : [ ],
+                    "tags" : [ {
+                      "type" : "user",
+                      "name" : "pii"
+                    } ]
+                  }
+                }, {
+                  "name" : "country_code",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Customer country code",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "account_open_date",
+                  "type" : "date",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -344,6 +730,276 @@
                   "nullable" : true,
                   "metadata" : {
                     "description" : "Customer account flags",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "account_id",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Unique identifier for the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "account_name",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Name of the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "account_owner",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The person who owns the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "phone_number",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The contact phone number associated with the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "billing_address",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Physical address for billing purposes",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "billing_postal_code",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Postal code of the billing address",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "billing_city",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "City of the billing address",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "billing_state",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The state associated with the billing address of the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "billing_email",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Email address associated with the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "account_type",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The type or category of the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "industry",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The industry to which the account belongs",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "annual_revenue",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The annual revenue of the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "number_of_employees",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The number of employees associated with the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "last_activity_date",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The date of the most recent activity related to the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "created_date",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The date when the account was created",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "website",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The website associated with the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "lead_source",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The source from which the lead was generated",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "status",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The current status of the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "rating",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The rating assigned to the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "description",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "A description or summary of the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "last_modified_by",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The user who last modified the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "last_modified_date",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The date when the account was last modified",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "zipcode",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The ZIP code",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "state",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "high_income_percent",
+                  "type" : "double",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "high_income_returns",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "low_income_returns",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "all_returns",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "is_high_income",
+                  "type" : "boolean",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "full_name",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -411,7 +1067,7 @@
             } ]
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Aggregate",
             "projectName" : "ProphecySparkBasicsPython"
           }
         },
@@ -508,7 +1164,7 @@
             } ]
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/OrderBy",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/OrderBy",
             "projectName" : "ProphecySparkBasicsPython"
           }
         },
@@ -534,15 +1190,6 @@
               "schema" : {
                 "type" : "struct",
                 "fields" : [ {
-                  "name" : "account_age_at_order_date",
-                  "type" : "integer",
-                  "nullable" : true,
-                  "metadata" : {
-                    "description" : "",
-                    "mappings" : [ ],
-                    "tags" : [ ]
-                  }
-                }, {
                   "name" : "order_id",
                   "type" : "integer",
                   "nullable" : true,
@@ -561,11 +1208,20 @@
                     "tags" : [ ]
                   }
                 }, {
-                  "name" : "amount",
-                  "type" : "float",
+                  "name" : "order_status",
+                  "type" : "string",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "",
+                    "description" : "Order status",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "order_category",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Order category",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -579,11 +1235,77 @@
                     "tags" : [ ]
                   }
                 }, {
-                  "name" : "zipcode",
+                  "name" : "amount",
+                  "type" : "float",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "first_name",
                   "type" : "string",
                   "nullable" : true,
                   "metadata" : {
-                    "description" : "The ZIP code",
+                    "description" : "Customer first name",
+                    "mappings" : [ ],
+                    "tags" : [ {
+                      "type" : "user",
+                      "name" : "pii"
+                    } ]
+                  }
+                }, {
+                  "name" : "last_name",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Customer last name",
+                    "mappings" : [ ],
+                    "tags" : [ {
+                      "type" : "user",
+                      "name" : "pii"
+                    } ]
+                  }
+                }, {
+                  "name" : "phone",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Customer phone number",
+                    "mappings" : [ ],
+                    "tags" : [ {
+                      "type" : "user",
+                      "name" : "pii"
+                    } ]
+                  }
+                }, {
+                  "name" : "email",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Customer Email",
+                    "mappings" : [ ],
+                    "tags" : [ {
+                      "type" : "user",
+                      "name" : "pii"
+                    } ]
+                  }
+                }, {
+                  "name" : "country_code",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Customer country code",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "account_open_date",
+                  "type" : "date",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -593,6 +1315,276 @@
                   "nullable" : true,
                   "metadata" : {
                     "description" : "Customer account flags",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "account_id",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Unique identifier for the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "account_name",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Name of the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "account_owner",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The person who owns the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "phone_number",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The contact phone number associated with the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "billing_address",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Physical address for billing purposes",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "billing_postal_code",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Postal code of the billing address",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "billing_city",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "City of the billing address",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "billing_state",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The state associated with the billing address of the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "billing_email",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Email address associated with the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "account_type",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The type or category of the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "industry",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The industry to which the account belongs",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "annual_revenue",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The annual revenue of the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "number_of_employees",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The number of employees associated with the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "last_activity_date",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The date of the most recent activity related to the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "created_date",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The date when the account was created",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "website",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The website associated with the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "lead_source",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The source from which the lead was generated",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "status",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The current status of the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "rating",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The rating assigned to the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "description",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "A description or summary of the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "last_modified_by",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The user who last modified the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "last_modified_date",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The date when the account was last modified",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "zipcode",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The ZIP code",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "state",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "high_income_percent",
+                  "type" : "double",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "high_income_returns",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "low_income_returns",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "all_returns",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "is_high_income",
+                  "type" : "boolean",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "full_name",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
@@ -624,7 +1616,7 @@
             "useOrderBy" : false
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Deduplicate",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Deduplicate",
             "projectName" : "ProphecySparkBasicsPython"
           }
         }
@@ -641,7 +1633,9 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Streamlines customer order data by selecting relevant fields for better analysis and reporting.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {
@@ -650,44 +1644,8 @@
           "schema" : {
             "type" : "struct",
             "fields" : [ {
-              "name" : "order_id",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "order_date",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "amount",
-              "type" : "float",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
               "name" : "customer_id",
               "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_open_date",
-              "type" : "date",
               "nullable" : true,
               "metadata" : {
                 "description" : "",
@@ -719,11 +1677,44 @@
                 } ]
               }
             }, {
-              "name" : "zipcode",
+              "name" : "phone",
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The ZIP code",
+                "description" : "Customer phone number",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer Email",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer country code",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -733,6 +1724,420 @@
               "nullable" : true,
               "metadata" : {
                 "description" : "Customer account flags",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_owner",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The person who owns the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone_number",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The contact phone number associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_address",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Physical address for billing purposes",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_postal_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state associated with the billing address of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Email address associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The type or category of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "industry",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The industry to which the account belongs",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "annual_revenue",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The annual revenue of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "number_of_employees",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of employees associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_activity_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date of the most recent activity related to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "created_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was created",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "website",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The website associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "lead_source",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The source from which the lead was generated",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The current status of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "rating",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The rating assigned to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "description",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "A description or summary of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_modified_by",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The user who last modified the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_modified_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was last modified",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "zipcode",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The ZIP code",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "high_income_percent",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "high_income_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "low_income_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "all_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "is_high_income",
+              "type" : "boolean",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Order status",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_category",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Order category",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "float",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "item_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the item ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "item_company",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The company that manufactures or supplies the item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "quantity",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of items ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "unit_price",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Price per unit of the ordered item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_address",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The address where the order will be shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City where the order is being shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state where the order is being shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_postal_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code for the shipping address of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "payment_method",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The method used for payment in the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "payment_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the payment for the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the shipping process for the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "notes",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Additional comments or special instructions related to the order",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -751,13 +2156,6 @@
       "properties" : {
         "importLanguage" : "python",
         "expressions" : [ {
-          "target" : "account_age_at_order_date",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "datediff(account_open_date, order_date)"
-          },
-          "description" : ""
-        }, {
           "target" : "order_id",
           "expression" : {
             "format" : "sql",
@@ -772,10 +2170,17 @@
           },
           "description" : ""
         }, {
-          "target" : "amount",
+          "target" : "order_status",
           "expression" : {
             "format" : "sql",
-            "expression" : "amount"
+            "expression" : "order_status"
+          },
+          "description" : ""
+        }, {
+          "target" : "order_category",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "order_category"
           },
           "description" : ""
         }, {
@@ -786,168 +2191,10 @@
           },
           "description" : ""
         }, {
-          "target" : "zipcode",
+          "target" : "amount",
           "expression" : {
             "format" : "sql",
-            "expression" : "zipcode"
-          },
-          "description" : ""
-        }, {
-          "target" : "account_flags",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "account_flags"
-          },
-          "description" : ""
-        } ],
-        "importString" : "",
-        "activeTab" : "expressions",
-        "columnsSelector" : [ "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_flags", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_open_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_id", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##amount", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##zipcode", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##customer_id" ]
-      },
-      "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Reformat",
-        "projectName" : "ProphecySparkBasicsPython"
-      }
-    },
-    "k9D39na2" : {
-      "id" : "k9D39na2",
-      "component" : "Aggregate",
-      "metadata" : {
-        "label" : "customer_order_total",
-        "slug" : "customer_order_total",
-        "x" : 220,
-        "y" : 420,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "ALAlcw0H",
-          "slug" : "silver_order_customer_details",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "order_id",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "order_date",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "amount",
-              "type" : "float",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "customer_id",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_open_date",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "first_name",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer first name",
-                "mappings" : [ ],
-                "tags" : [ {
-                  "type" : "user",
-                  "name" : "pii"
-                } ]
-              }
-            }, {
-              "name" : "last_name",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer last name",
-                "mappings" : [ ],
-                "tags" : [ {
-                  "type" : "user",
-                  "name" : "pii"
-                } ]
-              }
-            }, {
-              "name" : "zipcode",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The ZIP code",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_flags",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer account flags",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        } ],
-        "outputs" : [ {
-          "id" : "UtTlFO7v",
-          "slug" : "out"
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "allIns" : false,
-        "doPivot" : false,
-        "aggregate" : [ {
-          "target" : "TOTAL_AMOUNT",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "SUM(amount)"
-          },
-          "description" : ""
-        } ],
-        "allowSelection" : true,
-        "pivotColumn" : null,
-        "pivotValues" : [ ],
-        "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
-        "groupBy" : [ {
-          "target" : "customer_id",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "customer_id"
+            "expression" : "amount"
           },
           "description" : ""
         }, {
@@ -964,10 +2211,258 @@
             "expression" : "last_name"
           },
           "description" : ""
-        } ]
+        }, {
+          "target" : "phone",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "phone"
+          },
+          "description" : ""
+        }, {
+          "target" : "email",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "email"
+          },
+          "description" : ""
+        }, {
+          "target" : "country_code",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "country_code"
+          },
+          "description" : ""
+        }, {
+          "target" : "account_open_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "account_open_date"
+          },
+          "description" : ""
+        }, {
+          "target" : "account_flags",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "account_flags"
+          },
+          "description" : ""
+        }, {
+          "target" : "account_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "account_id"
+          },
+          "description" : ""
+        }, {
+          "target" : "account_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "account_name"
+          },
+          "description" : ""
+        }, {
+          "target" : "account_owner",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "account_owner"
+          },
+          "description" : ""
+        }, {
+          "target" : "phone_number",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "phone_number"
+          },
+          "description" : ""
+        }, {
+          "target" : "billing_address",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "billing_address"
+          },
+          "description" : ""
+        }, {
+          "target" : "billing_postal_code",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "billing_postal_code"
+          },
+          "description" : ""
+        }, {
+          "target" : "billing_city",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "billing_city"
+          },
+          "description" : ""
+        }, {
+          "target" : "billing_state",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "billing_state"
+          },
+          "description" : ""
+        }, {
+          "target" : "billing_email",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "billing_email"
+          },
+          "description" : ""
+        }, {
+          "target" : "account_type",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "account_type"
+          },
+          "description" : ""
+        }, {
+          "target" : "industry",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "industry"
+          },
+          "description" : ""
+        }, {
+          "target" : "annual_revenue",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "annual_revenue"
+          },
+          "description" : ""
+        }, {
+          "target" : "number_of_employees",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "number_of_employees"
+          },
+          "description" : ""
+        }, {
+          "target" : "last_activity_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "last_activity_date"
+          },
+          "description" : ""
+        }, {
+          "target" : "created_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "created_date"
+          },
+          "description" : ""
+        }, {
+          "target" : "website",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "website"
+          },
+          "description" : ""
+        }, {
+          "target" : "lead_source",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "lead_source"
+          },
+          "description" : ""
+        }, {
+          "target" : "status",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "status"
+          },
+          "description" : ""
+        }, {
+          "target" : "rating",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "rating"
+          },
+          "description" : ""
+        }, {
+          "target" : "description",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "description"
+          },
+          "description" : ""
+        }, {
+          "target" : "last_modified_by",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "last_modified_by"
+          },
+          "description" : ""
+        }, {
+          "target" : "last_modified_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "last_modified_date"
+          },
+          "description" : ""
+        }, {
+          "target" : "zipcode",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "zipcode"
+          },
+          "description" : ""
+        }, {
+          "target" : "state",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "state"
+          },
+          "description" : ""
+        }, {
+          "target" : "high_income_percent",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "high_income_percent"
+          },
+          "description" : ""
+        }, {
+          "target" : "high_income_returns",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "high_income_returns"
+          },
+          "description" : ""
+        }, {
+          "target" : "low_income_returns",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "low_income_returns"
+          },
+          "description" : ""
+        }, {
+          "target" : "all_returns",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_returns"
+          },
+          "description" : ""
+        }, {
+          "target" : "is_high_income",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "is_high_income"
+          },
+          "description" : ""
+        }, {
+          "target" : "full_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "concat(first_name, ' ', last_name)"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##number_of_employees", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##customer_id", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_owner", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##description", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##zipcode", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_email", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##low_income_returns", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_state", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##is_high_income", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##amount", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##created_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##country_code", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_activity_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##rating", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##email", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##high_income_percent", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_category", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##all_returns", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_postal_code", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_modified_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##status", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_city", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_status", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##phone", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##high_income_returns", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_name", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_open_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_name", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_id", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##first_name", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##lead_source", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_modified_by", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_type", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_address", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_id", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##website", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_flags", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##state", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##industry", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##annual_revenue", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##phone_number" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -978,11 +2473,13 @@
         "label" : "gold_sales_by_zip_date",
         "slug" : "gold_sales_by_zip_date",
         "x" : 620,
-        "y" : 220,
+        "y" : 20,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Updates or inserts data into a table that tracks gold sales by zip code and date. If the table exists, it performs a merge operation to update existing records and insert new records. If the table does not exist, it creates the table and saves the data.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {
@@ -1048,94 +2545,6 @@
         "datasetId" : "datasets/gold_sales_by_zip_date"
       }
     },
-    "XVKuYMJb" : {
-      "id" : "XVKuYMJb",
-      "component" : "OrderBy",
-      "metadata" : {
-        "label" : "order_by_total_amount_desc_nulls_first",
-        "slug" : "order_by_total_amount_desc_nulls_first",
-        "x" : 420,
-        "y" : 420,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "TINCuSUq",
-          "slug" : "customer_order_total",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "customer_id",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "first_name",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer first name",
-                "mappings" : [ ],
-                "tags" : [ {
-                  "type" : "user",
-                  "name" : "pii"
-                } ]
-              }
-            }, {
-              "name" : "last_name",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer last name",
-                "mappings" : [ ],
-                "tags" : [ {
-                  "type" : "user",
-                  "name" : "pii"
-                } ]
-              }
-            }, {
-              "name" : "TOTAL_AMOUNT",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        } ],
-        "outputs" : [ {
-          "id" : "JJ16pxav",
-          "slug" : "out"
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "columnsSelector" : [ ],
-        "orders" : [ {
-          "expression" : {
-            "format" : "sql",
-            "expression" : "TOTAL_AMOUNT"
-          },
-          "sortType" : "desc"
-        } ]
-      },
-      "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/OrderBy",
-        "projectName" : "ProphecySparkBasicsPython"
-      }
-    },
     "tzys2o6Nv0OTQ9dD5uu_4$$l-Vfpcct6dzpSxKM9nLZL" : {
       "id" : "tzys2o6Nv0OTQ9dD5uu_4$$l-Vfpcct6dzpSxKM9nLZL",
       "component" : "Target",
@@ -1143,11 +2552,13 @@
         "label" : "gold_total_sales_by_customer",
         "slug" : "gold_total_sales_by_customer",
         "x" : 620,
-        "y" : 20,
+        "y" : 220,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Updates or inserts customer sales data into a table named 'gold_total_sales_by_customer' in the 'helloworld_gold' database. If the table exists, it performs a merge operation to update existing records and insert new records. If the table does not exist, it creates the table and saves the data.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {
@@ -1182,6 +2593,15 @@
                 "mappings" : [ ],
                 "tags" : [ ]
               }
+            }, {
+              "name" : "order_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
             } ]
           },
           "isStreaming" : false
@@ -1202,11 +2622,13 @@
         "label" : "SumAmounts",
         "slug" : "SumAmounts",
         "x" : 420,
-        "y" : 20,
+        "y" : 220,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Calculates total spending and order counts for each customer, providing insights into customer purchasing behavior.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {
@@ -1215,15 +2637,6 @@
           "schema" : {
             "type" : "struct",
             "fields" : [ {
-              "name" : "account_age_at_order_date",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
               "name" : "order_id",
               "type" : "integer",
               "nullable" : true,
@@ -1242,11 +2655,20 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "amount",
-              "type" : "float",
+              "name" : "order_status",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Order status",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_category",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Order category",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1260,11 +2682,77 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "zipcode",
+              "name" : "amount",
+              "type" : "float",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The ZIP code",
+                "description" : "Customer first name",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer last name",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer phone number",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer Email",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer country code",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1274,6 +2762,276 @@
               "nullable" : true,
               "metadata" : {
                 "description" : "Customer account flags",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_owner",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The person who owns the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone_number",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The contact phone number associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_address",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Physical address for billing purposes",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_postal_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state associated with the billing address of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Email address associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The type or category of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "industry",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The industry to which the account belongs",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "annual_revenue",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The annual revenue of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "number_of_employees",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of employees associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_activity_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date of the most recent activity related to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "created_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was created",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "website",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The website associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "lead_source",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The source from which the lead was generated",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The current status of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "rating",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The rating assigned to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "description",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "A description or summary of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_modified_by",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The user who last modified the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_modified_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was last modified",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "zipcode",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The ZIP code",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "high_income_percent",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "high_income_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "low_income_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "all_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "is_high_income",
+              "type" : "boolean",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "full_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1308,12 +3066,20 @@
           },
           "description" : "",
           "_row_id" : null
+        }, {
+          "target" : "order_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "first(order_date)"
+          },
+          "description" : "",
+          "_row_id" : null
         } ],
         "allowSelection" : true,
         "pivotColumn" : null,
         "pivotValues" : [ ],
-        "activeTab" : "aggregate",
-        "columnsSelector" : [ "p2jAQt4FQ95GTpHzIrNZx$$s0hnqBRZkl_fO5l7h837X##order_id", "p2jAQt4FQ95GTpHzIrNZx$$s0hnqBRZkl_fO5l7h837X##customer_id", "p2jAQt4FQ95GTpHzIrNZx$$s0hnqBRZkl_fO5l7h837X##amount" ],
+        "activeTab" : "groupBy",
+        "columnsSelector" : [ "p2jAQt4FQ95GTpHzIrNZx$$s0hnqBRZkl_fO5l7h837X##order_date", "p2jAQt4FQ95GTpHzIrNZx$$s0hnqBRZkl_fO5l7h837X##customer_id", "p2jAQt4FQ95GTpHzIrNZx$$s0hnqBRZkl_fO5l7h837X##order_id", "p2jAQt4FQ95GTpHzIrNZx$$s0hnqBRZkl_fO5l7h837X##amount" ],
         "groupBy" : [ {
           "target" : "customer_id",
           "expression" : {
@@ -1325,88 +3091,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Aggregate",
-        "projectName" : "ProphecySparkBasicsPython"
-      }
-    },
-    "CfVogM8E" : {
-      "id" : "CfVogM8E",
-      "component" : "Limit",
-      "metadata" : {
-        "label" : "limit_10",
-        "slug" : "limit_10",
-        "x" : 620,
-        "y" : 420,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "bdNXuGKz",
-          "slug" : "order_by_total_amount_desc_nulls_first",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "customer_id",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "first_name",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer first name",
-                "mappings" : [ ],
-                "tags" : [ {
-                  "type" : "user",
-                  "name" : "pii"
-                } ]
-              }
-            }, {
-              "name" : "last_name",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer last name",
-                "mappings" : [ ],
-                "tags" : [ {
-                  "type" : "user",
-                  "name" : "pii"
-                } ]
-              }
-            }, {
-              "name" : "TOTAL_AMOUNT",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        } ],
-        "outputs" : [ {
-          "id" : "Z2zviJL8",
-          "slug" : "out"
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "limit" : "10"
-      },
-      "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Limit",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Aggregate",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1417,11 +3102,13 @@
         "label" : "silver_order_customer_details",
         "slug" : "silver_order_customer_details",
         "x" : 20,
-        "y" : 220,
+        "y" : 120,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Reads customer details from the 'silver_order_customer_details' table in the 'helloworld_silver' database.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ ],

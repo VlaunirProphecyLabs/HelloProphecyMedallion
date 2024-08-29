@@ -15,6 +15,11 @@ def read_dynamic_source(spark: SparkSession) -> DataFrame:
     #from raw_bronze_subgraph.config.ConfigStore import *
     #from raw_bronze_subgraph.functions import *
     file_name = Config.source_path
-    out0 = spark.read.option("header", True).option("inferSchema", True).option("sep", ",").csv(file_name)
+    out0 = spark.read\
+               .option("header", True)\
+               .option("inferSchema", True)\
+               .option("multiLine", True)\
+               .option("sep", ",")\
+               .csv(file_name)
 
     return out0

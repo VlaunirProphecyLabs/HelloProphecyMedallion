@@ -23,3 +23,10 @@ schema:
       description: ''
       mappings: []
       tags: []
+  - name: order_date
+    type: date
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

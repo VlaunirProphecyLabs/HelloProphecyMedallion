@@ -7,12 +7,18 @@ from prophecy.utils import *
 from silver_customers_orders.graph import *
 
 def pipeline(spark: SparkSession) -> None:
-    df_bronze_orders = bronze_orders(spark)
-    silver_orders(spark, df_bronze_orders)
-    df_bronze_customers_out, df_bronze_customers_out0 = bronze_customers(spark, Config.bronze_customers)
-    silver_customers(spark, df_bronze_customers_out0)
-    df_ByCustomerId = ByCustomerId(spark, df_bronze_orders, df_bronze_customers_out)
-    silver_order_customer_details(spark, df_ByCustomerId)
+    df_silver_orders = silver_orders(spark)
+    df_silver_irs_zipcode = silver_irs_zipcode(spark)
+    df_zipcode_aggregates = zipcode_aggregates(spark, df_silver_irs_zipcode)
+    df_silver_customers = silver_customers(spark)
+    df_inner_join_by_customer_id = inner_join_by_customer_id(
+        spark, 
+        df_silver_customers, 
+        df_silver_orders, 
+        df_zipcode_aggregates
+    )
+    df_customer_details_reformat = customer_details_reformat(spark, df_inner_join_by_customer_id)
+    silver_order_customer_details(spark, df_customer_details_reformat)
 
 def main():
     spark = SparkSession.builder\

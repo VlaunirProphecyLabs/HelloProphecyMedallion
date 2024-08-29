@@ -7,7 +7,7 @@
     "schedule" : "None",
     "scheduleTimeZone" : "UTC",
     "jobClusterMode" : {
-      "clusterMode" : "Multi"
+      "clusterMode" : "Single"
     },
     "enabled" : true,
     "defaultClusterSize" : "Small",
@@ -29,11 +29,11 @@
       }
     },
     "availableFabrics" : [ {
-      "id" : "6834",
-      "name" : "lab-samples-dbx",
+      "id" : "15527",
+      "name" : "prophecy_dbx_trial",
       "clusterSizes" : {
-        "default" : "sumit-lab-samples",
-        "availableClusterSizes" : [ "sumit-lab-samples" ]
+        "default" : "small",
+        "availableClusterSizes" : [ "small" ]
       },
       "pylibsResolutionMode" : {
         "PublicCentral" : { }
@@ -55,8 +55,34 @@
         "PublicCentral" : { }
       }
     }, {
-      "id" : "15527",
-      "name" : "prophecy_dbx_trial",
+      "id" : "16617",
+      "name" : "workshop-fabric",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    }, {
+      "id" : "6834",
+      "name" : "lab-samples-dbx",
+      "clusterSizes" : {
+        "default" : "sumit-lab-samples",
+        "availableClusterSizes" : [ "sumit-lab-samples" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    }, {
+      "id" : "16433",
+      "name" : "prophecyTeamDatabricksTestingGuidesProd3",
       "clusterSizes" : {
         "default" : "small",
         "availableClusterSizes" : [ "small" ]
@@ -70,91 +96,22 @@
     } ]
   },
   "processes" : {
-    "u0wK5M7E7QVcxla1i90q7" : {
-      "id" : "u0wK5M7E7QVcxla1i90q7",
-      "component" : "Cluster",
-      "metadata" : {
-        "label" : "Cluster_1",
-        "slug" : "Cluster_1",
-        "x" : -320,
-        "y" : -420,
-        "width" : 280,
-        "height" : 420
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ ]
-      },
-      "properties" : {
-        "clusterSize" : "Medium"
-      }
-    },
-    "9iA7iEROK3wLtgxhRtXAQ$$Zk6JbwTuAPi2u1gUwjb-z" : {
-      "id" : "9iA7iEROK3wLtgxhRtXAQ$$Zk6JbwTuAPi2u1gUwjb-z",
-      "component" : "Pipeline",
-      "metadata" : {
-        "label" : "silver_zip_codes",
-        "slug" : "silver_zip_codes",
-        "x" : 100,
-        "y" : 260
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "RVHt_JL_OnMkwm2840RL0$$vBg4I2taQuMf1WbgGCkDz",
-          "slug" : ""
-        } ],
-        "outputs" : [ {
-          "id" : "MlLhHmjzfCkYM_hNMcwop$$fhP_VeDQ7znqLGva9j16v",
-          "slug" : ""
-        } ]
-      },
-      "settings" : {
-        "type" : "Inherited",
-        "alerting" : {
-          "emails" : "",
-          "onStart" : false,
-          "onSuccess" : false,
-          "onFailure" : false
-        }
-      },
-      "properties" : {
-        "pipelineId" : "pipelines/silver_zip_codes",
-        "configurations" : {
-          "schema" : [ {
-            "name" : "catalog_name",
-            "optional" : false,
-            "kind" : {
-              "type" : "string",
-              "value" : "vlaunir_demos"
-            },
-            "isReferenced" : false,
-            "isWorkflowNodeConfiguration" : false
-          } ],
-          "instances" : {
-            "HelloWorld_Medallion" : [ "default" ]
-          },
-          "overrides" : { },
-          "selectedInstance" : "default"
-        }
-      },
-      "parent" : "u0wK5M7E7QVcxla1i90q7"
-    },
-    "FaeCNMByH3l78ccUgiNux$$auaLC49SJfZ5e3akSHBvq" : {
-      "id" : "FaeCNMByH3l78ccUgiNux$$auaLC49SJfZ5e3akSHBvq",
+    "z0amwE6Bk8__5NizprmGj$$_X2FGS_OLDAsrctfwq2ZK" : {
+      "id" : "z0amwE6Bk8__5NizprmGj$$_X2FGS_OLDAsrctfwq2ZK",
       "component" : "Pipeline",
       "metadata" : {
         "label" : "raw_bronze_subgraph",
         "slug" : "raw_bronze_subgraph",
-        "x" : -460,
-        "y" : -320
+        "x" : -580,
+        "y" : -440
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "kr0R4IjfbX0lZmGHT6sqK$$90_-EeHs1tRyA3B_PbfKm",
+          "id" : "_Pt1BsSWklJXsDPGPXvMa$$WOKJ9-5yXKIJraUISba8H",
           "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "O8AHhueSom7MCRrP51idK$$lSI_sGTNkIIuyP0SulQc0",
+          "id" : "k8gG6iHDjwbF08s8MpJiC$$00sJpB0C9T18bOoeH_y5Z",
           "slug" : ""
         } ]
       },
@@ -225,11 +182,11 @@
             "isReferenced" : false,
             "isWorkflowNodeConfiguration" : false
           }, {
-            "name" : "source_path_test",
+            "name" : "source_files_path",
             "optional" : false,
             "kind" : {
               "type" : "string",
-              "value" : "s3://prophecy-dataset-samples/Orders*.csv"
+              "value" : "dbfs:/Users/vlaunir@prophecy.io/source_files.csv"
             },
             "isReferenced" : false,
             "isWorkflowNodeConfiguration" : false
@@ -242,22 +199,22 @@
         }
       }
     },
-    "9HegpAtjXJMM70jIe3bhP$$G9Iu6q6MTz4jQ4adzPH-E" : {
-      "id" : "9HegpAtjXJMM70jIe3bhP$$G9Iu6q6MTz4jQ4adzPH-E",
+    "LRgwTXH_5N1AM25VqAr7L$$b2E4Ym6wrEGtLBpXMjs7a" : {
+      "id" : "LRgwTXH_5N1AM25VqAr7L$$b2E4Ym6wrEGtLBpXMjs7a",
       "component" : "Pipeline",
       "metadata" : {
-        "label" : "gold_sales",
-        "slug" : "gold_sales",
-        "x" : 100,
-        "y" : 100
+        "label" : "silver_customers",
+        "slug" : "silver_customers",
+        "x" : -380,
+        "y" : -440
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "R1aDFG6TWKbtmm2UkzYKG$$i49WBeDi0Z8rH_rDPiGuK",
+          "id" : "WvtErzHEBLCQO_VSLvqb4$$zU-1arOoPkMQEr91jadUM",
           "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "a-xWo15lpGB1XWrQs5z4i$$mOZEgI2STDkQGoE3dCyw4",
+          "id" : "Plk-ZqAeS1O3B4_vIkWZK$$xau_CouYHKcJP_fI6oAlK",
           "slug" : ""
         } ]
       },
@@ -271,7 +228,7 @@
         }
       },
       "properties" : {
-        "pipelineId" : "pipelines/gold_sales",
+        "pipelineId" : "pipelines/silver_customers",
         "configurations" : {
           "schema" : [ {
             "name" : "catalog_name",
@@ -283,7 +240,7 @@
             "isReferenced" : false,
             "isWorkflowNodeConfiguration" : false
           }, {
-            "name" : "total_by_zip_and_date",
+            "name" : "irs_zipcodes_data",
             "optional" : false,
             "kind" : {
               "type" : "record",
@@ -307,114 +264,14 @@
           "overrides" : { },
           "selectedInstance" : "default"
         }
-      },
-      "parent" : "iR1d11mRM7XXEMWtvNUaM"
-    },
-    "iR1d11mRM7XXEMWtvNUaM" : {
-      "id" : "iR1d11mRM7XXEMWtvNUaM",
-      "component" : "Cluster",
-      "metadata" : {
-        "label" : "Cluster_2",
-        "slug" : "Cluster_2",
-        "x" : 20,
-        "y" : -420,
-        "width" : 280,
-        "height" : 280
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ ]
-      },
-      "properties" : {
-        "clusterSize" : "Large"
       }
-    },
-    "8alrjKLiyv_pIgW5qBJ-R$$dvf5EKbEvaTbtRnJbOCX2" : {
-      "id" : "8alrjKLiyv_pIgW5qBJ-R$$dvf5EKbEvaTbtRnJbOCX2",
-      "component" : "Pipeline",
-      "metadata" : {
-        "label" : "silver_customers_orders",
-        "slug" : "silver_customers_orders",
-        "x" : 100,
-        "y" : 100
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "HOYUkCSlNZ0AxhxAOgZLA$$kK4_499Uov6AM9kwoeE3I",
-          "slug" : ""
-        } ],
-        "outputs" : [ {
-          "id" : "KeliWFsFJs7ZXlAnzEm9c$$4wqAGcRLZ6H8UwnfaZPsE",
-          "slug" : ""
-        } ]
-      },
-      "settings" : {
-        "type" : "Inherited",
-        "alerting" : {
-          "emails" : "",
-          "onStart" : false,
-          "onSuccess" : false,
-          "onFailure" : false
-        }
-      },
-      "properties" : {
-        "pipelineId" : "pipelines/silver_customers_orders",
-        "configurations" : {
-          "schema" : [ {
-            "name" : "catalog_name",
-            "optional" : false,
-            "kind" : {
-              "type" : "string",
-              "value" : "vlaunir_demos"
-            },
-            "isReferenced" : false,
-            "isWorkflowNodeConfiguration" : false
-          }, {
-            "name" : "bronze_customers",
-            "optional" : false,
-            "kind" : {
-              "type" : "record",
-              "fields" : [ {
-                "name" : "catalog_name",
-                "optional" : false,
-                "kind" : {
-                  "type" : "string",
-                  "value" : "vlaunir_demos"
-                },
-                "isReferenced" : true,
-                "isWorkflowNodeConfiguration" : false
-              } ]
-            },
-            "isReferenced" : false,
-            "isWorkflowNodeConfiguration" : true
-          } ],
-          "instances" : {
-            "HelloWorld_Medallion" : [ "default" ]
-          },
-          "overrides" : { },
-          "selectedInstance" : "default"
-        }
-      },
-      "parent" : "u0wK5M7E7QVcxla1i90q7"
     }
   },
   "connections" : [ {
-    "id" : "6lSsAf2aFucCkva-fp9Kq",
-    "source" : "8alrjKLiyv_pIgW5qBJ-R$$dvf5EKbEvaTbtRnJbOCX2",
-    "target" : "9HegpAtjXJMM70jIe3bhP$$G9Iu6q6MTz4jQ4adzPH-E",
-    "sourcePort" : "KeliWFsFJs7ZXlAnzEm9c$$4wqAGcRLZ6H8UwnfaZPsE",
-    "targetPort" : "R1aDFG6TWKbtmm2UkzYKG$$i49WBeDi0Z8rH_rDPiGuK"
-  }, {
-    "id" : "GJCc_0eWXGysIZ-stMK8d$$3AA9QrG0bwgpaW1B6nj_H",
-    "source" : "FaeCNMByH3l78ccUgiNux$$auaLC49SJfZ5e3akSHBvq",
-    "target" : "8alrjKLiyv_pIgW5qBJ-R$$dvf5EKbEvaTbtRnJbOCX2",
-    "sourcePort" : "O8AHhueSom7MCRrP51idK$$lSI_sGTNkIIuyP0SulQc0",
-    "targetPort" : "HOYUkCSlNZ0AxhxAOgZLA$$kK4_499Uov6AM9kwoeE3I"
-  }, {
-    "id" : "c2aYvLwqz8Z0KbZGtjwLS",
-    "source" : "FaeCNMByH3l78ccUgiNux$$auaLC49SJfZ5e3akSHBvq",
-    "target" : "9iA7iEROK3wLtgxhRtXAQ$$Zk6JbwTuAPi2u1gUwjb-z",
-    "sourcePort" : "O8AHhueSom7MCRrP51idK$$lSI_sGTNkIIuyP0SulQc0",
-    "targetPort" : "RVHt_JL_OnMkwm2840RL0$$vBg4I2taQuMf1WbgGCkDz"
+    "id" : "lYg40n8cyJBTXxA3hNe49$$eSu-Hzm_vhPO1NGW0nwr6",
+    "source" : "z0amwE6Bk8__5NizprmGj$$_X2FGS_OLDAsrctfwq2ZK",
+    "target" : "LRgwTXH_5N1AM25VqAr7L$$b2E4Ym6wrEGtLBpXMjs7a",
+    "sourcePort" : "k8gG6iHDjwbF08s8MpJiC$$00sJpB0C9T18bOoeH_y5Z",
+    "targetPort" : "WvtErzHEBLCQO_VSLvqb4$$zU-1arOoPkMQEr91jadUM"
   } ]
 }

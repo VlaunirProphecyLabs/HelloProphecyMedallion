@@ -51,3 +51,10 @@ schema:
       description: ''
       mappings: []
       tags: []
+  - name: customer_id
+    type: integer
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

@@ -13,10 +13,10 @@ buildSystemDetails:
 pipelines:
   pipelines/silver_customers_orders:
     name: silver_customers_orders
-    description: Processes and transforms order and customer data from bronze to silver
-      tables. It joins orders with customer details, filters invalid zip codes, and
-      calculates income brackets by zip code. The pipeline also identifies high-income
-      areas and assigns sequence IDs to customers.
+    description: Aggregates and enriches customer order data by joining orders with
+      customer details and IRS zipcode information. It calculates various metrics
+      related to income returns and reformats the data for storage in a Delta table.
+      The final output includes comprehensive customer and order details.
     author: scott+demo2@prophecy.io
     mode: batch
     artefactID: ''
@@ -24,19 +24,21 @@ pipelines:
     createdAt: '2023-07-13 16:49:10'
     datasets:
       inputs:
-      - datasets/bronze_customers
-      - datasets/bronze_irs_zipcode
-      - datasets/bronze_orders
-      outputs:
       - datasets/silver_customers
-      - datasets/silver_order_customer_details
+      - datasets/silver_irs_zipcode
       - datasets/silver_orders
-    subgraphs:
-    - subgraphs/bronze_customer_zip
+      outputs:
+      - datasets/silver_order_customer_details
+    subgraphs: []
     dependencies: {}
   pipelines/gold_sales:
     name: gold_sales
-    description: ''
+    description: Processes order and customer details to generate various aggregated
+      reports. It reads data from a silver table, counts orders by category, and sorts
+      them. It cleans and enriches the data with additional attributes like full name
+      and account age. The pipeline deduplicates records, calculates total sales by
+      customer, and aggregates sales by zip code and date. Finally, it writes the
+      results to gold tables, updating existing records or inserting new ones as needed.
     author: scott+demo2@prophecy.io
     mode: batch
     artefactID: ''
@@ -78,7 +80,8 @@ pipelines:
       - datasets/bronze_irs_zipcode
       outputs:
       - datasets/silver_irs_zipcode
-    subgraphs: []
+    subgraphs:
+    - subgraphs/irs_zipcodes_data
     dependencies: {}
   pipelines/raw_bronze:
     name: raw_bronze
@@ -103,17 +106,21 @@ pipelines:
     createdAt: '2023-07-13 19:20:19'
     datasets:
       inputs:
+      - datasets/order_item_detail
+      - datasets/raw_account_detail
       - datasets/raw_customers
       - datasets/raw_irs_zipcode
       - datasets/raw_orders
       outputs:
+      - datasets/bronze_account_detail_table
       - datasets/bronze_customers
       - datasets/bronze_irs_zipcode
+      - datasets/bronze_order_detail
       - datasets/bronze_orders
     subgraphs: []
     dependencies: {}
   pipelines/raw_bronze_subgraph:
-    name: raw_bronze_subgraph
+    name: raw_bronze_dynamic
     description: ''
     author: vlaunir@prophecy.io
     mode: batch
@@ -122,31 +129,60 @@ pipelines:
     createdAt: '2024-07-23 13:29:12'
     datasets:
       inputs:
-      - datasets/raw_dynamic_source
+      - datasets/gen_source_files
       outputs:
       - datasets/raw_dynamic_table
     subgraphs: []
     dependencies: {}
   pipelines/customer_orders:
     name: gold_customer_orders
-    description: Combines customer details with order information to create a unified
-      dataset. The pipeline joins the `bronze_orders` and `bronze_customers` dataframes
-      based on the `customer_id` column. It then selects specific columns from the
-      joined dataframe and renames them accordingly. Additionally, it calculates the
-      age of the account based on the `account_open_date`, converts the `full_name`
-      column to uppercase, and assigns an `amount_flag` based on the value of the
-      `AMOUNT` column.
+    description: Combines customer and order data to create a comprehensive dataset.
+      It reformats the data by adding a full name field, a transaction flag based
+      on order amount, and categorizes orders by season based on the order date. This
+      enhances the dataset for further analysis.
     author: vlaunir@prophecy.io
     mode: batch
     artefactID: ''
     language: python
     createdAt: '2024-07-23 15:17:51'
     datasets:
-      inputs:
-      - datasets/bronze_customers
-      - datasets/bronze_orders
+      inputs: []
       outputs: []
     subgraphs: []
+    dependencies: {}
+  pipelines/silver_orders:
+    name: silver_orders
+    description: null
+    author: vlaunir@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-08-13 15:18:39'
+    datasets:
+      inputs:
+      - datasets/bronze_order_detail
+      - datasets/bronze_orders
+      outputs:
+      - datasets/silver_orders
+    subgraphs: []
+    dependencies: {}
+  pipelines/silver_customers:
+    name: silver_customers
+    description: null
+    author: vlaunir@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-08-13 16:51:52'
+    datasets:
+      inputs:
+      - datasets/bronze_account_detail_table
+      - datasets/bronze_customers
+      - datasets/bronze_irs_zipcode
+      outputs:
+      - datasets/silver_customers
+    subgraphs:
+    - subgraphs/irs_zipcodes_data
     dependencies: {}
 datasets:
   datasets/bronze_orders:
@@ -344,6 +380,71 @@ datasets:
         description: ''
         author: vlaunir@prophecy.io
         createdAt: '2024-07-23 16:50:29'
+  datasets/gen_source_files:
+    name: gen_source_files
+    description: ''
+    author: vlaunir@prophecy.io
+    createdAt: '2024-08-06 13:40:20'
+    mode: batch
+    physicalDatasets:
+      Dev:
+        fabricId: 9664
+        datasetType: File
+        description: ''
+        author: vlaunir@prophecy.io
+        createdAt: '2024-08-06 13:40:20'
+  datasets/bronze_account_detail_table:
+    name: bronze_account_detail_table
+    description: ''
+    author: vlaunir@prophecy.io
+    createdAt: '2024-08-08 15:59:28'
+    mode: batch
+    physicalDatasets:
+      Dev:
+        fabricId: 9664
+        datasetType: Database
+        description: ''
+        author: vlaunir@prophecy.io
+        createdAt: '2024-08-08 15:59:28'
+  datasets/raw_account_detail:
+    name: raw_account_detail
+    description: ''
+    author: vlaunir@prophecy.io
+    createdAt: '2024-08-08 16:29:47'
+    mode: batch
+    physicalDatasets:
+      Dev:
+        fabricId: 9664
+        datasetType: File
+        description: ''
+        author: vlaunir@prophecy.io
+        createdAt: '2024-08-08 16:29:47'
+  datasets/order_item_detail:
+    name: raw_order_item_detail
+    description: ''
+    author: vlaunir@prophecy.io
+    createdAt: '2024-08-13 16:43:06'
+    mode: batch
+    physicalDatasets:
+      Dev:
+        fabricId: 9664
+        datasetType: File
+        description: ''
+        author: vlaunir@prophecy.io
+        createdAt: '2024-08-13 16:43:06'
+  datasets/bronze_order_detail:
+    name: bronze_order_detail
+    description: ''
+    author: vlaunir@prophecy.io
+    createdAt: '2024-08-13 17:05:37'
+    mode: batch
+    physicalDatasets:
+      Dev:
+        fabricId: 9664
+        datasetType: Database
+        description: ''
+        author: vlaunir@prophecy.io
+        createdAt: '2024-08-13 17:05:37'
 templates: {}
 jobs:
   jobs/DBX_Workflow_Vlaunir_HelloWorld:
@@ -362,37 +463,14 @@ jobs:
       onSuccess: false
       onFailure: false
     pipelines:
-    - pipelines/gold_sales
-    jobClusterMode:
-      clusterMode:
-        Multi: {}
-      clusterId: null
-    enabled: true
-    createdAt: '2024-07-25 19:39:44'
-    author: vlaunir@prophecy.io
-    models: []
-  jobs/test:
-    name: test
-    description: ''
-    fabricUID: 9664
-    scheduler:
-      Databricks: {}
-    cloudProvider: null
-    jobSize: Small
-    scheduleCron: None
-    timeout: null
-    alerting:
-      emails: ''
-      onStart: false
-      onSuccess: false
-      onFailure: false
-    pipelines: []
+    - pipelines/raw_bronze_subgraph
+    - pipelines/silver_customers
     jobClusterMode:
       clusterMode:
         Single: {}
       clusterId: null
-    enabled: null
-    createdAt: '2024-08-02 18:39:32'
+    enabled: true
+    createdAt: '2024-07-25 19:39:44'
     author: vlaunir@prophecy.io
     models: []
 gemContainer:
@@ -429,14 +507,14 @@ functions:
   airflowFunctions: {}
   businessRules: {}
 subgraphs:
-  subgraphs/bronze_customer_zip:
-    name: bronze_customer_zip
+  subgraphs/irs_zipcodes_data:
+    name: irs_zipcodes_data
     description: ''
     author: vlaunir@prophecy.io
     language: python
     artefactID: ''
     mode: batch
-    createdAt: '2024-07-30 15:01:42'
+    createdAt: '2024-08-07 17:28:47'
 sqlModels: {}
 sqlSnapshots: {}
 sqlTests: {}
@@ -449,13 +527,13 @@ dependencies:
 - type: plibMaven
   modifiedAt: '2024-07-23T15:17:53.522852Z'
   name: plibMaven
-  version: 8.0.29
+  version: 8.0.31
   id: '307010185'
   createdAt: '2024-07-23T15:17:53.522779Z'
   enabled: true
   entity: Project
 - type: plibPypi
-  modifiedAt: '2024-08-01T18:27:40.116Z'
+  modifiedAt: '2024-08-12T15:21:42.654Z'
   name: ProphecyLibsPython
   version: 1.9.9
   id: '1002289140'
@@ -480,10 +558,10 @@ projectDependencies:
     projectUID: 12654
     projectName: ProphecySparkBasicsPython
     repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
-    version: 0.2.25
+    version: 0.2.26
     isDefault: true
     author: null
-    createdAt: '2024-07-23 13:36:17'
+    createdAt: '2024-08-12 15:20:55'
   '12655':
     projectUID: 12655
     projectName: ProphecyWarehousePython
@@ -491,7 +569,7 @@ projectDependencies:
     version: 0.0.8
     isDefault: true
     author: null
-    createdAt: '2024-07-23 13:36:21'
+    createdAt: '2024-08-12 15:21:51'
 flags:
   shouldAddDefaultDependenciesIfAbsent: true
 pipelineConfigurations: {}

@@ -17,7 +17,9 @@ def create_dataframe_from_urls(spark: SparkSession) -> DataFrame:
     data = [("bronze_customers", "s3://prophecy-dataset-samples/CustomersDataset*.csv"),
             ("bronze_orders", "s3://prophecy-dataset-samples/Orders*.csv"),
             ("bronze_irs_zipcode",
-             "dbfs:/databricks-datasets/data.gov/irs_zip_code_data/data-001/2013_soi_zipcode_agi.csv")]
+             "dbfs:/databricks-datasets/data.gov/irs_zip_code_data/data-001/2013_soi_zipcode_agi.csv"),
+            ("bronze_account_detail", "dbfs:/Users/vlaunir@prophecy.io/delimited/account_detail.csv"),
+            ("bronze_item_detail", "dbfs:/Users/vlaunir@prophecy.io/delimited/item_detail.csv")]
     # Create DataFrame
     df = spark.createDataFrame(data, schema = schema)
     # Show DataFrame

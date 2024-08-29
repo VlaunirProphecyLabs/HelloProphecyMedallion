@@ -6,9 +6,5 @@ from prophecy.libs import typed_lit
 from silver_customers_orders.config.ConfigStore import *
 from silver_customers_orders.udfs.UDFs import *
 
-def silver_orders(spark: SparkSession, in0: DataFrame):
-    in0.write\
-        .format("delta")\
-        .mode("overwrite")\
-        .partitionBy("order_date")\
-        .saveAsTable(f"`{Config.catalog_name}`.`helloworld_silver`.`silver_orders`")
+def silver_orders(spark: SparkSession) -> DataFrame:
+    return spark.read.table(f"`{Config.catalog_name}`.`helloworld_silver`.`silver_orders`")

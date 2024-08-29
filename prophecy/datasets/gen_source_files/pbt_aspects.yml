@@ -1,0 +1,18 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: tablename
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: source_path
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

@@ -7,7 +7,7 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.0.29",
+        "mavenVersion" : "8.0.31",
         "pyPiVersion" : "1.9.9"
       }
     },
@@ -90,10 +90,10 @@
           "isWorkflowNodeConfiguration" : false,
           "isReferenced" : false
         }, {
-          "name" : "source_path_test",
+          "name" : "source_files_path",
           "kind" : {
             "type" : "string",
-            "value" : "s3://prophecy-dataset-samples/Orders*.csv"
+            "value" : "dbfs:/Users/vlaunir@prophecy.io/source_files.csv"
           },
           "optional" : false,
           "isWorkflowNodeConfiguration" : false,
@@ -136,17 +136,17 @@
     "configurationVersion" : "v2"
   },
   "connections" : [ {
-    "id" : "xnWZK2p-LRE46CybXdIuD",
-    "source" : "s9_3HTAi3TuPnZjgJVM8r$$Tpf6cvXXlGrWQC6A-l5_Q",
-    "sourcePort" : "gX0fFuWTm0wbVRy2K8Vrf$$dzhnqgA-KdKQx2OUcGemI",
-    "target" : "7AsiGTLpzsw8Jx_fkSnI1$$4W320dzvnJofl48HuNoJ2",
-    "targetPort" : "7LNZJf-BZ2-osyPjjgrih$$4Z_ouLiCYsYyjxSaKnpL-"
-  }, {
     "id" : "5bwC92q1jp88vdu144STd",
     "source" : "7AsiGTLpzsw8Jx_fkSnI1$$4W320dzvnJofl48HuNoJ2",
     "sourcePort" : "g6v56Eo8bMo95TvJfbJdQ$$bo1BHb5iTBTog2cr5aFax",
     "target" : "8COFJDsjfFWwXVjmEcwk3$$YypDOaN0J0yXBYfn5_DNF",
     "targetPort" : "u4WccjhKGbWAHRQcmtdTz$$Ih8inGCaAPHgVoFKoQmGR"
+  }, {
+    "id" : "jVw4V6rNemDgD6yNGCl8G$$GNZWVd0DaTwv-dqcJ69f3",
+    "source" : "Ra6c7YoihAwX8k80s5C4w$$-RNoO9aqwt2fzedWK27p4",
+    "sourcePort" : "VWenx4NTGv1Cc05RCGWeL$$S3xkY655DKUlcKTWoL7nk",
+    "target" : "7AsiGTLpzsw8Jx_fkSnI1$$4W320dzvnJofl48HuNoJ2",
+    "targetPort" : "7LNZJf-BZ2-osyPjjgrih$$4Z_ouLiCYsYyjxSaKnpL-"
   } ],
   "processes" : {
     "8COFJDsjfFWwXVjmEcwk3$$YypDOaN0J0yXBYfn5_DNF" : {
@@ -258,7 +258,7 @@
             "cache" : false,
             "detailedStats" : false,
             "isImported" : false,
-            "comment" : "Reads data from a dynamic source file and returns a DataFrame.",
+            "comment" : "Reads data from a dynamic source, specified by the file path, and returns a DataFrame.",
             "autoUpdateComment" : true
           },
           "ports" : {
@@ -331,7 +331,7 @@
             "autoUpdateOnRun" : true
           },
           "properties" : {
-            "script" : "from pyspark.sql import *\nfrom pyspark.sql.functions import *\nfrom pyspark.sql.types import *\nfrom prophecy.utils import *\nfrom prophecy.libs import typed_lit\n#from raw_bronze_subgraph.config.ConfigStore import *\n#from raw_bronze_subgraph.functions import *\n\nfile_name = Config.source_path\n\nout0 = spark.read\\\n    .option(\"header\", True)\\\n    .option(\"inferSchema\", True)\\\n    .option(\"sep\", \",\")\\\n    .csv(file_name)",
+            "script" : "from pyspark.sql import *\nfrom pyspark.sql.functions import *\nfrom pyspark.sql.types import *\nfrom prophecy.utils import *\nfrom prophecy.libs import typed_lit\n#from raw_bronze_subgraph.config.ConfigStore import *\n#from raw_bronze_subgraph.functions import *\n\nfile_name = Config.source_path\n\nout0 = spark.read\\\n    .option(\"header\", True)\\\n    .option(\"inferSchema\", True)\\\n    .option(\"multiLine\", True)\\\n    .option(\"sep\", \",\")\\\n    .csv(file_name)",
             "scriptMethodHeader" : "def Script(spark: SparkSession) -> DataFrame:",
             "scriptMethodFooter" : "    return out0"
           }
@@ -404,7 +404,7 @@
             "allowInportRename" : true
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/ControlFlowInput",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/ControlFlowInput",
             "projectName" : "ProphecySparkBasicsPython"
           }
         },
@@ -533,7 +533,7 @@
             "columnsSelector" : [ ]
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
             "projectName" : "ProphecySparkBasicsPython"
           }
         },
@@ -549,7 +549,7 @@
             "cache" : false,
             "detailedStats" : false,
             "isImported" : false,
-            "comment" : "Saves the input DataFrame as a Delta table in the specified database and table, overwriting any existing data.",
+            "comment" : "Saves the input DataFrame as a bronze table in the specified catalog and table name.",
             "autoUpdateComment" : true
           },
           "ports" : {
@@ -667,14 +667,43 @@
             "allowInportRename" : true
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/ControlFlowOutput",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/ControlFlowOutput",
             "projectName" : "ProphecySparkBasicsPython"
           }
         }
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/TableIterator",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/TableIterator",
         "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "Ra6c7YoihAwX8k80s5C4w$$-RNoO9aqwt2fzedWK27p4" : {
+      "id" : "Ra6c7YoihAwX8k80s5C4w$$-RNoO9aqwt2fzedWK27p4",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "gen_source_files",
+        "slug" : "gen_source_files",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Generates a list of source files for data processing, enabling efficient data management and integration.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "VWenx4NTGv1Cc05RCGWeL$$S3xkY655DKUlcKTWoL7nk",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/gen_source_files"
       }
     },
     "s9_3HTAi3TuPnZjgJVM8r$$Tpf6cvXXlGrWQC6A-l5_Q" : {
@@ -684,12 +713,12 @@
         "label" : "create_dataframe_from_urls",
         "slug" : "create_dataframe_from_urls",
         "x" : 20,
-        "y" : 20,
+        "y" : -220,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Creates a DataFrame from a list of URLs, specifying the table name and source path for each.",
+        "comment" : "Creates a structured dataset from various source URLs, facilitating data management and analysis for customer and order information.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -726,7 +755,7 @@
         "autoUpdateOnRun" : true
       },
       "properties" : {
-        "script" : "schema = StructType([\n    StructField(\"tablename\", StringType(), True),\n    StructField(\"source_path\", StringType(), True)\n])\n\n# Sample data\n# https://www.irs.gov/pub/irs-soi/13zpallagi.csv\ndata = [\n    (\"bronze_customers\", \"s3://prophecy-dataset-samples/CustomersDataset*.csv\"),\n    (\"bronze_orders\", \"s3://prophecy-dataset-samples/Orders*.csv\"),\n    (\"bronze_irs_zipcode\", \"dbfs:/databricks-datasets/data.gov/irs_zip_code_data/data-001/2013_soi_zipcode_agi.csv\")\n]\n\n# Create DataFrame\ndf = spark.createDataFrame(data, schema=schema)\n\n# Show DataFrame\nout0 = df",
+        "script" : "schema = StructType([\n    StructField(\"tablename\", StringType(), True),\n    StructField(\"source_path\", StringType(), True)\n])\n\n# Sample data\n# https://www.irs.gov/pub/irs-soi/13zpallagi.csv\ndata = [\n    (\"bronze_customers\", \"s3://prophecy-dataset-samples/CustomersDataset*.csv\"),\n    (\"bronze_orders\", \"s3://prophecy-dataset-samples/Orders*.csv\"),\n    (\"bronze_irs_zipcode\", \"dbfs:/databricks-datasets/data.gov/irs_zip_code_data/data-001/2013_soi_zipcode_agi.csv\"),\n    (\"bronze_account_detail\", \"dbfs:/Users/vlaunir@prophecy.io/delimited/account_detail.csv\"),\n    (\"bronze_item_detail\", \"dbfs:/Users/vlaunir@prophecy.io/delimited/item_detail.csv\")\n    \n    \n]\n\n# Create DataFrame\ndf = spark.createDataFrame(data, schema=schema)\n\n# Show DataFrame\nout0 = df",
         "scriptMethodHeader" : "def Script(spark: SparkSession) -> DataFrame:",
         "scriptMethodFooter" : "    return out0"
       }
@@ -820,37 +849,8 @@
         "columnsSelector" : [ ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
         "projectName" : "ProphecySparkBasicsPython"
-      }
-    },
-    "1ItWDmvcTCnb0JTIpt3vx$$OxC_qI5oXjmNDlqf2kjEp" : {
-      "id" : "1ItWDmvcTCnb0JTIpt3vx$$OxC_qI5oXjmNDlqf2kjEp",
-      "component" : "Source",
-      "metadata" : {
-        "label" : "raw_dynamic_source",
-        "slug" : "raw_dynamic_source",
-        "x" : 20,
-        "y" : -200,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false,
-        "comment" : "Creates a DataFrame containing a list of data sources for further processing.",
-        "autoUpdateComment" : true
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "9iC7XLEcV4uW-sC2Jj4pI$$zbyhzdnIrab6MiE-GCA67",
-          "slug" : "out"
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "datasetId" : "datasets/raw_dynamic_source"
       }
     }
   },

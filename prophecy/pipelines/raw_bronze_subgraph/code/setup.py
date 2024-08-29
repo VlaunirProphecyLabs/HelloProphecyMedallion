@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 setup(
-    name = 'raw_bronze_subgraph',
+    name = 'raw_bronze_dynamic',
     version = '1.0',
     packages = find_packages(include = ('raw_bronze_subgraph*', )) + ['prophecy_config_instances'],
     package_dir = {'prophecy_config_instances' : 'configs/resources/config'},

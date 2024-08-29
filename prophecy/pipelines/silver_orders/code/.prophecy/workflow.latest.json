@@ -1,0 +1,1099 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : false,
+      "plibVersion" : {
+        "mavenVersion" : "8.0.31",
+        "pyPiVersion" : "1.9.9"
+      }
+    },
+    "id" : "1",
+    "uri" : "pipelines/silver_orders",
+    "pipelineSettingsInfo" : {
+      "hasApplication" : false
+    },
+    "language" : "python",
+    "fabricId" : "9664",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "scott_demo2_team.helloworld.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ {
+          "name" : "catalog_name",
+          "kind" : {
+            "type" : "string",
+            "value" : "vlaunir_demos"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        } ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "silver_orders",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "KbuNaXvnP8KYGlG5elna8$$ZrarWFvLmsr2ebhStKpgq",
+    "source" : "ifGbrKCpo0oBJ3GGQWu8j$$wTRicCvTK2Uys5uZQxUvO",
+    "sourcePort" : "ub2vIKbkEwWumS1naBUVP$$E1hEE2dtyqHxXLYeMJ8Wh",
+    "target" : "GUYy-nw5e2nXnsRUVEFl8$$5XRhG3tao5pS6qSktophz",
+    "targetPort" : "sC2D_aZF5lFOFMgSTA3Vh$$__E1m2OM4jMBeC9SgCe20"
+  }, {
+    "id" : "2zzYlNtW82FCdi3ezDPJ0$$NWkd15nYLoSDaH6eee0Kr",
+    "source" : "GUYy-nw5e2nXnsRUVEFl8$$5XRhG3tao5pS6qSktophz",
+    "sourcePort" : "lfR7avilvdIFcigUuCt3e$$yErcq2wCWmIzniW-fK1NI",
+    "target" : "PAI5eDe4a_FFDlUnteKVO$$gOkRRWgvHi8INpLFFb_Ru",
+    "targetPort" : "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW"
+  }, {
+    "id" : "hUW0Aa5kD2rCzHlFO0D_V$$u0FYwUJlsh3cd-DQuCNfP",
+    "source" : "PAI5eDe4a_FFDlUnteKVO$$gOkRRWgvHi8INpLFFb_Ru",
+    "sourcePort" : "AFkvDof0nEKzlqByHnfGS$$ocwbn5MrY19a6mIF2KhOY",
+    "target" : "oeEM9ACnq5RPMX0-dT3dY$$7Ye1pkxZHbzm7cT1C6Yx-",
+    "targetPort" : "lNn4mCs24pVBMjv-lfxrB$$W_QTnEAjIXVhIxiKQZ68x"
+  }, {
+    "id" : "gbOhXBywR0H8M99TjIlMx$$1ZeZmIXD_qqdVIJdI9OYN",
+    "source" : "xbN64FRxl5cPg8TO8k2hE$$bousxgTD3dRBSMdzZnYVB",
+    "sourcePort" : "X0mc9-dH6YhVCJ3-FHK1k$$1e4ZXDEZ6NLNTxRCfQUbF",
+    "target" : "GUYy-nw5e2nXnsRUVEFl8$$5XRhG3tao5pS6qSktophz",
+    "targetPort" : "a5omZaTJ7IU4g2Z57I4eV$$kRmqo2SWXP6x_LVktMFVv"
+  } ],
+  "processes" : {
+    "GUYy-nw5e2nXnsRUVEFl8$$5XRhG3tao5pS6qSktophz" : {
+      "id" : "GUYy-nw5e2nXnsRUVEFl8$$5XRhG3tao5pS6qSktophz",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "by_order_id",
+        "slug" : "by_order_id",
+        "x" : 220,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Combines order details with item information to provide a comprehensive view of each transaction.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "sC2D_aZF5lFOFMgSTA3Vh$$__E1m2OM4jMBeC9SgCe20",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Order status",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_category",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Order category",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "float",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        }, {
+          "id" : "a5omZaTJ7IU4g2Z57I4eV$$kRmqo2SWXP6x_LVktMFVv",
+          "slug" : "in1",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each order placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "item_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the item ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "item_company",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The company that manufactures or supplies the item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "quantity",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of items ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "unit_price",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Price per unit of the ordered item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Date when the order was placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_address",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The address where the order will be shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City where the order is being shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state where the order is being shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_postal_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code for the shipping address of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "payment_method",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The method used for payment in the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "payment_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the payment for the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the shipping process for the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "notes",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Additional comments or special instructions related to the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "lfR7avilvdIFcigUuCt3e$$yErcq2wCWmIzniW-fK1NI",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "in1",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.order_id = in1.order_id"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "target" : "order_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.order_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.customer_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "order_status",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.order_status"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "order_category",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.order_category"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "order_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.order_date"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "amount",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.amount"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "item_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.item_name"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "item_company",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.item_company"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "quantity",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.quantity"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "unit_price",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.unit_price"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "shipping_address",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.shipping_address"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "shipping_city",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.shipping_city"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "shipping_state",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.shipping_state"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "shipping_postal_code",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.shipping_postal_code"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "payment_method",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.payment_method"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "payment_status",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.payment_status"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "shipping_status",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.shipping_status"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "notes",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.notes"
+          },
+          "description" : "",
+          "_row_id" : null
+        } ],
+        "hints" : [ {
+          "id" : "sC2D_aZF5lFOFMgSTA3Vh$$__E1m2OM4jMBeC9SgCe20",
+          "alias" : "in0",
+          "hintType" : "none",
+          "propagateColumns" : false
+        }, {
+          "id" : "a5omZaTJ7IU4g2Z57I4eV$$kRmqo2SWXP6x_LVktMFVv",
+          "alias" : "in1",
+          "hintType" : "none",
+          "propagateColumns" : false
+        } ],
+        "allIn1" : null,
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "a5omZaTJ7IU4g2Z57I4eV$$kRmqo2SWXP6x_LVktMFVv##order_id", "sC2D_aZF5lFOFMgSTA3Vh$$__E1m2OM4jMBeC9SgCe20##order_id", "a5omZaTJ7IU4g2Z57I4eV$$kRmqo2SWXP6x_LVktMFVv##unit_price", "sC2D_aZF5lFOFMgSTA3Vh$$__E1m2OM4jMBeC9SgCe20##order_id", "a5omZaTJ7IU4g2Z57I4eV$$kRmqo2SWXP6x_LVktMFVv##item_company", "a5omZaTJ7IU4g2Z57I4eV$$kRmqo2SWXP6x_LVktMFVv##notes", "a5omZaTJ7IU4g2Z57I4eV$$kRmqo2SWXP6x_LVktMFVv##payment_method", "sC2D_aZF5lFOFMgSTA3Vh$$__E1m2OM4jMBeC9SgCe20##customer_id", "a5omZaTJ7IU4g2Z57I4eV$$kRmqo2SWXP6x_LVktMFVv##shipping_address", "sC2D_aZF5lFOFMgSTA3Vh$$__E1m2OM4jMBeC9SgCe20##order_date", "a5omZaTJ7IU4g2Z57I4eV$$kRmqo2SWXP6x_LVktMFVv##shipping_city", "sC2D_aZF5lFOFMgSTA3Vh$$__E1m2OM4jMBeC9SgCe20##order_status", "a5omZaTJ7IU4g2Z57I4eV$$kRmqo2SWXP6x_LVktMFVv##quantity", "a5omZaTJ7IU4g2Z57I4eV$$kRmqo2SWXP6x_LVktMFVv##payment_status", "a5omZaTJ7IU4g2Z57I4eV$$kRmqo2SWXP6x_LVktMFVv##shipping_state", "a5omZaTJ7IU4g2Z57I4eV$$kRmqo2SWXP6x_LVktMFVv##shipping_status", "sC2D_aZF5lFOFMgSTA3Vh$$__E1m2OM4jMBeC9SgCe20##order_category", "a5omZaTJ7IU4g2Z57I4eV$$kRmqo2SWXP6x_LVktMFVv##shipping_postal_code", "a5omZaTJ7IU4g2Z57I4eV$$kRmqo2SWXP6x_LVktMFVv##item_name", "sC2D_aZF5lFOFMgSTA3Vh$$__E1m2OM4jMBeC9SgCe20##amount" ],
+        "allIn0" : null,
+        "whereClause" : null,
+        "headAlias" : "in0"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Join",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "xbN64FRxl5cPg8TO8k2hE$$bousxgTD3dRBSMdzZnYVB" : {
+      "id" : "xbN64FRxl5cPg8TO8k2hE$$bousxgTD3dRBSMdzZnYVB",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "bronze_order_detail",
+        "slug" : "bronze_order_detail",
+        "x" : 20,
+        "y" : 180,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "X0mc9-dH6YhVCJ3-FHK1k$$1e4ZXDEZ6NLNTxRCfQUbF",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/bronze_order_detail"
+      }
+    },
+    "ifGbrKCpo0oBJ3GGQWu8j$$wTRicCvTK2Uys5uZQxUvO" : {
+      "id" : "ifGbrKCpo0oBJ3GGQWu8j$$wTRicCvTK2Uys5uZQxUvO",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "bronze_orders",
+        "slug" : "bronze_orders",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Reads the 'bronze_orders' table from the 'helloworld_bronze' catalog.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "ub2vIKbkEwWumS1naBUVP$$E1hEE2dtyqHxXLYeMJ8Wh",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/bronze_orders"
+      }
+    },
+    "PAI5eDe4a_FFDlUnteKVO$$gOkRRWgvHi8INpLFFb_Ru" : {
+      "id" : "PAI5eDe4a_FFDlUnteKVO$$gOkRRWgvHi8INpLFFb_Ru",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "reformat_order_details",
+        "slug" : "reformat_order_details",
+        "x" : 420,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Streamlines order details for better clarity and accessibility, ensuring all relevant information is easily retrievable.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Order status",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_category",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Order category",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "float",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "item_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the item ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "item_company",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The company that manufactures or supplies the item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "quantity",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of items ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "unit_price",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Price per unit of the ordered item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_address",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The address where the order will be shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City where the order is being shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state where the order is being shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_postal_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code for the shipping address of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "payment_method",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The method used for payment in the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "payment_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the payment for the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the shipping process for the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "notes",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Additional comments or special instructions related to the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "AFkvDof0nEKzlqByHnfGS$$ocwbn5MrY19a6mIF2KhOY",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "order_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "order_id"
+          },
+          "description" : ""
+        }, {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "customer_id"
+          },
+          "description" : ""
+        }, {
+          "target" : "order_status",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "order_status"
+          },
+          "description" : ""
+        }, {
+          "target" : "order_category",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "order_category"
+          },
+          "description" : ""
+        }, {
+          "target" : "order_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "order_date"
+          },
+          "description" : ""
+        }, {
+          "target" : "amount",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "amount"
+          },
+          "description" : ""
+        }, {
+          "target" : "item_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "item_name"
+          },
+          "description" : ""
+        }, {
+          "target" : "item_company",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "item_company"
+          },
+          "description" : ""
+        }, {
+          "target" : "quantity",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "quantity"
+          },
+          "description" : ""
+        }, {
+          "target" : "unit_price",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "unit_price"
+          },
+          "description" : ""
+        }, {
+          "target" : "shipping_address",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "shipping_address"
+          },
+          "description" : ""
+        }, {
+          "target" : "shipping_city",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "shipping_city"
+          },
+          "description" : ""
+        }, {
+          "target" : "shipping_state",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "shipping_state"
+          },
+          "description" : ""
+        }, {
+          "target" : "shipping_postal_code",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "shipping_postal_code"
+          },
+          "description" : ""
+        }, {
+          "target" : "payment_method",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "payment_method"
+          },
+          "description" : ""
+        }, {
+          "target" : "payment_status",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "payment_status"
+          },
+          "description" : ""
+        }, {
+          "target" : "shipping_status",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "shipping_status"
+          },
+          "description" : ""
+        }, {
+          "target" : "notes",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "notes"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##quantity", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##shipping_address", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##shipping_postal_code", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##shipping_state", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##unit_price", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##order_date", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##notes", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##customer_id", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##item_name", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##shipping_status", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##payment_status", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##order_id", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##item_company", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##shipping_city", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##amount", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##order_category", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##payment_method", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##order_status" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "oeEM9ACnq5RPMX0-dT3dY$$7Ye1pkxZHbzm7cT1C6Yx-" : {
+      "id" : "oeEM9ACnq5RPMX0-dT3dY$$7Ye1pkxZHbzm7cT1C6Yx-",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "silver_orders",
+        "slug" : "silver_orders",
+        "x" : 620,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Saves the DataFrame 'in0' as a Delta table named 'silver_orders' in the 'helloworld_silver' database, partitioned by 'order_date'.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "lNn4mCs24pVBMjv-lfxrB$$W_QTnEAjIXVhIxiKQZ68x",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Order status",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_category",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Order category",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "float",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "item_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the item ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "item_company",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The company that manufactures or supplies the item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "quantity",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of items ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "unit_price",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Price per unit of the ordered item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_address",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The address where the order will be shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City where the order is being shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state where the order is being shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_postal_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code for the shipping address of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "payment_method",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The method used for payment in the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "payment_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the payment for the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the shipping process for the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "notes",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Additional comments or special instructions related to the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/silver_orders"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}

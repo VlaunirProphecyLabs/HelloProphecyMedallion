@@ -6,8 +6,8 @@ Config: ConfigClass = ConfigClass()
 
 class Utils:
     @staticmethod
-    def initializeFromArgs(spark: SparkSession, args):
+    def initializeFromArgs(spark: SparkSession, args, default_conf="silver_zip_codes.conf"):
         global Config
         Config.updateSpark(spark)
-        conf = parse_config(args)
+        conf = parse_config(args, default_conf)
         Config.update(**conf)

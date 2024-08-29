@@ -7,12 +7,15 @@
     "codeGenConfiguration" : {
       "editableConfig" : false,
       "plibVersion" : {
-        "mavenVersion" : "8.0.29",
+        "mavenVersion" : "8.0.31",
         "pyPiVersion" : "1.9.9"
       }
     },
     "id" : "1",
     "uri" : "pipelines/raw_bronze",
+    "pipelineSettingsInfo" : {
+      "hasApplication" : false
+    },
     "language" : "python",
     "fabricId" : "9664",
     "frontEndLanguage" : "sql",
@@ -112,8 +115,428 @@
     "sourcePort" : "6SWVqck6O4vucAzDwIWFv$$5jH5Zsr-S7NrakPB_7gMT",
     "target" : "sqwbwba6qMTcjQ_sZR0vP$$Bf0vBJB9oBULs1FjQjqth",
     "targetPort" : "Dx0Hh55t47C8s1WM4g6oR$$RxnWzfSdsaIJdAmUXVgq6"
+  }, {
+    "id" : "wXW20zVPlO-pTM2uzVA5c$$9NdHNcW9Hm0tlqJADkC2W",
+    "source" : "0qaCw0RCUEPOPtUnpAyGn$$5KjgXHu3HOZQegzEkDlhn",
+    "sourcePort" : "vqGjpNFO3haLTNWIdHqzq$$pPperXXrnOjlMT1Rr4TjW",
+    "target" : "kQ23Cpb2aiFb7L4YngzQA$$mejj4mBTxKSbWq2DzdXWF",
+    "targetPort" : "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL"
+  }, {
+    "id" : "gI16ViNJoEkGDsrxHhQ4J$$p9E5iBLtOChlAlmb46HgI",
+    "source" : "kQ23Cpb2aiFb7L4YngzQA$$mejj4mBTxKSbWq2DzdXWF",
+    "sourcePort" : "DGEkNOibfLVohZlQhOMkB$$huwpiCSVQnb9XH3BMoPg-",
+    "target" : "gj79mXZqQ_4VwAKJjRG7-$$9anDuafUCsJ5RHFQmEHll",
+    "targetPort" : "ZmMfUD1Ihg-7CRonis3D2$$eS5OHUgzy-W_7CPZ-IifP"
+  }, {
+    "id" : "K8MbmRB8_bt15Yij5E-1J$$YZe-g7Cap8PppfE4ZQcr0",
+    "source" : "cYT2wonG2H-ZYpimCJjCK$$ptDsQvpFfFjo9VJWZkqUk",
+    "sourcePort" : "3sA3pBs3g7ruNbOBJVZA5$$vNfMoABoQQidH4V18Pbzw",
+    "target" : "YBYwcfWVWP4STcbHVoS-Y$$5YYnTvVK5iPiqv5MPf0zp",
+    "targetPort" : "p7DKVi5o0-1RV5NA1GH-Z$$yeFnCB0TsmKNfArhpzpdU"
+  }, {
+    "id" : "TGuOwrjE7sPQ_8L0HJMXL$$R7nwlYELoRIi6wDVaru_J",
+    "source" : "YBYwcfWVWP4STcbHVoS-Y$$5YYnTvVK5iPiqv5MPf0zp",
+    "sourcePort" : "7dG7mYpiVarXX9fuEaYxH$$ikJNFI6JB18sjS0o-Hyx6",
+    "target" : "5-N6iMqYLc7DTvRYJxx6A$$6w5zlynXU1K-miGuTiKBX",
+    "targetPort" : "xZTeJxKL2KKZ057J3vuFX$$zUtJpNNOfiZ4PZawcQ63N"
   } ],
   "processes" : {
+    "kQ23Cpb2aiFb7L4YngzQA$$mejj4mBTxKSbWq2DzdXWF" : {
+      "id" : "kQ23Cpb2aiFb7L4YngzQA$$mejj4mBTxKSbWq2DzdXWF",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "ReformatCustomers_1",
+        "slug" : "ReformatCustomers_1",
+        "x" : 680,
+        "y" : 440,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "This gem reformats customer data by casting the customer_id and account_open_date fields to their respective data types. It also concatenates the first name and last name fields into a single full name field. This could improve data quality and consistency, and make it easier for business users to work with the data."
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "account_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_owner",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The person who owns the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone_number",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The contact phone number associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Email address associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_address",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Physical address for billing purposes",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_postal_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state associated with the billing address of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The type or category of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "industry",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The industry to which the account belongs",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "annual_revenue",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The annual revenue of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "number_of_employees",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of employees associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_activity_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date of the most recent activity related to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "created_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was created",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "website",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The website associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "lead_source",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The source from which the lead was generated",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The current status of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "rating",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The rating assigned to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "description",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "A description or summary of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_modified_by",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The user who last modified the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_modified_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was last modified",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "DGEkNOibfLVohZlQhOMkB$$huwpiCSVQnb9XH3BMoPg-",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "account_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "account_id"
+          },
+          "description" : ""
+        }, {
+          "target" : "account_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "account_name"
+          },
+          "description" : ""
+        }, {
+          "target" : "account_owner",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "account_owner"
+          },
+          "description" : ""
+        }, {
+          "target" : "phone_number",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "phone_number"
+          },
+          "description" : ""
+        }, {
+          "target" : "email",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "email"
+          },
+          "description" : ""
+        }, {
+          "target" : "billing_address",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "billing_address"
+          },
+          "description" : ""
+        }, {
+          "target" : "billing_postal_code",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "billing_postal_code"
+          },
+          "description" : ""
+        }, {
+          "target" : "billing_city",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "billing_city"
+          },
+          "description" : ""
+        }, {
+          "target" : "billing_state",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "billing_state"
+          },
+          "description" : ""
+        }, {
+          "target" : "account_type",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "account_type"
+          },
+          "description" : ""
+        }, {
+          "target" : "industry",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "industry"
+          },
+          "description" : ""
+        }, {
+          "target" : "annual_revenue",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "annual_revenue"
+          },
+          "description" : ""
+        }, {
+          "target" : "number_of_employees",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "number_of_employees"
+          },
+          "description" : ""
+        }, {
+          "target" : "last_activity_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "last_activity_date"
+          },
+          "description" : ""
+        }, {
+          "target" : "created_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "created_date"
+          },
+          "description" : ""
+        }, {
+          "target" : "website",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "website"
+          },
+          "description" : ""
+        }, {
+          "target" : "lead_source",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "lead_source"
+          },
+          "description" : ""
+        }, {
+          "target" : "status",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "status"
+          },
+          "description" : ""
+        }, {
+          "target" : "rating",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "rating"
+          },
+          "description" : ""
+        }, {
+          "target" : "description",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "description"
+          },
+          "description" : ""
+        }, {
+          "target" : "last_modified_by",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "last_modified_by"
+          },
+          "description" : ""
+        }, {
+          "target" : "last_modified_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "last_modified_date"
+          },
+          "description" : ""
+        } ],
+        "importString" : "customer_id,cast(customer_id as int)\nfirst_name,first_name\nlast_name,last_name\nphone,phone\nemail,email\ncountry_code,country_code\naccount_open_date,cast(account_open_date as date)\naccount_flags,account_flags\nfull_name,``concat(first_name, last_name)``",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##annual_revenue", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##status", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##description", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##account_name", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##phone_number", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##billing_address", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##last_activity_date", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##account_owner", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##lead_source", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##account_type", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##billing_city", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##last_modified_by", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##industry", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##email", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##number_of_employees", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##last_modified_date", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##billing_state", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##rating", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##billing_postal_code", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##website", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##created_date", "iqVtFCAHKcguPUlC2xF2j$$hoBNoQ1daLUlkKqi3olhL##account_id" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
     "hQKafnJYZxt7tISQzxgES$$LMMU698GTTD6Xcfs9y1Dw" : {
       "id" : "hQKafnJYZxt7tISQzxgES$$LMMU698GTTD6Xcfs9y1Dw",
       "component" : "Source",
@@ -121,7 +544,7 @@
         "label" : "raw_orders",
         "slug" : "raw_orders",
         "x" : 480,
-        "y" : 480,
+        "y" : 620,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -149,7 +572,7 @@
         "label" : "ReformatIRS",
         "slug" : "ReformatIRS",
         "x" : 680,
-        "y" : 720,
+        "y" : 860,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -2003,11 +2426,272 @@
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A26270", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A03210", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A04470", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N00600", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N00300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A07300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A03300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N18300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N09400", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A09600", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A85330", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N03210", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A05800", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N09600", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A07260", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A01400", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N1", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N07300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N02500", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A10300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N18450", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N00650", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A03150", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N07180", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##zipcode", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A02300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A00300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N2", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A09400", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A03230", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A01700", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A02650", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##STATEFIPS", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N18425", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N03220", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A03270", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##SCHF", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##NUMDEP", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##STATE", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N10600", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N19700", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N03270", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N59660", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N03240", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N00200", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A18425", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N11902", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A07240", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A07180", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N07240", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##MARS2", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N06500", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A00200", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N07220", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N07230", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##agi_stub", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N10960", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A03220", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A07100", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N11901", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N85330", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A04800", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A59720", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N03150", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##PREP", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N02900", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A18450", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A00700", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A07230", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A03240", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A10600", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A00900", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A19700", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N18500", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N07100", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N85300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N03300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N59720", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A85300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A00101", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A06500", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A11070", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A00650", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N04800", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N03230", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A59660", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N04470", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A18500", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A00100", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N01400", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A11902", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A18300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##MARS1", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N02300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A19300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N02650", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A01000", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A00600", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N01000", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N26270", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N19300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N05800", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N00900", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N11070", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A02900", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A07220", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A10960", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##MARS4", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N00700", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N01700", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A02500", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N07260", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N10300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A11901" ]
+        "columnsSelector" : [ "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N03300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A03210", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N2", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N10300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N04800", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N03150", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A06500", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N00650", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N07300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A59660", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N07180", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A00100", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A00650", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A18300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N18425", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N07240", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A10600", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A11070", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N19700", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A00900", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A10960", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##MARS4", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A00200", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N02500", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N1", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N26270", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A10300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A01000", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A09400", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A85330", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N11901", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A19300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A11902", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N00300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A04800", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A02900", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A00300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N00900", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N18300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N19300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N03210", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A07240", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N11902", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A00600", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N04470", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A18450", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N05800", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A19700", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##PREP", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A11901", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N18450", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N11070", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A18425", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N00700", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A00700", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A07300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A07260", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A02500", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N03240", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N09400", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A59720", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N85330", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A01400", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A02300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A18500", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N01000", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N00600", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A07220", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N01400", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N07230", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N03270", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A03300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A03240", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N18500", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A03220", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##MARS1", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A07230", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N09600", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N00200", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N03230", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N02900", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N01700", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N59660", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N07220", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A05800", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N59720", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##SCHF", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A07180", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N02300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N85300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N02650", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A85300", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##MARS2", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A00101", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N07260", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A04470", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##agi_stub", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A03230", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A03150", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A01700", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##zipcode", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##STATE", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A09600", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A26270", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N03220", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A02650", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##STATEFIPS", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N07100", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A03270", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N10960", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##NUMDEP", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##A07100", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N06500", "iwG9Ea_Z68m8cxc-WUB8Q$$ezfAsvCIzHQI4G4rzsuTl##N10600" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "0qaCw0RCUEPOPtUnpAyGn$$5KjgXHu3HOZQegzEkDlhn" : {
+      "id" : "0qaCw0RCUEPOPtUnpAyGn$$5KjgXHu3HOZQegzEkDlhn",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "raw_account_detail",
+        "slug" : "raw_account_detail",
+        "x" : 480,
+        "y" : 440,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Reads raw account details from a CSV file and returns a DataFrame containing various attributes such as account ID, name, owner, contact information, billing details, account type, industry, financial information, activity dates, website, lead source, status, rating, description, and modification details.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "vqGjpNFO3haLTNWIdHqzq$$pPperXXrnOjlMT1Rr4TjW",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/raw_account_detail"
+      }
+    },
+    "gj79mXZqQ_4VwAKJjRG7-$$9anDuafUCsJ5RHFQmEHll" : {
+      "id" : "gj79mXZqQ_4VwAKJjRG7-$$9anDuafUCsJ5RHFQmEHll",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "bronze_account_detail_table",
+        "slug" : "bronze_account_detail_table",
+        "x" : 900,
+        "y" : 440,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Saves the account details DataFrame as a Delta table named 'bronze_account_detail' in the 'helloworld_bronze' database.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "ZmMfUD1Ihg-7CRonis3D2$$eS5OHUgzy-W_7CPZ-IifP",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "account_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_owner",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The person who owns the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone_number",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The contact phone number associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Email address associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_address",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Physical address for billing purposes",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_postal_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state associated with the billing address of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The type or category of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "industry",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The industry to which the account belongs",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "annual_revenue",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The annual revenue of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "number_of_employees",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of employees associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_activity_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date of the most recent activity related to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "created_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was created",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "website",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The website associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "lead_source",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The source from which the lead was generated",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The current status of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "rating",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The rating assigned to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "description",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "A description or summary of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_modified_by",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The user who last modified the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_modified_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was last modified",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/bronze_account_detail_table"
       }
     },
     "z_791NI970teHg6lAJKkf$$cDZauHUFPDYEG2r0zfnkj" : {
@@ -2017,7 +2701,7 @@
         "label" : "raw_irs_zipcode",
         "slug" : "raw_irs_zipcode",
         "x" : 480,
-        "y" : 720,
+        "y" : 860,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -2045,7 +2729,7 @@
         "label" : "ReformatOrders",
         "slug" : "ReformatOrders",
         "x" : 680,
-        "y" : 480,
+        "y" : 620,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -2177,11 +2861,171 @@
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ "w15kbXDtgjnqDzVsRsmq8$$dSLPmly01BLBRr7z0gEW-##order_status", "w15kbXDtgjnqDzVsRsmq8$$dSLPmly01BLBRr7z0gEW-##customer_id", "w15kbXDtgjnqDzVsRsmq8$$dSLPmly01BLBRr7z0gEW-##order_date", "w15kbXDtgjnqDzVsRsmq8$$dSLPmly01BLBRr7z0gEW-##amount", "w15kbXDtgjnqDzVsRsmq8$$dSLPmly01BLBRr7z0gEW-##order_category", "w15kbXDtgjnqDzVsRsmq8$$dSLPmly01BLBRr7z0gEW-##order_id" ]
+        "columnsSelector" : [ "w15kbXDtgjnqDzVsRsmq8$$dSLPmly01BLBRr7z0gEW-##customer_id", "w15kbXDtgjnqDzVsRsmq8$$dSLPmly01BLBRr7z0gEW-##amount", "w15kbXDtgjnqDzVsRsmq8$$dSLPmly01BLBRr7z0gEW-##order_id", "w15kbXDtgjnqDzVsRsmq8$$dSLPmly01BLBRr7z0gEW-##order_category", "w15kbXDtgjnqDzVsRsmq8$$dSLPmly01BLBRr7z0gEW-##order_status", "w15kbXDtgjnqDzVsRsmq8$$dSLPmly01BLBRr7z0gEW-##order_date" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "5-N6iMqYLc7DTvRYJxx6A$$6w5zlynXU1K-miGuTiKBX" : {
+      "id" : "5-N6iMqYLc7DTvRYJxx6A$$6w5zlynXU1K-miGuTiKBX",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "bronze_order_detail",
+        "slug" : "bronze_order_detail",
+        "x" : 900,
+        "y" : 1060,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Stores order details in a secure and structured format for further analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "xZTeJxKL2KKZ057J3vuFX$$zUtJpNNOfiZ4PZawcQ63N",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each order placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "item_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the item ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "item_company",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The company that manufactures or supplies the item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "quantity",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of items ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "unit_price",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Price per unit of the ordered item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Date when the order was placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_address",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The address where the order will be shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City where the order is being shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state where the order is being shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_postal_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code for the shipping address of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "payment_method",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The method used for payment in the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "payment_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the payment for the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the shipping process for the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "notes",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Additional comments or special instructions related to the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/bronze_order_detail"
       }
     },
     "ZSyGtVMGJyq1pGcVW7KeN$$M3lUEpf8rtN0AEQlLugRA" : {
@@ -2374,7 +3218,7 @@
         "columnsSelector" : [ "MBRtrfAl-KvbCq2bpSzdv$$1yAU9HicqGYh_bmd9_8jh##country_code", "MBRtrfAl-KvbCq2bpSzdv$$1yAU9HicqGYh_bmd9_8jh##customer_id", "MBRtrfAl-KvbCq2bpSzdv$$1yAU9HicqGYh_bmd9_8jh##account_open_date", "MBRtrfAl-KvbCq2bpSzdv$$1yAU9HicqGYh_bmd9_8jh##first_name", "MBRtrfAl-KvbCq2bpSzdv$$1yAU9HicqGYh_bmd9_8jh##account_flags", "MBRtrfAl-KvbCq2bpSzdv$$1yAU9HicqGYh_bmd9_8jh##phone", "MBRtrfAl-KvbCq2bpSzdv$$1yAU9HicqGYh_bmd9_8jh##last_name", "MBRtrfAl-KvbCq2bpSzdv$$1yAU9HicqGYh_bmd9_8jh##email" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -2385,7 +3229,7 @@
         "label" : "bronze_orders",
         "slug" : "bronze_orders",
         "x" : 900,
-        "y" : 480,
+        "y" : 620,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -2463,6 +3307,175 @@
       },
       "properties" : {
         "datasetId" : "datasets/bronze_orders"
+      }
+    },
+    "YBYwcfWVWP4STcbHVoS-Y$$5YYnTvVK5iPiqv5MPf0zp" : {
+      "id" : "YBYwcfWVWP4STcbHVoS-Y$$5YYnTvVK5iPiqv5MPf0zp",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_1",
+        "slug" : "Reformat_1",
+        "x" : 680,
+        "y" : 1060,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "p7DKVi5o0-1RV5NA1GH-Z$$yeFnCB0TsmKNfArhpzpdU",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each order placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "item_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the item ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "item_company",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The company that manufactures or supplies the item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "quantity",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of items ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "unit_price",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Price per unit of the ordered item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Date when the order was placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_address",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The address where the order will be shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City where the order is being shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state where the order is being shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_postal_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code for the shipping address of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "payment_method",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The method used for payment in the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "payment_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the payment for the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the shipping process for the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "notes",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Additional comments or special instructions related to the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "7dG7mYpiVarXX9fuEaYxH$$ikJNFI6JB18sjS0o-Hyx6",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "Bgl_DePqv5OrESQneEiVY$$3V-SQ9GIBbAh5Lv8GsxEF" : {
@@ -2626,7 +3639,7 @@
         "label" : "bronze_irs_zipcode",
         "slug" : "bronze_irs_zipcode",
         "x" : 900,
-        "y" : 720,
+        "y" : 860,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -3676,6 +4689,33 @@
       },
       "properties" : {
         "datasetId" : "datasets/bronze_irs_zipcode"
+      }
+    },
+    "cYT2wonG2H-ZYpimCJjCK$$ptDsQvpFfFjo9VJWZkqUk" : {
+      "id" : "cYT2wonG2H-ZYpimCJjCK$$ptDsQvpFfFjo9VJWZkqUk",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "order_item_detail",
+        "slug" : "order_item_detail",
+        "x" : 460,
+        "y" : 1060,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "3sA3pBs3g7ruNbOBJVZA5$$vNfMoABoQQidH4V18Pbzw",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/order_item_detail"
       }
     }
   },

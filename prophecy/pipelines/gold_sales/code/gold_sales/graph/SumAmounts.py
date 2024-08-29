@@ -9,4 +9,8 @@ from gold_sales.udfs.UDFs import *
 def SumAmounts(spark: SparkSession, in0: DataFrame) -> DataFrame:
     df1 = in0.groupBy(col("customer_id"))
 
-    return df1.agg(count(col("order_id")).alias("orders"), sum(col("amount")).alias("total_spend"))
+    return df1.agg(
+        count(col("order_id")).alias("orders"), 
+        sum(col("amount")).alias("total_spend"), 
+        first(col("order_date")).alias("order_date")
+    )

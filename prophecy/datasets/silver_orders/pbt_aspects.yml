@@ -44,3 +44,87 @@ schema:
       description: ''
       mappings: []
       tags: []
+  - name: item_name
+    type: string
+    nullable: true
+    metadata:
+      description: Name of the item ordered
+      mappings: []
+      tags: []
+  - name: item_company
+    type: string
+    nullable: true
+    metadata:
+      description: The company that manufactures or supplies the item
+      mappings: []
+      tags: []
+  - name: quantity
+    type: string
+    nullable: true
+    metadata:
+      description: The number of items ordered
+      mappings: []
+      tags: []
+  - name: unit_price
+    type: string
+    nullable: true
+    metadata:
+      description: Price per unit of the ordered item
+      mappings: []
+      tags: []
+  - name: shipping_address
+    type: string
+    nullable: true
+    metadata:
+      description: The address where the order will be shipped
+      mappings: []
+      tags: []
+  - name: shipping_city
+    type: string
+    nullable: true
+    metadata:
+      description: City where the order is being shipped
+      mappings: []
+      tags: []
+  - name: shipping_state
+    type: string
+    nullable: true
+    metadata:
+      description: The state where the order is being shipped
+      mappings: []
+      tags: []
+  - name: shipping_postal_code
+    type: string
+    nullable: true
+    metadata:
+      description: Postal code for the shipping address of the order
+      mappings: []
+      tags: []
+  - name: payment_method
+    type: string
+    nullable: true
+    metadata:
+      description: The method used for payment in the order
+      mappings: []
+      tags: []
+  - name: payment_status
+    type: string
+    nullable: true
+    metadata:
+      description: Current status of the payment for the order
+      mappings: []
+      tags: []
+  - name: shipping_status
+    type: string
+    nullable: true
+    metadata:
+      description: Current status of the shipping process for the order
+      mappings: []
+      tags: []
+  - name: notes
+    type: string
+    nullable: true
+    metadata:
+      description: Additional comments or special instructions related to the order
+      mappings: []
+      tags: []

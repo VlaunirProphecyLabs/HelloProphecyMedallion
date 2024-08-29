@@ -7,12 +7,9 @@ from prophecy.utils import *
 from silver_zip_codes.graph import *
 
 def pipeline(spark: SparkSession) -> None:
-    df_bronze_irs_zipcode = bronze_irs_zipcode(spark)
-    df_IgnoreBadZip = IgnoreBadZip(spark, df_bronze_irs_zipcode)
-    df_CastDataTypes = CastDataTypes(spark, df_IgnoreBadZip)
-    df_SumIncomeBracketsByZip = SumIncomeBracketsByZip(spark, df_CastDataTypes)
-    df_CalcIsHighIncome = CalcIsHighIncome(spark, df_SumIncomeBracketsByZip)
-    silver_irs_zipcode(spark, df_CalcIsHighIncome)
+    df_irs_zipcode_data_processing = irs_zipcode_data_processing(spark, Config.irs_zipcode_data_processing)
+    df_add_sequence_column_1 = add_sequence_column_1(spark, df_irs_zipcode_data_processing)
+    silver_irs_zipcode(spark, df_add_sequence_column_1)
 
 def main():
     spark = SparkSession.builder\

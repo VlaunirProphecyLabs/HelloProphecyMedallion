@@ -7,10 +7,10 @@ from prophecy.utils import *
 from raw_bronze_subgraph.graph import *
 
 def pipeline(spark: SparkSession) -> None:
-    df_create_dataframe_from_urls = create_dataframe_from_urls(spark)
-    df_add_load_date = add_load_date(spark, df_create_dataframe_from_urls)
+    df_gen_source_files = gen_source_files(spark)
+    df_add_load_date = add_load_date(spark, df_gen_source_files)
     load_csv_data(Config.load_csv_data).apply(spark, df_add_load_date)
-    df_raw_dynamic_source = raw_dynamic_source(spark)
+    df_create_dataframe_from_urls = create_dataframe_from_urls(spark)
 
 def main():
     spark = SparkSession.builder\

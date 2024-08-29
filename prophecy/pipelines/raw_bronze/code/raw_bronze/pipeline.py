@@ -7,10 +7,16 @@ from prophecy.utils import *
 from raw_bronze.graph import *
 
 def pipeline(spark: SparkSession) -> None:
+    df_raw_account_detail = raw_account_detail(spark)
+    df_ReformatCustomers_1 = ReformatCustomers_1(spark, df_raw_account_detail)
     df_raw_orders = raw_orders(spark)
     df_raw_irs_zipcode = raw_irs_zipcode(spark)
     df_ReformatIRS = ReformatIRS(spark, df_raw_irs_zipcode)
+    bronze_account_detail_table(spark, df_ReformatCustomers_1)
     df_ReformatOrders = ReformatOrders(spark, df_raw_orders)
+    df_order_item_detail = order_item_detail(spark)
+    df_Reformat_1 = Reformat_1(spark, df_order_item_detail)
+    bronze_order_detail(spark, df_Reformat_1)
     df_raw_customers = raw_customers(spark)
     df_ReformatCustomers = ReformatCustomers(spark, df_raw_customers)
     bronze_orders(spark, df_ReformatOrders)
