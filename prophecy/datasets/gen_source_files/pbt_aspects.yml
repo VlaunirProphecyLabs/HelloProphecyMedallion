@@ -6,13 +6,15 @@ schema:
     type: string
     nullable: true
     metadata:
-      description: ''
+      description: Name of the dataset table; Represents the specific dataset being
+        sourced.
       mappings: []
       tags: []
   - name: source_path
     type: string
     nullable: true
     metadata:
-      description: ''
+      description: The location of the source files in the cloud storage; Indicates
+        the path where the dataset files are stored.
       mappings: []
       tags: []

@@ -33,12 +33,10 @@ pipelines:
     dependencies: {}
   pipelines/gold_sales:
     name: gold_sales
-    description: Processes order and customer details to generate various aggregated
-      reports. It reads data from a silver table, counts orders by category, and sorts
-      them. It cleans and enriches the data with additional attributes like full name
-      and account age. The pipeline deduplicates records, calculates total sales by
-      customer, and aggregates sales by zip code and date. Finally, it writes the
-      results to gold tables, updating existing records or inserting new ones as needed.
+    description: Processes customer order data to derive insights such as total orders
+      by category and top categories. It deduplicates records based on specific criteria
+      and calculates total and average amounts by zipcode and date. The results are
+      merged into gold tables for further analysis, ensuring data integrity and availability.
     author: scott+demo2@prophecy.io
     mode: batch
     artefactID: ''
@@ -130,6 +128,7 @@ pipelines:
     datasets:
       inputs:
       - datasets/gen_source_files
+      - datasets/raw_dynamic_source
       outputs:
       - datasets/raw_dynamic_table
     subgraphs: []
@@ -473,6 +472,7 @@ jobs:
     createdAt: '2024-07-25 19:39:44'
     author: vlaunir@prophecy.io
     models: []
+    sqlProjects: []
 gemContainer:
   languageVersion: '3.10'
   gemLibsVersion: 1.3.4.0
@@ -527,7 +527,7 @@ dependencies:
 - type: plibMaven
   modifiedAt: '2024-07-23T15:17:53.522852Z'
   name: plibMaven
-  version: 8.0.31
+  version: 8.1.4
   id: '307010185'
   createdAt: '2024-07-23T15:17:53.522779Z'
   enabled: true
@@ -535,7 +535,7 @@ dependencies:
 - type: plibPypi
   modifiedAt: '2024-08-12T15:21:42.654Z'
   name: ProphecyLibsPython
-  version: 1.9.9
+  version: 1.9.14
   id: '1002289140'
   createdAt: '2024-07-23T15:17:53.522922Z'
   enabled: true
@@ -558,10 +558,10 @@ projectDependencies:
     projectUID: 12654
     projectName: ProphecySparkBasicsPython
     repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
-    version: 0.2.26
+    version: 0.2.28
     isDefault: true
     author: null
-    createdAt: '2024-08-12 15:20:55'
+    createdAt: '2024-09-04 01:46:04'
   '12655':
     projectUID: 12655
     projectName: ProphecyWarehousePython

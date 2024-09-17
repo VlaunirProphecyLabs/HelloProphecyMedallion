@@ -106,10 +106,10 @@
         }
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Filter",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Filter",
         "projectId" : "12654",
         "projectName" : "ProphecySparkBasicsPython",
-        "version" : "0.2.26"
+        "version" : "0.2.28"
       }
     },
     "bW1wMyXKowJMhej5fI4Ab" : {
@@ -180,10 +180,10 @@
         "columnsSelector" : [ "suGruB9p73W50nx-4EIx7$$NGuKvwv2_ePVzbNamI-Ks$$kBj63fY4CTTbCvMFCAOQM$$wZy1sQw845EM1iLnGOjhe$$sFpBX1Dd4Lc2Jb1Icfada$$W3yDw-VvOfke7tdBBlxrK$$5CwLG-jD6SerckXXLmDgV$$X6Yaa7HPUaQvYqlPUQQLc$$t5XyASBBuyTL-A5DV1e1M##zipcode", "suGruB9p73W50nx-4EIx7$$NGuKvwv2_ePVzbNamI-Ks$$kBj63fY4CTTbCvMFCAOQM$$wZy1sQw845EM1iLnGOjhe$$sFpBX1Dd4Lc2Jb1Icfada$$W3yDw-VvOfke7tdBBlxrK$$5CwLG-jD6SerckXXLmDgV$$X6Yaa7HPUaQvYqlPUQQLc$$t5XyASBBuyTL-A5DV1e1M##agi_stub", "suGruB9p73W50nx-4EIx7$$NGuKvwv2_ePVzbNamI-Ks$$kBj63fY4CTTbCvMFCAOQM$$wZy1sQw845EM1iLnGOjhe$$sFpBX1Dd4Lc2Jb1Icfada$$W3yDw-VvOfke7tdBBlxrK$$5CwLG-jD6SerckXXLmDgV$$X6Yaa7HPUaQvYqlPUQQLc$$t5XyASBBuyTL-A5DV1e1M##STATE", "suGruB9p73W50nx-4EIx7$$NGuKvwv2_ePVzbNamI-Ks$$kBj63fY4CTTbCvMFCAOQM$$wZy1sQw845EM1iLnGOjhe$$sFpBX1Dd4Lc2Jb1Icfada$$W3yDw-VvOfke7tdBBlxrK$$5CwLG-jD6SerckXXLmDgV$$X6Yaa7HPUaQvYqlPUQQLc$$t5XyASBBuyTL-A5DV1e1M##N1" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectId" : "12654",
         "projectName" : "ProphecySparkBasicsPython",
-        "version" : "0.2.26"
+        "version" : "0.2.28"
       }
     },
     "_N5QpddF5t9ipJbNBbAe4" : {
@@ -264,10 +264,10 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Aggregate",
         "projectId" : "12654",
         "projectName" : "ProphecySparkBasicsPython",
-        "version" : "0.2.26"
+        "version" : "0.2.28"
       }
     },
     "M6OsTf7XucIg27aaD8T3p" : {
@@ -570,10 +570,10 @@
         "updated" : true,
         "currentDatasetId" : "datasets/bronze_irs_zipcode",
         "componentInfo" : {
-          "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/catalogTable",
+          "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/catalogTable",
           "projectId" : "12654",
           "projectName" : "ProphecySparkBasicsPython",
-          "version" : "0.2.26"
+          "version" : "0.2.28"
         },
         "dataset" : {
           "mergeCondition" : null,
@@ -588,7 +588,7 @@
           "flagValue" : "integer",
           "versionAsOf" : null,
           "writeMode" : "error",
-          "description" : "",
+          "description" : "IRS zipcode dataset containing various financial metrics and demographic information, enabling analysis of economic conditions across different regions.",
           "replaceWhere" : null,
           "historicColumns" : [ ],
           "mergeSourceAlias" : "source",
@@ -1634,6 +1634,11 @@
           "maxFlagCol" : null,
           "matchedConditionDelete" : null,
           "isCatalogEnabled" : true,
+          "additionalProperties" : {
+            "copilot" : {
+              "datasetDescriptionStatus" : "fromCopilotWithInterim"
+            }
+          },
           "matchedActionDelete" : "ignore",
           "timestampAsOf" : null,
           "mergeSchema" : null,
@@ -1740,10 +1745,10 @@
         "columnsSelector" : [ "eKKn98Bj5sHX93Y4BIad6$$dWhcx0EKmioDxhZvdyBDo$$oPoCB2CFwYYz-Yj28n4TG$$bfCPw2m5asH1FbHenxcvh$$jL8lmxfewdTjScFHkLQKt$$WgT-t3NOwM5k1vOArdRP9$$6-2Cdx3CfLosPksXYYSzB$$wQhJSx952DZc1fADUxQaG$$xLwZnOz0sAcfVcHs5Usmr##low_income_returns", "eKKn98Bj5sHX93Y4BIad6$$dWhcx0EKmioDxhZvdyBDo$$oPoCB2CFwYYz-Yj28n4TG$$bfCPw2m5asH1FbHenxcvh$$jL8lmxfewdTjScFHkLQKt$$WgT-t3NOwM5k1vOArdRP9$$6-2Cdx3CfLosPksXYYSzB$$wQhJSx952DZc1fADUxQaG$$xLwZnOz0sAcfVcHs5Usmr##zipcode", "eKKn98Bj5sHX93Y4BIad6$$dWhcx0EKmioDxhZvdyBDo$$oPoCB2CFwYYz-Yj28n4TG$$bfCPw2m5asH1FbHenxcvh$$jL8lmxfewdTjScFHkLQKt$$WgT-t3NOwM5k1vOArdRP9$$6-2Cdx3CfLosPksXYYSzB$$wQhJSx952DZc1fADUxQaG$$xLwZnOz0sAcfVcHs5Usmr##state", "eKKn98Bj5sHX93Y4BIad6$$dWhcx0EKmioDxhZvdyBDo$$oPoCB2CFwYYz-Yj28n4TG$$bfCPw2m5asH1FbHenxcvh$$jL8lmxfewdTjScFHkLQKt$$WgT-t3NOwM5k1vOArdRP9$$6-2Cdx3CfLosPksXYYSzB$$wQhJSx952DZc1fADUxQaG$$xLwZnOz0sAcfVcHs5Usmr##high_income_returns", "eKKn98Bj5sHX93Y4BIad6$$dWhcx0EKmioDxhZvdyBDo$$oPoCB2CFwYYz-Yj28n4TG$$bfCPw2m5asH1FbHenxcvh$$jL8lmxfewdTjScFHkLQKt$$WgT-t3NOwM5k1vOArdRP9$$6-2Cdx3CfLosPksXYYSzB$$wQhJSx952DZc1fADUxQaG$$xLwZnOz0sAcfVcHs5Usmr##all_returns" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectId" : "12654",
         "projectName" : "ProphecySparkBasicsPython",
-        "version" : "0.2.26"
+        "version" : "0.2.28"
       }
     }
   }
