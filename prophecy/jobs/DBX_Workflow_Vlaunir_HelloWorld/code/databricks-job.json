@@ -38,16 +38,13 @@
     "job_clusters" : [ {
       "job_cluster_key" : "DBX_Workflow_Vlaunir_HelloWorld_default_Small",
       "new_cluster" : {
-        "spark_version" : "14.3.x-scala2.12",
-        "node_type_id" : "i4i.large",
-        "num_workers" : 0,
-        "custom_tags" : {
-          "ResourceClass" : "SingleNode"
-        },
-        "enable_elastic_disk" : false,
+        "ssh_public_keys" : [ ],
+        "spark_version" : "15.4.x-scala2.12",
+        "node_type_id" : "i3.xlarge",
+        "num_workers" : 2,
+        "custom_tags" : { },
+        "init_scripts" : [ ],
         "spark_conf" : {
-          "spark.databricks.cluster.profile" : "singleNode",
-          "spark.master" : "local[*, 4]",
           "spark.prophecy.metadata.fabric.id" : "9664",
           "spark.prophecy.metadata.job.uri" : "__PROJECT_ID_PLACEHOLDER__/jobs/DBX_Workflow_Vlaunir_HelloWorld",
           "spark.prophecy.metadata.is.interactive.run" : "false",
@@ -63,7 +60,7 @@
         "spark_env_vars" : {
           "PYSPARK_PYTHON" : "/databricks/python3/bin/python3"
         },
-        "runtime_engine" : "STANDARD",
+        "runtime_engine" : "PHOTON",
         "aws_attributes" : {
           "first_on_demand" : 1,
           "availability" : "SPOT_WITH_FALLBACK",
@@ -75,17 +72,13 @@
     }, {
       "job_cluster_key" : "Cluster_1",
       "new_cluster" : {
-        "spark_version" : "14.3.x-scala2.12",
-        "node_type_id" : "i4i.xlarge",
-        "driver_node_type_id" : "i4i.large",
-        "num_workers" : 0,
-        "custom_tags" : {
-          "ResourceClass" : "SingleNode"
-        },
-        "enable_elastic_disk" : true,
+        "ssh_public_keys" : [ ],
+        "spark_version" : "15.4.x-scala2.12",
+        "node_type_id" : "i3.xlarge",
+        "num_workers" : 4,
+        "custom_tags" : { },
+        "init_scripts" : [ ],
         "spark_conf" : {
-          "spark.databricks.cluster.profile" : "singleNode",
-          "spark.master" : "local[*, 4]",
           "spark.prophecy.metadata.fabric.id" : "9664",
           "spark.prophecy.metadata.job.uri" : "__PROJECT_ID_PLACEHOLDER__/jobs/DBX_Workflow_Vlaunir_HelloWorld",
           "spark.prophecy.metadata.is.interactive.run" : "false",
@@ -99,18 +92,16 @@
           "spark.databricks.isv.product" : "prophecy"
         },
         "spark_env_vars" : {
-          "SPARK_VERSION" : "3.2"
+          "PYSPARK_PYTHON" : "/databricks/python3/bin/python3"
         },
-        "cluster_source" : "API",
-        "runtime_engine" : "STANDARD",
+        "runtime_engine" : "PHOTON",
         "aws_attributes" : {
           "first_on_demand" : 1,
           "availability" : "SPOT_WITH_FALLBACK",
           "zone_id" : "auto",
           "spot_bid_price_percent" : 100
         },
-        "data_security_mode" : "SINGLE_USER",
-        "enable_local_disk_encryption" : false
+        "data_security_mode" : "SINGLE_USER"
       }
     } ],
     "email_notifications" : { },
