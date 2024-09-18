@@ -471,7 +471,9 @@
       },
       "properties" : {
         "pipelineId" : "",
-        "configurations" : { }
+        "configurations" : {
+          "instances" : { }
+        }
       }
     }
   },

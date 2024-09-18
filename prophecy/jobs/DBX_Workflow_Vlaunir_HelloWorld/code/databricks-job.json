@@ -74,7 +74,7 @@
           "spark.prophecy.metadata.is.interactive.run" : "false",
           "spark.prophecy.project.id" : "__PROJECT_ID_PLACEHOLDER__",
           "spark.prophecy.metadata.user.id" : "5087",
-          "spark.prophecy.tasks" : "H4sIAAAAAAAAAI2OzQqAMAyD36XngXdfpkxXdLCto/UHFd/dozpUvCb5kmwgdsZGOK2EOjad2NxDDdlnCj6RVk++gY6Dw4EztqMOHEn0Bj3YBtSHieSUkMWV4FvGXH+6Jdno2x83y7rPLdgP0877Cg4BAAA=",
+          "spark.prophecy.tasks" : "H4sIAAAAAAAAAKtWKkosj08qys+rSo0vLk1KL0osyFCyUirILEjNycxLLdbHJq+jFACVjzcEKgby0/NzUuJL8gvik0uLS/JzU4uKUQzBIq2jVJyZU5ZahBCKzy9KQdeIS40OsrtTKvMSczOTiXA2unF47VKqBQCZQbXxHgEAAA==",
           "spark.prophecy.metadata.job.branch" : "__PROJECT_RELEASE_VERSION_PLACEHOLDER__",
           "spark.prophecy.metadata.url" : "__PROPHECY_URL_PLACEHOLDER__",
           "spark.prophecy.execution.metrics.disabled" : "true",
@@ -111,7 +111,7 @@
           "spark.prophecy.metadata.is.interactive.run" : "false",
           "spark.prophecy.project.id" : "__PROJECT_ID_PLACEHOLDER__",
           "spark.prophecy.metadata.user.id" : "5087",
-          "spark.prophecy.tasks" : "H4sIAAAAAAAAAI2OzQqAMAyD36XngXdfpkxXdLCto/UHFd/dozpUvCb5kmwgdsZGOK2EOjad2NxDDdlnCj6RVk++gY6Dw4EztqMOHEn0Bj3YBtSHieSUkMWV4FvGXH+6Jdno2x83y7rPLdgP0877Cg4BAAA=",
+          "spark.prophecy.tasks" : "H4sIAAAAAAAAAKtWKkosj08qys+rSo0vLk1KL0osyFCyUirILEjNycxLLdbHJq+jFACVjzcEKgby0/NzUuJL8gvik0uLS/JzU4uKUQzBIq2jVJyZU5ZahBCKzy9KQdeIS40OsrtTKvMSczOTiXA2unF47VKqBQCZQbXxHgEAAA==",
           "spark.prophecy.metadata.job.branch" : "__PROJECT_RELEASE_VERSION_PLACEHOLDER__",
           "spark.prophecy.metadata.url" : "__PROPHECY_URL_PLACEHOLDER__",
           "spark.prophecy.execution.metrics.disabled" : "true",
@@ -298,5 +298,5 @@
     "clusterMode" : "Single"
   },
   "secret_scope" : "prophecy_jobs_7057",
-  "sorted_processes" : [ "pPIWxnVmpB-GEQX9wVvaE$$qIMvdLvq_I08NZHDEuRmI", "pX60onCln72YccOtzMu5a$$l79vTsF0uazUU16zS_GcH", "z0amwE6Bk8__5NizprmGj$$_X2FGS_OLDAsrctfwq2ZK", "Hw2T3eeGM1jrLMSP0S4gp$$IhdAiAUO6O1yDB9BqaBcm", "q_irM5HMYHSydD5WUceTD$$qErebMMjOftDfhNQmUIby", "LRgwTXH_5N1AM25VqAr7L$$b2E4Ym6wrEGtLBpXMjs7a" ]
+  "sorted_processes" : [ "pPIWxnVmpB-GEQX9wVvaE$$qIMvdLvq_I08NZHDEuRmI", "pX60onCln72YccOtzMu5a$$l79vTsF0uazUU16zS_GcH", "z0amwE6Bk8__5NizprmGj$$_X2FGS_OLDAsrctfwq2ZK", "Hw2T3eeGM1jrLMSP0S4gp$$IhdAiAUO6O1yDB9BqaBcm", "q_irM5HMYHSydD5WUceTD$$qErebMMjOftDfhNQmUIby", "LRgwTXH_5N1AM25VqAr7L$$b2E4Ym6wrEGtLBpXMjs7a", "G2SSZBxQC64VYSGszbu8O$$ubZ7AkhWoZ3YoKCFBdXQf" ]
 }
