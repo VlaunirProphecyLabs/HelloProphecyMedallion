@@ -31,25 +31,6 @@ pipelines:
       - datasets/silver_order_customer_details
     subgraphs: []
     dependencies: {}
-  pipelines/gold_sales:
-    name: gold_sales
-    description: Processes customer order data to derive insights such as total orders
-      by category and top categories. It deduplicates records based on specific criteria
-      and calculates total and average amounts by zipcode and date. The results are
-      merged into gold tables for further analysis, ensuring data integrity and availability.
-    author: scott+demo2@prophecy.io
-    mode: batch
-    artefactID: ''
-    language: python
-    createdAt: '2023-07-13 18:32:25'
-    datasets:
-      inputs:
-      - datasets/silver_order_customer_details
-      outputs:
-      - datasets/gold_sales_by_zip_date
-      - datasets/gold_total_sales_by_customer
-    subgraphs: []
-    dependencies: {}
   pipelines/gold_top_customers:
     name: gold_top_customers
     description: ''
@@ -182,6 +163,25 @@ pipelines:
       - datasets/silver_customers
     subgraphs:
     - subgraphs/irs_zipcodes_data
+    dependencies: {}
+  pipelines/gold_sales:
+    name: gold_sales
+    description: Processes customer order data to derive insights such as total orders
+      by category and top categories. It deduplicates records based on specific criteria
+      and calculates total and average amounts by zipcode and date. The results are
+      merged into gold tables for further analysis, ensuring data integrity and availability.
+    author: scott+demo2@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2023-07-13 18:32:25'
+    datasets:
+      inputs:
+      - datasets/silver_order_customer_details
+      outputs:
+      - datasets/gold_sales_by_zip_date
+      - datasets/gold_total_sales_by_customer
+    subgraphs: []
     dependencies: {}
 datasets:
   datasets/bronze_orders:
@@ -462,8 +462,10 @@ jobs:
       onSuccess: false
       onFailure: false
     pipelines:
-    - pipelines/raw_bronze_subgraph
+    - pipelines/silver_customers_orders
     - pipelines/silver_customers
+    - pipelines/raw_bronze_subgraph
+    - pipelines/gold_top_customers
     jobClusterMode:
       clusterMode:
         Single: {}
@@ -570,6 +572,14 @@ projectDependencies:
     isDefault: true
     author: null
     createdAt: '2024-08-12 15:21:51'
+  '16362':
+    projectUID: 16362
+    projectName: ProphecyAnalyticalFunctionsPython
+    repositoryPath: gitUri=https://github.com/prophecy-samples/spark-analytical-functions-python&subPath=/
+    version: ProphecyAnalyticalFunctionsPython/3.0.0
+    isDefault: false
+    author: null
+    createdAt: '2024-09-18 17:05:13'
 flags:
   shouldAddDefaultDependenciesIfAbsent: true
 pipelineConfigurations: {}
