@@ -13,10 +13,11 @@ buildSystemDetails:
 pipelines:
   pipelines/silver_customers_orders:
     name: silver_customers_orders
-    description: Aggregates and enriches customer order data by joining orders with
-      customer details and IRS zipcode information. It calculates various metrics
-      related to income returns and reformats the data for storage in a Delta table.
-      The final output includes comprehensive customer and order details.
+    description: Aggregates and reformats customer and order data from silver tables,
+      calculating return ratios and averages based on zip codes. It performs inner
+      joins to combine customer details with order information, ensuring comprehensive
+      insights into customer transactions. The final output is saved in a specified
+      Delta table for further analysis.
     author: scott+demo2@prophecy.io
     mode: batch
     artefactID: ''
@@ -116,23 +117,29 @@ pipelines:
     dependencies: {}
   pipelines/customer_orders:
     name: gold_customer_orders
-    description: Combines customer and order data to create a comprehensive dataset.
-      It reformats the data by adding a full name field, a transaction flag based
-      on order amount, and categorizes orders by season based on the order date. This
-      enhances the dataset for further analysis.
+    description: Joins customer and order data to create a comprehensive view of customer
+      orders. It reformats the data to include additional insights such as full name,
+      account age, and seasonal categorization based on order dates. Flags high-value
+      orders for further attention.
     author: vlaunir@prophecy.io
     mode: batch
     artefactID: ''
     language: python
     createdAt: '2024-07-23 15:17:51'
     datasets:
-      inputs: []
+      inputs:
+      - datasets/bronze_customers
+      - datasets/raw_account_detail
+      - datasets/silver_customers
+      - datasets/silver_orders
       outputs: []
     subgraphs: []
     dependencies: {}
   pipelines/silver_orders:
     name: silver_orders
-    description: null
+    description: Processes and enriches order data by joining orders with their respective
+      details. It reformats the combined data for consistency and writes the results
+      to a silver table, partitioned by order date.
     author: vlaunir@prophecy.io
     mode: batch
     artefactID: ''
@@ -166,10 +173,10 @@ pipelines:
     dependencies: {}
   pipelines/gold_sales:
     name: gold_sales
-    description: Processes customer order data to derive insights such as total orders
-      by category and top categories. It deduplicates records based on specific criteria
-      and calculates total and average amounts by zipcode and date. The results are
-      merged into gold tables for further analysis, ensuring data integrity and availability.
+    description: Processes order customer details by cleaning and enriching the data,
+      including flagging high amounts and calculating account age. It aggregates sales
+      data by customer and by zip code and date, while ensuring deduplication of records.
+      The results are merged into existing gold tables or created if they do not exist.
     author: scott+demo2@prophecy.io
     mode: batch
     artefactID: ''
@@ -462,16 +469,43 @@ jobs:
       onSuccess: false
       onFailure: false
     pipelines:
-    - pipelines/silver_customers_orders
     - pipelines/silver_customers
-    - pipelines/raw_bronze_subgraph
-    - pipelines/gold_top_customers
+    - pipelines/gold_sales
     jobClusterMode:
       clusterMode:
         Single: {}
       clusterId: null
     enabled: true
     createdAt: '2024-07-25 19:39:44'
+    author: vlaunir@prophecy.io
+    models: []
+    sqlProjects: []
+  jobs/job_demo:
+    name: job_demo
+    description: ''
+    fabricUID: 9664
+    scheduler:
+      Databricks: {}
+    cloudProvider: null
+    jobSize: Small
+    scheduleCron: None
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines:
+    - pipelines/raw_bronze
+    - pipelines/raw_bronze_subgraph
+    - pipelines/silver_customers
+    - pipelines/gold_sales
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: null
+    createdAt: '2024-10-10 14:57:42'
     author: vlaunir@prophecy.io
     models: []
     sqlProjects: []
@@ -529,15 +563,15 @@ dependencies:
 - type: plibMaven
   modifiedAt: '2024-07-23T15:17:53.522852Z'
   name: plibMaven
-  version: 8.1.4
+  version: 8.2.1
   id: '307010185'
   createdAt: '2024-07-23T15:17:53.522779Z'
   enabled: true
   entity: Project
 - type: plibPypi
-  modifiedAt: '2024-08-12T15:21:42.654Z'
+  modifiedAt: '2024-10-15T13:43:44.448Z'
   name: ProphecyLibsPython
-  version: 1.9.14
+  version: 1.9.16
   id: '1002289140'
   createdAt: '2024-07-23T15:17:53.522922Z'
   enabled: true
@@ -560,10 +594,10 @@ projectDependencies:
     projectUID: 12654
     projectName: ProphecySparkBasicsPython
     repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
-    version: 0.2.28
+    version: 0.2.30
     isDefault: true
     author: null
-    createdAt: '2024-09-04 01:46:04'
+    createdAt: '2024-09-24 18:34:44'
   '12655':
     projectUID: 12655
     projectName: ProphecyWarehousePython
@@ -579,7 +613,15 @@ projectDependencies:
     version: ProphecyAnalyticalFunctionsPython/3.0.0
     isDefault: false
     author: null
-    createdAt: '2024-09-18 17:05:13'
+    createdAt: '2024-09-30 12:52:25'
+  '32699':
+    projectUID: 32699
+    projectName: ProphecySparkDataQualityPython
+    repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/gLsx7fee_project_32699.git&subPath=
+    version: 0.0.1
+    isDefault: false
+    author: null
+    createdAt: '2024-10-10 14:50:20'
 flags:
   shouldAddDefaultDependenciesIfAbsent: true
 pipelineConfigurations: {}

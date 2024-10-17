@@ -6,7 +6,7 @@ from prophecy.libs import typed_lit
 from silver_orders.config.ConfigStore import *
 from silver_orders.udfs.UDFs import *
 
-def by_order_id(spark: SparkSession, in0: DataFrame, in1: DataFrame, ) -> DataFrame:
+def join_orders_with_items(spark: SparkSession, in0: DataFrame, in1: DataFrame, ) -> DataFrame:
     return in0\
         .alias("in0")\
         .join(in1.alias("in1"), (col("in0.order_id") == col("in1.order_id")), "inner")\

@@ -6,7 +6,7 @@ from prophecy.libs import typed_lit
 from silver_orders.config.ConfigStore import *
 from silver_orders.udfs.UDFs import *
 
-def silver_orders(spark: SparkSession, in0: DataFrame):
+def write_silver_orders(spark: SparkSession, in0: DataFrame):
     in0.write\
         .format("delta")\
         .option("overwriteSchema", True)\

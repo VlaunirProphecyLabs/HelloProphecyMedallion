@@ -18,6 +18,7 @@ def pipeline(spark: SparkSession) -> None:
     )
     df_customers_reformatted = customers_reformatted(spark, df_CustomerZipCodes_1)
     silver_customers(spark, df_customers_reformatted)
+    df_dataQualityCheck_1_out0, df_dataQualityCheck_1_out1 = dataQualityCheck_1(spark, df_bronze_customers_1)
 
 def main():
     spark = SparkSession.builder\

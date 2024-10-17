@@ -7,8 +7,8 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.1.4",
-        "pyPiVersion" : "1.9.14"
+        "mavenVersion" : "8.2.1",
+        "pyPiVersion" : "1.9.16"
       }
     },
     "id" : "1",
@@ -27,7 +27,7 @@
       "language" : "python",
       "udfs" : [ ],
       "functionPackageName" : "scott_demo2_team.helloworld.functions",
-      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions", "prophecyteam.prophecyanalyticalfunctionspython.functions" ]
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions", "prophecy.data_quality.functions", "prophecyteam.prophecyanalyticalfunctionspython.functions" ]
     },
     "udafs" : {
       "language" : "python",
@@ -62,19 +62,7 @@
     "codeMode" : "sparse",
     "buildSystem" : "maven",
     "externalDependencies" : [ ],
-    "dependentProjectExternalDependencies" : [ {
-      "projectUID" : "12654",
-      "projectName" : "ProphecySparkBasicsPython",
-      "externalDependencies" : [ ]
-    }, {
-      "projectUID" : "12655",
-      "projectName" : "ProphecyWarehousePython",
-      "externalDependencies" : [ ]
-    }, {
-      "projectUID" : "16362",
-      "projectName" : "ProphecyAnalyticalFunctionsPython",
-      "externalDependencies" : [ ]
-    } ],
+    "dependentProjectExternalDependencies" : [ ],
     "isImported" : false,
     "interimMode" : "Full",
     "interimModeEnabled" : true,
@@ -86,8 +74,2249 @@
     "topLevelPackage" : "customer_orders",
     "configurationVersion" : "v2"
   },
-  "connections" : [ ],
-  "processes" : { },
+  "connections" : [ {
+    "id" : "cKyY5iJk",
+    "source" : "JLXA5EVn",
+    "sourcePort" : "w2zOkJOA",
+    "target" : "MhUg0aSU",
+    "targetPort" : "gUpDJuMn"
+  }, {
+    "id" : "SfTRu2gY",
+    "source" : "XsYYOOZ6",
+    "sourcePort" : "ydcSYO1C",
+    "target" : "MhUg0aSU",
+    "targetPort" : "jXYufAFq"
+  }, {
+    "id" : "hQod7vjJQtezA9nSiiDZM$$ON0EhVIIIgnV3NkXBxe75",
+    "source" : "sFG9GJfjpzwps5EtzFOdf$$MSgK4xLBiF4pClBr2XiG-",
+    "sourcePort" : "NtTerNDnCQ8tjZV4dq_Z1$$tgztkEjEkyK7qKjBuQuQr",
+    "target" : "IAnJa29KmrCx0x1ZG4uL_$$IESvPEx1TXnw9L1h5kr7D",
+    "targetPort" : "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz"
+  }, {
+    "id" : "J1WjCScE-XOhlOMS7653h$$dCd-kybMDfNE_mpFSUBri",
+    "source" : "1AB7FcNOdcDZmUIpcBQs_",
+    "sourcePort" : "SbiqG7POunh1TXVIyItZI",
+    "target" : "IAnJa29KmrCx0x1ZG4uL_$$IESvPEx1TXnw9L1h5kr7D",
+    "targetPort" : "eYIe31O0pOxo4K9YrooQr$$Ywu892I4WQiJOH6U8sCTA"
+  }, {
+    "id" : "mI-sZOOXJD8lnR-8IYnAO$$OKmutwpl2xCJaKpR_4Ud7",
+    "source" : "MhUg0aSU",
+    "sourcePort" : "pKrbcBZF",
+    "target" : "0RqUGyLpWWjCvLgsXtCm8$$Qbl5Ewvk6sPW6ZvW-sYlD",
+    "targetPort" : "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th"
+  } ],
+  "processes" : {
+    "JLXA5EVn" : {
+      "id" : "JLXA5EVn",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "silver_customers",
+        "slug" : "silver_customers",
+        "x" : 20,
+        "y" : 220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "w2zOkJOA",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/silver_customers"
+      }
+    },
+    "MhUg0aSU" : {
+      "id" : "MhUg0aSU",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "order_customer_details",
+        "slug" : "order_customer_details",
+        "x" : 220,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "jXYufAFq",
+          "slug" : "silver_orders",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Order status",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_category",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Order category",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "float",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "item_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the item ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "item_company",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The company that manufactures or supplies the item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "quantity",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of items ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "unit_price",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Price per unit of the ordered item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_address",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The address where the order will be shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City where the order is being shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state where the order is being shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_postal_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code for the shipping address of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "payment_method",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The method used for payment in the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "payment_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the payment for the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the shipping process for the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "notes",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Additional comments or special instructions related to the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        }, {
+          "id" : "gUpDJuMn",
+          "slug" : "silver_customers",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer first name",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer last name",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer phone number",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer Email",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer country code",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer account flags",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_owner",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The person who owns the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone_number",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The contact phone number associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_address",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Physical address for billing purposes",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_postal_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state associated with the billing address of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Email address associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The type or category of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "industry",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The industry to which the account belongs",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "annual_revenue",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The annual revenue of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "number_of_employees",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of employees associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_activity_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date of the most recent activity related to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "created_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was created",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "website",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The website associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "lead_source",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The source from which the lead was generated",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The current status of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "rating",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The rating assigned to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "description",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "A description or summary of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_modified_by",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The user who last modified the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_modified_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was last modified",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "zipcode",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The ZIP code",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "high_income_percent",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "high_income_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "low_income_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "all_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "is_high_income",
+              "type" : "boolean",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "pKrbcBZF",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "silver_customers",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.customer_id = silver_customers.customer_id"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "target" : "ORDER_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.order_id"
+          },
+          "description" : ""
+        }, {
+          "target" : "CUSTOMER_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.customer_id"
+          },
+          "description" : ""
+        }, {
+          "target" : "ORDER_STATUS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.order_status"
+          },
+          "description" : ""
+        }, {
+          "target" : "ORDER_CATEGORY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.order_category"
+          },
+          "description" : ""
+        }, {
+          "target" : "ORDER_DATE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.order_date"
+          },
+          "description" : ""
+        }, {
+          "target" : "AMOUNT",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.amount"
+          },
+          "description" : ""
+        }, {
+          "target" : "ITEM_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.item_name"
+          },
+          "description" : ""
+        }, {
+          "target" : "ITEM_COMPANY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.item_company"
+          },
+          "description" : ""
+        }, {
+          "target" : "QUANTITY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.quantity"
+          },
+          "description" : ""
+        }, {
+          "target" : "UNIT_PRICE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.unit_price"
+          },
+          "description" : ""
+        }, {
+          "target" : "SHIPPING_ADDRESS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.shipping_address"
+          },
+          "description" : ""
+        }, {
+          "target" : "SHIPPING_CITY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.shipping_city"
+          },
+          "description" : ""
+        }, {
+          "target" : "SHIPPING_STATE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.shipping_state"
+          },
+          "description" : ""
+        }, {
+          "target" : "SHIPPING_POSTAL_CODE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.shipping_postal_code"
+          },
+          "description" : ""
+        }, {
+          "target" : "PAYMENT_METHOD",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.payment_method"
+          },
+          "description" : ""
+        }, {
+          "target" : "PAYMENT_STATUS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.payment_status"
+          },
+          "description" : ""
+        }, {
+          "target" : "SHIPPING_STATUS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.shipping_status"
+          },
+          "description" : ""
+        }, {
+          "target" : "NOTES",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_orders.notes"
+          },
+          "description" : ""
+        }, {
+          "target" : "FIRST_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.first_name"
+          },
+          "description" : ""
+        }, {
+          "target" : "LAST_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.last_name"
+          },
+          "description" : ""
+        }, {
+          "target" : "PHONE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.phone"
+          },
+          "description" : ""
+        }, {
+          "target" : "EMAIL",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.email"
+          },
+          "description" : ""
+        }, {
+          "target" : "BILLING_ADDRESS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.billing_address"
+          },
+          "description" : ""
+        }, {
+          "target" : "BILLING_POSTAL_CODE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.billing_postal_code"
+          },
+          "description" : ""
+        }, {
+          "target" : "BILLING_CITY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.billing_city"
+          },
+          "description" : ""
+        }, {
+          "target" : "BILLING_STATE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.billing_state"
+          },
+          "description" : ""
+        }, {
+          "target" : "BILLING_EMAIL",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.billing_email"
+          },
+          "description" : ""
+        }, {
+          "target" : "INDUSTRY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.industry"
+          },
+          "description" : ""
+        }, {
+          "target" : "ANNUAL_REVENUE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.annual_revenue"
+          },
+          "description" : ""
+        }, {
+          "target" : "NUMBER_OF_EMPLOYEES",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.number_of_employees"
+          },
+          "description" : ""
+        }, {
+          "target" : "WEBSITE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.website"
+          },
+          "description" : ""
+        }, {
+          "target" : "STATUS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.status"
+          },
+          "description" : ""
+        }, {
+          "target" : "RATING",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.rating"
+          },
+          "description" : ""
+        }, {
+          "target" : "DESCRIPTION",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.description"
+          },
+          "description" : ""
+        }, {
+          "target" : "LAST_MODIFIED_BY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.last_modified_by"
+          },
+          "description" : ""
+        }, {
+          "target" : "STATE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.state"
+          },
+          "description" : ""
+        }, {
+          "target" : "ALL_RETURNS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "silver_customers.all_returns"
+          },
+          "description" : ""
+        } ],
+        "hints" : [ {
+          "id" : "in0",
+          "alias" : "in0",
+          "hintType" : "none",
+          "propagateColumns" : false
+        }, {
+          "id" : "in1",
+          "alias" : "in1",
+          "hintType" : "none",
+          "propagateColumns" : false
+        } ],
+        "allIn1" : null,
+        "activeTab" : "conditions",
+        "columnsSelector" : [ ],
+        "allIn0" : null,
+        "whereClause" : null,
+        "headAlias" : "silver_orders"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/Join",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "sFG9GJfjpzwps5EtzFOdf$$MSgK4xLBiF4pClBr2XiG-" : {
+      "id" : "sFG9GJfjpzwps5EtzFOdf$$MSgK4xLBiF4pClBr2XiG-",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "raw_account_detail",
+        "slug" : "raw_account_detail",
+        "x" : -500,
+        "y" : -300,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "NtTerNDnCQ8tjZV4dq_Z1$$tgztkEjEkyK7qKjBuQuQr",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/raw_account_detail"
+      }
+    },
+    "IAnJa29KmrCx0x1ZG4uL_$$IESvPEx1TXnw9L1h5kr7D" : {
+      "id" : "IAnJa29KmrCx0x1ZG4uL_$$IESvPEx1TXnw9L1h5kr7D",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "by_email_account_name",
+        "slug" : "by_email_account_name",
+        "x" : -300,
+        "y" : -200,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz",
+          "slug" : "raw_account_detail",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "account_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_owner",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The person who owns the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone_number",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The contact phone number associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Email address associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_address",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Physical address for billing purposes",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_postal_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state associated with the billing address of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The type or category of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "industry",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The industry to which the account belongs",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "annual_revenue",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The annual revenue of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "number_of_employees",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of employees associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_activity_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date of the most recent activity related to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "created_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was created",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "website",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The website associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "lead_source",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The source from which the lead was generated",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The current status of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "rating",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The rating assigned to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "description",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "A description or summary of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_modified_by",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The user who last modified the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_modified_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was last modified",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        }, {
+          "id" : "eYIe31O0pOxo4K9YrooQr$$Ywu892I4WQiJOH6U8sCTA",
+          "slug" : "bronze_customers",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer first name",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer last name",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer phone number",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer Email",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer country code",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer account flags",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "full_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "8EBfquGsw0Hzwd95ZhpoV$$XiyZr533nZlePGo8x909A",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "bronze_customers",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "(((raw_account_detail.account_name = bronze_customers.account_flags) AND (raw_account_detail.email = bronze_customers.email)) AND (raw_account_detail.phone_number = bronze_customers.phone))"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_customers.customer_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "first_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_customers.first_name"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "last_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_customers.last_name"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "country_code",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_customers.country_code"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "account_open_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_customers.account_open_date"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "full_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_customers.full_name"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "status",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.status"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "description",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.description"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "last_modified_by",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.last_modified_by"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "annual_revenue",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.annual_revenue"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "last_activity_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.last_activity_date"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "number_of_employees",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.number_of_employees"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "account_type",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.account_type"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "website",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.website"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "rating",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.rating"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "billing_postal_code",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.billing_postal_code"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "lead_source",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.lead_source"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "industry",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.industry"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "email",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.email"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "created_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.created_date"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "billing_city",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.billing_city"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "account_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.account_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "account_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.account_name"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "billing_state",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.billing_state"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "last_modified_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.last_modified_date"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "billing_address",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.billing_address"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "account_owner",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.account_owner"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "phone_number",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "raw_account_detail.phone_number"
+          },
+          "description" : "",
+          "_row_id" : null
+        } ],
+        "hints" : [ {
+          "id" : "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz",
+          "alias" : "raw_account_detail",
+          "hintType" : "none",
+          "propagateColumns" : false
+        }, {
+          "id" : "eYIe31O0pOxo4K9YrooQr$$Ywu892I4WQiJOH6U8sCTA",
+          "alias" : "bronze_customers",
+          "hintType" : "none",
+          "propagateColumns" : false
+        } ],
+        "allIn1" : null,
+        "activeTab" : "conditions",
+        "columnsSelector" : [ "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##account_name", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##phone_number", "eYIe31O0pOxo4K9YrooQr$$Ywu892I4WQiJOH6U8sCTA##email", "eYIe31O0pOxo4K9YrooQr$$Ywu892I4WQiJOH6U8sCTA##phone", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##email", "eYIe31O0pOxo4K9YrooQr$$Ywu892I4WQiJOH6U8sCTA##account_flags", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##account_id", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##phone_number", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##last_activity_date", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##created_date", "eYIe31O0pOxo4K9YrooQr$$Ywu892I4WQiJOH6U8sCTA##country_code", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##description", "eYIe31O0pOxo4K9YrooQr$$Ywu892I4WQiJOH6U8sCTA##full_name", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##account_name", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##account_type", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##last_modified_by", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##billing_state", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##account_owner", "eYIe31O0pOxo4K9YrooQr$$Ywu892I4WQiJOH6U8sCTA##first_name", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##annual_revenue", "eYIe31O0pOxo4K9YrooQr$$Ywu892I4WQiJOH6U8sCTA##last_name", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##last_modified_date", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##billing_city", "eYIe31O0pOxo4K9YrooQr$$Ywu892I4WQiJOH6U8sCTA##customer_id", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##number_of_employees", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##rating", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##industry", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##website", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##billing_postal_code", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##lead_source", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##email", "eYIe31O0pOxo4K9YrooQr$$Ywu892I4WQiJOH6U8sCTA##account_open_date", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##billing_address", "z5zPc_njYJNFCktfgYaQB$$d9n-3kaQr3qi497Bh79Sz##status" ],
+        "allIn0" : null,
+        "whereClause" : null,
+        "headAlias" : "raw_account_detail"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/Join",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "0RqUGyLpWWjCvLgsXtCm8$$Qbl5Ewvk6sPW6ZvW-sYlD" : {
+      "id" : "0RqUGyLpWWjCvLgsXtCm8$$Qbl5Ewvk6sPW6ZvW-sYlD",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "reformatted_order_data",
+        "slug" : "reformatted_order_data",
+        "x" : 360,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Enhances order data by including customer details, transaction flags, account age, and seasonal categorization for better analysis and decision-making.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "ORDER_ID",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CUSTOMER_ID",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ORDER_STATUS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Order status",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ORDER_CATEGORY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Order category",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ORDER_DATE",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "AMOUNT",
+              "type" : "float",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ITEM_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the item ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ITEM_COMPANY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The company that manufactures or supplies the item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "QUANTITY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of items ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "UNIT_PRICE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Price per unit of the ordered item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SHIPPING_ADDRESS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The address where the order will be shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SHIPPING_CITY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City where the order is being shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SHIPPING_STATE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state where the order is being shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SHIPPING_POSTAL_CODE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code for the shipping address of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "PAYMENT_METHOD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The method used for payment in the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "PAYMENT_STATUS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the payment for the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SHIPPING_STATUS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the shipping process for the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "NOTES",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Additional comments or special instructions related to the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "FIRST_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer first name",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "LAST_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer last name",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "PHONE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer phone number",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "EMAIL",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer Email",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "BILLING_ADDRESS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Physical address for billing purposes",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BILLING_POSTAL_CODE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BILLING_CITY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BILLING_STATE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state associated with the billing address of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BILLING_EMAIL",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Email address associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "INDUSTRY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The industry to which the account belongs",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ANNUAL_REVENUE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The annual revenue of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "NUMBER_OF_EMPLOYEES",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of employees associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "WEBSITE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The website associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "STATUS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The current status of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "RATING",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The rating assigned to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DESCRIPTION",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "A description or summary of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "LAST_MODIFIED_BY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The user who last modified the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "STATE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ALL_RETURNS",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "wWgjg7EBjERrzZczVSAFP$$jnY1VHLyae2dQXsrc3R7c",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "ORDER_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "ORDER_ID"
+          },
+          "description" : ""
+        }, {
+          "target" : "CUSTOMER_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "CUSTOMER_ID"
+          },
+          "description" : ""
+        }, {
+          "target" : "ORDER_STATUS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "ORDER_STATUS"
+          },
+          "description" : ""
+        }, {
+          "target" : "ORDER_CATEGORY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "ORDER_CATEGORY"
+          },
+          "description" : ""
+        }, {
+          "target" : "ORDER_DATE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "ORDER_DATE"
+          },
+          "description" : ""
+        }, {
+          "target" : "AMOUNT",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "AMOUNT"
+          },
+          "description" : ""
+        }, {
+          "target" : "ITEM_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "ITEM_NAME"
+          },
+          "description" : ""
+        }, {
+          "target" : "ITEM_COMPANY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "ITEM_COMPANY"
+          },
+          "description" : ""
+        }, {
+          "target" : "QUANTITY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "QUANTITY"
+          },
+          "description" : ""
+        }, {
+          "target" : "UNIT_PRICE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "UNIT_PRICE"
+          },
+          "description" : ""
+        }, {
+          "target" : "SHIPPING_ADDRESS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "SHIPPING_ADDRESS"
+          },
+          "description" : ""
+        }, {
+          "target" : "SHIPPING_CITY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "SHIPPING_CITY"
+          },
+          "description" : ""
+        }, {
+          "target" : "SHIPPING_STATE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "SHIPPING_STATE"
+          },
+          "description" : ""
+        }, {
+          "target" : "SHIPPING_POSTAL_CODE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "SHIPPING_POSTAL_CODE"
+          },
+          "description" : ""
+        }, {
+          "target" : "PAYMENT_METHOD",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "PAYMENT_METHOD"
+          },
+          "description" : ""
+        }, {
+          "target" : "PAYMENT_STATUS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "PAYMENT_STATUS"
+          },
+          "description" : ""
+        }, {
+          "target" : "SHIPPING_STATUS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "SHIPPING_STATUS"
+          },
+          "description" : ""
+        }, {
+          "target" : "NOTES",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "NOTES"
+          },
+          "description" : ""
+        }, {
+          "target" : "FIRST_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "FIRST_NAME"
+          },
+          "description" : ""
+        }, {
+          "target" : "LAST_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "LAST_NAME"
+          },
+          "description" : ""
+        }, {
+          "target" : "PHONE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "PHONE"
+          },
+          "description" : ""
+        }, {
+          "target" : "EMAIL",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "EMAIL"
+          },
+          "description" : ""
+        }, {
+          "target" : "BILLING_ADDRESS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "BILLING_ADDRESS"
+          },
+          "description" : ""
+        }, {
+          "target" : "BILLING_POSTAL_CODE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "BILLING_POSTAL_CODE"
+          },
+          "description" : ""
+        }, {
+          "target" : "BILLING_CITY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "BILLING_CITY"
+          },
+          "description" : ""
+        }, {
+          "target" : "BILLING_STATE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "BILLING_STATE"
+          },
+          "description" : ""
+        }, {
+          "target" : "BILLING_EMAIL",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "BILLING_EMAIL"
+          },
+          "description" : ""
+        }, {
+          "target" : "INDUSTRY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "INDUSTRY"
+          },
+          "description" : ""
+        }, {
+          "target" : "ANNUAL_REVENUE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "ANNUAL_REVENUE"
+          },
+          "description" : ""
+        }, {
+          "target" : "NUMBER_OF_EMPLOYEES",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "NUMBER_OF_EMPLOYEES"
+          },
+          "description" : ""
+        }, {
+          "target" : "WEBSITE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "WEBSITE"
+          },
+          "description" : ""
+        }, {
+          "target" : "STATUS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "STATUS"
+          },
+          "description" : ""
+        }, {
+          "target" : "RATING",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "RATING"
+          },
+          "description" : ""
+        }, {
+          "target" : "DESCRIPTION",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "DESCRIPTION"
+          },
+          "description" : ""
+        }, {
+          "target" : "LAST_MODIFIED_BY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "LAST_MODIFIED_BY"
+          },
+          "description" : ""
+        }, {
+          "target" : "STATE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "STATE"
+          },
+          "description" : ""
+        }, {
+          "target" : "ALL_RETURNS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "ALL_RETURNS"
+          },
+          "description" : ""
+        }, {
+          "target" : "full_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "concat(FIRST_NAME, ' ', LAST_NAME)"
+          },
+          "description" : ""
+        }, {
+          "target" : "account_age",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "datediff(current_date(), to_date(ORDER_DATE))"
+          },
+          "description" : ""
+        }, {
+          "target" : "transaction_flag",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "CASE\n  WHEN (AMOUNT > 10000)\n    THEN 'Flagged'\n  ELSE 'Not Flagged'\nEND"
+          },
+          "description" : ""
+        }, {
+          "target" : "season",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "CASE\n  WHEN (month(to_date(ORDER_DATE)) IN (12, 1, 2))\n    THEN 'Winter'\n  WHEN (month(to_date(ORDER_DATE)) IN (3, 4, 5))\n    THEN 'Spring'\n  WHEN (month(to_date(ORDER_DATE)) IN (6, 7, 8))\n    THEN 'Summer'\n  ELSE 'Fall'\nEND"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##BILLING_EMAIL", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##QUANTITY", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##SHIPPING_ADDRESS", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##RATING", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##DESCRIPTION", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##NUMBER_OF_EMPLOYEES", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##PHONE", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##BILLING_ADDRESS", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##SHIPPING_CITY", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##BILLING_POSTAL_CODE", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##ORDER_ID", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##STATE", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##ITEM_COMPANY", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##ORDER_DATE", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##PAYMENT_METHOD", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##LAST_MODIFIED_BY", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##EMAIL", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##CUSTOMER_ID", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##ALL_RETURNS", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##WEBSITE", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##BILLING_CITY", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##ANNUAL_REVENUE", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##AMOUNT", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##FIRST_NAME", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##UNIT_PRICE", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##PAYMENT_STATUS", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##NOTES", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##LAST_NAME", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##ITEM_NAME", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##INDUSTRY", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##ORDER_CATEGORY", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##SHIPPING_STATUS", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##SHIPPING_STATE", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##BILLING_STATE", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##ORDER_STATUS", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##STATUS", "ErIW-llOSJJrq72EZGzu-$$bRuQt-POlPktt96rJR5th##SHIPPING_POSTAL_CODE" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "1AB7FcNOdcDZmUIpcBQs_" : {
+      "id" : "1AB7FcNOdcDZmUIpcBQs_",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "bronze_customers",
+        "slug" : "bronze_customers",
+        "x" : -500,
+        "y" : -100,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "SbiqG7POunh1TXVIyItZI",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/bronze_customers"
+      }
+    },
+    "XsYYOOZ6" : {
+      "id" : "XsYYOOZ6",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "silver_orders",
+        "slug" : "silver_orders",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "ydcSYO1C",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/silver_orders"
+      }
+    }
+  },
   "ports" : {
     "inputs" : [ ],
     "outputs" : [ ],

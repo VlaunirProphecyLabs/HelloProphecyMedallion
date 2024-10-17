@@ -7,8 +7,8 @@
     "codeGenConfiguration" : {
       "editableConfig" : false,
       "plibVersion" : {
-        "mavenVersion" : "8.1.4",
-        "pyPiVersion" : "1.9.14"
+        "mavenVersion" : "8.2.1",
+        "pyPiVersion" : "1.9.16"
       }
     },
     "id" : "1",
@@ -24,7 +24,7 @@
       "language" : "python",
       "udfs" : [ ],
       "functionPackageName" : "scott_demo2_team.helloworld.functions",
-      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions", "prophecyteam.prophecyanalyticalfunctionspython.functions" ]
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions", "prophecy.data_quality.functions", "prophecyteam.prophecyanalyticalfunctionspython.functions" ]
     },
     "udafs" : {
       "language" : "python",
@@ -68,6 +68,10 @@
       "projectName" : "ProphecyWarehousePython",
       "externalDependencies" : [ ]
     }, {
+      "projectUID" : "32699",
+      "projectName" : "ProphecySparkDataQualityPython",
+      "externalDependencies" : [ ]
+    }, {
       "projectUID" : "16362",
       "projectName" : "ProphecyAnalyticalFunctionsPython",
       "externalDependencies" : [ ]
@@ -90,1126 +94,39 @@
     "target" : "JQXa3-WcVaH8T3kMB5ePW$$6kpTNZOlGGon7hRE4QRVT",
     "targetPort" : "u8cd96dV0EbN4a2Q8Luwq$$vazW5o9wpoC1VBe6dpjLe"
   }, {
-    "id" : "7it_XvpsTi6RMNFQ0OB4K",
-    "source" : "gnlR_d8OQpLoF9-TX2dkH$$sWEI_WRUZeDyCMrKQJ44L",
-    "sourcePort" : "hvTjoBsg5x1FHBPPtwRxp$$d4sFo_d5WZAebFy0vvdCy",
-    "target" : "ETMLlSyDWbyewcP1GQ27T$$FTdX4vpyax5oEvgSKefHQ",
-    "targetPort" : "Z3zsXKjkO2NOkyA-24vl2$$PkpTKiaa3RDm_TXwjPgRe"
+    "id" : "TwQLChFIw12HaQaSaOHBX",
+    "source" : "-0byOosp6J7qAxulu9vAh$$dXgZUF3IdKpc-6eyPqtiZ",
+    "sourcePort" : "BLLFLLJsa4_VxI_qXnHsm$$eT2fbp1LvSt1dX6kdanCe",
+    "target" : "d1_L2VYikBp3dzfzj1ZEd$$gNw67TFeTndHrjQnGbKqX",
+    "targetPort" : "bt3mblNjcPTU1oMJ-gBTS$$ay6hozW-ueOLnnCNPgWfW"
   }, {
-    "id" : "BAOgQhh9c4a1MOJ7EG9bX",
-    "source" : "le1WvQb_ttSfQxtZweiFc$$bc2fdLlO9BHZRAGvFgG0g",
-    "sourcePort" : "ePlPV4BxYp6xvdxArBJvN$$MhcJggeOeUp6GZzac4End",
-    "target" : "PkkML0QhSFubxB3R6SuYg$$qH_P_n3CbQLt3QAcEVea1",
-    "targetPort" : "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN"
+    "id" : "f2T_3uZET_-Pj-3_rHLSq",
+    "source" : "0Ga4GDhEw6YKr-VwhnrDr$$7MAUXleIZzyzpikQP1Pqw",
+    "sourcePort" : "sGLcs05m9GP0ff0L4ra2c$$avRVa2CXUZuUIdbVL6VSE",
+    "target" : "qzCqbws80LlgjctftQjg7$$nO08q1wiAvo2Qr1GJ0SBv",
+    "targetPort" : "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs"
   }, {
-    "id" : "lOr4yHeOngvHvv-tbSS8D",
-    "source" : "ETMLlSyDWbyewcP1GQ27T$$FTdX4vpyax5oEvgSKefHQ",
-    "sourcePort" : "B4UVO9kcuu_1_USbLY7in$$vv3p5EjX-8ISGUdeFEziN",
-    "target" : "PkkML0QhSFubxB3R6SuYg$$qH_P_n3CbQLt3QAcEVea1",
-    "targetPort" : "T4KBkxIMxAiWVqqQ2PJYL$$d0B4l1E_Zq0iDIb_RAqd_"
+    "id" : "cYVtHMAht4T4XZ4RpzYtw",
+    "source" : "d1_L2VYikBp3dzfzj1ZEd$$gNw67TFeTndHrjQnGbKqX",
+    "sourcePort" : "2Gmeow6OG7mbGcR-mWgnV$$pQ-vFzg1z2rw13xlY_42z",
+    "target" : "qzCqbws80LlgjctftQjg7$$nO08q1wiAvo2Qr1GJ0SBv",
+    "targetPort" : "B3uYPJFwLmJh08Rpa9g7H$$xOkoFBXl_YtMsRRu3AHup"
   }, {
-    "id" : "f3r_teE5BtVxoxDmSdsHB",
-    "source" : "PkkML0QhSFubxB3R6SuYg$$qH_P_n3CbQLt3QAcEVea1",
-    "sourcePort" : "vx-hBkewMtLw0RQ4aOQ81$$Y7NlntFmUK3_DCe-4L9c3",
+    "id" : "l9-s-ChN8djfsQEB57zTH",
+    "source" : "LIejmKY5XObsFCQtCqAGj$$1Mib82sXiDjRkFbCDrmdo",
+    "sourcePort" : "GtejMLiAa1CBX7EooP4o_$$1O_gPrrshnLJhUS0wXB1z",
+    "target" : "qzCqbws80LlgjctftQjg7$$nO08q1wiAvo2Qr1GJ0SBv",
+    "targetPort" : "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3"
+  }, {
+    "id" : "_W3uMnvXcSNfZEnTwOQ2c",
+    "source" : "qzCqbws80LlgjctftQjg7$$nO08q1wiAvo2Qr1GJ0SBv",
+    "sourcePort" : "1RSCqLCzUNa0Tp-GtgHgC$$QHN_N62QquCluPYUuSD46",
     "target" : "Q3aGuOEuFig58W8nMFuyU$$n55LnVQHRqcIyongQcMLl",
     "targetPort" : "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5"
-  }, {
-    "id" : "GlALW6hsuy7kb2bcaZQGz",
-    "source" : "j1-QUq0BR7WLpKr8THFKd$$IjdlhtKTUp12j6WFrCSeN",
-    "sourcePort" : "9S_SwqkCB9LY4V3qxI5tt$$ba7mQmbkD_E3MtUCvpgWX",
-    "target" : "PkkML0QhSFubxB3R6SuYg$$qH_P_n3CbQLt3QAcEVea1",
-    "targetPort" : "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3"
   } ],
   "processes" : {
-    "PkkML0QhSFubxB3R6SuYg$$qH_P_n3CbQLt3QAcEVea1" : {
-      "id" : "PkkML0QhSFubxB3R6SuYg$$qH_P_n3CbQLt3QAcEVea1",
-      "component" : "Join",
-      "metadata" : {
-        "label" : "inner_join_by_customer_id",
-        "slug" : "inner_join_by_customer_id",
-        "x" : 420,
-        "y" : 220,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false,
-        "comment" : "Combines customer details with their order information and billing addresses for a comprehensive view of customer interactions.",
-        "autoUpdateComment" : true
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3",
-          "slug" : "in0",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "customer_id",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "first_name",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer first name",
-                "mappings" : [ ],
-                "tags" : [ {
-                  "type" : "user",
-                  "name" : "pii"
-                } ]
-              }
-            }, {
-              "name" : "last_name",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer last name",
-                "mappings" : [ ],
-                "tags" : [ {
-                  "type" : "user",
-                  "name" : "pii"
-                } ]
-              }
-            }, {
-              "name" : "phone",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer phone number",
-                "mappings" : [ ],
-                "tags" : [ {
-                  "type" : "user",
-                  "name" : "pii"
-                } ]
-              }
-            }, {
-              "name" : "email",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer Email",
-                "mappings" : [ ],
-                "tags" : [ {
-                  "type" : "user",
-                  "name" : "pii"
-                } ]
-              }
-            }, {
-              "name" : "country_code",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer country code",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_open_date",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_flags",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer account flags",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_id",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Unique identifier for the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_name",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Name of the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_owner",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The person who owns the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "phone_number",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The contact phone number associated with the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "billing_address",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Physical address for billing purposes",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "billing_postal_code",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Postal code of the billing address",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "billing_city",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "City of the billing address",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "billing_state",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The state associated with the billing address of the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "billing_email",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Email address associated with the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_type",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The type or category of the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "industry",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The industry to which the account belongs",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "annual_revenue",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The annual revenue of the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "number_of_employees",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The number of employees associated with the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "last_activity_date",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The date of the most recent activity related to the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "created_date",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The date when the account was created",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "website",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The website associated with the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "lead_source",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The source from which the lead was generated",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "status",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The current status of the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "rating",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The rating assigned to the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "description",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "A description or summary of the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "last_modified_by",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The user who last modified the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "last_modified_date",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The date when the account was last modified",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "zipcode",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The ZIP code",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "state",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "high_income_percent",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "high_income_returns",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "low_income_returns",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "all_returns",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "is_high_income",
-              "type" : "boolean",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        }, {
-          "id" : "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN",
-          "slug" : "in1",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "order_id",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "customer_id",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "order_status",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Order status",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "order_category",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Order category",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "order_date",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "amount",
-              "type" : "float",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "item_name",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Name of the item ordered",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "item_company",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The company that manufactures or supplies the item",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "quantity",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The number of items ordered",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "unit_price",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Price per unit of the ordered item",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "shipping_address",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The address where the order will be shipped",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "shipping_city",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "City where the order is being shipped",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "shipping_state",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The state where the order is being shipped",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "shipping_postal_code",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Postal code for the shipping address of the order",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "payment_method",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The method used for payment in the order",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "payment_status",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Current status of the payment for the order",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "shipping_status",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Current status of the shipping process for the order",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "notes",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Additional comments or special instructions related to the order",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        }, {
-          "id" : "T4KBkxIMxAiWVqqQ2PJYL$$d0B4l1E_Zq0iDIb_RAqd_",
-          "slug" : "in2",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "zipcode",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The ZIP code",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "total_returns",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "high_income_return_ratio",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "low_income_return_ratio",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "avg_high_income_percent",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "avg_low_income_percent",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        } ],
-        "outputs" : [ {
-          "id" : "vx-hBkewMtLw0RQ4aOQ81$$Y7NlntFmUK3_DCe-4L9c3",
-          "slug" : "out"
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "conditions" : [ {
-          "alias" : "in1",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in1.customer_id = in0.customer_id"
-          },
-          "joinType" : "inner"
-        }, {
-          "alias" : "in2",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.billing_postal_code = in2.zipcode"
-          },
-          "joinType" : "left_outer"
-        } ],
-        "expressions" : [ {
-          "target" : "customer_id",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.customer_id"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "first_name",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.first_name"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "last_name",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.last_name"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "phone",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.phone"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "email",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.email"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "country_code",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.country_code"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "account_open_date",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.account_open_date"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "account_flags",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.account_flags"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "account_id",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.account_id"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "account_name",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.account_name"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "account_owner",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.account_owner"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "phone_number",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.phone_number"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "billing_address",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.billing_address"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "billing_postal_code",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.billing_postal_code"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "billing_city",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.billing_city"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "billing_state",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.billing_state"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "billing_email",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.billing_email"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "account_type",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.account_type"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "industry",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.industry"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "annual_revenue",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.annual_revenue"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "number_of_employees",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.number_of_employees"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "last_activity_date",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.last_activity_date"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "created_date",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.created_date"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "website",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.website"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "lead_source",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.lead_source"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "status",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.status"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "rating",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.rating"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "description",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.description"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "last_modified_by",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.last_modified_by"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "last_modified_date",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.last_modified_date"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "zipcode",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.zipcode"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "state",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.state"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "high_income_percent",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.high_income_percent"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "high_income_returns",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.high_income_returns"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "low_income_returns",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.low_income_returns"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "all_returns",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.all_returns"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "is_high_income",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.is_high_income"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "order_id",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in1.order_id"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "order_status",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in1.order_status"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "order_category",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in1.order_category"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "order_date",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in1.order_date"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "amount",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in1.amount"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "item_name",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in1.item_name"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "item_company",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in1.item_company"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "quantity",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in1.quantity"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "unit_price",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in1.unit_price"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "shipping_address",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in1.shipping_address"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "shipping_city",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in1.shipping_city"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "shipping_state",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in1.shipping_state"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "shipping_postal_code",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in1.shipping_postal_code"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "payment_method",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in1.payment_method"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "payment_status",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in1.payment_status"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "shipping_status",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in1.shipping_status"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "notes",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in1.notes"
-          },
-          "description" : "",
-          "_row_id" : null
-        } ],
-        "hints" : [ {
-          "id" : "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3",
-          "alias" : "in0",
-          "hintType" : "none",
-          "propagateColumns" : false
-        }, {
-          "id" : "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN",
-          "alias" : "in1",
-          "hintType" : "none",
-          "propagateColumns" : false
-        }, {
-          "id" : "T4KBkxIMxAiWVqqQ2PJYL$$d0B4l1E_Zq0iDIb_RAqd_",
-          "alias" : "in2",
-          "hintType" : "none",
-          "propagateColumns" : false
-        } ],
-        "allIn1" : null,
-        "activeTab" : "conditions",
-        "columnsSelector" : [ "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##customer_id", "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN##customer_id", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##billing_postal_code", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##state", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##industry", "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN##order_id", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##account_name", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##billing_email", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##website", "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN##unit_price", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##high_income_percent", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##last_modified_by", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##is_high_income", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##high_income_returns", "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN##shipping_status", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##phone", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##phone_number", "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN##shipping_state", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##account_open_date", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##created_date", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##status", "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN##payment_status", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##number_of_employees", "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN##shipping_city", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##all_returns", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##annual_revenue", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##rating", "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN##shipping_postal_code", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##zipcode", "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN##notes", "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN##order_category", "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN##amount", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##lead_source", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##last_name", "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN##quantity", "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN##order_date", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##billing_state", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##description", "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN##shipping_address", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##account_type", "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN##item_name", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##billing_postal_code", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##email", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##low_income_returns", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##country_code", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##billing_address", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##first_name", "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN##payment_method", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##last_modified_date", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##account_owner", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##customer_id", "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN##order_status", "t-bjaxVGwxZF2GsSkeE64$$l_9-InGQUvB5Z82uUImAN##item_company", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##last_activity_date", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##billing_city", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##account_id", "iQIWxnzKa29h6B4mbfwj1$$woNmhZMJSxpQ8qblyZBo3##account_flags" ],
-        "allIn0" : null,
-        "whereClause" : null,
-        "headAlias" : "in0"
-      },
-      "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Join",
-        "projectName" : "ProphecySparkBasicsPython"
-      }
-    },
-    "le1WvQb_ttSfQxtZweiFc$$bc2fdLlO9BHZRAGvFgG0g" : {
-      "id" : "le1WvQb_ttSfQxtZweiFc$$bc2fdLlO9BHZRAGvFgG0g",
+    "0Ga4GDhEw6YKr-VwhnrDr$$7MAUXleIZzyzpikQP1Pqw" : {
+      "id" : "0Ga4GDhEw6YKr-VwhnrDr$$7MAUXleIZzyzpikQP1Pqw",
       "component" : "Source",
       "metadata" : {
         "label" : "silver_orders",
@@ -1220,13 +137,13 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Retrieves silver order data for analysis.",
+        "comment" : "Retrieves silver-level order data for analysis.",
         "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "ePlPV4BxYp6xvdxArBJvN$$MhcJggeOeUp6GZzac4End",
+          "id" : "sGLcs05m9GP0ff0L4ra2c$$avRVa2CXUZuUIdbVL6VSE",
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
@@ -1769,8 +686,37 @@
         "datasetId" : "datasets/silver_order_customer_details"
       }
     },
-    "j1-QUq0BR7WLpKr8THFKd$$IjdlhtKTUp12j6WFrCSeN" : {
-      "id" : "j1-QUq0BR7WLpKr8THFKd$$IjdlhtKTUp12j6WFrCSeN",
+    "-0byOosp6J7qAxulu9vAh$$dXgZUF3IdKpc-6eyPqtiZ" : {
+      "id" : "-0byOosp6J7qAxulu9vAh$$dXgZUF3IdKpc-6eyPqtiZ",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "silver_irs_zipcode",
+        "slug" : "silver_irs_zipcode",
+        "x" : 20,
+        "y" : 420,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Retrieves demographic data related to IRS zip codes for analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "BLLFLLJsa4_VxI_qXnHsm$$eT2fbp1LvSt1dX6kdanCe",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/silver_irs_zipcode"
+      }
+    },
+    "LIejmKY5XObsFCQtCqAGj$$1Mib82sXiDjRkFbCDrmdo" : {
+      "id" : "LIejmKY5XObsFCQtCqAGj$$1Mib82sXiDjRkFbCDrmdo",
       "component" : "Source",
       "metadata" : {
         "label" : "silver_customers",
@@ -1787,7 +733,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "9S_SwqkCB9LY4V3qxI5tt$$ba7mQmbkD_E3MtUCvpgWX",
+          "id" : "GtejMLiAa1CBX7EooP4o_$$1O_gPrrshnLJhUS0wXB1z",
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
@@ -1798,25 +744,105 @@
         "datasetId" : "datasets/silver_customers"
       }
     },
-    "gnlR_d8OQpLoF9-TX2dkH$$sWEI_WRUZeDyCMrKQJ44L" : {
-      "id" : "gnlR_d8OQpLoF9-TX2dkH$$sWEI_WRUZeDyCMrKQJ44L",
-      "component" : "Source",
+    "d1_L2VYikBp3dzfzj1ZEd$$gNw67TFeTndHrjQnGbKqX" : {
+      "id" : "d1_L2VYikBp3dzfzj1ZEd$$gNw67TFeTndHrjQnGbKqX",
+      "component" : "Aggregate",
       "metadata" : {
-        "label" : "silver_irs_zipcode",
-        "slug" : "silver_irs_zipcode",
-        "x" : 20,
+        "label" : "zipcode_aggregates",
+        "slug" : "zipcode_aggregates",
+        "x" : 220,
         "y" : 420,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Retrieves IRS zipcode data for analysis, supporting demographic and geographic insights.",
+        "comment" : "Analyzes return data by zipcode, providing insights into income-based return ratios and averages.",
         "autoUpdateComment" : true
       },
       "ports" : {
-        "inputs" : [ ],
+        "inputs" : [ {
+          "id" : "bt3mblNjcPTU1oMJ-gBTS$$ay6hozW-ueOLnnCNPgWfW",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "zipcode",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The ZIP code",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "high_income_percent",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "high_income_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "low_income_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "all_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "is_high_income",
+              "type" : "boolean",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
         "outputs" : [ {
-          "id" : "hvTjoBsg5x1FHBPPtwRxp$$d4sFo_d5WZAebFy0vvdCy",
+          "id" : "2Gmeow6OG7mbGcR-mWgnV$$pQ-vFzg1z2rw13xlY_42z",
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
@@ -1824,7 +850,67 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "datasetId" : "datasets/silver_irs_zipcode"
+        "allIns" : false,
+        "doPivot" : false,
+        "aggregate" : [ {
+          "target" : "total_returns",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "sum(all_returns)"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "high_income_return_ratio",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "sum(high_income_returns)/total_returns"
+          },
+          "description" : "",
+          "_row_id" : "c_71"
+        }, {
+          "target" : "low_income_return_ratio",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "sum(low_income_returns)/total_returns"
+          },
+          "description" : "",
+          "_row_id" : "c_75"
+        }, {
+          "target" : "avg_high_income_percent",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "avg(high_income_returns)"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "avg_low_income_percent",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "avg(low_income_returns)"
+          },
+          "description" : "",
+          "_row_id" : "c_106"
+        } ],
+        "allowSelection" : true,
+        "pivotColumn" : null,
+        "pivotValues" : [ ],
+        "activeTab" : "groupBy",
+        "columnsSelector" : [ "bt3mblNjcPTU1oMJ-gBTS$$ay6hozW-ueOLnnCNPgWfW##zipcode", "bt3mblNjcPTU1oMJ-gBTS$$ay6hozW-ueOLnnCNPgWfW##high_income_returns", "bt3mblNjcPTU1oMJ-gBTS$$ay6hozW-ueOLnnCNPgWfW##all_returns", "bt3mblNjcPTU1oMJ-gBTS$$ay6hozW-ueOLnnCNPgWfW##low_income_returns" ],
+        "groupBy" : [ {
+          "target" : "zipcode",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "zipcode"
+          },
+          "description" : "",
+          "_row_id" : null
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "Q3aGuOEuFig58W8nMFuyU$$n55LnVQHRqcIyongQcMLl" : {
@@ -2741,35 +1827,317 @@
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##customer_id", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##unit_price", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##order_date", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##shipping_city", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##last_modified_by", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##shipping_state", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##phone", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##country_code", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##shipping_address", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##high_income_returns", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##phone_number", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##website", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##billing_city", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##rating", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##order_status", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##created_date", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##account_flags", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##description", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##order_category", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##high_income_percent", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##account_type", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##industry", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##payment_status", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##shipping_status", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##item_company", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##notes", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##status", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##account_open_date", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##email", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##account_owner", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##zipcode", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##lead_source", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##state", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##account_id", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##billing_state", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##last_activity_date", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##quantity", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##billing_address", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##billing_postal_code", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##account_name", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##amount", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##item_name", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##is_high_income", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##annual_revenue", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##last_modified_date", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##order_id", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##low_income_returns", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##first_name", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##billing_email", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##last_name", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##all_returns", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##number_of_employees", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##payment_method", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##shipping_postal_code" ]
+        "columnsSelector" : [ "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##annual_revenue", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##state", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##status", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##order_id", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##lead_source", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##last_modified_by", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##email", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##website", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##phone", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##last_activity_date", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##phone_number", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##high_income_returns", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##shipping_postal_code", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##billing_postal_code", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##item_name", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##shipping_address", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##rating", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##order_category", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##notes", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##account_open_date", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##account_flags", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##quantity", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##shipping_status", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##all_returns", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##billing_city", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##shipping_state", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##low_income_returns", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##amount", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##created_date", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##zipcode", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##order_date", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##last_name", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##customer_id", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##billing_state", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##number_of_employees", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##account_type", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##high_income_percent", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##unit_price", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##billing_address", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##payment_status", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##industry", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##account_name", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##account_owner", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##shipping_city", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##payment_method", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##country_code", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##is_high_income", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##first_name", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##item_company", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##last_modified_date", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##billing_email", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##order_status", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##description", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##account_id" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
-    "ETMLlSyDWbyewcP1GQ27T$$FTdX4vpyax5oEvgSKefHQ" : {
-      "id" : "ETMLlSyDWbyewcP1GQ27T$$FTdX4vpyax5oEvgSKefHQ",
-      "component" : "Aggregate",
+    "qzCqbws80LlgjctftQjg7$$nO08q1wiAvo2Qr1GJ0SBv" : {
+      "id" : "qzCqbws80LlgjctftQjg7$$nO08q1wiAvo2Qr1GJ0SBv",
+      "component" : "Join",
       "metadata" : {
-        "label" : "zipcode_aggregates",
-        "slug" : "zipcode_aggregates",
-        "x" : 220,
-        "y" : 420,
+        "label" : "inner_join_by_customer_id",
+        "slug" : "inner_join_by_customer_id",
+        "x" : 420,
+        "y" : 220,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Analyzes return data by zipcode, providing insights into the performance of high and low-income returns.",
+        "comment" : "Combines customer information with their orders and shipping details, enhancing the understanding of customer interactions and transactions.",
         "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "Z3zsXKjkO2NOkyA-24vl2$$PkpTKiaa3RDm_TXwjPgRe",
+          "id" : "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3",
           "slug" : "in0",
           "schema" : {
             "type" : "struct",
             "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer first name",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer last name",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer phone number",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer Email",
+                "mappings" : [ ],
+                "tags" : [ {
+                  "type" : "user",
+                  "name" : "pii"
+                } ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer country code",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Customer account flags",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_owner",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The person who owns the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone_number",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The contact phone number associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_address",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Physical address for billing purposes",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_postal_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state associated with the billing address of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Email address associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The type or category of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "industry",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The industry to which the account belongs",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "annual_revenue",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The annual revenue of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "number_of_employees",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of employees associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_activity_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date of the most recent activity related to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "created_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was created",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "website",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The website associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "lead_source",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The source from which the lead was generated",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The current status of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "rating",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The rating assigned to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "description",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "A description or summary of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_modified_by",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The user who last modified the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_modified_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was last modified",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
               "name" : "zipcode",
               "type" : "string",
               "nullable" : true,
@@ -2832,10 +2200,233 @@
                 "mappings" : [ ],
                 "tags" : [ ]
               }
+            } ]
+          },
+          "isStreaming" : false
+        }, {
+          "id" : "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs",
+          "slug" : "in1",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
             }, {
               "name" : "customer_id",
               "type" : "integer",
-              "nullable" : false,
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Order status",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_category",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Order category",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "float",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "item_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the item ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "item_company",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The company that manufactures or supplies the item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "quantity",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of items ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "unit_price",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Price per unit of the ordered item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_address",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The address where the order will be shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City where the order is being shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state where the order is being shipped",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_postal_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code for the shipping address of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "payment_method",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The method used for payment in the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "payment_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the payment for the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "shipping_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the shipping process for the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "notes",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Additional comments or special instructions related to the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        }, {
+          "id" : "B3uYPJFwLmJh08Rpa9g7H$$xOkoFBXl_YtMsRRu3AHup",
+          "slug" : "in2",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "zipcode",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The ZIP code",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "total_returns",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "high_income_return_ratio",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "low_income_return_ratio",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "avg_high_income_percent",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "avg_low_income_percent",
+              "type" : "double",
+              "nullable" : true,
               "metadata" : {
                 "description" : "",
                 "mappings" : [ ],
@@ -2846,7 +2437,7 @@
           "isStreaming" : false
         } ],
         "outputs" : [ {
-          "id" : "B4UVO9kcuu_1_USbLY7in$$vv3p5EjX-8ISGUdeFEziN",
+          "id" : "1RSCqLCzUNa0Tp-GtgHgC$$QHN_N62QquCluPYUuSD46",
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
@@ -2854,66 +2445,479 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "allIns" : false,
-        "doPivot" : false,
-        "aggregate" : [ {
-          "target" : "total_returns",
+        "conditions" : [ {
+          "alias" : "in1",
           "expression" : {
             "format" : "sql",
-            "expression" : "sum(all_returns)"
+            "expression" : "in1.customer_id = in0.customer_id"
           },
-          "description" : "",
-          "_row_id" : null
+          "joinType" : "inner"
         }, {
-          "target" : "high_income_return_ratio",
+          "alias" : "in2",
           "expression" : {
             "format" : "sql",
-            "expression" : "sum(high_income_returns)/total_returns"
+            "expression" : "in0.billing_postal_code = in2.zipcode"
           },
-          "description" : "",
-          "_row_id" : "c_71"
-        }, {
-          "target" : "low_income_return_ratio",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "sum(low_income_returns)/total_returns"
-          },
-          "description" : "",
-          "_row_id" : "c_75"
-        }, {
-          "target" : "avg_high_income_percent",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "avg(high_income_returns)"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "avg_low_income_percent",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "avg(low_income_returns)"
-          },
-          "description" : "",
-          "_row_id" : "c_106"
+          "joinType" : "left_outer"
         } ],
-        "allowSelection" : true,
-        "pivotColumn" : null,
-        "pivotValues" : [ ],
-        "activeTab" : "groupBy",
-        "columnsSelector" : [ "Z3zsXKjkO2NOkyA-24vl2$$PkpTKiaa3RDm_TXwjPgRe##low_income_returns", "Z3zsXKjkO2NOkyA-24vl2$$PkpTKiaa3RDm_TXwjPgRe##all_returns", "Z3zsXKjkO2NOkyA-24vl2$$PkpTKiaa3RDm_TXwjPgRe##high_income_returns", "Z3zsXKjkO2NOkyA-24vl2$$PkpTKiaa3RDm_TXwjPgRe##zipcode" ],
-        "groupBy" : [ {
+        "expressions" : [ {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.customer_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "first_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.first_name"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "last_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.last_name"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "phone",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.phone"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "email",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.email"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "country_code",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.country_code"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "account_open_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.account_open_date"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "account_flags",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.account_flags"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "account_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.account_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "account_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.account_name"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "account_owner",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.account_owner"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "phone_number",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.phone_number"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "billing_address",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.billing_address"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "billing_postal_code",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.billing_postal_code"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "billing_city",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.billing_city"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "billing_state",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.billing_state"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "billing_email",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.billing_email"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "account_type",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.account_type"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "industry",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.industry"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "annual_revenue",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.annual_revenue"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "number_of_employees",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.number_of_employees"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "last_activity_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.last_activity_date"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "created_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.created_date"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "website",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.website"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "lead_source",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.lead_source"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "status",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.status"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "rating",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.rating"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "description",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.description"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "last_modified_by",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.last_modified_by"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "last_modified_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.last_modified_date"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
           "target" : "zipcode",
           "expression" : {
             "format" : "sql",
-            "expression" : "zipcode"
+            "expression" : "in0.zipcode"
           },
           "description" : "",
           "_row_id" : null
-        } ]
+        }, {
+          "target" : "state",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.state"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "high_income_percent",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.high_income_percent"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "high_income_returns",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.high_income_returns"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "low_income_returns",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.low_income_returns"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "all_returns",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.all_returns"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "is_high_income",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.is_high_income"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "order_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.order_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "order_status",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.order_status"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "order_category",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.order_category"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "order_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.order_date"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "amount",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.amount"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "item_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.item_name"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "item_company",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.item_company"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "quantity",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.quantity"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "unit_price",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.unit_price"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "shipping_address",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.shipping_address"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "shipping_city",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.shipping_city"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "shipping_state",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.shipping_state"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "shipping_postal_code",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.shipping_postal_code"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "payment_method",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.payment_method"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "payment_status",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.payment_status"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "shipping_status",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.shipping_status"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "notes",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in1.notes"
+          },
+          "description" : "",
+          "_row_id" : null
+        } ],
+        "hints" : [ {
+          "id" : "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3",
+          "alias" : "in0",
+          "hintType" : "none",
+          "propagateColumns" : false
+        }, {
+          "id" : "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs",
+          "alias" : "in1",
+          "hintType" : "none",
+          "propagateColumns" : false
+        }, {
+          "id" : "B3uYPJFwLmJh08Rpa9g7H$$xOkoFBXl_YtMsRRu3AHup",
+          "alias" : "in2",
+          "hintType" : "none",
+          "propagateColumns" : false
+        } ],
+        "allIn1" : null,
+        "activeTab" : "conditions",
+        "columnsSelector" : [ "B3uYPJFwLmJh08Rpa9g7H$$xOkoFBXl_YtMsRRu3AHup##zipcode", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##billing_postal_code", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##customer_id", "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs##customer_id", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##last_activity_date", "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs##order_id", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##phone", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##number_of_employees", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##all_returns", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##last_modified_by", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##billing_city", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##account_flags", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##created_date", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##lead_source", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##billing_state", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##description", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##rating", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##email", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##status", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##account_id", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##is_high_income", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##billing_postal_code", "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs##order_category", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##last_modified_date", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##country_code", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##account_open_date", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##phone_number", "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs##shipping_address", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##account_type", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##first_name", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##high_income_percent", "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs##shipping_status", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##high_income_returns", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##customer_id", "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs##item_name", "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs##shipping_postal_code", "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs##notes", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##billing_email", "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs##unit_price", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##state", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##zipcode", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##account_owner", "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs##payment_method", "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs##quantity", "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs##payment_status", "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs##shipping_city", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##low_income_returns", "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs##amount", "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs##order_status", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##website", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##billing_address", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##account_name", "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs##order_date", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##last_name", "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs##item_company", "KVyPN-q-E4V5oH3Nz74zQ$$MgTJSjp-J8BoJ8pRJ92Qs##shipping_state", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##annual_revenue", "Mwf_1mrYdGXkRMEhWD0tX$$xc7cc2SZVEs9j_NbfS8x3##industry" ],
+        "allIn0" : null,
+        "whereClause" : null,
+        "headAlias" : "in0"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/Join",
         "projectName" : "ProphecySparkBasicsPython"
       }
     }

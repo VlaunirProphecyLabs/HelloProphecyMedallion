@@ -6,5 +6,5 @@ from prophecy.libs import typed_lit
 from silver_orders.config.ConfigStore import *
 from silver_orders.udfs.UDFs import *
 
-def bronze_orders(spark: SparkSession) -> DataFrame:
-    return spark.read.table(f"`{Config.catalog_name}`.`helloworld_bronze`.`bronze_orders`")
+def read_bronze_order_detail(spark: SparkSession) -> DataFrame:
+    return spark.read.table(f"`{Config.catalog_name}`.`helloworld_bronze`.`bronze_order_detail`")

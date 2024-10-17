@@ -8,6 +8,11 @@ from gold_sales.graph import *
 
 def pipeline(spark: SparkSession) -> None:
     df_silver_order_customer_details = silver_order_customer_details(spark)
+    df_deduplicate_customers = deduplicate_customers(spark, df_silver_order_customer_details)
+    df_category_count_by_order = category_count_by_order(spark, df_silver_order_customer_details)
+    df_category_count_desc = category_count_desc(spark, df_category_count_by_order)
+    df_top_10_records = top_10_records(spark, df_category_count_desc)
+    df_Filter_1 = Filter_1(spark, df_top_10_records)
     df_Cleanup = Cleanup(spark, df_silver_order_customer_details)
     df_total_by_zip_and_date = total_by_zip_and_date(spark, Config.total_by_zip_and_date, df_Cleanup)
     gold_sales_by_zip_date(spark, df_total_by_zip_and_date)

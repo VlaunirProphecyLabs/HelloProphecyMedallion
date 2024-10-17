@@ -1,6 +1,7 @@
 from .irs_zipcodes_data import irs_zipcodes_data
 from .bronze_account_detail_table import bronze_account_detail_table
 from .CustomerZipCodes_1 import CustomerZipCodes_1
+from .dataQualityCheck_1 import dataQualityCheck_1
 from .customers_reformatted import customers_reformatted
 from .bronze_customers_1 import bronze_customers_1
 from .silver_customers import silver_customers
