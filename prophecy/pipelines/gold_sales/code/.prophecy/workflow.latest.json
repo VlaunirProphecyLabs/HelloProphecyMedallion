@@ -542,6 +542,15 @@
                 "mappings" : [ ],
                 "tags" : [ ]
               }
+            }, {
+              "name" : "fullName",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
             } ]
           },
           "isStreaming" : false
@@ -984,6 +993,15 @@
                 }, {
                   "name" : "is_high_income",
                   "type" : "boolean",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "fullName",
+                  "type" : "string",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -1566,6 +1584,15 @@
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
+                }, {
+                  "name" : "fullName",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
                 } ]
               },
               "isStreaming" : false
@@ -1612,7 +1639,7 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Streamlines customer order data by selecting relevant fields for analysis and reporting.",
+        "comment" : "Streamlines customer order data by selecting relevant fields and creating a full name for better clarity and reporting.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -2427,10 +2454,17 @@
             "expression" : "is_high_income"
           },
           "description" : ""
+        }, {
+          "target" : "fullName",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "concat(first_name, ' ', last_name)"
+          },
+          "description" : ""
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##country_code", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##description", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##all_returns", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##high_income_percent", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##number_of_employees", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##lead_source", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_postal_code", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##low_income_returns", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_status", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_category", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##high_income_returns", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##amount", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_modified_by", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_flags", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##zipcode", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##is_high_income", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_activity_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##rating", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_id", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_name", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_type", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##phone", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##annual_revenue", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##first_name", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_state", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##customer_id", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_email", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_modified_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##industry", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##created_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_id", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##website", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_city", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_address", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_name", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##phone_number", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##status", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_open_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##email", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##state", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_owner" ]
+        "columnsSelector" : [ "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_type", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##phone", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_flags", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_activity_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##industry", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_city", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##customer_id", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_email", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##state", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_status", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##website", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_open_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##created_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_name", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##first_name", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_address", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##email", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_name", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##rating", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_id", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##annual_revenue", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##low_income_returns", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##country_code", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##number_of_employees", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##status", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##amount", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##all_returns", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_postal_code", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##zipcode", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##description", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_category", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_modified_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##is_high_income", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_modified_by", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_state", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##high_income_returns", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_id", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##lead_source", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##high_income_percent", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_owner", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##phone_number" ]
       },
       "componentInfo" : {
         "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
@@ -2991,6 +3025,15 @@
             }, {
               "name" : "is_high_income",
               "type" : "boolean",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "fullName",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
                 "description" : "",

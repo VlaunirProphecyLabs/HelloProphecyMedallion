@@ -49,5 +49,6 @@ def Cleanup(spark: SparkSession, in0: DataFrame) -> DataFrame:
         col("high_income_returns"), 
         col("low_income_returns"), 
         col("all_returns"), 
-        col("is_high_income")
+        col("is_high_income"), 
+        concat(col("first_name"), lit(" "), col("last_name")).alias("fullName")
     )
