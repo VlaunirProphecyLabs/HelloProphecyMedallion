@@ -11,9 +11,10 @@ def pipeline(spark: SparkSession) -> None:
     df_silver_irs_zipcode = silver_irs_zipcode(spark)
     df_zipcode_aggregates = zipcode_aggregates(spark, df_silver_irs_zipcode)
     df_silver_customers = silver_customers(spark)
+    df_Filter_1 = Filter_1(spark, df_silver_customers)
     df_inner_join_by_customer_id = inner_join_by_customer_id(
         spark, 
-        df_silver_customers, 
+        df_Filter_1, 
         df_silver_orders, 
         df_zipcode_aggregates
     )

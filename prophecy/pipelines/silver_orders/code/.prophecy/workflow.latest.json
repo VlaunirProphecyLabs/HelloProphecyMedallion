@@ -7,8 +7,8 @@
     "codeGenConfiguration" : {
       "editableConfig" : false,
       "plibVersion" : {
-        "mavenVersion" : "8.2.1",
-        "pyPiVersion" : "1.9.16"
+        "mavenVersion" : "8.4.0",
+        "pyPiVersion" : "1.9.24"
       }
     },
     "id" : "1",
@@ -24,7 +24,7 @@
       "language" : "python",
       "udfs" : [ ],
       "functionPackageName" : "scott_demo2_team.helloworld.functions",
-      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions", "prophecy.data_quality.functions", "prophecyteam.prophecyanalyticalfunctionspython.functions" ]
+      "sharedFunctionPackageNames" : [ "prophecy.data_quality.functions", "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
     },
     "udafs" : {
       "language" : "python",
@@ -60,20 +60,16 @@
     "buildSystem" : "maven",
     "externalDependencies" : [ ],
     "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "32699",
+      "projectName" : "ProphecySparkDataQualityPython",
+      "externalDependencies" : [ ]
+    }, {
       "projectUID" : "12654",
       "projectName" : "ProphecySparkBasicsPython",
       "externalDependencies" : [ ]
     }, {
       "projectUID" : "12655",
       "projectName" : "ProphecyWarehousePython",
-      "externalDependencies" : [ ]
-    }, {
-      "projectUID" : "32699",
-      "projectName" : "ProphecySparkDataQualityPython",
-      "externalDependencies" : [ ]
-    }, {
-      "projectUID" : "16362",
-      "projectName" : "ProphecyAnalyticalFunctionsPython",
       "externalDependencies" : [ ]
     } ],
     "isImported" : false,
@@ -507,7 +503,7 @@
         "headAlias" : "in0"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/Join",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Join",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -898,7 +894,7 @@
         "columnsSelector" : [ "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##shipping_state", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##payment_method", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##unit_price", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##order_date", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##item_company", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##notes", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##order_id", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##shipping_postal_code", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##shipping_city", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##amount", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##customer_id", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##quantity", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##item_name", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##shipping_status", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##order_status", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##shipping_address", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##order_category", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##payment_status" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },

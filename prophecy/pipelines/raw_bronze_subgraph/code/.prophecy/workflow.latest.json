@@ -7,8 +7,8 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.2.1",
-        "pyPiVersion" : "1.9.16"
+        "mavenVersion" : "8.4.0",
+        "pyPiVersion" : "1.9.24"
       }
     },
     "id" : "1",
@@ -26,7 +26,7 @@
       "language" : "python",
       "udfs" : [ ],
       "functionPackageName" : "scott_demo2_team.helloworld.functions",
-      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions", "prophecy.data_quality.functions", "prophecyteam.prophecyanalyticalfunctionspython.functions" ]
+      "sharedFunctionPackageNames" : [ "prophecy.data_quality.functions", "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
     },
     "udafs" : {
       "language" : "python",
@@ -116,20 +116,16 @@
     "buildSystem" : "maven",
     "externalDependencies" : [ ],
     "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "32699",
+      "projectName" : "ProphecySparkDataQualityPython",
+      "externalDependencies" : [ ]
+    }, {
       "projectUID" : "12654",
       "projectName" : "ProphecySparkBasicsPython",
       "externalDependencies" : [ ]
     }, {
       "projectUID" : "12655",
       "projectName" : "ProphecyWarehousePython",
-      "externalDependencies" : [ ]
-    }, {
-      "projectUID" : "32699",
-      "projectName" : "ProphecySparkDataQualityPython",
-      "externalDependencies" : [ ]
-    }, {
-      "projectUID" : "16362",
-      "projectName" : "ProphecyAnalyticalFunctionsPython",
       "externalDependencies" : [ ]
     } ],
     "isImported" : false,
@@ -247,13 +243,44 @@
         "target" : "VtpzjLCVE4NM617KCdx2B$$WDyUp5CpdfgiGcQ3fXjen",
         "targetPort" : "a5__Rmbupy0t1s3F9SiDe$$RIsqESfCan895TJD-juCj"
       }, {
-        "id" : "h7Jcn86_pZdVxM8PNzZkV$$KH2MT0-flLBWheavg5cBY",
+        "id" : "1f6aMh2L15-fD4CQ9MnF7",
         "source" : "oTwRlqvVx4T5Nh-1hQgYa$$8PNM9WVEaA8UfUGzoSgEA",
         "sourcePort" : "318YiKeqluEGehoBql8K1$$5ROFrgW3hrI_hFwrpvSTp",
         "target" : "t6g6LPew1_h1tAy2W87XE$$YsD2lrzmtuWOZZ8Cd1nNA",
         "targetPort" : "yyp7Mb0r8Y1VCEMF3SF6Y$$iZ-yPwFnxbr1iZrdrRkfo"
+      }, {
+        "id" : "c5JIgriuA3HDnIG44K5g7",
+        "source" : "t6g6LPew1_h1tAy2W87XE$$YsD2lrzmtuWOZZ8Cd1nNA",
+        "sourcePort" : "y4lULpuqY8czvUkhBQV3A$$NBP33hyL-ADr7srvjTNoU",
+        "target" : "-4CyiikKOeTuc2kuuu1_N$$4R7SR4T8dtQjp0sq3NaTC",
+        "targetPort" : "Xm5VodzntIvR0akI18A52$$4zVXUWN1HTxbceJF3qt6G"
       } ],
       "processes" : {
+        "-4CyiikKOeTuc2kuuu1_N$$4R7SR4T8dtQjp0sq3NaTC" : {
+          "id" : "-4CyiikKOeTuc2kuuu1_N$$4R7SR4T8dtQjp0sq3NaTC",
+          "component" : "Target",
+          "metadata" : {
+            "label" : "Target_1",
+            "slug" : "Target_1",
+            "x" : 440,
+            "y" : -120,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false
+          },
+          "ports" : {
+            "inputs" : [ {
+              "id" : "Xm5VodzntIvR0akI18A52$$4zVXUWN1HTxbceJF3qt6G",
+              "slug" : "in0"
+            } ],
+            "outputs" : [ ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false,
+            "autoUpdateOnRun" : false
+          },
+          "properties" : { }
+        },
         "6YN2vQcHydNOpy4HHpxU8$$eZGfRdE8ezSuoplf0eU_U" : {
           "id" : "6YN2vQcHydNOpy4HHpxU8$$eZGfRdE8ezSuoplf0eU_U",
           "component" : "ControlFlowInput",
@@ -322,7 +349,7 @@
             "allowInportRename" : true
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/ControlFlowInput",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/ControlFlowInput",
             "projectName" : "ProphecySparkBasicsPython"
           }
         },
@@ -332,8 +359,8 @@
           "metadata" : {
             "label" : "add_updated_at_column",
             "slug" : "add_updated_at_column",
-            "x" : -240,
-            "y" : -180,
+            "x" : 220,
+            "y" : 20,
             "phase" : 0,
             "cache" : false,
             "detailedStats" : false,
@@ -392,7 +419,7 @@
             "columnsSelector" : [ ]
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
             "projectName" : "ProphecySparkBasicsPython"
           }
         },
@@ -402,8 +429,8 @@
           "metadata" : {
             "label" : "save_as_bronze_table",
             "slug" : "save_as_bronze_table",
-            "x" : -100,
-            "y" : -180,
+            "x" : 420,
+            "y" : 20,
             "phase" : 0,
             "cache" : false,
             "detailedStats" : false,
@@ -431,8 +458,8 @@
           "metadata" : {
             "label" : "read_dynamic_source",
             "slug" : "read_dynamic_source",
-            "x" : -380,
-            "y" : -380,
+            "x" : 20,
+            "y" : 220,
             "phase" : 0,
             "cache" : false,
             "detailedStats" : false,
@@ -1493,8 +1520,8 @@
           "metadata" : {
             "label" : "raw_dynamic_source",
             "slug" : "raw_dynamic_source",
-            "x" : -380,
-            "y" : -180,
+            "x" : 20,
+            "y" : 20,
             "phase" : 0,
             "cache" : false,
             "detailedStats" : false,
@@ -1549,13 +1576,13 @@
             "allowInportRename" : true
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/ControlFlowOutput",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/ControlFlowOutput",
             "projectName" : "ProphecySparkBasicsPython"
           }
         }
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/TableIterator",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/TableIterator",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1731,7 +1758,7 @@
         "columnsSelector" : [ ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
         "projectName" : "ProphecySparkBasicsPython"
       }
     }
@@ -1789,6 +1816,38 @@
     },
     "severity" : 2,
     "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.8COFJDsjfFWwXVjmEcwk3$$YypDOaN0J0yXBYfn5_DNF.processes.-4CyiikKOeTuc2kuuu1_N$$4R7SR4T8dtQjp0sq3NaTC",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.8COFJDsjfFWwXVjmEcwk3$$YypDOaN0J0yXBYfn5_DNF.processes.-4CyiikKOeTuc2kuuu1_N$$4R7SR4T8dtQjp0sq3NaTC.properties.datasetId",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "dataset id missing",
     "tags" : [ ],
     "relatedInformation" : [ ]
   }, {

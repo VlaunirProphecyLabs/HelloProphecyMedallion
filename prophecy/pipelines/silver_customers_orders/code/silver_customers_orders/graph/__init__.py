@@ -3,5 +3,6 @@ from .inner_join_by_customer_id import inner_join_by_customer_id
 from .silver_customers import silver_customers
 from .zipcode_aggregates import zipcode_aggregates
 from .customer_details_reformat import customer_details_reformat
+from .Filter_1 import Filter_1
 from .silver_irs_zipcode import silver_irs_zipcode
 from .silver_orders import silver_orders

@@ -30,109 +30,22 @@
     }
   },
   "processes" : {
-    "LRgwTXH_5N1AM25VqAr7L$$b2E4Ym6wrEGtLBpXMjs7a" : {
-      "id" : "LRgwTXH_5N1AM25VqAr7L$$b2E4Ym6wrEGtLBpXMjs7a",
+    "oVsXhiQBKPb8mPs29OcsG$$XpLbrrFGCiWnA0yzD_FPH" : {
+      "id" : "oVsXhiQBKPb8mPs29OcsG$$XpLbrrFGCiWnA0yzD_FPH",
       "component" : "Pipeline",
       "metadata" : {
-        "label" : "silver_customers",
-        "slug" : "silver_customers",
-        "x" : 100,
-        "y" : 100
+        "label" : "raw_bronze_dynamic",
+        "slug" : "raw_bronze_dynamic",
+        "x" : -180,
+        "y" : 140
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "WvtErzHEBLCQO_VSLvqb4$$zU-1arOoPkMQEr91jadUM",
+          "id" : "4EHVpZYbZA85mCmpodLQ0$$Dj5jF1b1ELCkXEyOPTXKf",
           "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "Plk-ZqAeS1O3B4_vIkWZK$$xau_CouYHKcJP_fI6oAlK",
-          "slug" : ""
-        } ]
-      },
-      "settings" : {
-        "type" : "Inherited",
-        "alerting" : {
-          "emails" : "",
-          "onStart" : false,
-          "onSuccess" : false,
-          "onFailure" : false
-        }
-      },
-      "properties" : {
-        "pipelineId" : "pipelines/silver_customers",
-        "configurations" : {
-          "schema" : [ {
-            "name" : "catalog_name",
-            "optional" : false,
-            "kind" : {
-              "type" : "string",
-              "value" : "vlaunir_demos"
-            },
-            "isReferenced" : false,
-            "isWorkflowNodeConfiguration" : false
-          }, {
-            "name" : "irs_zipcodes_data",
-            "optional" : false,
-            "kind" : {
-              "type" : "record",
-              "fields" : [ {
-                "name" : "catalog_name",
-                "optional" : false,
-                "kind" : {
-                  "type" : "string",
-                  "value" : "vlaunir_demos"
-                },
-                "isReferenced" : true,
-                "isWorkflowNodeConfiguration" : false
-              } ]
-            },
-            "isReferenced" : false,
-            "isWorkflowNodeConfiguration" : true
-          } ],
-          "instances" : {
-            "HelloWorld_Medallion" : [ "default" ]
-          },
-          "overrides" : { },
-          "selectedInstance" : "default"
-        }
-      },
-      "parent" : "Q89-cER8vUJrqVadWrEFd"
-    },
-    "Q89-cER8vUJrqVadWrEFd" : {
-      "id" : "Q89-cER8vUJrqVadWrEFd",
-      "component" : "Cluster",
-      "metadata" : {
-        "label" : "Cluster_2",
-        "slug" : "Cluster_2",
-        "x" : 320,
-        "y" : 20,
-        "width" : 280,
-        "height" : 280
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ ]
-      },
-      "properties" : {
-        "clusterSize" : "Medium"
-      }
-    },
-    "jFeWMbBNINdWsf2PwT8xZ$$iR1Pa0Fe4-D5s0U5nLA1w" : {
-      "id" : "jFeWMbBNINdWsf2PwT8xZ$$iR1Pa0Fe4-D5s0U5nLA1w",
-      "component" : "Pipeline",
-      "metadata" : {
-        "label" : "gold_sales",
-        "slug" : "gold_sales",
-        "x" : 720,
-        "y" : 120
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "IurWcsnJXNL8uokkTKImb$$8i7Pr9JR8w7ffslFJCLRP",
-          "slug" : ""
-        } ],
-        "outputs" : [ {
-          "id" : "PXYl8BJ0TxYIM-AAjOVsp$$LQPATVAjoYJtX6_ABOkVO",
+          "id" : "lwFLbpxyozNa9FmMSJmb4$$yO02UoFL-OhB-hZIOnoOy",
           "slug" : ""
         } ]
       },
@@ -143,23 +56,41 @@
         "onFailure" : false
       },
       "properties" : {
-        "pipelineId" : "pipelines/gold_sales",
+        "pipelineId" : "pipelines/raw_bronze_subgraph",
         "configurations" : {
           "schema" : [ {
-            "name" : "catalog_name",
-            "optional" : false,
-            "kind" : {
-              "type" : "string",
-              "value" : "vlaunir_demos"
-            },
-            "isReferenced" : false,
-            "isWorkflowNodeConfiguration" : false
-          }, {
-            "name" : "total_by_zip_and_date",
+            "name" : "load_csv_data",
             "optional" : false,
             "kind" : {
               "type" : "record",
               "fields" : [ {
+                "name" : "source_path",
+                "optional" : false,
+                "kind" : {
+                  "type" : "string",
+                  "value" : ""
+                },
+                "isReferenced" : false,
+                "isWorkflowNodeConfiguration" : false
+              }, {
+                "name" : "updated_at",
+                "optional" : false,
+                "kind" : {
+                  "type" : "string",
+                  "value" : ""
+                },
+                "isReferenced" : false,
+                "isWorkflowNodeConfiguration" : false
+              }, {
+                "name" : "tablename",
+                "optional" : false,
+                "kind" : {
+                  "type" : "string",
+                  "value" : ""
+                },
+                "isReferenced" : false,
+                "isWorkflowNodeConfiguration" : false
+              }, {
                 "name" : "catalog_name",
                 "optional" : false,
                 "kind" : {
@@ -172,6 +103,70 @@
             },
             "isReferenced" : false,
             "isWorkflowNodeConfiguration" : true
+          }, {
+            "name" : "catalog_name",
+            "optional" : false,
+            "kind" : {
+              "type" : "string",
+              "value" : "vlaunir_demos"
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : false
+          }, {
+            "name" : "source_files_path",
+            "optional" : false,
+            "kind" : {
+              "type" : "string",
+              "value" : "dbfs:/Users/vlaunir@prophecy.io/source_files.csv"
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : false
+          } ],
+          "instances" : {
+            "HelloWorld_Medallion" : [ "default" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        }
+      }
+    },
+    "mHEkMuAMh0LqrOzZA2QIO$$Xrx8sshvbbRGdjC1feMzS" : {
+      "id" : "mHEkMuAMh0LqrOzZA2QIO$$Xrx8sshvbbRGdjC1feMzS",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "silver_customers_orders",
+        "slug" : "silver_customers_orders",
+        "x" : -20,
+        "y" : 140
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "dmBxO0i1tJu7a6H6UJsvF$$z7qMj_V7XYEKcgKhn1Rlu",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "8RgIrXqeoPcnIk_Hx4QTh$$yUy8JuE7je2yPVOyB5gVB",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "emails" : "",
+        "onStart" : false,
+        "onSuccess" : false,
+        "onFailure" : false
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/silver_customers_orders",
+        "configurations" : {
+          "schema" : [ {
+            "name" : "catalog_name",
+            "optional" : false,
+            "kind" : {
+              "type" : "string",
+              "value" : "vlaunir_demos"
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : false
           } ],
           "instances" : {
             "HelloWorld_Medallion" : [ "default" ]
@@ -183,10 +178,10 @@
     }
   },
   "connections" : [ {
-    "id" : "-oth0cWQij8wqJe0tWvIE$$X1Qbj21vSPCEjm8LkbEoQ",
-    "source" : "LRgwTXH_5N1AM25VqAr7L$$b2E4Ym6wrEGtLBpXMjs7a",
-    "target" : "jFeWMbBNINdWsf2PwT8xZ$$iR1Pa0Fe4-D5s0U5nLA1w",
-    "sourcePort" : "Plk-ZqAeS1O3B4_vIkWZK$$xau_CouYHKcJP_fI6oAlK",
-    "targetPort" : "IurWcsnJXNL8uokkTKImb$$8i7Pr9JR8w7ffslFJCLRP"
+    "id" : "dRTvAwgNUSQA62IFa32I3$$xiUiwGaEnu81cTDIXUycu",
+    "source" : "oVsXhiQBKPb8mPs29OcsG$$XpLbrrFGCiWnA0yzD_FPH",
+    "target" : "mHEkMuAMh0LqrOzZA2QIO$$Xrx8sshvbbRGdjC1feMzS",
+    "sourcePort" : "lwFLbpxyozNa9FmMSJmb4$$yO02UoFL-OhB-hZIOnoOy",
+    "targetPort" : "dmBxO0i1tJu7a6H6UJsvF$$z7qMj_V7XYEKcgKhn1Rlu"
   } ]
 }
