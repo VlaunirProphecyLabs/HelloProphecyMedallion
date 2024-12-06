@@ -447,6 +447,32 @@ datasets:
         description: ''
         author: vlaunir@prophecy.io
         createdAt: '2024-08-13 17:05:37'
+  datasets/raw_source_demo:
+    name: raw_source_demo
+    description: ''
+    author: vlaunir@prophecy.io
+    createdAt: '2024-11-22 12:52:54'
+    mode: batch
+    physicalDatasets:
+      Dev:
+        fabricId: 9664
+        datasetType: File
+        description: ''
+        author: vlaunir@prophecy.io
+        createdAt: '2024-11-22 12:52:54'
+  datasets/bronze_demo_customer:
+    name: bronze_demo_customer
+    description: ''
+    author: vlaunir@prophecy.io
+    createdAt: '2024-11-22 12:54:19'
+    mode: batch
+    physicalDatasets:
+      Dev:
+        fabricId: 9664
+        datasetType: File
+        description: ''
+        author: vlaunir@prophecy.io
+        createdAt: '2024-11-22 12:54:19'
 templates: {}
 jobs:
   jobs/DBX_Workflow_Vlaunir_HelloWorld:
@@ -465,8 +491,8 @@ jobs:
       onSuccess: false
       onFailure: false
     pipelines:
-    - pipelines/raw_bronze_subgraph
     - pipelines/silver_customers_orders
+    - pipelines/raw_bronze_subgraph
     jobClusterMode:
       clusterMode:
         Single: {}
@@ -530,13 +556,13 @@ dependencies:
 - type: plibMaven
   modifiedAt: '2024-07-23T15:17:53.522852Z'
   name: plibMaven
-  version: 8.4.0
+  version: 8.5.0
   id: '307010185'
   createdAt: '2024-07-23T15:17:53.522779Z'
   enabled: true
   entity: Project
 - type: plibPypi
-  modifiedAt: '2024-10-15T13:43:44.448Z'
+  modifiedAt: '2024-11-25T16:56:04.289Z'
   name: ProphecyLibsPython
   version: 1.9.24
   id: '1002289140'
@@ -561,10 +587,10 @@ projectDependencies:
     projectUID: 12654
     projectName: ProphecySparkBasicsPython
     repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
-    version: 0.2.34
+    version: 0.2.35
     isDefault: true
     author: null
-    createdAt: '2024-11-18 14:34:52'
+    createdAt: '2024-11-25 16:55:40'
   '12655':
     projectUID: 12655
     projectName: ProphecyWarehousePython
@@ -581,6 +607,22 @@ projectDependencies:
     isDefault: false
     author: null
     createdAt: '2024-10-10 14:50:20'
+  '12657':
+    projectUID: 12657
+    projectName: ProphecyWebAppPython
+    repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12657.git&subPath=
+    version: 0.0.8
+    isDefault: false
+    author: null
+    createdAt: '2024-11-22 13:33:03'
+  '20007':
+    projectUID: 20007
+    projectName: HelloWorld
+    repositoryPath: gitUri=http://gitserver:3000/4TR58rhU_team_7057/4TR58rhU_project_20007.git&subPath=
+    version: HelloWorld/v3.0
+    isDefault: false
+    author: null
+    createdAt: '2024-11-26 21:31:14'
 flags:
   shouldAddDefaultDependenciesIfAbsent: true
 pipelineConfigurations: {}

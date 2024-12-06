@@ -4,7 +4,7 @@ from pyspark.sql.types import *
 from prophecy.utils import *
 from prophecy.libs import typed_lit
 from silver_zip_codes.config.ConfigStore import *
-from silver_zip_codes.udfs.UDFs import *
+from silver_zip_codes.udfs import *
 
 def silver_irs_zipcode(spark: SparkSession, in0: DataFrame):
     in0.write\

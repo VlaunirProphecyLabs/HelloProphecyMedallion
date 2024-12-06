@@ -2,10 +2,11 @@ from pyspark.sql import *
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
 from prophecy.utils import *
-from silver_customers.udfs.UDFs import *
+from silver_customers.udfs import *
 from . import *
 from .config import *
 
+@instrument
 def irs_zipcodes_data(spark: SparkSession, subgraph_config: SubgraphConfig) -> DataFrame:
     Config.update(subgraph_config)
     df_bronze_irs_zipcode = bronze_irs_zipcode(spark)

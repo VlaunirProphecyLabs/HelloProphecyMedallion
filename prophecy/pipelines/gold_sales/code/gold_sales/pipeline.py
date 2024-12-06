@@ -2,7 +2,7 @@ from pyspark.sql import *
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
 from gold_sales.config.ConfigStore import *
-from gold_sales.udfs.UDFs import *
+from gold_sales.udfs import *
 from prophecy.utils import *
 from gold_sales.graph import *
 

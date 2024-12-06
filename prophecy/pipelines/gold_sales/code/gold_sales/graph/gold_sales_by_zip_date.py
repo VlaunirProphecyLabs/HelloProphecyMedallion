@@ -4,7 +4,7 @@ from pyspark.sql.types import *
 from prophecy.utils import *
 from prophecy.libs import typed_lit
 from gold_sales.config.ConfigStore import *
-from gold_sales.udfs.UDFs import *
+from gold_sales.udfs import *
 
 def gold_sales_by_zip_date(spark: SparkSession, in0: DataFrame):
     from pyspark.sql.utils import AnalysisException

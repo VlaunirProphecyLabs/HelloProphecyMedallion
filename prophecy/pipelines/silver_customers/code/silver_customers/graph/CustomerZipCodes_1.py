@@ -4,8 +4,9 @@ from pyspark.sql.types import *
 from prophecy.utils import *
 from prophecy.libs import typed_lit
 from silver_customers.config.ConfigStore import *
-from silver_customers.udfs.UDFs import *
+from silver_customers.udfs import *
 
+@instrument
 def CustomerZipCodes_1(spark: SparkSession, in0: DataFrame, in1: DataFrame, in2: DataFrame) -> DataFrame:
     return in0\
         .alias("in0")\

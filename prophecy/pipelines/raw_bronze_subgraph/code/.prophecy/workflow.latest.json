@@ -3,13 +3,20 @@
     "migrationVersions" : {
       "gemBuilderVersion" : "v1"
     },
-    "functions" : { },
+    "functions" : {
+      "businessRules" : {
+        "rules" : [ ],
+        "sharedRules" : [ ]
+      }
+    },
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.4.0",
+        "mavenVersion" : "8.5.0",
         "pyPiVersion" : "1.9.24"
-      }
+      },
+      "instrumentationEnabled" : true,
+      "sparkConfigJinjaEnabled" : true
     },
     "id" : "1",
     "uri" : "pipelines/raw_bronze_subgraph",
@@ -26,7 +33,7 @@
       "language" : "python",
       "udfs" : [ ],
       "functionPackageName" : "scott_demo2_team.helloworld.functions",
-      "sharedFunctionPackageNames" : [ "prophecy.data_quality.functions", "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+      "sharedFunctionPackageNames" : [ "vlaunirprophecyioteam.helloworld.functions", "prophecy.webapp.functions", "prophecy.data_quality.functions", "prophecy.spark_basic.functions", "prophecy.streaming.functions", "prophecy.warehouse.functions", "prophecyteam.prophecyanalyticalfunctionspython.functions" ]
     },
     "udafs" : {
       "language" : "python",
@@ -116,6 +123,44 @@
     "buildSystem" : "maven",
     "externalDependencies" : [ ],
     "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "20007",
+      "projectName" : "HelloWorld",
+      "externalDependencies" : [ {
+        "type" : "plibMaven",
+        "modifiedAt" : "2024-05-28T19:45:22.250502Z",
+        "name" : "plibMaven",
+        "enabled" : true,
+        "version" : "8.0.25",
+        "id" : "668489778",
+        "createdAt" : "2024-05-28T19:45:22.250418Z",
+        "entity" : "Project"
+      }, {
+        "type" : "plibPypi",
+        "modifiedAt" : "2024-05-28T19:45:22.250558Z",
+        "name" : "plibPypi",
+        "enabled" : true,
+        "version" : "1.9.9",
+        "id" : "389499049",
+        "createdAt" : "2024-05-28T19:45:22.250536Z",
+        "entity" : "Project"
+      }, {
+        "type" : "coordinates",
+        "modifiedAt" : "2024-03-26T15:04:44.161Z",
+        "coordinates" : "com.crealytics:spark-excel_2.12:3.5.0_0.20.3",
+        "name" : "spark-excel",
+        "description" : "com.crealytics:spark-excel_2.12:3.5.0_0.20.3",
+        "enabled" : true,
+        "id" : "lTRmrXj9GHtw3raRElX4s",
+        "createdAt" : "2024-03-26T15:04:44.161Z",
+        "entity" : "Project",
+        "exclusions" : [ ],
+        "editable" : true
+      } ]
+    }, {
+      "projectUID" : "12657",
+      "projectName" : "ProphecyWebAppPython",
+      "externalDependencies" : [ ]
+    }, {
       "projectUID" : "32699",
       "projectName" : "ProphecySparkDataQualityPython",
       "externalDependencies" : [ ]
@@ -124,8 +169,16 @@
       "projectName" : "ProphecySparkBasicsPython",
       "externalDependencies" : [ ]
     }, {
+      "projectUID" : "12656",
+      "projectName" : "ProphecyStreamingPython",
+      "externalDependencies" : [ ]
+    }, {
       "projectUID" : "12655",
       "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "16362",
+      "projectName" : "ProphecyAnalyticalFunctionsPython",
       "externalDependencies" : [ ]
     } ],
     "isImported" : false,
@@ -262,7 +315,7 @@
           "metadata" : {
             "label" : "Target_1",
             "slug" : "Target_1",
-            "x" : 440,
+            "x" : 460,
             "y" : -120,
             "phase" : 0,
             "cache" : false,
@@ -349,7 +402,7 @@
             "allowInportRename" : true
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/ControlFlowInput",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/ControlFlowInput",
             "projectName" : "ProphecySparkBasicsPython"
           }
         },
@@ -419,7 +472,7 @@
             "columnsSelector" : [ ]
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
             "projectName" : "ProphecySparkBasicsPython"
           }
         },
@@ -429,8 +482,8 @@
           "metadata" : {
             "label" : "save_as_bronze_table",
             "slug" : "save_as_bronze_table",
-            "x" : 420,
-            "y" : 20,
+            "x" : 460,
+            "y" : 60,
             "phase" : 0,
             "cache" : false,
             "detailedStats" : false,
@@ -1576,13 +1629,13 @@
             "allowInportRename" : true
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/ControlFlowOutput",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/ControlFlowOutput",
             "projectName" : "ProphecySparkBasicsPython"
           }
         }
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/TableIterator",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/TableIterator",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1627,7 +1680,7 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Creates a structured dataset from various data sources, facilitating easier access and management of customer and order information.",
+        "comment" : "Creates a structured dataset from various data sources, facilitating further analysis and reporting.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -1664,7 +1717,7 @@
         "autoUpdateOnRun" : true
       },
       "properties" : {
-        "script" : "schema = StructType([\n    StructField(\"tablename\", StringType(), True),\n    StructField(\"source_path\", StringType(), True)\n])\n\n# Sample data\n# https://www.irs.gov/pub/irs-soi/13zpallagi.csv\ndata = [\n    (\"bronze_customers\", \"s3://prophecy-dataset-samples/CustomersDataset*.csv\"),\n    (\"bronze_orders\", \"s3://prophecy-dataset-samples/Orders*.csv\"),\n    (\"bronze_irs_zipcode\", \"dbfs:/databricks-datasets/data.gov/irs_zip_code_data/data-001/2013_soi_zipcode_agi.csv\"),\n    (\"bronze_account_detail\", \"dbfs:/Users/vlaunir@prophecy.io/delimited/account_detail.csv\"),\n    (\"bronze_item_detail\", \"dbfs:/Users/vlaunir@prophecy.io/delimited/item_detail.csv\")\n    \n    \n]\nprint(Config.catalog_name)\n\n# Create DataFrame\ndf = spark.createDataFrame(data, schema=schema)\n\n# Show DataFrame\nout0 = df",
+        "script" : "\nschema = StructType([\n    StructField(\"tablename\", StringType(), True),\n    StructField(\"source_path\", StringType(), True)\n])\n\n# Sample data\n# https://www.irs.gov/pub/irs-soi/13zpallagi.csv\ndata = [\n    (\"bronze_customers\", \"s3://prophecy-dataset-samples/CustomersDataset*.csv\"),\n    (\"bronze_orders\", \"s3://prophecy-dataset-samples/Orders*.csv\"),\n    (\"bronze_irs_zipcode\", \"dbfs:/databricks-datasets/data.gov/irs_zip_code_data/data-001/2013_soi_zipcode_agi.csv\"),\n    (\"bronze_account_detail\", \"dbfs:/Users/vlaunir@prophecy.io/delimited/account_detail.csv\"),\n    (\"bronze_item_detail\", \"dbfs:/Users/vlaunir@prophecy.io/delimited/item_detail.csv\")\n    \n    \n]\nprint(Config.catalog_name)\n\n# Create DataFrame\ndf = spark.createDataFrame(data, schema=schema)\n\n# Show DataFrame\nout0 = df",
         "scriptMethodHeader" : "def Script(spark: SparkSession) -> DataFrame:",
         "scriptMethodFooter" : "    return out0"
       }
@@ -1758,7 +1811,7 @@
         "columnsSelector" : [ ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
         "projectName" : "ProphecySparkBasicsPython"
       }
     }

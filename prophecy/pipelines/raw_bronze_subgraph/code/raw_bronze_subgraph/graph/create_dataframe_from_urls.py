@@ -6,7 +6,9 @@ from prophecy.libs import typed_lit
 from raw_bronze_subgraph.config.ConfigStore import *
 from raw_bronze_subgraph.functions import *
 
+@instrument
 def create_dataframe_from_urls(spark: SparkSession) -> DataFrame:
+    
     schema = StructType([
             StructField("tablename", StringType(), True),
             StructField("source_path", StringType(), True)

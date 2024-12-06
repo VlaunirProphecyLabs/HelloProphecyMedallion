@@ -2,7 +2,7 @@ from pyspark.sql import *
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
 from raw_bronze.config.ConfigStore import *
-from raw_bronze.udfs.UDFs import *
+from raw_bronze.udfs import *
 from prophecy.utils import *
 from raw_bronze.graph import *
 

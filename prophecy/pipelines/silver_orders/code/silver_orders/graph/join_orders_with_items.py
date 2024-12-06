@@ -4,7 +4,7 @@ from pyspark.sql.types import *
 from prophecy.utils import *
 from prophecy.libs import typed_lit
 from silver_orders.config.ConfigStore import *
-from silver_orders.udfs.UDFs import *
+from silver_orders.udfs import *
 
 def join_orders_with_items(spark: SparkSession, in0: DataFrame, in1: DataFrame, ) -> DataFrame:
     return in0\

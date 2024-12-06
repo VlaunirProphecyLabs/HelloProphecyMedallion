@@ -21,6 +21,7 @@ class load_csv_data(MetaGemExec):
         df_read_dynamic_source = read_dynamic_source(spark)
         subgraph_config.update(Config)
 
+    @instrument
     def apply(self, spark: SparkSession, in0: DataFrame, ) -> None:
         inDFs = []
         conf_to_column = dict(

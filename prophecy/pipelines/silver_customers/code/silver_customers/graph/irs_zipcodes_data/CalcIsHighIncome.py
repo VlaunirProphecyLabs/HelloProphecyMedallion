@@ -4,8 +4,9 @@ from pyspark.sql.types import *
 from prophecy.utils import *
 from prophecy.libs import typed_lit
 from .config import *
-from silver_customers.udfs.UDFs import *
+from silver_customers.udfs import *
 
+@instrument
 def CalcIsHighIncome(spark: SparkSession, in0: DataFrame) -> DataFrame:
     return in0.select(
         col("zipcode"), 

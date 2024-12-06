@@ -2,7 +2,7 @@ from pyspark.sql import *
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
 from silver_customers.config.ConfigStore import *
-from silver_customers.udfs.UDFs import *
+from silver_customers.udfs import *
 from prophecy.utils import *
 from silver_customers.graph import *
 

@@ -3,11 +3,16 @@
     "migrationVersions" : {
       "gemBuilderVersion" : "v1"
     },
-    "functions" : { },
+    "functions" : {
+      "businessRules" : {
+        "rules" : [ ],
+        "sharedRules" : [ ]
+      }
+    },
     "codeGenConfiguration" : {
       "editableConfig" : false,
       "plibVersion" : {
-        "mavenVersion" : "8.4.0",
+        "mavenVersion" : "8.5.0",
         "pyPiVersion" : "1.9.24"
       }
     },
@@ -25,7 +30,7 @@
       "language" : "python",
       "udfs" : [ ],
       "functionPackageName" : "scott_demo2_team.helloworld.functions",
-      "sharedFunctionPackageNames" : [ "prophecy.data_quality.functions", "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+      "sharedFunctionPackageNames" : [ "vlaunirprophecyioteam.helloworld.functions", "prophecy.webapp.functions", "prophecy.data_quality.functions", "prophecy.spark_basic.functions", "prophecy.streaming.functions", "prophecy.warehouse.functions", "prophecyteam.prophecyanalyticalfunctionspython.functions" ]
     },
     "udafs" : {
       "language" : "python",
@@ -61,6 +66,44 @@
     "buildSystem" : "maven",
     "externalDependencies" : [ ],
     "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "20007",
+      "projectName" : "HelloWorld",
+      "externalDependencies" : [ {
+        "type" : "plibMaven",
+        "modifiedAt" : "2024-05-28T19:45:22.250502Z",
+        "name" : "plibMaven",
+        "enabled" : true,
+        "version" : "8.0.25",
+        "id" : "668489778",
+        "createdAt" : "2024-05-28T19:45:22.250418Z",
+        "entity" : "Project"
+      }, {
+        "type" : "plibPypi",
+        "modifiedAt" : "2024-05-28T19:45:22.250558Z",
+        "name" : "plibPypi",
+        "enabled" : true,
+        "version" : "1.9.9",
+        "id" : "389499049",
+        "createdAt" : "2024-05-28T19:45:22.250536Z",
+        "entity" : "Project"
+      }, {
+        "type" : "coordinates",
+        "modifiedAt" : "2024-03-26T15:04:44.161Z",
+        "coordinates" : "com.crealytics:spark-excel_2.12:3.5.0_0.20.3",
+        "name" : "spark-excel",
+        "description" : "com.crealytics:spark-excel_2.12:3.5.0_0.20.3",
+        "enabled" : true,
+        "id" : "lTRmrXj9GHtw3raRElX4s",
+        "createdAt" : "2024-03-26T15:04:44.161Z",
+        "entity" : "Project",
+        "exclusions" : [ ],
+        "editable" : true
+      } ]
+    }, {
+      "projectUID" : "12657",
+      "projectName" : "ProphecyWebAppPython",
+      "externalDependencies" : [ ]
+    }, {
       "projectUID" : "32699",
       "projectName" : "ProphecySparkDataQualityPython",
       "externalDependencies" : [ ]
@@ -69,8 +112,16 @@
       "projectName" : "ProphecySparkBasicsPython",
       "externalDependencies" : [ ]
     }, {
+      "projectUID" : "12656",
+      "projectName" : "ProphecyStreamingPython",
+      "externalDependencies" : [ ]
+    }, {
       "projectUID" : "12655",
       "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "16362",
+      "projectName" : "ProphecyAnalyticalFunctionsPython",
       "externalDependencies" : [ ]
     } ],
     "isImported" : false,
@@ -134,7 +185,7 @@
       "metadata" : {
         "label" : "silver_orders",
         "slug" : "silver_orders",
-        "x" : 220,
+        "x" : 180,
         "y" : 220,
         "phase" : 0,
         "cache" : false,
@@ -1131,7 +1182,7 @@
         }
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Filter",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/Filter",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1300,7 +1351,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/Aggregate",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -2221,7 +2272,7 @@
         "columnsSelector" : [ "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##order_date", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##rating", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##annual_revenue", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##last_modified_date", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##quantity", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##high_income_percent", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##shipping_address", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##order_status", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##last_activity_date", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##shipping_status", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##order_id", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##email", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##payment_status", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##state", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##is_high_income", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##account_type", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##all_returns", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##number_of_employees", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##item_name", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##billing_postal_code", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##first_name", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##customer_id", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##order_category", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##billing_city", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##account_id", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##created_date", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##description", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##account_owner", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##lead_source", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##account_flags", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##industry", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##phone", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##billing_email", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##account_open_date", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##last_modified_by", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##notes", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##account_name", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##high_income_returns", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##item_company", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##last_name", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##billing_address", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##status", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##low_income_returns", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##phone_number", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##payment_method", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##shipping_state", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##shipping_city", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##billing_state", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##shipping_postal_code", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##website", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##zipcode", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##unit_price", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##country_code", "NgLRyVNPlfedvki2dpWhL$$-n3Y1pZ1vgXAUPxOdtXy5##amount" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -3308,7 +3359,7 @@
         "headAlias" : "in0"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Join",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/Join",
         "projectName" : "ProphecySparkBasicsPython"
       }
     }

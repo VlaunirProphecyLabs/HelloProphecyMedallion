@@ -6,6 +6,7 @@ from prophecy.libs import typed_lit
 from raw_bronze_subgraph.config.ConfigStore import *
 from raw_bronze_subgraph.functions import *
 
+@instrument
 def gen_source_files(spark: SparkSession) -> DataFrame:
     return spark.read\
         .schema(StructType([StructField("tablename", StringType(), True), StructField("source_path", StringType(), True)]))\

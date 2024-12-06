@@ -3,11 +3,16 @@
     "migrationVersions" : {
       "gemBuilderVersion" : "v1"
     },
-    "functions" : { },
+    "functions" : {
+      "businessRules" : {
+        "rules" : [ ],
+        "sharedRules" : [ ]
+      }
+    },
     "codeGenConfiguration" : {
       "editableConfig" : false,
       "plibVersion" : {
-        "mavenVersion" : "8.4.0",
+        "mavenVersion" : "8.5.0",
         "pyPiVersion" : "1.9.24"
       }
     },
@@ -24,7 +29,7 @@
       "language" : "python",
       "udfs" : [ ],
       "functionPackageName" : "scott_demo2_team.helloworld.functions",
-      "sharedFunctionPackageNames" : [ "prophecy.data_quality.functions", "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+      "sharedFunctionPackageNames" : [ "vlaunirprophecyioteam.helloworld.functions", "prophecy.webapp.functions", "prophecy.data_quality.functions", "prophecy.spark_basic.functions", "prophecy.streaming.functions", "prophecy.warehouse.functions", "prophecyteam.prophecyanalyticalfunctionspython.functions" ]
     },
     "udafs" : {
       "language" : "python",
@@ -60,6 +65,44 @@
     "buildSystem" : "maven",
     "externalDependencies" : [ ],
     "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "20007",
+      "projectName" : "HelloWorld",
+      "externalDependencies" : [ {
+        "type" : "plibMaven",
+        "modifiedAt" : "2024-05-28T19:45:22.250502Z",
+        "name" : "plibMaven",
+        "enabled" : true,
+        "version" : "8.0.25",
+        "id" : "668489778",
+        "createdAt" : "2024-05-28T19:45:22.250418Z",
+        "entity" : "Project"
+      }, {
+        "type" : "plibPypi",
+        "modifiedAt" : "2024-05-28T19:45:22.250558Z",
+        "name" : "plibPypi",
+        "enabled" : true,
+        "version" : "1.9.9",
+        "id" : "389499049",
+        "createdAt" : "2024-05-28T19:45:22.250536Z",
+        "entity" : "Project"
+      }, {
+        "type" : "coordinates",
+        "modifiedAt" : "2024-03-26T15:04:44.161Z",
+        "coordinates" : "com.crealytics:spark-excel_2.12:3.5.0_0.20.3",
+        "name" : "spark-excel",
+        "description" : "com.crealytics:spark-excel_2.12:3.5.0_0.20.3",
+        "enabled" : true,
+        "id" : "lTRmrXj9GHtw3raRElX4s",
+        "createdAt" : "2024-03-26T15:04:44.161Z",
+        "entity" : "Project",
+        "exclusions" : [ ],
+        "editable" : true
+      } ]
+    }, {
+      "projectUID" : "12657",
+      "projectName" : "ProphecyWebAppPython",
+      "externalDependencies" : [ ]
+    }, {
       "projectUID" : "32699",
       "projectName" : "ProphecySparkDataQualityPython",
       "externalDependencies" : [ ]
@@ -68,8 +111,16 @@
       "projectName" : "ProphecySparkBasicsPython",
       "externalDependencies" : [ ]
     }, {
+      "projectUID" : "12656",
+      "projectName" : "ProphecyStreamingPython",
+      "externalDependencies" : [ ]
+    }, {
       "projectUID" : "12655",
       "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "16362",
+      "projectName" : "ProphecyAnalyticalFunctionsPython",
       "externalDependencies" : [ ]
     } ],
     "isImported" : false,
@@ -503,7 +554,7 @@
         "headAlias" : "in0"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Join",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/Join",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -894,7 +945,7 @@
         "columnsSelector" : [ "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##shipping_state", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##payment_method", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##unit_price", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##order_date", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##item_company", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##notes", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##order_id", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##shipping_postal_code", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##shipping_city", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##amount", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##customer_id", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##quantity", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##item_name", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##shipping_status", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##order_status", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##shipping_address", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##order_category", "wpK7nBdkGgxV0svOaVRu0$$Rwd70Pe4xtLHAbzV8VhGW##payment_status" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },

@@ -3,11 +3,16 @@
     "migrationVersions" : {
       "gemBuilderVersion" : "v1"
     },
-    "functions" : { },
+    "functions" : {
+      "businessRules" : {
+        "rules" : [ ],
+        "sharedRules" : [ ]
+      }
+    },
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.4.0",
+        "mavenVersion" : "8.5.0",
         "pyPiVersion" : "1.9.24"
       }
     },
@@ -27,7 +32,7 @@
       "language" : "python",
       "udfs" : [ ],
       "functionPackageName" : "scott_demo2_team.helloworld.functions",
-      "sharedFunctionPackageNames" : [ "prophecy.data_quality.functions", "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+      "sharedFunctionPackageNames" : [ "vlaunirprophecyioteam.helloworld.functions", "prophecy.webapp.functions", "prophecy.data_quality.functions", "prophecy.spark_basic.functions", "prophecy.streaming.functions", "prophecy.warehouse.functions", "prophecyteam.prophecyanalyticalfunctionspython.functions" ]
     },
     "udafs" : {
       "language" : "python",
@@ -41,6 +46,15 @@
           "kind" : {
             "type" : "string",
             "value" : "vlaunir_demos"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "taxi_data_type",
+          "kind" : {
+            "type" : "string",
+            "value" : "green"
           },
           "optional" : false,
           "isWorkflowNodeConfiguration" : false,
@@ -62,7 +76,65 @@
     "codeMode" : "sparse",
     "buildSystem" : "maven",
     "externalDependencies" : [ ],
-    "dependentProjectExternalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "20007",
+      "projectName" : "HelloWorld",
+      "externalDependencies" : [ {
+        "type" : "plibMaven",
+        "modifiedAt" : "2024-05-28T19:45:22.250502Z",
+        "name" : "plibMaven",
+        "enabled" : true,
+        "version" : "8.0.25",
+        "id" : "668489778",
+        "createdAt" : "2024-05-28T19:45:22.250418Z",
+        "entity" : "Project"
+      }, {
+        "type" : "plibPypi",
+        "modifiedAt" : "2024-05-28T19:45:22.250558Z",
+        "name" : "plibPypi",
+        "enabled" : true,
+        "version" : "1.9.9",
+        "id" : "389499049",
+        "createdAt" : "2024-05-28T19:45:22.250536Z",
+        "entity" : "Project"
+      }, {
+        "type" : "coordinates",
+        "modifiedAt" : "2024-03-26T15:04:44.161Z",
+        "coordinates" : "com.crealytics:spark-excel_2.12:3.5.0_0.20.3",
+        "name" : "spark-excel",
+        "description" : "com.crealytics:spark-excel_2.12:3.5.0_0.20.3",
+        "enabled" : true,
+        "id" : "lTRmrXj9GHtw3raRElX4s",
+        "createdAt" : "2024-03-26T15:04:44.161Z",
+        "entity" : "Project",
+        "exclusions" : [ ],
+        "editable" : true
+      } ]
+    }, {
+      "projectUID" : "12657",
+      "projectName" : "ProphecyWebAppPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "32699",
+      "projectName" : "ProphecySparkDataQualityPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12656",
+      "projectName" : "ProphecyStreamingPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "16362",
+      "projectName" : "ProphecyAnalyticalFunctionsPython",
+      "externalDependencies" : [ ]
+    } ],
     "isImported" : false,
     "interimMode" : "Full",
     "interimModeEnabled" : true,

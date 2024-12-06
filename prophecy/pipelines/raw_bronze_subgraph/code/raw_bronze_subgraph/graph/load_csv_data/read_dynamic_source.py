@@ -6,6 +6,7 @@ from prophecy.libs import typed_lit
 from .config import *
 from raw_bronze_subgraph.functions import *
 
+@instrument
 def read_dynamic_source(spark: SparkSession) -> DataFrame:
     
     file_name = Config.source_path
