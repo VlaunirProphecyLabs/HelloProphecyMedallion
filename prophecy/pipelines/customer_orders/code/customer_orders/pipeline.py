@@ -4,9 +4,12 @@ from pyspark.sql.types import *
 from customer_orders.config.ConfigStore import *
 from customer_orders.functions import *
 from prophecy.utils import *
+from customer_orders.graph import *
 
 def pipeline(spark: SparkSession) -> None:
-    pass
+    df_bronze_customers = bronze_customers(spark)
+    df_bronze_orders = bronze_orders(spark)
+    df_customer_order_details = customer_order_details(spark, df_bronze_customers, df_bronze_orders)
 
 def main():
     spark = SparkSession.builder\

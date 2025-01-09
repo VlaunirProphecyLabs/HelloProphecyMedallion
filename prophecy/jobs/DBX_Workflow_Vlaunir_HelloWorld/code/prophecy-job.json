@@ -30,16 +30,193 @@
     }
   },
   "processes" : {
-    "T__j6aNCnxRfdxsR8zCKg" : {
-      "id" : "T__j6aNCnxRfdxsR8zCKg",
+    "BR2Z6u1I0WpVg41KZqKs_$$JcAyU-bn5oJDBffDQrom7" : {
+      "id" : "BR2Z6u1I0WpVg41KZqKs_$$JcAyU-bn5oJDBffDQrom7",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "silver_customers",
+        "slug" : "silver_customers",
+        "x" : 420,
+        "y" : 20
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "kXqGW4ZkkZv0Y2tlQDrrS$$WZmSV7gA_iukbeGVX8JEZ",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "raGp2RLfmcUEv1JdMIJJl$$VoBq1hrCjoLBy5y7YARxU",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        },
+        "emails" : "",
+        "onStart" : false,
+        "onSuccess" : false,
+        "onFailure" : false
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/silver_customers",
+        "configurations" : {
+          "schema" : [ {
+            "name" : "catalog_name",
+            "optional" : false,
+            "kind" : {
+              "type" : "string",
+              "value" : "vlaunir_demos"
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : false
+          }, {
+            "name" : "irs_zipcodes_data",
+            "optional" : false,
+            "kind" : {
+              "type" : "record",
+              "fields" : [ {
+                "name" : "catalog_name",
+                "optional" : false,
+                "kind" : {
+                  "type" : "string",
+                  "value" : "vlaunir_demos"
+                },
+                "isReferenced" : true,
+                "isWorkflowNodeConfiguration" : false
+              } ]
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : true
+          } ],
+          "instances" : {
+            "HelloWorld_Medallion" : [ "default" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        }
+      }
+    },
+    "pxxv3CY7r6l61mecfTe1X$$CNkiowUx697S0Owgkek9Q" : {
+      "id" : "pxxv3CY7r6l61mecfTe1X$$CNkiowUx697S0Owgkek9Q",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "raw_bronze_dynamic",
+        "slug" : "raw_bronze_dynamic",
+        "x" : 60,
+        "y" : 100
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "nZouq40id4LfsnZJQ1FIm$$oF2XC8QwBEYeBu-XYpOaG",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "0_ha8DNTSTUZA9M5mfRnD$$463RxYdqQGxHH_ihE6EZj",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        },
+        "emails" : "",
+        "onStart" : false,
+        "onSuccess" : false,
+        "onFailure" : false
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/raw_bronze_subgraph",
+        "configurations" : {
+          "schema" : [ {
+            "name" : "load_csv_data",
+            "optional" : false,
+            "kind" : {
+              "type" : "record",
+              "fields" : [ {
+                "name" : "source_path",
+                "optional" : false,
+                "kind" : {
+                  "type" : "string",
+                  "value" : ""
+                },
+                "isReferenced" : false,
+                "isWorkflowNodeConfiguration" : false
+              }, {
+                "name" : "updated_at",
+                "optional" : false,
+                "kind" : {
+                  "type" : "string",
+                  "value" : ""
+                },
+                "isReferenced" : false,
+                "isWorkflowNodeConfiguration" : false
+              }, {
+                "name" : "tablename",
+                "optional" : false,
+                "kind" : {
+                  "type" : "string",
+                  "value" : ""
+                },
+                "isReferenced" : false,
+                "isWorkflowNodeConfiguration" : false
+              }, {
+                "name" : "catalog_name",
+                "optional" : false,
+                "kind" : {
+                  "type" : "string",
+                  "value" : "vlaunir_demos"
+                },
+                "isReferenced" : true,
+                "isWorkflowNodeConfiguration" : false
+              } ]
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : true
+          }, {
+            "name" : "catalog_name",
+            "optional" : false,
+            "kind" : {
+              "type" : "string",
+              "value" : "vlaunir_demos"
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : false
+          }, {
+            "name" : "source_files_path",
+            "optional" : false,
+            "kind" : {
+              "type" : "string",
+              "value" : "dbfs:/Users/vlaunir@prophecy.io/source_files.csv"
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : false
+          } ],
+          "instances" : {
+            "HelloWorld_Medallion" : [ "default" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        }
+      },
+      "parent" : "eUkgPiYIAHDq6VMkzjvL7"
+    },
+    "eUkgPiYIAHDq6VMkzjvL7" : {
+      "id" : "eUkgPiYIAHDq6VMkzjvL7",
       "component" : "Cluster",
       "metadata" : {
         "label" : "Cluster_1",
         "slug" : "Cluster_1",
-        "x" : -540,
-        "y" : -120,
-        "width" : 360,
-        "height" : 420
+        "x" : -20,
+        "y" : -80,
+        "width" : 380,
+        "height" : 280
       },
       "ports" : {
         "inputs" : [ ],
@@ -49,26 +226,32 @@
         "clusterSize" : "Large"
       }
     },
-    "tiRtJHnUoR4UrVYA70Pqw$$EKfIJPfUqGLHixtNP8Rjt" : {
-      "id" : "tiRtJHnUoR4UrVYA70Pqw$$EKfIJPfUqGLHixtNP8Rjt",
+    "Mhkk8voaZyBV7d1lWYX-f$$lHzK_7ikT-dEU13C8HPjD" : {
+      "id" : "Mhkk8voaZyBV7d1lWYX-f$$lHzK_7ikT-dEU13C8HPjD",
       "component" : "DLTPipeline",
       "metadata" : {
         "label" : "DLTPipeline_1",
         "slug" : "DLTPipeline_1",
-        "x" : 60,
-        "y" : 100
+        "x" : -180,
+        "y" : 20
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "SKv8ThusJS7PG-h9LDGCw$$-vouk51rqcQWxpBn6-rQy",
+          "id" : "be4SMRBjwVTRrU_4cXc5g$$pBIv-F4OLcMGdz_LVFGjC",
           "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "hdjlJdDp5GUfXwJ_yCouO$$zIDv5HhN4ihZVcjy3C8VW",
+          "id" : "hOSDE5b7HPQn9pZLw3HVW$$1M9cFacJEmJA1_GuyEZ4n",
           "slug" : ""
         } ]
       },
       "settings" : {
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        },
         "emails" : "",
         "onStart" : false,
         "onSuccess" : false,
@@ -77,37 +260,42 @@
       "properties" : {
         "pipelineId" : "",
         "configurations" : { },
-        "dltPipelineId" : "e441e44a-fe4d-4a3f-b33b-50257f2c0ff5"
-      },
-      "parent" : "T__j6aNCnxRfdxsR8zCKg"
+        "dltPipelineId" : "b130888b-c347-4df5-813f-6129e1951770"
+      }
     },
-    "mHEkMuAMh0LqrOzZA2QIO$$Xrx8sshvbbRGdjC1feMzS" : {
-      "id" : "mHEkMuAMh0LqrOzZA2QIO$$Xrx8sshvbbRGdjC1feMzS",
+    "PbU5qPsDAqclFwmTfelm_$$GEOfQBHODQJWFYNxHciHR" : {
+      "id" : "PbU5qPsDAqclFwmTfelm_$$GEOfQBHODQJWFYNxHciHR",
       "component" : "Pipeline",
       "metadata" : {
-        "label" : "silver_customers_orders",
-        "slug" : "silver_customers_orders",
-        "x" : 20,
-        "y" : 0
+        "label" : "gold_sales",
+        "slug" : "gold_sales",
+        "x" : 420,
+        "y" : 180
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "dmBxO0i1tJu7a6H6UJsvF$$z7qMj_V7XYEKcgKhn1Rlu",
+          "id" : "rnhUjwAXj5qJ2NGqKTQW8$$Uq3eb0ch4IpS83rjoHdDr",
           "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "8RgIrXqeoPcnIk_Hx4QTh$$yUy8JuE7je2yPVOyB5gVB",
+          "id" : "JNHx3nbahDPI-3731FB5B$$rwbePx160KlOG2imWj4bt",
           "slug" : ""
         } ]
       },
       "settings" : {
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        },
         "emails" : "",
         "onStart" : false,
         "onSuccess" : false,
         "onFailure" : false
       },
       "properties" : {
-        "pipelineId" : "pipelines/silver_customers_orders",
+        "pipelineId" : "pipelines/gold_sales",
         "configurations" : {
           "schema" : [ {
             "name" : "catalog_name",
@@ -118,6 +306,24 @@
             },
             "isReferenced" : false,
             "isWorkflowNodeConfiguration" : false
+          }, {
+            "name" : "total_by_zip_and_date",
+            "optional" : false,
+            "kind" : {
+              "type" : "record",
+              "fields" : [ {
+                "name" : "catalog_name",
+                "optional" : false,
+                "kind" : {
+                  "type" : "string",
+                  "value" : "vlaunir_demos"
+                },
+                "isReferenced" : true,
+                "isWorkflowNodeConfiguration" : false
+              } ]
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : true
           } ],
           "instances" : {
             "HelloWorld_Medallion" : [ "default" ]
@@ -127,94 +333,46 @@
         }
       }
     },
-    "lpNk9JhGCN6YwzIpbwbEH$$WBqFfQcKONS0rUu29Egar" : {
-      "id" : "lpNk9JhGCN6YwzIpbwbEH$$WBqFfQcKONS0rUu29Egar",
+    "0SIbCKClFWEMi-uR5IGnN$$B4gruymdy6kClwmuDth6t" : {
+      "id" : "0SIbCKClFWEMi-uR5IGnN$$B4gruymdy6kClwmuDth6t",
       "component" : "Pipeline",
       "metadata" : {
-        "label" : "raw_bronze_dynamic_1",
-        "slug" : "raw_bronze_dynamic_1",
-        "x" : 240,
+        "label" : "raw_bronze",
+        "slug" : "raw_bronze",
+        "x" : 260,
         "y" : 100
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "_pDT8QI4GP92IY9LBM4YZ$$tuA-FoDDCMI54MlTdp6SC",
+          "id" : "3DKfZ1l15kR4Ym_tRtebt$$ZpH9sGNU9-wXrAR_eKkm5",
           "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "r8vuw1k_wpq8uzp0d2bIz$$__GR26GGis2AaIpR1O6i2",
+          "id" : "eQTr4TLc1hFL3xDDVKx2V$$ZIDvnU62jHz9zgu8kwVFw",
           "slug" : ""
         } ]
       },
       "settings" : {
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        },
         "emails" : "",
         "onStart" : false,
         "onSuccess" : false,
         "onFailure" : false
       },
       "properties" : {
-        "pipelineId" : "pipelines/raw_bronze_subgraph",
+        "pipelineId" : "pipelines/raw_bronze",
         "configurations" : {
           "schema" : [ {
-            "name" : "load_csv_data",
-            "optional" : false,
-            "kind" : {
-              "type" : "record",
-              "fields" : [ {
-                "name" : "source_path",
-                "optional" : false,
-                "kind" : {
-                  "type" : "string",
-                  "value" : ""
-                },
-                "isReferenced" : false,
-                "isWorkflowNodeConfiguration" : false
-              }, {
-                "name" : "updated_at",
-                "optional" : false,
-                "kind" : {
-                  "type" : "string",
-                  "value" : ""
-                },
-                "isReferenced" : false,
-                "isWorkflowNodeConfiguration" : false
-              }, {
-                "name" : "tablename",
-                "optional" : false,
-                "kind" : {
-                  "type" : "string",
-                  "value" : ""
-                },
-                "isReferenced" : false,
-                "isWorkflowNodeConfiguration" : false
-              }, {
-                "name" : "catalog_name",
-                "optional" : false,
-                "kind" : {
-                  "type" : "string",
-                  "value" : "vlaunir_demos"
-                },
-                "isReferenced" : true,
-                "isWorkflowNodeConfiguration" : false
-              } ]
-            },
-            "isReferenced" : false,
-            "isWorkflowNodeConfiguration" : true
-          }, {
             "name" : "catalog_name",
             "optional" : false,
             "kind" : {
               "type" : "string",
               "value" : "vlaunir_demos"
-            },
-            "isReferenced" : false,
-            "isWorkflowNodeConfiguration" : false
-          }, {
-            "name" : "source_files_path",
-            "optional" : false,
-            "kind" : {
-              "type" : "string",
-              "value" : "dbfs:/Users/vlaunir@prophecy.io/source_files.csv"
             },
             "isReferenced" : false,
             "isWorkflowNodeConfiguration" : false
@@ -226,127 +384,32 @@
           "selectedInstance" : "default"
         }
       },
-      "parent" : "T__j6aNCnxRfdxsR8zCKg"
-    },
-    "oVsXhiQBKPb8mPs29OcsG$$XpLbrrFGCiWnA0yzD_FPH" : {
-      "id" : "oVsXhiQBKPb8mPs29OcsG$$XpLbrrFGCiWnA0yzD_FPH",
-      "component" : "Pipeline",
-      "metadata" : {
-        "label" : "raw_bronze_dynamic",
-        "slug" : "raw_bronze_dynamic",
-        "x" : 60,
-        "y" : 280
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "4EHVpZYbZA85mCmpodLQ0$$Dj5jF1b1ELCkXEyOPTXKf",
-          "slug" : ""
-        } ],
-        "outputs" : [ {
-          "id" : "lwFLbpxyozNa9FmMSJmb4$$yO02UoFL-OhB-hZIOnoOy",
-          "slug" : ""
-        } ]
-      },
-      "settings" : {
-        "emails" : "",
-        "onStart" : false,
-        "onSuccess" : false,
-        "onFailure" : false
-      },
-      "properties" : {
-        "pipelineId" : "pipelines/raw_bronze_subgraph",
-        "configurations" : {
-          "schema" : [ {
-            "name" : "load_csv_data",
-            "optional" : false,
-            "kind" : {
-              "type" : "record",
-              "fields" : [ {
-                "name" : "source_path",
-                "optional" : false,
-                "kind" : {
-                  "type" : "string",
-                  "value" : ""
-                },
-                "isReferenced" : false,
-                "isWorkflowNodeConfiguration" : false
-              }, {
-                "name" : "updated_at",
-                "optional" : false,
-                "kind" : {
-                  "type" : "string",
-                  "value" : ""
-                },
-                "isReferenced" : false,
-                "isWorkflowNodeConfiguration" : false
-              }, {
-                "name" : "tablename",
-                "optional" : false,
-                "kind" : {
-                  "type" : "string",
-                  "value" : ""
-                },
-                "isReferenced" : false,
-                "isWorkflowNodeConfiguration" : false
-              }, {
-                "name" : "catalog_name",
-                "optional" : false,
-                "kind" : {
-                  "type" : "string",
-                  "value" : "vlaunir_demos"
-                },
-                "isReferenced" : true,
-                "isWorkflowNodeConfiguration" : false
-              } ]
-            },
-            "isReferenced" : false,
-            "isWorkflowNodeConfiguration" : true
-          }, {
-            "name" : "catalog_name",
-            "optional" : false,
-            "kind" : {
-              "type" : "string",
-              "value" : "vlaunir_demos"
-            },
-            "isReferenced" : false,
-            "isWorkflowNodeConfiguration" : false
-          }, {
-            "name" : "source_files_path",
-            "optional" : false,
-            "kind" : {
-              "type" : "string",
-              "value" : "dbfs:/Users/vlaunir@prophecy.io/source_files.csv"
-            },
-            "isReferenced" : false,
-            "isWorkflowNodeConfiguration" : false
-          } ],
-          "instances" : {
-            "HelloWorld_Medallion" : [ "default" ]
-          },
-          "overrides" : { },
-          "selectedInstance" : "default"
-        }
-      },
-      "parent" : "T__j6aNCnxRfdxsR8zCKg"
+      "parent" : "eUkgPiYIAHDq6VMkzjvL7"
     }
   },
   "connections" : [ {
-    "id" : "dRTvAwgNUSQA62IFa32I3$$xiUiwGaEnu81cTDIXUycu",
-    "source" : "oVsXhiQBKPb8mPs29OcsG$$XpLbrrFGCiWnA0yzD_FPH",
-    "target" : "mHEkMuAMh0LqrOzZA2QIO$$Xrx8sshvbbRGdjC1feMzS",
-    "sourcePort" : "lwFLbpxyozNa9FmMSJmb4$$yO02UoFL-OhB-hZIOnoOy",
-    "targetPort" : "dmBxO0i1tJu7a6H6UJsvF$$z7qMj_V7XYEKcgKhn1Rlu"
+    "id" : "yybTdmGn5N9vo6hiqSJol",
+    "source" : "0SIbCKClFWEMi-uR5IGnN$$B4gruymdy6kClwmuDth6t",
+    "target" : "BR2Z6u1I0WpVg41KZqKs_$$JcAyU-bn5oJDBffDQrom7",
+    "sourcePort" : "eQTr4TLc1hFL3xDDVKx2V$$ZIDvnU62jHz9zgu8kwVFw",
+    "targetPort" : "kXqGW4ZkkZv0Y2tlQDrrS$$WZmSV7gA_iukbeGVX8JEZ"
   }, {
-    "id" : "WXuv0hGBs9iEZo8IPygPS",
-    "source" : "lpNk9JhGCN6YwzIpbwbEH$$WBqFfQcKONS0rUu29Egar",
-    "target" : "mHEkMuAMh0LqrOzZA2QIO$$Xrx8sshvbbRGdjC1feMzS",
-    "sourcePort" : "r8vuw1k_wpq8uzp0d2bIz$$__GR26GGis2AaIpR1O6i2",
-    "targetPort" : "dmBxO0i1tJu7a6H6UJsvF$$z7qMj_V7XYEKcgKhn1Rlu"
+    "id" : "Ey99gnyhdauRoOLHDYOh9$$u0cA90_oVENYVPO20wlpM",
+    "source" : "pxxv3CY7r6l61mecfTe1X$$CNkiowUx697S0Owgkek9Q",
+    "target" : "0SIbCKClFWEMi-uR5IGnN$$B4gruymdy6kClwmuDth6t",
+    "sourcePort" : "0_ha8DNTSTUZA9M5mfRnD$$463RxYdqQGxHH_ihE6EZj",
+    "targetPort" : "3DKfZ1l15kR4Ym_tRtebt$$ZpH9sGNU9-wXrAR_eKkm5"
   }, {
-    "id" : "8thbIuvHB7re2wv4OuAPC$$SZLD6jZ3mty0Kc8DxQLzN",
-    "source" : "tiRtJHnUoR4UrVYA70Pqw$$EKfIJPfUqGLHixtNP8Rjt",
-    "target" : "lpNk9JhGCN6YwzIpbwbEH$$WBqFfQcKONS0rUu29Egar",
-    "sourcePort" : "hdjlJdDp5GUfXwJ_yCouO$$zIDv5HhN4ihZVcjy3C8VW",
-    "targetPort" : "_pDT8QI4GP92IY9LBM4YZ$$tuA-FoDDCMI54MlTdp6SC"
+    "id" : "JjnwmU0f6RVwezO-0TWKQ",
+    "source" : "0SIbCKClFWEMi-uR5IGnN$$B4gruymdy6kClwmuDth6t",
+    "target" : "PbU5qPsDAqclFwmTfelm_$$GEOfQBHODQJWFYNxHciHR",
+    "sourcePort" : "eQTr4TLc1hFL3xDDVKx2V$$ZIDvnU62jHz9zgu8kwVFw",
+    "targetPort" : "rnhUjwAXj5qJ2NGqKTQW8$$Uq3eb0ch4IpS83rjoHdDr"
+  }, {
+    "id" : "Gl-xFSwWdzjqHq960gZEF$$rhJYDO8DwMvbtlC4_twJT",
+    "source" : "Mhkk8voaZyBV7d1lWYX-f$$lHzK_7ikT-dEU13C8HPjD",
+    "target" : "pxxv3CY7r6l61mecfTe1X$$CNkiowUx697S0Owgkek9Q",
+    "sourcePort" : "hOSDE5b7HPQn9pZLw3HVW$$1M9cFacJEmJA1_GuyEZ4n",
+    "targetPort" : "nZouq40id4LfsnZJQ1FIm$$oF2XC8QwBEYeBu-XYpOaG"
   } ]
 }

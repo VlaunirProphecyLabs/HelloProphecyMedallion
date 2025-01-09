@@ -1,7 +1,8 @@
 {
   "metainfo" : {
     "migrationVersions" : {
-      "gemBuilderVersion" : "v1"
+      "gemBuilderVersion" : "v1",
+      "unitTestNullDataMigrated" : true
     },
     "functions" : {
       "businessRules" : {
@@ -12,8 +13,8 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.5.0",
-        "pyPiVersion" : "1.9.24"
+        "mavenVersion" : "8.7.0",
+        "pyPiVersion" : "1.9.29"
       },
       "instrumentationEnabled" : true,
       "sparkConfigJinjaEnabled" : true
@@ -23,7 +24,8 @@
     "pipelineSettingsInfo" : {
       "applicationName" : "raw_bronze_subgraph",
       "hasApplication" : true,
-      "isFunctionsPackageDirDefined" : true
+      "isFunctionsPackageDirDefined" : true,
+      "isNullValuesInUnitTestsEnabled" : true
     },
     "language" : "python",
     "fabricId" : "9664",
@@ -33,7 +35,7 @@
       "language" : "python",
       "udfs" : [ ],
       "functionPackageName" : "scott_demo2_team.helloworld.functions",
-      "sharedFunctionPackageNames" : [ "vlaunirprophecyioteam.helloworld.functions", "prophecy.webapp.functions", "prophecy.data_quality.functions", "prophecy.spark_basic.functions", "prophecy.streaming.functions", "prophecy.warehouse.functions", "prophecyteam.prophecyanalyticalfunctionspython.functions" ]
+      "sharedFunctionPackageNames" : [ "prophecy.webapp.functions", "prophecy.data_quality.functions", "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
     },
     "udafs" : {
       "language" : "python",
@@ -123,40 +125,6 @@
     "buildSystem" : "maven",
     "externalDependencies" : [ ],
     "dependentProjectExternalDependencies" : [ {
-      "projectUID" : "20007",
-      "projectName" : "HelloWorld",
-      "externalDependencies" : [ {
-        "type" : "plibMaven",
-        "modifiedAt" : "2024-05-28T19:45:22.250502Z",
-        "name" : "plibMaven",
-        "enabled" : true,
-        "version" : "8.0.25",
-        "id" : "668489778",
-        "createdAt" : "2024-05-28T19:45:22.250418Z",
-        "entity" : "Project"
-      }, {
-        "type" : "plibPypi",
-        "modifiedAt" : "2024-05-28T19:45:22.250558Z",
-        "name" : "plibPypi",
-        "enabled" : true,
-        "version" : "1.9.9",
-        "id" : "389499049",
-        "createdAt" : "2024-05-28T19:45:22.250536Z",
-        "entity" : "Project"
-      }, {
-        "type" : "coordinates",
-        "modifiedAt" : "2024-03-26T15:04:44.161Z",
-        "coordinates" : "com.crealytics:spark-excel_2.12:3.5.0_0.20.3",
-        "name" : "spark-excel",
-        "description" : "com.crealytics:spark-excel_2.12:3.5.0_0.20.3",
-        "enabled" : true,
-        "id" : "lTRmrXj9GHtw3raRElX4s",
-        "createdAt" : "2024-03-26T15:04:44.161Z",
-        "entity" : "Project",
-        "exclusions" : [ ],
-        "editable" : true
-      } ]
-    }, {
       "projectUID" : "12657",
       "projectName" : "ProphecyWebAppPython",
       "externalDependencies" : [ ]
@@ -169,16 +137,8 @@
       "projectName" : "ProphecySparkBasicsPython",
       "externalDependencies" : [ ]
     }, {
-      "projectUID" : "12656",
-      "projectName" : "ProphecyStreamingPython",
-      "externalDependencies" : [ ]
-    }, {
       "projectUID" : "12655",
       "projectName" : "ProphecyWarehousePython",
-      "externalDependencies" : [ ]
-    }, {
-      "projectUID" : "16362",
-      "projectName" : "ProphecyAnalyticalFunctionsPython",
       "externalDependencies" : [ ]
     } ],
     "isImported" : false,
@@ -402,7 +362,7 @@
             "allowInportRename" : true
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/ControlFlowInput",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/ControlFlowInput",
             "projectName" : "ProphecySparkBasicsPython"
           }
         },
@@ -472,7 +432,7 @@
             "columnsSelector" : [ ]
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
             "projectName" : "ProphecySparkBasicsPython"
           }
         },
@@ -1629,13 +1589,13 @@
             "allowInportRename" : true
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/ControlFlowOutput",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/ControlFlowOutput",
             "projectName" : "ProphecySparkBasicsPython"
           }
         }
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/TableIterator",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/TableIterator",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1811,7 +1771,7 @@
         "columnsSelector" : [ ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
         "projectName" : "ProphecySparkBasicsPython"
       }
     }

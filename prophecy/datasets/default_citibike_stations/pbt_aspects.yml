@@ -1,0 +1,138 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: station_id_int
+    type: long
+    nullable: true
+    metadata:
+      description: Unique identifier for each bike station.
+      mappings: []
+      tags: []
+  - name: name
+    type: string
+    nullable: true
+    metadata:
+      description: The full name of the bike station, indicating its location.
+      mappings: []
+      tags: []
+  - name: short_name
+    type: string
+    nullable: true
+    metadata:
+      description: Abbreviated name for the bike station, used for quick reference.
+      mappings: []
+      tags: []
+  - name: latitude
+    type: double
+    nullable: true
+    metadata:
+      description: Geographical latitude of the bike station; Indicates the north-south
+        position on the Earth's surface.
+      mappings: []
+      tags: []
+  - name: longitude
+    type: double
+    nullable: true
+    metadata:
+      description: Geographical coordinate indicating the east-west position of the
+        bike station.
+      mappings: []
+      tags: []
+  - name: region_id
+    type: long
+    nullable: true
+    metadata:
+      description: Identifier for the geographical region where the bike station is
+        located.
+      mappings: []
+      tags: []
+  - name: rental_methods
+    type: string
+    nullable: true
+    metadata:
+      description: Methods available for renting bikes at the station; Includes options
+        like KEY and CREDITCARD.
+      mappings: []
+      tags: []
+  - name: capacity
+    type: long
+    nullable: true
+    metadata:
+      description: Total number of bike docks available at the station.
+      mappings: []
+      tags: []
+  - name: eightd_has_key_dispenser
+    type: boolean
+    nullable: true
+    metadata:
+      description: Indicates whether the bike station is equipped with a key dispenser
+        for bike rentals.
+      mappings: []
+      tags: []
+  - name: num_bikes_available
+    type: long
+    nullable: true
+    metadata:
+      description: The number of bikes currently available for rental at the station.
+      mappings: []
+      tags: []
+  - name: num_bikes_disabled
+    type: long
+    nullable: true
+    metadata:
+      description: Number of bikes that are currently out of service at the station.
+      mappings: []
+      tags: []
+  - name: num_docks_available
+    type: long
+    nullable: true
+    metadata:
+      description: Number of available docking spaces for bikes at the station.
+      mappings: []
+      tags: []
+  - name: num_docks_disabled
+    type: long
+    nullable: true
+    metadata:
+      description: Number of bike docks that are currently out of service at the station.
+      mappings: []
+      tags: []
+  - name: is_installed
+    type: boolean
+    nullable: true
+    metadata:
+      description: Indicates whether the bike station is currently installed and operational.
+      mappings: []
+      tags: []
+  - name: is_renting
+    type: boolean
+    nullable: true
+    metadata:
+      description: Indicates whether the bike station is currently available for renting
+        bikes.
+      mappings: []
+      tags: []
+  - name: is_returning
+    type: boolean
+    nullable: true
+    metadata:
+      description: Indicates whether the bike station is currently accepting bike
+        returns.
+      mappings: []
+      tags: []
+  - name: eightd_has_available_keys
+    type: boolean
+    nullable: true
+    metadata:
+      description: Indicates whether the bike station has available keys for rental.
+      mappings: []
+      tags: []
+  - name: last_reported
+    type: string
+    nullable: true
+    metadata:
+      description: Timestamp indicating the last time the station's status was updated,
+        formatted in UTC.
+      mappings: []
+      tags: []

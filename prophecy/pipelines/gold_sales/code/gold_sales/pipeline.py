@@ -11,6 +11,7 @@ def pipeline(spark: SparkSession) -> None:
     df_Cleanup = Cleanup(spark, df_silver_order_customer_details)
     df_total_by_zip_and_date = total_by_zip_and_date(spark, Config.total_by_zip_and_date, df_Cleanup)
     gold_sales_by_zip_date(spark, df_total_by_zip_and_date)
+    df_deduplicate_customers = deduplicate_customers(spark, df_silver_order_customer_details)
     df_SumAmounts = SumAmounts(spark, df_Cleanup)
     gold_total_sales_by_customer(spark, df_SumAmounts)
 
