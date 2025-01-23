@@ -13,7 +13,7 @@
     "codeGenConfiguration" : {
       "editableConfig" : false,
       "plibVersion" : {
-        "mavenVersion" : "8.7.0",
+        "mavenVersion" : "8.7.1",
         "pyPiVersion" : "1.9.29"
       }
     },
@@ -145,7 +145,7 @@
       "metadata" : {
         "label" : "silver_orders",
         "slug" : "silver_orders",
-        "x" : 180,
+        "x" : 20,
         "y" : 220,
         "phase" : 0,
         "cache" : false,
@@ -735,7 +735,7 @@
       "metadata" : {
         "label" : "silver_customers",
         "slug" : "silver_customers",
-        "x" : 160,
+        "x" : 40,
         "y" : 0,
         "phase" : 0,
         "cache" : false,

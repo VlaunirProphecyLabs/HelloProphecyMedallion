@@ -7,7 +7,7 @@ from . import *
 from .config import *
 
 
-class load_csv_data(MetaGemExec):
+class raw_data_pipeline(MetaGemExec):
 
     def __init__(self, config):
         self.config = config
@@ -18,7 +18,6 @@ class load_csv_data(MetaGemExec):
         df_raw_dynamic_source = raw_dynamic_source(spark)
         df_add_updated_at_column = add_updated_at_column(spark, df_raw_dynamic_source)
         save_as_bronze_table(spark, df_add_updated_at_column)
-        df_read_dynamic_source = read_dynamic_source(spark)
         subgraph_config.update(Config)
 
     @instrument

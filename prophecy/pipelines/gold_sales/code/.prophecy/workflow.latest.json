@@ -13,7 +13,7 @@
     "codeGenConfiguration" : {
       "editableConfig" : false,
       "plibVersion" : {
-        "mavenVersion" : "8.7.0",
+        "mavenVersion" : "8.7.1",
         "pyPiVersion" : "1.9.29"
       }
     },
@@ -113,6 +113,24 @@
     "configurationVersion" : "v2"
   },
   "connections" : [ {
+    "id" : "GT8PGtcg",
+    "source" : "hj7Rrsiz",
+    "sourcePort" : "LWCkX0Ax",
+    "target" : "Grv4d7nD",
+    "targetPort" : "Bc3vL4kw"
+  }, {
+    "id" : "hfZFM3yp",
+    "source" : "XRMorZl6",
+    "sourcePort" : "pNXMV6Sh",
+    "target" : "hj7Rrsiz",
+    "targetPort" : "BVCjTQ2r"
+  }, {
+    "id" : "gIWUsvts",
+    "source" : "CUJmg8TC4ow2LTpkD4xTa$$_i5qUVFTMza3uMVRSyEls",
+    "sourcePort" : "WRBU6jOW2-28Bu_9zVFew$$scVkcloeH0qrUHtfeM_Yz",
+    "target" : "XRMorZl6",
+    "targetPort" : "vipo6e8H"
+  }, {
     "id" : "EUWSMCykGr0vL9vo9zZuQ",
     "source" : "rxaIaQR5qtYVLzRCX6G2p$$4RQ1lPzoJ4iTYxjh4cFqW",
     "sourcePort" : "0IXqpqy1nhHR5pL5duLgX$$jSWzscyIu532qFaZj_pD4",
@@ -142,12 +160,6 @@
     "sourcePort" : "wNC4UP7EW6UfJWez6Kfa-$$enRn0T7yIcJBDBFr_Ye11",
     "target" : "fsJ_9X3CSLgpP8S3tpnjV$$zz_aD5JeoVF9Qo-b-MqZk",
     "targetPort" : "_dKalijg_HvoC2Z7qqKIo$$Dya-jEIbEbPX7EPjObOJa"
-  }, {
-    "id" : "vQrS6y-HC5tJSCkEOBwKi",
-    "source" : "CUJmg8TC4ow2LTpkD4xTa$$_i5qUVFTMza3uMVRSyEls",
-    "sourcePort" : "WRBU6jOW2-28Bu_9zVFew$$scVkcloeH0qrUHtfeM_Yz",
-    "target" : "u9SZmp6w8nIk7kwsJAVmy$$hegw18nSlzgIvStrhhmpY",
-    "targetPort" : "pu8e8XqjkLPDOI8i75N2v$$U8GPEFhqYKAFu48lJCIPm"
   } ],
   "processes" : {
     "Z9DnCM3QJiiiVZ6KMpUKy$$1JWV_usPlhESc2BUgo2wH" : {
@@ -162,7 +174,7 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Processes order data by removing duplicates based on order ID, zipcode, order date, and amount. It then aggregates the data to calculate total and average amounts, along with order counts for each zipcode and date. Finally, the results are sorted by order date and zipcode.",
+        "comment" : "Processes input data to remove duplicates based on order details, then aggregates total and average amounts by zipcode and order date. Finally, it sorts the results by order date and zipcode for organized output.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -1646,6 +1658,70 @@
         }
       }
     },
+    "hj7Rrsiz" : {
+      "id" : "hj7Rrsiz",
+      "component" : "OrderBy",
+      "metadata" : {
+        "label" : "orders_sorted_by_total",
+        "slug" : "orders_sorted_by_total",
+        "x" : 420,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "BVCjTQ2r",
+          "slug" : "total_orders_by_category",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_category",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Order category",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TOTAL_ORDERS",
+              "type" : "long",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "LWCkX0Ax",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "orders" : [ {
+          "expression" : {
+            "format" : "sql",
+            "expression" : "TOTAL_ORDERS"
+          },
+          "sortType" : "desc"
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/OrderBy",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
     "cmeh9U8XFq8QHeFmwUzw7$$7q6DXJxXUZsDqRK7-C5kX" : {
       "id" : "cmeh9U8XFq8QHeFmwUzw7$$7q6DXJxXUZsDqRK7-C5kX",
       "component" : "Reformat",
@@ -2483,111 +2559,30 @@
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_type", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##phone", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_flags", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_activity_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##industry", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_city", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##customer_id", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_email", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##state", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_status", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##website", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_open_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##created_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_name", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##first_name", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_address", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##email", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_name", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##rating", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_id", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##annual_revenue", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##low_income_returns", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##country_code", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##number_of_employees", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##status", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##amount", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##all_returns", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_postal_code", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##zipcode", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##description", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_category", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_modified_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##is_high_income", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_modified_by", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_state", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##high_income_returns", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_id", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##lead_source", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##high_income_percent", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_owner", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##phone_number" ]
+        "columnsSelector" : [ "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_category", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##created_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##country_code", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##high_income_percent", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_postal_code", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##high_income_returns", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##all_returns", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_flags", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_activity_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##annual_revenue", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_open_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_name", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##phone_number", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##low_income_returns", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##zipcode", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_type", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##customer_id", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##amount", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_city", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##phone", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_modified_by", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_state", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##is_high_income", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_email", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_id", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##lead_source", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##email", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##status", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##website", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##first_name", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##billing_address", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##state", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##number_of_employees", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_modified_date", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##order_status", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##industry", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##description", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##last_name", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_id", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##rating", "7Sl1POjLs_iThUKfZHrKm$$YnFjYVPWqnHtkKkI5URlN##account_owner" ]
       },
       "componentInfo" : {
         "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
-    "fsJ_9X3CSLgpP8S3tpnjV$$zz_aD5JeoVF9Qo-b-MqZk" : {
-      "id" : "fsJ_9X3CSLgpP8S3tpnjV$$zz_aD5JeoVF9Qo-b-MqZk",
-      "component" : "Target",
+    "XRMorZl6" : {
+      "id" : "XRMorZl6",
+      "component" : "Aggregate",
       "metadata" : {
-        "label" : "gold_sales_by_zip_date",
-        "slug" : "gold_sales_by_zip_date",
-        "x" : 620,
-        "y" : 220,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false,
-        "comment" : "Updates or creates a table for gold sales data by zip code and date, ensuring accurate and up-to-date sales records.",
-        "autoUpdateComment" : true
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "_dKalijg_HvoC2Z7qqKIo$$Dya-jEIbEbPX7EPjObOJa",
-          "slug" : "in0",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "zipcode",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The ZIP code",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "order_date",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "total_amount",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "avg_amount",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "order_count",
-              "type" : "long",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        } ],
-        "outputs" : [ ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "datasetId" : "datasets/gold_sales_by_zip_date"
-      }
-    },
-    "u9SZmp6w8nIk7kwsJAVmy$$hegw18nSlzgIvStrhhmpY" : {
-      "id" : "u9SZmp6w8nIk7kwsJAVmy$$hegw18nSlzgIvStrhhmpY",
-      "component" : "Deduplicate",
-      "metadata" : {
-        "label" : "deduplicate_customers",
-        "slug" : "deduplicate_customers",
+        "label" : "total_orders_by_category",
+        "slug" : "total_orders_by_category",
         "x" : 220,
-        "y" : 520,
+        "y" : 20,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false,
-        "comment" : "Removes duplicate customer entries to ensure accurate customer records.",
-        "autoUpdateComment" : true
+        "isImported" : false
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "pu8e8XqjkLPDOI8i75N2v$$U8GPEFhqYKAFu48lJCIPm",
-          "slug" : "in0",
+          "id" : "vipo6e8H",
+          "slug" : "silver_order_customer_details",
           "schema" : {
             "type" : "struct",
             "fields" : [ {
@@ -3093,7 +3088,7 @@
           "isStreaming" : false
         } ],
         "outputs" : [ {
-          "id" : "lBLztp_CmTGCtbPaeygG-$$wkIiPDcNiIg3bMcpFIaEX",
+          "id" : "pNXMV6Sh",
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
@@ -3101,21 +3096,112 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "dedupColumns" : [ {
-          "colName" : "customer_id"
-        }, {
-          "colName" : "first_name"
-        }, {
-          "colName" : "last_name"
+        "allIns" : false,
+        "doPivot" : false,
+        "aggregate" : [ {
+          "target" : "TOTAL_ORDERS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "COUNT(*)"
+          },
+          "description" : ""
         } ],
-        "dedupType" : "any",
-        "columnsSelector" : [ "pu8e8XqjkLPDOI8i75N2v$$U8GPEFhqYKAFu48lJCIPm##last_name", "pu8e8XqjkLPDOI8i75N2v$$U8GPEFhqYKAFu48lJCIPm##first_name", "pu8e8XqjkLPDOI8i75N2v$$U8GPEFhqYKAFu48lJCIPm##customer_id" ],
-        "orders" : [ ],
-        "useOrderBy" : false
+        "allowSelection" : true,
+        "pivotColumn" : null,
+        "pivotValues" : [ ],
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ ],
+        "groupBy" : [ {
+          "target" : "order_category",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "order_category"
+          },
+          "description" : ""
+        } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Deduplicate",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Aggregate",
         "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "fsJ_9X3CSLgpP8S3tpnjV$$zz_aD5JeoVF9Qo-b-MqZk" : {
+      "id" : "fsJ_9X3CSLgpP8S3tpnjV$$zz_aD5JeoVF9Qo-b-MqZk",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "gold_sales_by_zip_date",
+        "slug" : "gold_sales_by_zip_date",
+        "x" : 620,
+        "y" : 220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Updates or creates a table for gold sales data by zip code and date, ensuring accurate and up-to-date sales records.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "_dKalijg_HvoC2Z7qqKIo$$Dya-jEIbEbPX7EPjObOJa",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "zipcode",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The ZIP code",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "total_amount",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "avg_amount",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_count",
+              "type" : "long",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/gold_sales_by_zip_date"
       }
     },
     "tzys2o6Nv0OTQ9dD5uu_4$$l-Vfpcct6dzpSxKM9nLZL" : {
@@ -3130,7 +3216,7 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Updates or creates a table that tracks total sales by customer, ensuring accurate sales records are maintained.",
+        "comment" : "Updates or creates a sales record for each customer, ensuring accurate tracking of total sales in a centralized database.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -3200,7 +3286,7 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Calculates total spending and order count for each customer, providing insights into customer engagement and purchasing behavior.",
+        "comment" : "Calculates total spending and order count for each customer, providing insights into customer purchasing behavior.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -3652,7 +3738,7 @@
         "pivotColumn" : null,
         "pivotValues" : [ ],
         "activeTab" : "groupBy",
-        "columnsSelector" : [ "p2jAQt4FQ95GTpHzIrNZx$$s0hnqBRZkl_fO5l7h837X##order_id", "p2jAQt4FQ95GTpHzIrNZx$$s0hnqBRZkl_fO5l7h837X##customer_id", "p2jAQt4FQ95GTpHzIrNZx$$s0hnqBRZkl_fO5l7h837X##amount", "p2jAQt4FQ95GTpHzIrNZx$$s0hnqBRZkl_fO5l7h837X##order_date" ],
+        "columnsSelector" : [ "p2jAQt4FQ95GTpHzIrNZx$$s0hnqBRZkl_fO5l7h837X##customer_id", "p2jAQt4FQ95GTpHzIrNZx$$s0hnqBRZkl_fO5l7h837X##order_id", "p2jAQt4FQ95GTpHzIrNZx$$s0hnqBRZkl_fO5l7h837X##order_date", "p2jAQt4FQ95GTpHzIrNZx$$s0hnqBRZkl_fO5l7h837X##amount" ],
         "groupBy" : [ {
           "target" : "customer_id",
           "expression" : {
@@ -3668,6 +3754,63 @@
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
+    "Grv4d7nD" : {
+      "id" : "Grv4d7nD",
+      "component" : "Limit",
+      "metadata" : {
+        "label" : "top_10_sorted_records",
+        "slug" : "top_10_sorted_records",
+        "x" : 620,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Bc3vL4kw",
+          "slug" : "orders_sorted_by_total",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_category",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Order category",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TOTAL_ORDERS",
+              "type" : "long",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "DQGZU2NH",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "limit" : "10"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Limit",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
     "CUJmg8TC4ow2LTpkD4xTa$$_i5qUVFTMza3uMVRSyEls" : {
       "id" : "CUJmg8TC4ow2LTpkD4xTa$$_i5qUVFTMza3uMVRSyEls",
       "component" : "Source",
@@ -3680,7 +3823,7 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Retrieves detailed customer order information from a designated data source.",
+        "comment" : "Retrieves detailed order information for customers from a designated data source.",
         "autoUpdateComment" : true
       },
       "ports" : {

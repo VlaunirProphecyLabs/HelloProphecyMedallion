@@ -6,5 +6,5 @@ from prophecy.libs import typed_lit
 from gold_sales.config.ConfigStore import *
 from gold_sales.udfs import *
 
-def deduplicate_customers(spark: SparkSession, in0: DataFrame) -> DataFrame:
-    return in0.dropDuplicates(["customer_id", "first_name", "last_name"])
+def orders_sorted_by_total(spark: SparkSession, total_orders_by_category: DataFrame) -> DataFrame:
+    return total_orders_by_category.orderBy(col("TOTAL_ORDERS").desc())

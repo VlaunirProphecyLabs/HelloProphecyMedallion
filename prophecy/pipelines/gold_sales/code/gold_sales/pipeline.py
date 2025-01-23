@@ -10,10 +10,12 @@ def pipeline(spark: SparkSession) -> None:
     df_silver_order_customer_details = silver_order_customer_details(spark)
     df_Cleanup = Cleanup(spark, df_silver_order_customer_details)
     df_total_by_zip_and_date = total_by_zip_and_date(spark, Config.total_by_zip_and_date, df_Cleanup)
+    df_total_orders_by_category = total_orders_by_category(spark, df_silver_order_customer_details)
+    df_orders_sorted_by_total = orders_sorted_by_total(spark, df_total_orders_by_category)
     gold_sales_by_zip_date(spark, df_total_by_zip_and_date)
-    df_deduplicate_customers = deduplicate_customers(spark, df_silver_order_customer_details)
     df_SumAmounts = SumAmounts(spark, df_Cleanup)
     gold_total_sales_by_customer(spark, df_SumAmounts)
+    df_top_10_sorted_records = top_10_sorted_records(spark, df_orders_sorted_by_total)
 
 def main():
     spark = SparkSession.builder\

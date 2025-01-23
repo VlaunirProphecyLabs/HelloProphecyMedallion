@@ -9,8 +9,9 @@ from raw_bronze_subgraph.graph import *
 def pipeline(spark: SparkSession) -> None:
     df_gen_source_files = gen_source_files(spark)
     df_add_load_date = add_load_date(spark, df_gen_source_files)
-    load_csv_data(Config.load_csv_data).apply(spark, df_add_load_date)
+    raw_data_pipeline(Config.raw_data_pipeline).apply(spark, df_add_load_date)
     df_create_dataframe_from_urls = create_dataframe_from_urls(spark)
+    df_irs_zipcodes_data = irs_zipcodes_data(spark, Config.irs_zipcodes_data)
 
 def main():
     spark = SparkSession.builder\

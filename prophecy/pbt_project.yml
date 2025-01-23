@@ -109,18 +109,20 @@ pipelines:
     createdAt: '2024-07-23 13:29:12'
     datasets:
       inputs:
+      - datasets/bronze_irs_zipcode
       - datasets/gen_source_files
       - datasets/raw_dynamic_source
       outputs:
       - datasets/raw_dynamic_table
-    subgraphs: []
+    subgraphs:
+    - subgraphs/irs_zipcodes_data
     dependencies: {}
   pipelines/customer_orders:
     name: gold_customer_orders
-    description: Joins customer and order data to create a comprehensive view of customer
-      orders. It reformats the data to include additional insights such as full name,
-      account age, and seasonal categorization based on order dates. Flags high-value
-      orders for further attention.
+    description: Integrates order and customer data from bronze tables, enriching
+      the dataset with customer details. It reformats the data to include full names,
+      account age, transaction flags based on order amounts, and categorizes orders
+      by season.
     author: vlaunir@prophecy.io
     mode: batch
     artefactID: ''
@@ -128,7 +130,9 @@ pipelines:
     createdAt: '2024-07-23 15:17:51'
     datasets:
       inputs:
+      - datasets/bronze_account_detail_table
       - datasets/bronze_customers
+      - datasets/bronze_demo_customer
       - datasets/bronze_orders
       outputs: []
     subgraphs: []
@@ -151,6 +155,27 @@ pipelines:
       - datasets/silver_orders
     subgraphs: []
     dependencies: {}
+  pipelines/gold_sales:
+    name: gold_sales
+    description: Processes order data to derive insights on customer spending and
+      order totals. It filters and cleans the data, deduplicates customer records,
+      and aggregates order amounts by customer and category. The pipeline also manages
+      gold tables for sales data, ensuring updates or inserts as necessary. Finally,
+      it summarizes total amounts by zipcode and order date, providing a structured
+      view of sales performance.
+    author: scott+demo2@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2023-07-13 18:32:25'
+    datasets:
+      inputs:
+      - datasets/silver_order_customer_details
+      outputs:
+      - datasets/gold_sales_by_zip_date
+      - datasets/gold_total_sales_by_customer
+    subgraphs: []
+    dependencies: {}
   pipelines/silver_customers:
     name: silver_customers
     description: null
@@ -168,25 +193,6 @@ pipelines:
       - datasets/silver_customers
     subgraphs:
     - subgraphs/irs_zipcodes_data
-    dependencies: {}
-  pipelines/gold_sales:
-    name: gold_sales
-    description: Processes order data to compute total amounts by category, deduplicates
-      customer records, and aggregates sales by customer and zip code. It merges results
-      into Delta tables, ensuring data integrity. The pipeline also sorts and limits
-      records to derive insights on top customers and sales trends.
-    author: scott+demo2@prophecy.io
-    mode: batch
-    artefactID: ''
-    language: python
-    createdAt: '2023-07-13 18:32:25'
-    datasets:
-      inputs:
-      - datasets/silver_order_customer_details
-      outputs:
-      - datasets/gold_sales_by_zip_date
-      - datasets/gold_total_sales_by_customer
-    subgraphs: []
     dependencies: {}
 datasets:
   datasets/bronze_orders:
@@ -501,6 +507,19 @@ datasets:
         description: ''
         author: vlaunir@prophecy.io
         createdAt: '2024-12-19 16:29:47'
+  datasets/default_customers:
+    name: default_customers
+    description: ''
+    author: vlaunir@prophecy.io
+    createdAt: '2025-01-23 20:17:56'
+    mode: batch
+    physicalDatasets:
+      Dev:
+        fabricId: 9664
+        datasetType: Database
+        description: ''
+        author: vlaunir@prophecy.io
+        createdAt: '2025-01-23 20:17:56'
 templates: {}
 jobs:
   jobs/DBX_Workflow_Vlaunir_HelloWorld:
@@ -521,40 +540,14 @@ jobs:
     pipelines:
     - pipelines/silver_customers
     - pipelines/raw_bronze_subgraph
-    - pipelines/raw_bronze
     - pipelines/gold_sales
+    - pipelines/raw_bronze
     jobClusterMode:
       clusterMode:
         Single: {}
       clusterId: null
     enabled: true
     createdAt: '2024-07-25 19:39:44'
-    author: vlaunir@prophecy.io
-    models: []
-    sqlProjects: []
-  jobs/single_job:
-    name: single_job
-    description: ''
-    fabricUID: 9664
-    scheduler:
-      Databricks: {}
-    cloudProvider: null
-    jobSize: Small
-    scheduleCron: 0 0 0 1/1 * ? *
-    timeout: null
-    alerting:
-      emails: ''
-      onStart: false
-      onSuccess: false
-      onFailure: false
-    pipelines:
-    - pipelines/gold_sales
-    jobClusterMode:
-      clusterMode:
-        Single: {}
-      clusterId: null
-    enabled: null
-    createdAt: '2025-01-03 14:30:35'
     author: vlaunir@prophecy.io
     models: []
     sqlProjects: []
@@ -600,6 +593,14 @@ subgraphs:
     artefactID: ''
     mode: batch
     createdAt: '2024-08-07 17:28:47'
+  subgraphs/customer_orders:
+    name: customer_orders
+    description: ''
+    author: vlaunir@prophecy.io
+    language: python
+    artefactID: ''
+    mode: batch
+    createdAt: '2025-01-15 21:19:16'
 sqlModels: {}
 sqlSnapshots: {}
 sqlTests: {}
@@ -612,13 +613,13 @@ dependencies:
 - type: plibMaven
   modifiedAt: '2024-07-23T15:17:53.522852Z'
   name: plibMaven
-  version: 8.7.0
+  version: 8.7.1
   id: '307010185'
   createdAt: '2024-07-23T15:17:53.522779Z'
   enabled: true
   entity: Project
 - type: plibPypi
-  modifiedAt: '2024-11-25T16:56:04.289Z'
+  modifiedAt: '2025-01-22T19:04:18.554Z'
   name: ProphecyLibsPython
   version: 1.9.29
   id: '1002289140'
@@ -646,7 +647,7 @@ projectDependencies:
     version: 0.2.39
     isDefault: true
     author: null
-    createdAt: '2024-12-19 21:00:01'
+    createdAt: '2025-01-22 19:04:10'
   '12655':
     projectUID: 12655
     projectName: ProphecyWarehousePython
@@ -670,7 +671,7 @@ projectDependencies:
     version: 0.1.0
     isDefault: false
     author: null
-    createdAt: '2024-12-19 03:46:11'
+    createdAt: '2025-01-22 19:03:58'
 flags:
   shouldAddDefaultDependenciesIfAbsent: true
 pipelineConfigurations: {}

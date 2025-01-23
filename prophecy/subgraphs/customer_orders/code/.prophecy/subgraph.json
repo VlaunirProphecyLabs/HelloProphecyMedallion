@@ -1,0 +1,1400 @@
+{
+  "id" : "mmunVJkzg5w0cv4TCb-Hp",
+  "component" : "Subgraph",
+  "metadata" : {
+    "label" : "",
+    "slug" : "",
+    "x" : 0,
+    "y" : 0,
+    "phase" : 0,
+    "cache" : false,
+    "detailedStats" : false,
+    "isImported" : false,
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ {
+          "name" : "catalog_name",
+          "kind" : {
+            "type" : "string",
+            "value" : "vlaunir_demos"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : true
+        }, {
+          "name" : "taxi_data_type",
+          "kind" : {
+            "type" : "string",
+            "value" : "green"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : true
+        } ]
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ {
+      "id" : "lM1C-i_L0j2VRyMiCXRD1",
+      "slug" : "out0"
+    } ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  },
+  "properties" : {
+    "packageName" : "customer_orders"
+  },
+  "connections" : [ {
+    "id" : "QpXOFmabymVtffE0Wn18n",
+    "source" : "K0yeGdYxBbcJymion9hyI",
+    "sourcePort" : "WFZOfOqmlHR9DxNI7hEHz",
+    "target" : "uRGoDNBCCERjjBDu7rbnw",
+    "targetPort" : "T0lQI_fnWozmNdEMxH3X7"
+  }, {
+    "id" : "ghnHUkDVaCN4AhNljvkiI",
+    "source" : "ULPtw_MHBl75GRUKPhRPS",
+    "sourcePort" : "sHMW7a2138mIXyvwrpBpc",
+    "target" : "uRGoDNBCCERjjBDu7rbnw",
+    "targetPort" : "-xzCUuEQTYn6qfLY5XmZn"
+  } ],
+  "processes" : {
+    "K0yeGdYxBbcJymion9hyI" : {
+      "id" : "K0yeGdYxBbcJymion9hyI",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "bronze_account_detail_table",
+        "slug" : "bronze_account_detail_table",
+        "x" : -480,
+        "y" : -520,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "WFZOfOqmlHR9DxNI7hEHz",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "format" : "catalogTable",
+        "refreshDataset" : false,
+        "dataFormats" : [ {
+          "icon" : "DatabaseASolidIcon",
+          "label" : "Salesforce",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12657.git&subPath=&tag=0.1.0&projectSubscriptionProjectId=12657&path=gems/salesforce",
+            "projectId" : "12657",
+            "projectName" : "ProphecyWebAppPython",
+            "version" : "0.1.0"
+          },
+          "type" : "WebApp",
+          "value" : "salesforce"
+        }, {
+          "icon" : "WebAppIcon",
+          "label" : "Smartsheet",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12657.git&subPath=&tag=0.1.0&projectSubscriptionProjectId=12657&path=gems/Smartsheet",
+            "projectId" : "12657",
+            "projectName" : "ProphecyWebAppPython",
+            "version" : "0.1.0"
+          },
+          "type" : "WebApp",
+          "value" : "Smartsheet"
+        }, {
+          "icon" : "AvroLogoIcon",
+          "label" : "Avro",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/avro",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "avro"
+        }, {
+          "icon" : "CatalogTableIcon",
+          "label" : "Catalog Table",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/catalogTable",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "Database",
+          "value" : "catalogTable"
+        }, {
+          "icon" : "CsvIcon",
+          "label" : "CSV",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/csv",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "csv"
+        }, {
+          "icon" : "DeltaLogoIcon",
+          "label" : "Delta",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/delta",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "delta"
+        }, {
+          "icon" : "TableSolidIcon",
+          "label" : "Iceberg",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/iceberg",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "Database",
+          "value" : "iceberg"
+        }, {
+          "icon" : "FixedFormatFileIcon",
+          "label" : "Fixed Format",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/fixedformat",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "fixedformat"
+        }, {
+          "icon" : "JdbcFileIcon",
+          "label" : "JDBC",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/jdbc",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "Warehouse",
+          "value" : "jdbc"
+        }, {
+          "icon" : "JsonIcon",
+          "label" : "JSON",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/json",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "json"
+        }, {
+          "icon" : "FileIcon",
+          "label" : "Data Generator",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/syntheticDataGenerator",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "Data Generator"
+        }, {
+          "icon" : "KafkaLogoIcon",
+          "label" : "Kafka",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/KafkaStream",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "KafkaStream"
+        }, {
+          "icon" : "OrcLogoIcon",
+          "label" : "ORC",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/orc",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "orc"
+        }, {
+          "icon" : "ParquetLogoIcon",
+          "label" : "Parquet",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/parquet",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "parquet"
+        }, {
+          "icon" : "FileTextIcon",
+          "label" : "Text",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/text",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "text"
+        }, {
+          "icon" : "FileIcon",
+          "label" : "Xlsx",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/xlsx",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "xlsx"
+        }, {
+          "icon" : "XmlIcon",
+          "label" : "Xml",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/xml",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "xml"
+        }, {
+          "icon" : "FileIcon",
+          "label" : "Seed",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Seed",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "Seed"
+        }, {
+          "icon" : "BigqueryLogoIcon",
+          "label" : "BigQuery",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=&tag=0.0.8&projectSubscriptionProjectId=12655&path=gems/bigquery",
+            "projectId" : "12655",
+            "projectName" : "ProphecyWarehousePython",
+            "version" : "0.0.8"
+          },
+          "type" : "Warehouse",
+          "value" : "bigquery"
+        }, {
+          "icon" : "DatabaseASolidIcon",
+          "label" : "Cosmosdb",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=&tag=0.0.8&projectSubscriptionProjectId=12655&path=gems/CosmosDB",
+            "projectId" : "12655",
+            "projectName" : "ProphecyWarehousePython",
+            "version" : "0.0.8"
+          },
+          "type" : "Warehouse",
+          "value" : "CosmosDB"
+        }, {
+          "icon" : "MongoDbIcon",
+          "label" : "Mongodb",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=&tag=0.0.8&projectSubscriptionProjectId=12655&path=gems/mongodb",
+            "projectId" : "12655",
+            "projectName" : "ProphecyWarehousePython",
+            "version" : "0.0.8"
+          },
+          "type" : "Warehouse",
+          "value" : "mongodb"
+        }, {
+          "icon" : "DatabaseASolidIcon",
+          "label" : "Synapse",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=&tag=0.0.8&projectSubscriptionProjectId=12655&path=gems/synapse",
+            "projectId" : "12655",
+            "projectName" : "ProphecyWarehousePython",
+            "version" : "0.0.8"
+          },
+          "type" : "Warehouse",
+          "value" : "synapse"
+        }, {
+          "icon" : "RedshiftNewIcon",
+          "label" : "Redshift",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=&tag=0.0.8&projectSubscriptionProjectId=12655&path=gems/redshift",
+            "projectId" : "12655",
+            "projectName" : "ProphecyWarehousePython",
+            "version" : "0.0.8"
+          },
+          "type" : "Warehouse",
+          "value" : "redshift"
+        }, {
+          "icon" : "SnowflakeLogoIcon",
+          "label" : "Snowflake",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=&tag=0.0.8&projectSubscriptionProjectId=12655&path=gems/snowflake",
+            "projectId" : "12655",
+            "projectName" : "ProphecyWarehousePython",
+            "version" : "0.0.8"
+          },
+          "type" : "Warehouse",
+          "value" : "snowflake"
+        }, {
+          "label" : "Pinecone",
+          "value" : "pinecone",
+          "icon" : "DatabaseASolidIcon",
+          "type" : "Warehouse"
+        }, {
+          "label" : "Hudi",
+          "value" : "hudi",
+          "icon" : "FileIcon",
+          "type" : "File"
+        }, {
+          "label" : "Webpage",
+          "value" : "webpage",
+          "icon" : "WebAppIcon",
+          "type" : "WebApp"
+        }, {
+          "label" : "Slack",
+          "value" : "slack",
+          "icon" : "WebAppIcon",
+          "type" : "WebApp"
+        }, {
+          "label" : "Binary",
+          "value" : "binary",
+          "icon" : "FileIcon",
+          "type" : "File"
+        } ],
+        "datasetId" : "datasets/bronze_account_detail_table",
+        "dataTypes" : [ {
+          "label" : "File",
+          "value" : "File",
+          "icon" : "File"
+        }, {
+          "label" : "Warehouse",
+          "value" : "Warehouse",
+          "icon" : "Database"
+        }, {
+          "label" : "Catalog Table",
+          "value" : "Database",
+          "icon" : "CatalogTable"
+        }, {
+          "label" : "Applications",
+          "value" : "WebApp",
+          "icon" : "WebApp"
+        } ],
+        "updated" : true,
+        "currentDatasetId" : "datasets/bronze_account_detail_table",
+        "componentInfo" : {
+          "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/catalogTable",
+          "projectId" : "12654",
+          "projectName" : "ProphecySparkBasicsPython",
+          "version" : "0.2.39"
+        },
+        "dataset" : {
+          "catalog" : "{Config.catalog_name}",
+          "path" : "helloworld_bronze",
+          "provider" : "delta",
+          "externalFilePath" : "",
+          "mergeTargetAlias" : "target",
+          "overwriteSchema" : true,
+          "flagValue" : "integer",
+          "writeMode" : "overwrite",
+          "description" : "Comprehensive account details including contact information, status, and financial metrics, enabling effective account management and analysis.",
+          "historicColumns" : [ ],
+          "mergeSourceAlias" : "source",
+          "filterQuery" : "",
+          "notMatchedTable" : [ ],
+          "matchedTable" : [ ],
+          "notMatchedAction" : "insert",
+          "partitionColumns" : null,
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "account_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_owner",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The person who owns the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone_number",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The contact phone number associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Email address associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_address",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Physical address for billing purposes",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_postal_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Postal code of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City of the billing address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "billing_state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state associated with the billing address of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The type or category of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "industry",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The industry to which the account belongs",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "annual_revenue",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The annual revenue of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "number_of_employees",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The number of employees associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_activity_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date of the most recent activity related to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "created_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was created",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "website",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The website associated with the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "lead_source",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The source from which the lead was generated",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The current status of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "rating",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The rating assigned to the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "description",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "A description or summary of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_modified_by",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The user who last modified the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_modified_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was last modified",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "activeTab" : "whenMatched",
+          "tableName" : "bronze_account_detail",
+          "isCatalogEnabled" : true,
+          "additionalProperties" : {
+            "copilot" : {
+              "datasetDescriptionStatus" : "fromCopilotWithInterim"
+            }
+          },
+          "matchedActionDelete" : "ignore",
+          "useExternalFilePath" : false,
+          "keyColumns" : [ ],
+          "matchedAction" : "update",
+          "fileFormat" : "parquet"
+        },
+        "isNewDataset" : false,
+        "disabled" : false,
+        "datasetType" : "Database"
+      }
+    },
+    "ULPtw_MHBl75GRUKPhRPS" : {
+      "id" : "ULPtw_MHBl75GRUKPhRPS",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "bronze_demo_customer",
+        "slug" : "bronze_demo_customer",
+        "x" : -480,
+        "y" : -320,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "sHMW7a2138mIXyvwrpBpc",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "format" : "csv",
+        "refreshDataset" : false,
+        "dataFormats" : [ {
+          "icon" : "DatabaseASolidIcon",
+          "label" : "Salesforce",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12657.git&subPath=&tag=0.1.0&projectSubscriptionProjectId=12657&path=gems/salesforce",
+            "projectId" : "12657",
+            "projectName" : "ProphecyWebAppPython",
+            "version" : "0.1.0"
+          },
+          "type" : "WebApp",
+          "value" : "salesforce"
+        }, {
+          "icon" : "WebAppIcon",
+          "label" : "Smartsheet",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12657.git&subPath=&tag=0.1.0&projectSubscriptionProjectId=12657&path=gems/Smartsheet",
+            "projectId" : "12657",
+            "projectName" : "ProphecyWebAppPython",
+            "version" : "0.1.0"
+          },
+          "type" : "WebApp",
+          "value" : "Smartsheet"
+        }, {
+          "icon" : "AvroLogoIcon",
+          "label" : "Avro",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/avro",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "avro"
+        }, {
+          "icon" : "CatalogTableIcon",
+          "label" : "Catalog Table",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/catalogTable",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "Database",
+          "value" : "catalogTable"
+        }, {
+          "icon" : "CsvIcon",
+          "label" : "CSV",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/csv",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "csv"
+        }, {
+          "icon" : "DeltaLogoIcon",
+          "label" : "Delta",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/delta",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "delta"
+        }, {
+          "icon" : "TableSolidIcon",
+          "label" : "Iceberg",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/iceberg",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "Database",
+          "value" : "iceberg"
+        }, {
+          "icon" : "FixedFormatFileIcon",
+          "label" : "Fixed Format",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/fixedformat",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "fixedformat"
+        }, {
+          "icon" : "JdbcFileIcon",
+          "label" : "JDBC",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/jdbc",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "Warehouse",
+          "value" : "jdbc"
+        }, {
+          "icon" : "JsonIcon",
+          "label" : "JSON",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/json",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "json"
+        }, {
+          "icon" : "FileIcon",
+          "label" : "Data Generator",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/syntheticDataGenerator",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "Data Generator"
+        }, {
+          "icon" : "KafkaLogoIcon",
+          "label" : "Kafka",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/KafkaStream",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "KafkaStream"
+        }, {
+          "icon" : "OrcLogoIcon",
+          "label" : "ORC",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/orc",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "orc"
+        }, {
+          "icon" : "ParquetLogoIcon",
+          "label" : "Parquet",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/parquet",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "parquet"
+        }, {
+          "icon" : "FileTextIcon",
+          "label" : "Text",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/text",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "text"
+        }, {
+          "icon" : "FileIcon",
+          "label" : "Xlsx",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/xlsx",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "xlsx"
+        }, {
+          "icon" : "XmlIcon",
+          "label" : "Xml",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/xml",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "xml"
+        }, {
+          "icon" : "FileIcon",
+          "label" : "Seed",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Seed",
+            "projectId" : "12654",
+            "projectName" : "ProphecySparkBasicsPython",
+            "version" : "0.2.39"
+          },
+          "type" : "File",
+          "value" : "Seed"
+        }, {
+          "icon" : "BigqueryLogoIcon",
+          "label" : "BigQuery",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=&tag=0.0.8&projectSubscriptionProjectId=12655&path=gems/bigquery",
+            "projectId" : "12655",
+            "projectName" : "ProphecyWarehousePython",
+            "version" : "0.0.8"
+          },
+          "type" : "Warehouse",
+          "value" : "bigquery"
+        }, {
+          "icon" : "DatabaseASolidIcon",
+          "label" : "Cosmosdb",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=&tag=0.0.8&projectSubscriptionProjectId=12655&path=gems/CosmosDB",
+            "projectId" : "12655",
+            "projectName" : "ProphecyWarehousePython",
+            "version" : "0.0.8"
+          },
+          "type" : "Warehouse",
+          "value" : "CosmosDB"
+        }, {
+          "icon" : "MongoDbIcon",
+          "label" : "Mongodb",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=&tag=0.0.8&projectSubscriptionProjectId=12655&path=gems/mongodb",
+            "projectId" : "12655",
+            "projectName" : "ProphecyWarehousePython",
+            "version" : "0.0.8"
+          },
+          "type" : "Warehouse",
+          "value" : "mongodb"
+        }, {
+          "icon" : "DatabaseASolidIcon",
+          "label" : "Synapse",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=&tag=0.0.8&projectSubscriptionProjectId=12655&path=gems/synapse",
+            "projectId" : "12655",
+            "projectName" : "ProphecyWarehousePython",
+            "version" : "0.0.8"
+          },
+          "type" : "Warehouse",
+          "value" : "synapse"
+        }, {
+          "icon" : "RedshiftNewIcon",
+          "label" : "Redshift",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=&tag=0.0.8&projectSubscriptionProjectId=12655&path=gems/redshift",
+            "projectId" : "12655",
+            "projectName" : "ProphecyWarehousePython",
+            "version" : "0.0.8"
+          },
+          "type" : "Warehouse",
+          "value" : "redshift"
+        }, {
+          "icon" : "SnowflakeLogoIcon",
+          "label" : "Snowflake",
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=&tag=0.0.8&projectSubscriptionProjectId=12655&path=gems/snowflake",
+            "projectId" : "12655",
+            "projectName" : "ProphecyWarehousePython",
+            "version" : "0.0.8"
+          },
+          "type" : "Warehouse",
+          "value" : "snowflake"
+        }, {
+          "label" : "Pinecone",
+          "value" : "pinecone",
+          "icon" : "DatabaseASolidIcon",
+          "type" : "Warehouse"
+        }, {
+          "label" : "Hudi",
+          "value" : "hudi",
+          "icon" : "FileIcon",
+          "type" : "File"
+        }, {
+          "label" : "Webpage",
+          "value" : "webpage",
+          "icon" : "WebAppIcon",
+          "type" : "WebApp"
+        }, {
+          "label" : "Slack",
+          "value" : "slack",
+          "icon" : "WebAppIcon",
+          "type" : "WebApp"
+        }, {
+          "label" : "Binary",
+          "value" : "binary",
+          "icon" : "FileIcon",
+          "type" : "File"
+        } ],
+        "datasetId" : "datasets/bronze_demo_customer",
+        "dataTypes" : [ {
+          "label" : "File",
+          "value" : "File",
+          "icon" : "File"
+        }, {
+          "label" : "Warehouse",
+          "value" : "Warehouse",
+          "icon" : "Database"
+        }, {
+          "label" : "Catalog Table",
+          "value" : "Database",
+          "icon" : "CatalogTable"
+        }, {
+          "label" : "Applications",
+          "value" : "WebApp",
+          "icon" : "WebApp"
+        } ],
+        "updated" : true,
+        "currentDatasetId" : "datasets/bronze_demo_customer",
+        "componentInfo" : {
+          "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/csv",
+          "projectId" : "12654",
+          "projectName" : "ProphecySparkBasicsPython",
+          "version" : "0.2.39"
+        },
+        "dataset" : {
+          "ignoreLeadingWhiteSpaceReading" : null,
+          "multiLine" : null,
+          "secretPassword" : [ ],
+          "path" : "s3://aws-public-blockchain/v1.0/btc/blocks/",
+          "ignoreTrailingWhiteSpaceReading" : null,
+          "maxColumns" : null,
+          "writeMode" : "overwrite",
+          "description" : "s3://aws-public-blockchain/v1.0/btc/blocks/\ns3://prophecy-dataset-samples/demo/target_data/",
+          "separator" : ",",
+          "sftpSecretUsername" : [ ],
+          "compression" : null,
+          "nullValue" : null,
+          "nanValue" : null,
+          "escapeQuotes" : null,
+          "charToEscapeQuoteEscaping" : null,
+          "sftpSourcePath" : null,
+          "secretUrl" : [ ],
+          "encoding" : null,
+          "inferSchema" : null,
+          "enforceSchema" : null,
+          "quoteAll" : null,
+          "sftpSecretUrl" : [ ],
+          "sftpOptionalCopyDestination" : null,
+          "ignoreLeadingWhiteSpaceWriting" : null,
+          "locale" : null,
+          "sftpSecretPassword" : [ ],
+          "secretUsername" : [ ],
+          "quote" : null,
+          "targetPathSelection" : "fileLocation",
+          "timestampFormat" : null,
+          "emptyValue" : null,
+          "recursiveFileLookup" : null,
+          "partitionColumns" : null,
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The first name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The last name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Contact phone number of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Email address of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Code representing the customer's country",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Date when the customer account was opened",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Flags indicating the status or characteristics of the customer's account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "escape" : null,
+          "unescapedQuoteHandling" : null,
+          "pathSelection" : "fileLocation",
+          "positiveInf" : null,
+          "comment" : null,
+          "lineSep" : null,
+          "samplingRatio" : null,
+          "dateFormat" : null,
+          "mode" : null,
+          "header" : true,
+          "columnNameOfCorruptRecord" : null,
+          "modifiedBefore" : null,
+          "ignoreTrailingWhiteSpaceWriting" : null,
+          "optionalCopyDestination" : null,
+          "maxCharsPerColumn" : null,
+          "negativeInf" : null,
+          "createSingleOutputFile" : null,
+          "pathGlobFilter" : null,
+          "useSchema" : true,
+          "modifiedAfter" : null
+        },
+        "disabled" : false,
+        "datasetType" : "File"
+      }
+    },
+    "uRGoDNBCCERjjBDu7rbnw" : {
+      "id" : "uRGoDNBCCERjjBDu7rbnw",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "by_email_account_name",
+        "slug" : "by_email_account_name",
+        "x" : -280,
+        "y" : -420,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "T0lQI_fnWozmNdEMxH3X7",
+          "slug" : "bronze_account_detail_table"
+        }, {
+          "id" : "-xzCUuEQTYn6qfLY5XmZn",
+          "slug" : "bronze_demo_customer"
+        } ],
+        "outputs" : [ {
+          "id" : "oaiP3-Dvkszn_8FYm5Jdp",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "bronze_demo_customer",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "(((bronze_account_detail_table.account_id = bronze_demo_customer.account_open_date) AND (bronze_account_detail_table.account_name = bronze_demo_customer.account_flags)) AND (bronze_account_detail_table.email = bronze_demo_customer.email))"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_demo_customer.customer_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "first_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_demo_customer.first_name"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "last_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_demo_customer.last_name"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "phone",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_demo_customer.phone"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "country_code",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_demo_customer.country_code"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "account_owner",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.account_owner"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "account_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.account_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "billing_address",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.billing_address"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "industry",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.industry"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "phone_number",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.phone_number"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "billing_city",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.billing_city"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "lead_source",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.lead_source"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "number_of_employees",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.number_of_employees"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "status",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.status"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "website",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.website"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "email",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.email"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "annual_revenue",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.annual_revenue"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "billing_state",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.billing_state"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "description",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.description"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "rating",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.rating"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "last_modified_by",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.last_modified_by"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "account_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.account_name"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "billing_postal_code",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.billing_postal_code"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "last_activity_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.last_activity_date"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "account_type",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.account_type"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "last_modified_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.last_modified_date"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "created_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "bronze_account_detail_table.created_date"
+          },
+          "description" : "",
+          "_row_id" : null
+        } ],
+        "hints" : [ {
+          "id" : "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd",
+          "alias" : "bronze_account_detail_table",
+          "hintType" : "none",
+          "propagateColumns" : false
+        }, {
+          "id" : "-xzCUuEQTYn6qfLY5XmZn$$2d5ImynvDZiir98jlLaqh$$KZjfBLTYz8Q3zfqxbphU8",
+          "alias" : "bronze_demo_customer",
+          "hintType" : "none",
+          "propagateColumns" : false
+        } ],
+        "activeTab" : "conditions",
+        "columnsSelector" : [ "-xzCUuEQTYn6qfLY5XmZn$$2d5ImynvDZiir98jlLaqh$$KZjfBLTYz8Q3zfqxbphU8##email", "-xzCUuEQTYn6qfLY5XmZn$$2d5ImynvDZiir98jlLaqh$$KZjfBLTYz8Q3zfqxbphU8##account_flags", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##account_id", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##account_name", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##email", "-xzCUuEQTYn6qfLY5XmZn$$2d5ImynvDZiir98jlLaqh$$KZjfBLTYz8Q3zfqxbphU8##account_open_date", "-xzCUuEQTYn6qfLY5XmZn$$2d5ImynvDZiir98jlLaqh$$KZjfBLTYz8Q3zfqxbphU8##phone", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##billing_city", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##billing_address", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##annual_revenue", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##last_modified_date", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##phone_number", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##number_of_employees", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##account_id", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##email", "-xzCUuEQTYn6qfLY5XmZn$$2d5ImynvDZiir98jlLaqh$$KZjfBLTYz8Q3zfqxbphU8##last_name", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##last_modified_by", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##created_date", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##account_owner", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##website", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##industry", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##status", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##last_activity_date", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##account_name", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##account_type", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##description", "-xzCUuEQTYn6qfLY5XmZn$$2d5ImynvDZiir98jlLaqh$$KZjfBLTYz8Q3zfqxbphU8##first_name", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##rating", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##billing_postal_code", "-xzCUuEQTYn6qfLY5XmZn$$2d5ImynvDZiir98jlLaqh$$KZjfBLTYz8Q3zfqxbphU8##customer_id", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##lead_source", "-xzCUuEQTYn6qfLY5XmZn$$2d5ImynvDZiir98jlLaqh$$KZjfBLTYz8Q3zfqxbphU8##country_code", "T0lQI_fnWozmNdEMxH3X7$$Ogl7Oslpel-K_gSxTVXxK$$tjUNqktjubP-Folhfn6cd##billing_state" ],
+        "headAlias" : "bronze_account_detail_table"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Join",
+        "projectId" : "12654",
+        "projectName" : "ProphecySparkBasicsPython",
+        "version" : "0.2.39"
+      }
+    }
+  }
+}
