@@ -13,8 +13,8 @@
     "codeGenConfiguration" : {
       "editableConfig" : false,
       "plibVersion" : {
-        "mavenVersion" : "8.7.1",
-        "pyPiVersion" : "1.9.29"
+        "mavenVersion" : "8.8.0",
+        "pyPiVersion" : "1.9.33"
       }
     },
     "id" : "1",
@@ -113,24 +113,6 @@
     "configurationVersion" : "v2"
   },
   "connections" : [ {
-    "id" : "GT8PGtcg",
-    "source" : "hj7Rrsiz",
-    "sourcePort" : "LWCkX0Ax",
-    "target" : "Grv4d7nD",
-    "targetPort" : "Bc3vL4kw"
-  }, {
-    "id" : "hfZFM3yp",
-    "source" : "XRMorZl6",
-    "sourcePort" : "pNXMV6Sh",
-    "target" : "hj7Rrsiz",
-    "targetPort" : "BVCjTQ2r"
-  }, {
-    "id" : "gIWUsvts",
-    "source" : "CUJmg8TC4ow2LTpkD4xTa$$_i5qUVFTMza3uMVRSyEls",
-    "sourcePort" : "WRBU6jOW2-28Bu_9zVFew$$scVkcloeH0qrUHtfeM_Yz",
-    "target" : "XRMorZl6",
-    "targetPort" : "vipo6e8H"
-  }, {
     "id" : "EUWSMCykGr0vL9vo9zZuQ",
     "source" : "rxaIaQR5qtYVLzRCX6G2p$$4RQ1lPzoJ4iTYxjh4cFqW",
     "sourcePort" : "0IXqpqy1nhHR5pL5duLgX$$jSWzscyIu532qFaZj_pD4",
@@ -169,7 +151,7 @@
         "label" : "total_by_zip_and_date",
         "slug" : "total_by_zip_and_date",
         "x" : 420,
-        "y" : 220,
+        "y" : 20,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -1658,70 +1640,6 @@
         }
       }
     },
-    "hj7Rrsiz" : {
-      "id" : "hj7Rrsiz",
-      "component" : "OrderBy",
-      "metadata" : {
-        "label" : "orders_sorted_by_total",
-        "slug" : "orders_sorted_by_total",
-        "x" : 420,
-        "y" : 20,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "BVCjTQ2r",
-          "slug" : "total_orders_by_category",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "order_category",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Order category",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "TOTAL_ORDERS",
-              "type" : "long",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        } ],
-        "outputs" : [ {
-          "id" : "LWCkX0Ax",
-          "slug" : "out"
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "columnsSelector" : [ ],
-        "orders" : [ {
-          "expression" : {
-            "format" : "sql",
-            "expression" : "TOTAL_ORDERS"
-          },
-          "sortType" : "desc"
-        } ]
-      },
-      "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/OrderBy",
-        "projectName" : "ProphecySparkBasicsPython"
-      }
-    },
     "cmeh9U8XFq8QHeFmwUzw7$$7q6DXJxXUZsDqRK7-C5kX" : {
       "id" : "cmeh9U8XFq8QHeFmwUzw7$$7q6DXJxXUZsDqRK7-C5kX",
       "component" : "Reformat",
@@ -1729,7 +1647,7 @@
         "label" : "Cleanup",
         "slug" : "Cleanup",
         "x" : 220,
-        "y" : 320,
+        "y" : 120,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -2566,565 +2484,6 @@
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
-    "XRMorZl6" : {
-      "id" : "XRMorZl6",
-      "component" : "Aggregate",
-      "metadata" : {
-        "label" : "total_orders_by_category",
-        "slug" : "total_orders_by_category",
-        "x" : 220,
-        "y" : 20,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "vipo6e8H",
-          "slug" : "silver_order_customer_details",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "customer_id",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "first_name",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer first name",
-                "mappings" : [ ],
-                "tags" : [ {
-                  "type" : "user",
-                  "name" : "pii"
-                } ]
-              }
-            }, {
-              "name" : "last_name",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer last name",
-                "mappings" : [ ],
-                "tags" : [ {
-                  "type" : "user",
-                  "name" : "pii"
-                } ]
-              }
-            }, {
-              "name" : "phone",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer phone number",
-                "mappings" : [ ],
-                "tags" : [ {
-                  "type" : "user",
-                  "name" : "pii"
-                } ]
-              }
-            }, {
-              "name" : "email",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer Email",
-                "mappings" : [ ],
-                "tags" : [ {
-                  "type" : "user",
-                  "name" : "pii"
-                } ]
-              }
-            }, {
-              "name" : "country_code",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer country code",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_open_date",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_flags",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Customer account flags",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_id",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Unique identifier for the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_name",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Name of the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_owner",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The person who owns the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "phone_number",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The contact phone number associated with the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "billing_address",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Physical address for billing purposes",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "billing_postal_code",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Postal code of the billing address",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "billing_city",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "City of the billing address",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "billing_state",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The state associated with the billing address of the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "billing_email",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Email address associated with the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_type",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The type or category of the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "industry",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The industry to which the account belongs",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "annual_revenue",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The annual revenue of the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "number_of_employees",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The number of employees associated with the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "last_activity_date",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The date of the most recent activity related to the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "created_date",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The date when the account was created",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "website",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The website associated with the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "lead_source",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The source from which the lead was generated",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "status",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The current status of the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "rating",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The rating assigned to the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "description",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "A description or summary of the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "last_modified_by",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The user who last modified the account",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "last_modified_date",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The date when the account was last modified",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "zipcode",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The ZIP code",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "state",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "high_income_percent",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "high_income_returns",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "low_income_returns",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "all_returns",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "is_high_income",
-              "type" : "boolean",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "order_id",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "order_status",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Order status",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "order_category",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Order category",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "order_date",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "amount",
-              "type" : "float",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "item_name",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Name of the item ordered",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "item_company",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The company that manufactures or supplies the item",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "quantity",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The number of items ordered",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "unit_price",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Price per unit of the ordered item",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "shipping_address",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The address where the order will be shipped",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "shipping_city",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "City where the order is being shipped",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "shipping_state",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The state where the order is being shipped",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "shipping_postal_code",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Postal code for the shipping address of the order",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "payment_method",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The method used for payment in the order",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "payment_status",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Current status of the payment for the order",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "shipping_status",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Current status of the shipping process for the order",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "notes",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Additional comments or special instructions related to the order",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        } ],
-        "outputs" : [ {
-          "id" : "pNXMV6Sh",
-          "slug" : "out"
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "allIns" : false,
-        "doPivot" : false,
-        "aggregate" : [ {
-          "target" : "TOTAL_ORDERS",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "COUNT(*)"
-          },
-          "description" : ""
-        } ],
-        "allowSelection" : true,
-        "pivotColumn" : null,
-        "pivotValues" : [ ],
-        "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
-        "groupBy" : [ {
-          "target" : "order_category",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "order_category"
-          },
-          "description" : ""
-        } ]
-      },
-      "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Aggregate",
-        "projectName" : "ProphecySparkBasicsPython"
-      }
-    },
     "fsJ_9X3CSLgpP8S3tpnjV$$zz_aD5JeoVF9Qo-b-MqZk" : {
       "id" : "fsJ_9X3CSLgpP8S3tpnjV$$zz_aD5JeoVF9Qo-b-MqZk",
       "component" : "Target",
@@ -3132,7 +2491,7 @@
         "label" : "gold_sales_by_zip_date",
         "slug" : "gold_sales_by_zip_date",
         "x" : 620,
-        "y" : 220,
+        "y" : 20,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -3211,7 +2570,7 @@
         "label" : "gold_total_sales_by_customer",
         "slug" : "gold_total_sales_by_customer",
         "x" : 620,
-        "y" : 420,
+        "y" : 220,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -3281,7 +2640,7 @@
         "label" : "SumAmounts",
         "slug" : "SumAmounts",
         "x" : 420,
-        "y" : 420,
+        "y" : 220,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -3754,63 +3113,6 @@
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
-    "Grv4d7nD" : {
-      "id" : "Grv4d7nD",
-      "component" : "Limit",
-      "metadata" : {
-        "label" : "top_10_sorted_records",
-        "slug" : "top_10_sorted_records",
-        "x" : 620,
-        "y" : 20,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "Bc3vL4kw",
-          "slug" : "orders_sorted_by_total",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "order_category",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Order category",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "TOTAL_ORDERS",
-              "type" : "long",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        } ],
-        "outputs" : [ {
-          "id" : "DQGZU2NH",
-          "slug" : "out"
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "limit" : "10"
-      },
-      "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Limit",
-        "projectName" : "ProphecySparkBasicsPython"
-      }
-    },
     "CUJmg8TC4ow2LTpkD4xTa$$_i5qUVFTMza3uMVRSyEls" : {
       "id" : "CUJmg8TC4ow2LTpkD4xTa$$_i5qUVFTMza3uMVRSyEls",
       "component" : "Source",
@@ -3818,7 +3120,7 @@
         "label" : "silver_order_customer_details",
         "slug" : "silver_order_customer_details",
         "x" : 20,
-        "y" : 320,
+        "y" : 120,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
