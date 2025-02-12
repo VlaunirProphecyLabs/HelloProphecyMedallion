@@ -10,7 +10,7 @@
       "clusterMode" : "Single"
     },
     "enabled" : true,
-    "defaultClusterSize" : "Large",
+    "defaultClusterSize" : "Medium",
     "alerting" : {
       "emails" : "",
       "onStart" : false,
@@ -36,8 +36,8 @@
       "metadata" : {
         "label" : "silver_customers",
         "slug" : "silver_customers",
-        "x" : 420,
-        "y" : 220
+        "x" : 100,
+        "y" : 300
       },
       "ports" : {
         "inputs" : [ {
@@ -99,7 +99,8 @@
           "selectedInstance" : "default"
         },
         "projectId" : "30668"
-      }
+      },
+      "parent" : "UpSAQPULVTs20AgEO2vzs"
     },
     "ROocNwtvonz8kxXF3A4b_$$SYHiCo4gA9Mdg7971Zxwt" : {
       "id" : "ROocNwtvonz8kxXF3A4b_$$SYHiCo4gA9Mdg7971Zxwt",
@@ -178,8 +179,8 @@
       "metadata" : {
         "label" : "silver_zip_codes",
         "slug" : "silver_zip_codes",
-        "x" : 420,
-        "y" : 20
+        "x" : 100,
+        "y" : 100
       },
       "ports" : {
         "inputs" : [ {
@@ -241,6 +242,26 @@
           "selectedInstance" : "default"
         },
         "projectId" : "30668"
+      },
+      "parent" : "UpSAQPULVTs20AgEO2vzs"
+    },
+    "UpSAQPULVTs20AgEO2vzs" : {
+      "id" : "UpSAQPULVTs20AgEO2vzs",
+      "component" : "Cluster",
+      "metadata" : {
+        "label" : "Cluster_1",
+        "slug" : "Cluster_1",
+        "x" : 320,
+        "y" : -80,
+        "width" : 280,
+        "height" : 660
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ ]
+      },
+      "properties" : {
+        "clusterSize" : "XLarge"
       }
     },
     "64DyVOTU3Ew_m-tr-57-f$$fkcpdzZkLe_Nc1LdNI1Gt" : {
@@ -249,8 +270,8 @@
       "metadata" : {
         "label" : "silver_customers_orders",
         "slug" : "silver_customers_orders",
-        "x" : 420,
-        "y" : 420
+        "x" : 100,
+        "y" : 500
       },
       "ports" : {
         "inputs" : [ {
@@ -294,7 +315,8 @@
           "selectedInstance" : "default"
         },
         "projectId" : "30668"
-      }
+      },
+      "parent" : "UpSAQPULVTs20AgEO2vzs"
     },
     "gpwJtkJCuTNIh3NyQ0_I-$$MvT2iSDDqiqH121CR6Zaz" : {
       "id" : "gpwJtkJCuTNIh3NyQ0_I-$$MvT2iSDDqiqH121CR6Zaz",

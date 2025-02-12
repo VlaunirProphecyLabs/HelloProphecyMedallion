@@ -52,10 +52,56 @@
     "format" : "MULTI_TASK",
     "name" : "DBX_Workflow_Vlaunir_HelloWorld",
     "job_clusters" : [ {
-      "job_cluster_key" : "DBX_Workflow_Vlaunir_HelloWorld_default_Large",
+      "job_cluster_key" : "DBX_Workflow_Vlaunir_HelloWorld_default_Medium",
       "new_cluster" : {
         "spark_version" : "15.4.x-scala2.12",
-        "node_type_id" : "i4i.2xlarge",
+        "node_type_id" : "i4i.xlarge",
+        "driver_node_type_id" : "i4i.large",
+        "num_workers" : 0,
+        "custom_tags" : {
+          "SE_TEAM" : "vlaunir",
+          "Workload" : "Demo",
+          "ResourceClass" : "SingleNode"
+        },
+        "enable_elastic_disk" : true,
+        "spark_conf" : {
+          "spark.databricks.cluster.profile" : "singleNode",
+          "spark.master" : "local[*, 4]",
+          "spark.databricks.delta.formatCheck.enabled" : "false",
+          "spark.prophecy.metadata.fabric.id" : "9664",
+          "spark.prophecy.metadata.job.uri" : "__PROJECT_ID_PLACEHOLDER__/jobs/DBX_Workflow_Vlaunir_HelloWorld",
+          "spark.prophecy.metadata.is.interactive.run" : "false",
+          "spark.prophecy.project.id" : "__PROJECT_ID_PLACEHOLDER__",
+          "spark.prophecy.metadata.user.id" : "5087",
+          "spark.prophecy.tasks" : "H4sIAAAAAAAAAKtWKs7MKUstik8uLS7Jz00tKo7PL0oBUkpWSgWZBak5mXmpxfq41OgoFSWWxycV5edVpaJoQBLWwbABr9FA9en5OSnxxYk5qagqkYThZlZlFsQn56ekYjUTIVkLAN4DSFPnAAAA",
+          "spark.prophecy.metadata.job.branch" : "__PROJECT_RELEASE_VERSION_PLACEHOLDER__",
+          "spark.prophecy.metadata.url" : "__PROPHECY_URL_PLACEHOLDER__",
+          "spark.prophecy.execution.metrics.disabled" : "false",
+          "spark.prophecy.execution.metrics.component-metrics.table" : "vlaunir_demos.execution_metrics.component_runs",
+          "spark.prophecy.execution.metrics.pipeline-metrics.table" : "vlaunir_demos.execution_metrics.pipeline_runs",
+          "spark.prophecy.execution.service.url" : "wss://app.prophecy.io/execution/eventws",
+          "spark.prophecy.execution.metrics.interims.table" : "vlaunir_demos.execution_metrics.interims",
+          "spark.databricks.isv.product" : "prophecy"
+        },
+        "spark_env_vars" : {
+          "SPARK_VERSION" : "3.2"
+        },
+        "cluster_source" : "API",
+        "runtime_engine" : "STANDARD",
+        "aws_attributes" : {
+          "first_on_demand" : 1,
+          "availability" : "SPOT_WITH_FALLBACK",
+          "zone_id" : "auto",
+          "spot_bid_price_percent" : 100
+        },
+        "data_security_mode" : "SINGLE_USER",
+        "enable_local_disk_encryption" : false
+      }
+    }, {
+      "job_cluster_key" : "Cluster_1",
+      "new_cluster" : {
+        "spark_version" : "15.4.x-scala2.12",
+        "node_type_id" : "i3.4xlarge",
         "driver_node_type_id" : "i4i.large",
         "num_workers" : 0,
         "custom_tags" : {
@@ -110,7 +156,7 @@
       "depends_on" : [ {
         "task_key" : "DLTPipeline_1"
       } ],
-      "job_cluster_key" : "DBX_Workflow_Vlaunir_HelloWorld_default_Large",
+      "job_cluster_key" : "DBX_Workflow_Vlaunir_HelloWorld_default_Medium",
       "python_wheel_task" : {
         "package_name" : "raw_bronze",
         "entry_point" : "main",
@@ -137,7 +183,7 @@
       "depends_on" : [ {
         "task_key" : "raw_bronze"
       } ],
-      "job_cluster_key" : "DBX_Workflow_Vlaunir_HelloWorld_default_Large",
+      "job_cluster_key" : "Cluster_1",
       "python_wheel_task" : {
         "package_name" : "silver_customers",
         "entry_point" : "main",
@@ -164,7 +210,7 @@
       "depends_on" : [ {
         "task_key" : "raw_bronze"
       } ],
-      "job_cluster_key" : "DBX_Workflow_Vlaunir_HelloWorld_default_Large",
+      "job_cluster_key" : "Cluster_1",
       "python_wheel_task" : {
         "package_name" : "silver_zip_codes",
         "entry_point" : "main",
@@ -191,7 +237,7 @@
       "depends_on" : [ {
         "task_key" : "raw_bronze"
       } ],
-      "job_cluster_key" : "DBX_Workflow_Vlaunir_HelloWorld_default_Large",
+      "job_cluster_key" : "Cluster_1",
       "python_wheel_task" : {
         "package_name" : "silver_customers_orders",
         "entry_point" : "main",
@@ -222,7 +268,7 @@
       }, {
         "task_key" : "silver_customers_orders"
       } ],
-      "job_cluster_key" : "DBX_Workflow_Vlaunir_HelloWorld_default_Large",
+      "job_cluster_key" : "DBX_Workflow_Vlaunir_HelloWorld_default_Medium",
       "python_wheel_task" : {
         "package_name" : "gold_sales",
         "entry_point" : "main",

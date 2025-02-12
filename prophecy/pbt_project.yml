@@ -525,7 +525,7 @@ jobs:
     scheduler:
       Databricks: {}
     cloudProvider: null
-    jobSize: Large
+    jobSize: Medium
     scheduleCron: None
     timeout: null
     alerting:
