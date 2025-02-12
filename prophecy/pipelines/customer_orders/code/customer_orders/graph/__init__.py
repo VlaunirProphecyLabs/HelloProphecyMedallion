@@ -1,6 +1,0 @@
-from .bronze_customers import bronze_customers
-from .bronze_demo_customer import bronze_demo_customer
-from .bronze_account_detail_table import bronze_account_detail_table
-from .order_customer_details import order_customer_details
-from .bronze_orders import bronze_orders
-from .by_email_account_name import by_email_account_name

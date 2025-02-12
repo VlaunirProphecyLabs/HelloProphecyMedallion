@@ -129,11 +129,7 @@ pipelines:
     language: python
     createdAt: '2024-07-23 15:17:51'
     datasets:
-      inputs:
-      - datasets/bronze_account_detail_table
-      - datasets/bronze_customers
-      - datasets/bronze_demo_customer
-      - datasets/bronze_orders
+      inputs: []
       outputs: []
     subgraphs: []
     dependencies: {}
@@ -538,7 +534,11 @@ jobs:
       onSuccess: false
       onFailure: false
     pipelines:
+    - pipelines/silver_customers_orders
+    - pipelines/silver_zip_codes
+    - pipelines/silver_customers
     - pipelines/gold_sales
+    - pipelines/raw_bronze
     jobClusterMode:
       clusterMode:
         Single: {}
